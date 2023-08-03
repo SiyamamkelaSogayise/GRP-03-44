@@ -15,7 +15,7 @@ public class GeeksProject02User : IdentityUser
     public string FirstName { get; set; }
 
     [PersonalData]
-    [Column(TypeName = "nvarchar(50)")]
+    [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
 }
 
