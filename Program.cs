@@ -9,7 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("GeeksProject02
 builder.Services.AddDbContext<GeeksProject02Context>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<GeeksProject02User>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<GeeksProject02User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<GeeksProject02Context>();
 
 // Add services to the container.
