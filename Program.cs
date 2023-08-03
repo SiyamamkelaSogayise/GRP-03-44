@@ -1,4 +1,16 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using GeeksProject02.Data;
+using GeeksProject02.Areas.Identity.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("GeeksProject02ContextConnection") ?? throw new InvalidOperationException("Connection string 'GeeksProject02ContextConnection' not found.");
+
+builder.Services.AddDbContext<GeeksProject02Context>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<GeeksProject02User>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<GeeksProject02Context>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -17,6 +29,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
@@ -24,4 +37,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapRazorPages();
 app.Run();
