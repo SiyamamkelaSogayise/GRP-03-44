@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace GeeksProject02.Areas.Identity.Pages.Account
 {
@@ -115,6 +116,16 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Email, Input.Email)
+                    };
+
+                    var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+                    ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+
+                    await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

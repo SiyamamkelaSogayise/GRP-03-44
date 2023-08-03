@@ -12,6 +12,11 @@ builder.Services.AddDbContext<GeeksProject02Context>(options =>
 builder.Services.AddDefaultIdentity<GeeksProject02User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<GeeksProject02Context>();
 
+builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
+{
+    options.Cookie.Name = "MyCookieAuth";
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
