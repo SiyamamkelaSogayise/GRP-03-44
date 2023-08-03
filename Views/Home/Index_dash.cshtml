@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "_Layout1Dash";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | By The Innovative Geeks</title>
+    <link rel="stylesheet" href="~/css/dash.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item">DashBoard</span></a></li>
+                <li><a href="#"><i class="fas fa-home"></i><span class="nav-item">Home</span></a></li>
+                <li><a href="#"><i class="fas fa-user"></i><span class="nav-item">Profile</span></a></li>
+                <li><a href="#"><i class="fas fa-wallet"></i><span class="nav-item">Medical History</span></a></li>
+                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
+                <li><a href="#"><i class="fas fa-tasks"></i><span class="nav-item">Tasks</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i><span class="nav-item">Settings</span></a></li>
+                <li><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item">Help</span></a></li>
+                <li><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item">Logout</span></a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>SubSystems</h1>
+                <i class="fas fa-user-cog"></i>
+            </div>
+            <div class="main-systems">
+                <div class="card text-center">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3 class="text-center">Vaccination</h3>
+                    <p>Join Over 10 million People.</p>
+                    <button>Get Vaccinated</button>
+                </div>
+                <br />
+                <div class="card text-center">
+                    <i class="fab fa-wordpress"></i>
+                    <h3 class="text-center">Consultation</h3>
+                    <p>Your Mental Health is also important.</p>
+                    <button>Get Vaccinated</button>
+                </div>
+                <br />
+                <div class="card text-center">
+                    <i class="fas fa-palette"></i>
+                    <h3 class="text-center">Family Planing</h3>
+                    <p>Are you ready for a Family? Or you're not there yet?</p>
+                    <button>Get Vaccinated</button>
+                </div>
+                @* <div class="card text-center ">
+                <i class="fab fa-app-store-ios"></i>
+                <h3 class="text-center">Chronic Medication</h3>
+                <p>The right Medication, in the right Dosage is good for you.</p>
+                <button>Get Vaccinated</button>
+                </div>
+                <div class="card text-center">
+                <i class="fas fa-cog"></i>
+                <h3 class="text-center">Prenatal Care</h3>
+                <p>The road ahead is not easy, but we will hold your hand the Entire Way.</p>
+                <button>Get Vaccinated</button>
+                </div> *@
+            </div>
+        </section>
+        <section class="main">
+            <div class="main-systems">
+                <br />
+                <br />
+                <div class="card text-center ">
+                    <i class="fab fa-app-store-ios"></i>
+                    <h3 class="text-center">Chronic Medication</h3>
+                    <p>The right Medication, in the right Dosage is good for you.</p>
+                    @*<button>Get Vaccinated</button>*@
+                    <a href="Chronic">  Get Vaccinated</a>
+                </div>
+                <br />
+                <div class="card text-center">
+                    <i class="fas fa-cog"></i>
+                    <h3 class="text-center">Prenatal Care</h3>
+                    <p>The road ahead is not easy, but we will hold your hand the Entire Way.</p>
+                    <button>Get Vaccinated</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
