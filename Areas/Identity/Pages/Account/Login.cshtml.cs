@@ -127,7 +127,7 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
                     await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
 
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("Index_dash");
                 }
                 if (result.RequiresTwoFactor)
                 {

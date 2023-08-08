@@ -153,7 +153,7 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        return RedirectToAction("Index_dash");
                     }
                 }
                 foreach (var error in result.Errors)
