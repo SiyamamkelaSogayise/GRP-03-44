@@ -36,7 +36,7 @@ body {
 }
 
 .container {
-    display: flex;
+    display: grid;
 }
 
 nav {
@@ -80,7 +80,7 @@ a {
 }
 
 nav .fas {
-    position: relative;
+    position: sticky;
     width: 70px;
     height: 45px;
     top: 12px;
@@ -89,7 +89,7 @@ nav .fas {
 }
 
 .nav-item {
-    position: relative;
+    position: sticky;
     top: 12px;
 }
 
@@ -104,30 +104,33 @@ a:hover {
 
 /*Main Section*/
 .main {
-    position: sticky;
-    padding: 75px;
-    width: 100%;
+    display: grid;
+    grid-gap: 1em;
+    padding: 3em;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .main-top {
-    display: flow;
-    width: 100%;
+    display: grid;
+    grid-gap: 2em;
+    padding: 3em;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
 }
 
-    .main-top i {
+    /*.main-top i {
         position: absolute;
         right: 0;
         margin: 10px 30px;
         color: rgb(110,109,109);
         cursor: pointer;
-    }
+    }*/
 
 .main-systems {
     display: flow;
     margin-top: 20px;
 }
 
-main-systems .card {
+/*main-systems .card {
     width: 25px;
     margin: 10px;
     background: #fff;
@@ -135,12 +138,12 @@ main-systems .card {
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0 20px 35px rgba(0,0,0,0.1);
-}
+}*/
 
-.main-systems .card h3 {
+/*.main-systems .card h3 {
     margin: 10px;
     text-transform: capitalize;
-}
+}*/
 
 .main-systems .card p {
     font-size: 20px;
