@@ -53,7 +53,7 @@ nav {
 }
 
 .logo {
-    text-align: left;
+    /*text-align: left;*/
     display: absolute;
     transition: all 0.5s ease;
     margin: 10px 0 20px 0;
@@ -61,17 +61,18 @@ nav {
 }
 
 .logo img {
-    width: 45px;
-    height: 45px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
+    position: center;
 }
 
-.logo span {
+/*.logo span {
     font-weight: bold;
     padding: 20px;
     font-size: 18px;
     text-transform: uppercase;
-}
+}*/
 
 a {
     position: unset;
@@ -100,32 +101,32 @@ a {
 .nav-item02 {
     position: absolute;
     left: 100px;
-    top: 120px;
+    top: 185px;
 }
 .nav-item03 {
     position: absolute;
     left: 100px;
-    top: 180px;
+    top: 245px;
 }
 .nav-item04 {
     position: absolute;
     left: 100px;
-    top: 245px;
+    top: 310px;
 }
 .nav-item05 {
     position: absolute;
     left: 100px;
-    top: 305px;
+    top: 370px;
 }
 .nav-item06 {
     position: absolute;
     left: 100px;
-    top: 370px;
+    top: 435px;
 }
 .nav-item07 {
     position: absolute;
     left: 100px;
-    top: 435px;
+    top: 500px;
 }
 .nav-item08 {
     position: absolute;
@@ -144,7 +145,7 @@ nav:hover{
 
 .logout {
     position: absolute;
-    bottom: 0;
+    bottom: 25%;
 }
 
 /*Main Section*/
