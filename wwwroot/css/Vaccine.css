@@ -1,0 +1,221 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    color: white;
+    margin-bottom: 60px;
+    border-radius: 76px;
+    background: #233433;
+    /*box-shadow: -33px 33px 66px #1b2827, 33px -33px 66px #2b403f;*/
+    background-image: url("'vaccine 4.jpg'");
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    /*font-family: "Poppins",sans-serif;*/
+}
+
+.container {
+    display: grid;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #9bbecf;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: left;
+    display: absolute;
+    transition: all 0.5s ease;
+    margin: 10px 0 20px 0;
+    left: 0;
+}
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    .logo span {
+        font-weight: bold;
+        padding: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+a {
+    position: unset;
+    color: rgb(85,83,83);
+    font-size: 18px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+    text-align: left;
+}
+
+.fas {
+    position: relative;
+    width: 25px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-item01 {
+    position: absolute;
+    left: 80px;
+    top: 10px;
+}
+
+.nav-item02 {
+    position: absolute;
+    left: 100px;
+    top: 120px;
+}
+
+.nav-item03 {
+    position: absolute;
+    left: 100px;
+    top: 180px;
+}
+
+.nav-item04 {
+    position: absolute;
+    left: 100px;
+    top: 245px;
+}
+
+.nav-item05 {
+    position: absolute;
+    left: 100px;
+    top: 305px;
+}
+
+.nav-item06 {
+    position: absolute;
+    left: 100px;
+    top: 370px;
+}
+
+.nav-item07 {
+    position: absolute;
+    left: 100px;
+    top: 435px;
+}
+
+.nav-item08 {
+    position: absolute;
+    left: 80px;
+    top: 23px;
+}
+
+a:hover {
+    background: #eee;
+}
+
+nav:hover {
+    width: 280px;
+    transition: all 0.5s ease;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+}
+
+/*Main Section*/
+.main {
+    display: grid;
+    grid-gap: 1em;
+    padding: 3em;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.main-top {
+    display: grid;
+    grid-gap: 2em;
+    padding: 3em;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+}
+
+    .main-top i {
+        position: absolute;
+        right: 0;
+        margin: 10px 30px;
+        color: rgb(110,109,109);
+        cursor: pointer;
+    }
+
+.main-systems {
+    display: flow;
+    margin-top: 20px;
+}
+
+main-systems .card {
+    width: 25px;
+    margin: 10px;
+    background: #fff;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.main-systems .card h3 {
+    margin: 10px;
+    text-transform: capitalize;
+}
+
+.main-systems .card p {
+    font-size: 20px;
+}
+
+.main-systems .card button {
+    background: blue;
+    color: #fff;
+    padding: 7px 15px;
+    border-radius: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+    .main-systems .card button:hover {
+        background: rgba(223,70,15,0.856);
+    }
+
+.main-systems .card i {
+    font-size: 30px;
+    padding: 5px;
+}

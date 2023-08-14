@@ -32,5 +32,9 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+        public IActionResult Vaccine()
+        {
+            return View();
+        }
     }
 }
