@@ -1,0 +1,96 @@
+﻿@page
+@model GeeksProject02.Models.VaccineForAdultsModel
+@{
+    Layout = "_LayoutVaccine";
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Vaccination | By The Innovative Geeks</title>
+    <link rel="stylesheet" href="~/css/Vaccine.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const radioGroups = document.querySelectorAll('.radio-group input[type="radio"]');
+
+        radioGroups.forEach(radio => {
+            radio.addEventListener('change', () => {
+                let selectedRadios = [];
+                radioGroups.forEach(radio => {
+                    if (radio.checked) {
+                        selectedRadios.push(radio);
+                    }
+                });
+
+                if (selectedRadios.length > 2) {
+                    // Uncheck the last selected radio
+                    selectedRadios[selectedRadios.length - 1].checked = false;
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function showPopupMessage() {
+            alert("Thank you for booking for vaccination. Any further communication will be via the cellphone number you provided, please make sure it's correct.");
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
+                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
+                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
+                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+<h1>Appointment Preference</h1>
+<body>
+    <p justify-content="left">
+        Would you prefer to be vaccinated on
+        weekday/weekend?
+    </p>
+    <div class="radio-group" >
+        <div>
+            <input type="radio" name="morningAfternoon" id="morning" value="Weekend">
+            <label class="radio-label" for="morning">Weekend</label>
+        </div>
+        <div>
+            <input type="radio" name="morningAfternoon" id="afternoon" value="Weekday">
+            <label for="afternoon">Weekday</label>
+        </div>
+    </div>
+    <p justify-content ="left">
+        Would you prefer to be vaccinated
+        on morning/Afternoon?
+    </p>
+
+    <div class="radio-group" justify-content ="left">
+        <div>
+            <input type="radio" name="preference" id="preferenceMorning" value="Morning">
+            <label class="radio-label" for="preferenceMorning">Morning</label>
+        </div>
+        <div>
+            <input type="radio" name="preference" id="preferenceAfternoon" value="Afternoon">
+            <label for="preferenceAfternoon">Afternoon</label>
+        </div>
+    </div>
+    <div class="form-group row justify-content-end" color="Blue"> 
+        <div class="col-sm-10">
+            <button color="Blue">Back</button>
+            <button type="button" onclick="showPopupMessage()" color="Blue">Submit</button>
+        </div>
+     </div>
+
+</body>
+
+

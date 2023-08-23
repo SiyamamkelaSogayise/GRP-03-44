@@ -1,0 +1,54 @@
+﻿@page
+@model GeeksProject02.Models.VaccineModel
+@{
+    Layout = "_LayoutVaccine";
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | By The Innovative Geeks</title>
+    <link rel="stylesheet" href="~/css/Vaccine.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
+                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
+                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
+                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
+            </ul>
+        </nav>
+        <style>
+            body {
+                font-family: arial, sans-serif;
+            }
+        </style>
+
+        <div class="dashboard-container">
+            <h1>WELCOME TO VACCINATION</h1>
+            <h2>The first step towards booting your health and your dependents</h2>
+        </div>
+        <div class="Button-container">
+            <a class="btn btn-primary" asp-area="" asp-controller="VaccineForAdults" asp-action="VaccineForAdults">Book for Yourself</a>
+            <button type="button" class="btn btn-primary">Book for your dependents</button>
+        </div>
+        <a href="https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination" class="btn btn-primary">For More Information</a>
+
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+﻿@page
+@model GeeksProject02.Models.VaccineForAdultsModel
+@{
+    Layout = "_LayoutVaccine";
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | By The Innovative Geeks</title>
+    <link rel="stylesheet" href="~/css/Vaccine.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
+                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
+                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
+                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+<h1>General Information</h1>
+<body>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <p>@ViewBag.ErrorMessage</p>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.DateOfBirth))
+    {
+        <p>Date of Birth: @ViewBag.DateOfBirth</p>
+    }
+ <form method="post">
+        <label for="idNumber">Enter ID Number:</label>
+        <input type="text" id="idNumber" name="idNumber" />
+
+        <br /><br />
+
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input type="text" id="dateOfBirth" name="dateOfBirth" value="@ViewBag.DateOfBirth" readonly />
+
+        <br /><br />
+
+        <button type="submit">Generate Date of Birth</button>
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="Surname">Surname</label>
+        <input type="text" class="form-control" id="Surname" placeholder="Surname">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="Gender">Gender</label>
+        <select id="Gender" class="form-control">
+            <option selected>Female</option>
+            <option>Male</option>
+        </select>
+    </div>
+
+
+    <div class="form-group row justify-content-end">
+        <div class="col-sm-10">
+            <a class="btn btn-primary" asp-area="" asp-controller="Vaccine" asp-action="Vaccine">Back</a>
+            <a class="btn btn-primary" asp-area="" asp-controller="AdultsNextPage" asp-action="AdultsNextPage">Next</a>
+        </div>
+    </div>
+    
+
+</form>
+</body>
+
