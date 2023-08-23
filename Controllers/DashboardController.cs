@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GeeksProject02.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GeeksProject02.Controllers
 {
@@ -8,5 +9,17 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
-    }
+        [HttpGet]
+        public IActionResult Vaccine()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public IActionResult Vaccine()
+        //{
+        //    return RedirectToAction("Index");
+        //}
+    } 
 }
+
