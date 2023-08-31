@@ -13,5 +13,13 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+        public IActionResult Display()
+        {
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }
