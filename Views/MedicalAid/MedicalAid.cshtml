@@ -11,6 +11,38 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
+            // Define a dictionary to store kids vaccine
+            var VaccineRecipient = {
+                "For Adults": ["Influenza (Flu)", "Pneumococcal", "Tetanus, Diphtheria, Pertussis (Tdap/Td)", "Hepatitis A and B", "Human Papillomavirus (HPV)", "Covid-19"],
+                "For kids": ["Measles, Mumps, and Rubella (MMR)", "Chickenpox (Varicella)", "Influenza (flu)", "Diphtheria,tetanus, and whooping cough(pertussis)(DTaP)", "Polio(IPV)", "Rotavirus (RV)"],
+                
+            };
+
+            // Function to update city options based on the selected province
+            function updateVaccine(selectedVaccineRecipient) {
+                var cityDropdown = $("#Vaccine");
+                cityDropdown.empty();
+
+                var Vaccine = VaccineRecipient[selectedVaccineRecipient];
+                if (Vaccine) {
+                    Vaccine.forEach(function (Vaccine) {
+                        cityDropdown.append($("<option>").val(Vaccine).text(Vaccine));
+                    });
+                }
+
+            }
+            // Attach change event handler to the province dropdown
+            $("#VaccineRecipient").on("change", function () {
+                var selectedVaccineRecipient = $(this).val();
+                updateVaccineOptions(selectedVaccineRecipient);
+            });
+
+            // Initialize city options based on the initial selected province
+            updateVaccineOptions($("#VaccineRecipient").val());
+            });
+    </script>
+    <script>
+        $(document).ready(function () {
             $("#medicalAidDropdown").on("change", function () {
                 var selectedOption = $(this).val();
                 if (selectedOption === "yes") {
@@ -27,6 +59,7 @@
             });
         });
     </script>
+    
 
 </head>
 <body>
@@ -48,14 +81,15 @@
 </body>
 <h1>Vaccine & Medical Aid Details</h1>
 <div class="form-group col-md-4">
-    <label for="TypeOfVaccine">Choose Vaccine Type:</label>
-    <select id="TypeOfVaccine" class="form-group col-md-4">
-        <option value="Influenza (Flu)">Influenza (Flu)</option>
-        <option value="Pneumococcal">Pneumococcal</option>
-        <option value="Tetanus, Diphtheria, Pertussis (Tdap/Td)">Tetanus, Diphtheria, Pertussis (Tdap/Td)</option>
-        <option value="Hepatitis A and B">Hepatitis A and B</option>
-        <option value="Human Papillomavirus (HPV)">Human Papillomavirus (HPV)</option>
-        <option value="Covid-19">Covid-19</option>
+    <label for="VaccineRecipient">Choose Vaccine Recipient:</label>
+    <label for="VaccineRecipient">Choose Vaccine Recipient:</label>
+    <select id="provinceDropdown" class="custom-dropdown">
+        <option value="For Adults">For Adults</option>
+        <option value="For Kids">For Kids</option>>
+    </select>
+    <label for="Vaccine">Vaccine:</label>
+    <select id="cityDropdown" class="custom-dropdown">
+        <!-- City options will be populated dynamically -->
     </select>
 </div>
 <div class="form-group col-md-4">

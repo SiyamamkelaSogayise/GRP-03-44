@@ -1,0 +1,134 @@
+﻿/* styles.css */
+.note-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.note {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+nav {
+    background: #3498db;
+    font-family: Calibri;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.remove-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('download.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto',sans-serif;
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav ul li {
+    float: right;
+    list-style: none;
+    position: relative;
+}
+
+    nav ul li a {
+        text-decoration: none;
+        font-family: sans-serif;
+        color: white;
+        font-size: 17px;
+        padding: 0px 16px;
+        font-weight: bold;
+        display: block;
+    }
+
+    nav ul li ul {
+        position: absolute;
+        display: none;
+        background-color: #3498db;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    nav ul li:hover ul {
+        display: block;
+    }
+
+    nav ul li ul li {
+        line-height: 1;
+        width: 190px;
+        border-radius: 5px;
+        padding: 6px;
+    }
+
+    nav ul li ul a {
+        padding: 10px 16px;
+    }
+
+.redirect-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .redirect-button a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .redirect-button:hover {
+        background-color: #2980b9;
+    }
+
+.section {
+    background-color: #3498db; /* Set your desired background color */
+    /*padding: 20px;*/ /* Add padding to create some space around the content */
+    /*color: white;*/ /* Set the text color inside the box */
+    /*border-radius: 10px;*/ /* Add rounded corners to the box */
+    /*width: 300px;*/ /* Set the width of the box */
+    /*margin: 20px auto;*/ /* Center the box horizontally with some margin */
+    /*max-width: 100%;*/
+    box-shadow: 1px 1px 15px 1px black;
+    margin-top: 20px; /* Move container away from the element above */
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: black;
+    font-style: italic;
+    text-align: center;
+}
+.note-container{
+     margin-top : 100px;
+}
