@@ -1,0 +1,43 @@
+﻿
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: Roboto, sans-serif;
+}
+
+.login-logout-card .card-hearder {
+    padding: 8px 8px 12px 8px;
+}
+
+login-logout-card ul.nav-tabs {
+    margin: 8px 8px -12px 8px;
+}
+
+login-logout-card li.nav-item {
+    width: 50%;
+}
+
+login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #0017e5;
+    text-align: center;
+    padding: 1rem;
+}
+
+login-logout-card .card-body {
+    padding: 18px 20px;
+}
