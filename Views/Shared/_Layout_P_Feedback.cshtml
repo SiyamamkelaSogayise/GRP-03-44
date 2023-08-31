@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Prenatal_Care</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/feedback_P.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Prenatal_Care.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div style="max-width:100%; width:100%; margin: 0 auto; border-top: 4px blue;">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: #32adfa;">
+                @*---------------start of the Sidebar-------------------*@
+                <div class="container-fluid">
+                    <div id="main">
+                        <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; menu</span>
+                    </div>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border:none">&times;</a>
+                        <div class="navbar-header">
+                            @*  <img class="client" src="~/css/Miss N. Tmebani .jpg" alt="" style="align-content:center;"/> *@
+                        </div>
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="Index"><i class="fas fa-qrcode"></i> &nbsp; Home</a>
+                        @*<a class="" asp-area="" asp-controller="Prenatal" asp-action="CheckUps"><i class="fas fa-calendar-week"></i> &nbsp; Check-Ups</a> *@
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="PersonalInfo"><i class="fas fa-stream"></i> &nbsp; Personal Info</a>
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="AboutUs"><i class="fas fa-question-circle"></i> &nbsp; About Us</a>
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="FeedBack"><i class="fas fa-comments"></i> &nbsp; Feedback</a>
+                    </div>
+                    @*------------------ Script for Opening and Closing the Side Bar ----------------------------*@
+                    <script>
+                        function openNav() {
+                            document.getElementById("mySidenav").style.width = "325px";
+                            document.getElementById("main").style.marginLeft = "325px";
+                        }
+                        function closeNav() {
+                            document.getElementById("mySidenav").style.width = "0";
+                            document.getElementById("main").style.marginLeft = "0";
+                        }
+                    </script>
+                </div>
+            </nav> @*--------------------- end of Sidebar --------------------*@
+        </header>
+    </div>
+    <div class="background"></div>
+    <section class="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>Please don't hesitate to contact us on any conserns, queries, and or a wholesome conversation =). Contact Details down Below...</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class='fas fa-map-marked-alt'></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>23 Forest Hill Dr, Forest Hill<br>Gqeberha, Eastern Cape<br>6001</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class='fas fa-phone-alt'></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+2760 576 4539</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class='fas fa-envelope-open-text'></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>innogeeks26@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form>
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required" />
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required" />
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"></textarea>
+                        <span>Type your Message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

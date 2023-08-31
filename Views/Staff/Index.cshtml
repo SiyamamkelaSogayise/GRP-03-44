@@ -1,0 +1,141 @@
+﻿@{
+    Layout = "_Layout_P_StaffIndex";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+
+
+    <title>
+        Initialize Globals Demo - Demos | FullCalendar
+    </title>
+
+
+    <link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
+
+
+    <style>
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        #calendar {
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+    </style>
+
+
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+
+
+    <script src='/docs/dist/demo-to-codepen.js'></script>
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                initialDate: '2023-09-05',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    {
+                        title: 'Mandys 1st Appointment',
+                        start: '2023-09-01T09:00:00'
+                    },
+                    {
+                        title: 'Health and Wellness Conference',
+                        start: '2023-09-07',
+                        end: '2023-09-10'
+                    },
+                    {
+                        groupId: '999',
+                        title: 'Thando 3rd Checkup',
+                        start: '2023-09-17T08:00:00'
+                    },
+                    {
+                        groupId: '999',
+                        title: 'Sihle 7th Checkup',
+                        start: '2023-09-17T12:00:00'
+                    },
+                    {
+                        title: 'Public Holiday',
+                        start: '2023-09-11',
+                        end: '2023-09-13'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2023-09-03T10:30:00',
+                        end: '2023-09-03T12:30:00'
+                    },
+                    {
+                        title: 'Lunch',
+                        start: '2023-09-03T13:00:00'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2023-09-03T14:30:00'
+                    },
+                    {
+                        title: 'Sive Birthday Party',
+                        start: '2023-09-14T11:00:00'
+                    },
+                    // {
+                    //     title: 'Click for Google',
+                    //     url: 'https://google.com/',
+                    //     start: '2023-07-28'
+                    // },
+                    {
+                        title: 'Nandi Induced Labor',
+                        start: '2023-09-05'
+                    },
+                    {
+                        title: 'Mbali 15th Checkup',
+                        start: '2023-09-19T09:00:00'
+                    },
+                    {
+                        title: 'Katlin 9th Checkup',
+                        start: '2023-09-19T13:00:00'
+                    }
+                ]
+            });
+
+            calendar.render();
+        });
+
+    </script>
+
+</head>
+<body>
+    @* <div class='demo-topbar'>
+    <button data-codepen class='codepen-button'>Edit in CodePen</button>
+
+
+
+
+    initialization of calendar with browser globals
+
+    </div> *@
+
+    <div id='calendar'></div>
+    <!-- Cloudflare Pages Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script><!-- Cloudflare Pages Analytics -->
+</body>
+
+</html>

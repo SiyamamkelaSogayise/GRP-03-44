@@ -1,0 +1,296 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Mongolian Baiti';
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #9bbecf;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: .5s;
+}
+
+    /*--------- Nav Items -----------*/
+    .sidenav a {
+        padding: 30px 10px 25px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: .3s;
+        background-color: #9bbecf;
+    }
+        /*-------------- Links Color ------------*/
+        .sidenav a:hover {
+            background-color: #ddd3e6;
+        }
+    /*------------ Close Button ------------*/
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 40px;
+        margin-left: 50px;
+    }
+
+#main {
+    transition: margin-left .5s;
+}
+
+.wrapper {
+    margin-left: 260px;
+}
+
+.section {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.box-area h2 {
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+.box-area {
+    width: 75%;
+}
+
+.client {
+    width: 120px;
+    height: 120px;
+    left: 65px;
+    overflow: hidden;
+    margin: 25px auto;
+}
+
+    .client img {
+        width: 100%;
+    }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Mongolian Baiti';
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("backplate.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: blur(5px);
+}
+
+/*----------------------------------------------------*/
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .contact .content {
+        max-width: 800px;
+        text-align: center;
+    }
+
+        .contact .content h2 {
+            font-size: 36px;
+            font-weight: 500;
+            background: linear-gradient(to right, #32adfa, #e0a072);
+        }
+
+        .contact .content p {
+            font-weight: 300;
+            color: white;
+        }
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+    .container .contactInfo {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .container .contactInfo .box {
+            position: relative;
+            padding: 20px 0;
+            display: flex;
+        }
+
+            .container .contactInfo .box .icon {
+                min-width: 60px;
+                height: 60px;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                font-size: 22px;
+                background: linear-gradient(to right, #32adfa, #e0a072);
+            }
+
+            .container .contactInfo .box .text {
+                display: flex;
+                margin-left: 20px;
+                font-size: 16px;
+                color: white;
+                flex-direction: column;
+                font-weight: 300;
+            }
+
+                .container .contactInfo .box .text h3 {
+                    font-weight: 500;
+                    color: #e0a072;
+                }
+
+.contactForm {
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+}
+
+    .contactForm h2 {
+        font-size: 30px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .contactForm .inputBox {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .contactForm .inputBox input,
+        .contactForm .inputBox textarea {
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #333;
+            outline: none;
+            resize: none;
+        }
+
+        .contactForm .inputBox span {
+            position: absolute;
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: .5s;
+            color: #666;
+        }
+
+        .contactForm .inputBox input:focus ~ span,
+        .contactForm .inputBox input:valid ~ span,
+        .contactForm .inputBox textarea:focus ~ span,
+        .contactForm .inputBox textarea:valid ~ span {
+            color: #e91e63;
+            font-size: 12px;
+            transform: translateY(-25px);
+        }
+
+        .contactForm .inputBox input[type="submit"] {
+            width: 100px;
+            background: #00bcd4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+
+
+
+/*------------------Screen-Size Optimisation--------------------*/
+@media(max-width:1250px) {
+    .blog-box {
+        width: 300px;
+    }
+}
+
+@media(max-width:1100px) {
+    .blog-box {
+        width: 70%;
+    }
+}
+
+@media(max-width:550px) {
+    .blog-box {
+        margin: 20px 10px;
+        width: 100%;
+    }
+
+    #blog {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+@media(max-width:991px) {
+    .contact {
+        padding: 50px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+        .container .contactInfo {
+            margin-bottom: 40px;
+        }
+
+        .container .contactInfo, .contactForm {
+            width: 100%;
+        }
+}

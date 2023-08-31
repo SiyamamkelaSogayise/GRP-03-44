@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Prenatal_Care</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/personalinfo_P.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Prenatal_Care.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div style="max-width:100%; width:100%; margin: 0 auto; border-top: 4px blue;">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: #32adfa;">
+                @*---------------start of the Sidebar-------------------*@
+                <div class="container-fluid">
+                    <div id="main">
+                        <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; menu</span>
+                    </div>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border:none">&times;</a>
+                        <div class="navbar-header">
+                            @*  <img class="client" src="~/css/Miss N. Tmebani .jpg" alt="" style="align-content:center;"/> *@
+                        </div>
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="Index"><i class="fas fa-qrcode"></i> &nbsp; Home</a>
+                        @* <a class="" asp-area="" asp-controller="Prenatal" asp-action="CheckUps"><i class="fas fa-calendar-week"></i> &nbsp; Check-Ups</a> *@
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="PersonalInfo"><i class="fas fa-stream"></i> &nbsp; Personal Info</a>
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="AboutUs"><i class="fas fa-question-circle"></i> &nbsp; About Us</a>
+                        <a class="" asp-area="" asp-controller="Prenatal" asp-action="FeedBack"><i class="fas fa-comments"></i> &nbsp; Feedback</a>
+                    </div>
+                    @*------------------ Script for Opening and Closing the Side Bar ----------------------------*@
+                    <script>
+                        function openNav() {
+                            document.getElementById("mySidenav").style.width = "325px";
+                            document.getElementById("main").style.marginLeft = "325px";
+                        }
+                        function closeNav() {
+                            document.getElementById("mySidenav").style.width = "0";
+                            document.getElementById("main").style.marginLeft = "0";
+                        }
+                    </script>
+                </div>
+            </nav> @*--------------------- end of Sidebar --------------------*@
+        </header>
+    </div>
+
+    @*----------------- Body -------------------*@
+    <div class="wrapper">
+        <div class="left">
+            <img src="~/css/IMG-20200328-WA0002.jpg" alt="" width="100" />
+            <h4>Jasmine Cele</h4>
+            <p>Surgical Doctor</p>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div class="info_data">
+                    <div class="data">
+                        <h4>Email</h4>
+                        <p>jasmine90@gmail.com</p>
+                    </div>
+                    <div class="data">
+                        <h4>Phone</h4>
+                        <p>+2782-627-4200</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts">
+                <h3>Contacts</h3>
+                <div class="contacts_info">
+                    <div class="data">
+                        <h4>Emergency Contacts</h4>
+                        <p>
+                            Mihlali:<br> +2782-924-8952
+                            <br><br>Gcinikhaya:<br> +2763-457-3256
+                        </p>
+                    </div>
+                    <div class="data">
+                        <h4>Assigned Caretaker</h4>
+                        <p>Dr N. Tembani:<br> +2774-962-8246</p>
+                    </div>
+                </div>
+            </div>
+            <div class="update">
+                <a class="" asp-area="" asp-controller="Doc" asp-action="Index"><i class="fas fa-qrcode"></i> &nbsp; Update</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="background"></div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>
