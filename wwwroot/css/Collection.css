@@ -1,0 +1,198 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+    /*  background-image: url("Collection.jpg");*/
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav {
+    background: #3498db;
+    font-family: Calibri;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+    background-image: url("download.jpeg")
+}
+
+nav ul li {
+    float: right;
+    list-style: none;
+    position: relative;
+}
+
+    nav ul li a {
+        text-decoration: none;
+        font-family: sans-serif;
+        color: white;
+        font-size: 17px;
+        padding: 0px 16px;
+        font-weight: bold;
+        display: block;
+    }
+
+    nav ul li ul {
+        position: absolute;
+        display: none;
+        background-color: #3498db;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    nav ul li:hover ul {
+        display: block;
+    }
+
+    nav ul li ul li {
+        line-height: 1;
+        width: 190px;
+        border-radius: 5px;
+        padding: 6px;
+    }
+
+    nav ul li ul a {
+        padding: 10px 16px;
+    }
+
+.container {
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+    font-style: italic;
+}
+
+h1 {
+    text-align: center;
+    margin: 17px;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: black;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+span {
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%
+}
+
+button:hover {
+    border: none;
+}
+
+.section {
+    background-color: grey;
+    width: 100%;
+    margin: 20px;
+    border: 100px;
+}
+
+wrapper {
+    background-color: grey;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+/* Style for the search input */
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Style for the search button */
+.search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+table {
+    margin-top: 100px;
+}
+
+th {
+    color: white;
+}
+
+tr {
+    background-color: black;
+}
+
+.section {
+    background-color: #022c28;
+    margin-top: 80px
+}
+
+p {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: white;
+    font-size: 19px;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+td {
+    font-size: 25px;
+    color: blue;
+}
+
+@import url('href="https://fonts.googleapis.com/css?family=Tangerine">');

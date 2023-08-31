@@ -1,0 +1,159 @@
+﻿body {
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav {
+    background: #3498db;
+    font-family: Calibri;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+    background-image: url("download.jpeg")
+}
+
+nav ul li {
+    float: right;
+    list-style: none;
+    position: relative;
+}
+
+    nav ul li a {
+        text-decoration: none;
+        font-family: sans-serif;
+        color: white;
+        font-size: 17px;
+        padding: 0px 16px;
+        font-weight: bold;
+        display: block;
+    }
+
+    nav ul li ul {
+        position: absolute;
+        display: none;
+        background-color: #3498db;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    nav ul li:hover ul {
+        display: block;
+    }
+
+    nav ul li ul li {
+        line-height: 1;
+        width: 190px;
+        border-radius: 5px;
+        padding: 6px;
+    }
+
+    nav ul li ul a {
+        padding: 10px 16px;
+    }
+
+.section {
+    background-color: #022b19;
+    /* Set your desired background color */
+    /*padding: 20px;*/ /* Add padding to create some space around the content */
+    /*color: white;*/ /* Set the text color inside the box */
+    /*border-radius: 10px;*/ /* Add rounded corners to the box */
+    /*width: 300px;*/ /* Set the width of the box */
+    /*margin: 20px auto;*/ /* Center the box horizontally with some margin */
+    /*max-width: 100%;*/
+    box-shadow: 1px 1px 15px 1px black;
+    margin-bottom: 65px;
+    color: white;
+    margin-top: 22px;
+    /*    height:100%;*/
+
+    font-style: italic;
+    font-weight: bold;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.textbox {
+    margin-right: 10px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+h2 {
+    margin-top: 0; /* Reset margin to remove extra spacing */
+    padding: 10px 0; /* Add some padding around the heading */
+    text-align: center; /* Center-align the heading text */
+    color: white;
+    font-style: italic;
+    display: block;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    justify-content: center;
+    align-items: center
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin-top: 42px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr {
+    background-color: #0f042b;
+}
+
+/*tr:hover {
+    background-color: #f5f5f5;
+}*/
+td {
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    position: center;
+}

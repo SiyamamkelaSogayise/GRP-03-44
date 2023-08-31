@@ -1,0 +1,210 @@
+﻿@import url('http://https://fonts.googleapis.com/css');
+
+body {
+    margin-bottom: 60px;
+    background-image: url('download.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto',sans-serif;
+}
+/*#063146*/
+.row {
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+
+.col {
+    flex-basis: 50%;
+}
+
+.card-container {
+    display: flex;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    /*    background-image: url("boo.jpg");*/
+    width: 300px;
+    height: 230px;
+    cursor: pointer;
+    margin: 10px 50px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+    flex-direction: column;
+    min-height: 45vh;
+    min-width: 45px;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+}
+
+.card:hover {
+    transform: translateX(-10px)
+}
+
+.card1 {
+    color: white;
+    font-size: 35px;
+    box-shadow: 1px 1px 15px 1px black;
+    background-color: #15cc7c;
+    /* background-image: url("boo.jpg")*/
+    text-decoration: none;
+    font-weight: Bold;
+}
+
+.card2 {
+    font-size: 35px;
+    color: white;
+    background-color: #065e9d;
+    /*  background-image: url("booking.jpg");*/
+    box-shadow: 1px 1px 15px 1px black;
+    text-decoration: none;
+    font-weight: Bold;
+    /* margin-bottom:-200px;*/
+}
+
+.card3 {
+    font-size: 35px;
+    color: white;
+    background-color: #081926;
+    /*  background-image: url("haybokuthenana.jpg");*/
+    box-shadow: 1px 1px 15px 1px black;
+    text-decoration: none;
+    font-weight: Bold;
+    /*  margin-top: auto;*/
+}
+
+.content {
+    padding: 20px;
+    margin: 20px;
+    background-color: yellow;
+}
+
+search-container {
+    position: center;
+    text-align: center;
+}
+
+search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+p {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    /* font-style:bold;*/
+}
+
+.section {
+    background-color: #3498db; /* Set your desired background color */
+    /*padding: 20px;*/ /* Add padding to create some space around the content */
+    /*color: white;*/ /* Set the text color inside the box */
+    /*border-radius: 10px;*/ /* Add rounded corners to the box */
+    /*width: 300px;*/ /* Set the width of the box */
+    /*margin: 20px auto;*/ /* Center the box horizontally with some margin */
+    /*max-width: 100%;*/
+    box-shadow: 1px 1px 15px 1px black;
+}
+
+h2 {
+    margin: 0; /* Reset margin to remove extra spacing */
+    padding: 10px 0; /* Add some padding around the heading */
+    text-align: center; /* Center-align the heading text */
+    color: white;
+    font-style: italic;
+    display: block;
+    text-decoration: underline;
+}
+
+h4 {
+    margin: 0; /* Reset margin to remove extra spacing */
+    padding: 10px 0; /* Add some padding around the heading */
+    text-align: center; /* Center-align the heading text */
+    color: white;
+    font-style: italic;
+    display: block;
+}
+
+.search-container {
+    text-align: center;
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 23px;
+}
+
+.search-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.search-button {
+    /* padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;*/
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+nav {
+    background: #3498db;
+    font-family: Calibri;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+li {
+    display: inline-block;
+    list-style: none;
+}
+
+nav li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0px 30px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+@import url('href="https://fonts.googleapis.com/css?family=Tangerine">');
