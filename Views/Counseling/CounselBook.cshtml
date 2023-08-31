@@ -1,5 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@page
+@model GeeksProject02.Models.VaccineModel
 @{
+    Layout = "_LayoutCounseling";
 }
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | By The Innovative Geeks</title>
+    <link rel="stylesheet" href="~/css/Background1.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
+                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
+                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
+                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
+            </ul>
+        </nav>
+        <h1>Medical History</h1>
+        <br />
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><h3>Condition</h3></label>
+            <input class="form-control form-control-lg" type="text" placeholder="type condition" aria-label=".form-control-lg example">
+
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"><h3>Treatment</h3></label>
+            <input class="form-control form-control-lg" type="text" placeholder="type treatment" aria-label=".form-control-lg example">
+        </div>
+        <br />
+        <div class="Button-container">
+            <button type="button" class="btn btn-primary">Submitt</button>
+            <button type="button" class="btn btn-primary">Back</button>
+        </div>
+    </div>
+</body>
