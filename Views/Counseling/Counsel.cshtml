@@ -1,0 +1,63 @@
+﻿@page
+@model GeeksProject02.Models.VaccineModel
+@{
+    Layout = "_LayoutCounseling";
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | By The Innovative Geeks</title>
+    <link rel="stylesheet" href="~/css/Background1.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
+                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
+                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
+                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
+                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
+            </ul>
+        </nav>
+        <style>
+            body {
+                font-family: arial, sans-serif;
+            }
+        </style>
+
+        <h1>WELCOME TO Counseling</h1>
+        <br />
+        <h3>Mdical History</h3>
+        <p>
+            Understanding a patient's medical history when booking a counseling session allows the doctor to provide
+            personalized, effective, and safe care that considers both the physical and mental aspects of their health. It
+            enhances the quality of care and contributes to the overall well-being of the patient.
+            Patient’s medical history is not mandatory to fill because it can the first time the patient attends therapy
+        </p>
+        <br />
+        <h3>Preferred Therapist</h3>
+        <p>
+            It's important to note that therapy is a collaborative process, and finding the right fit is crucial. If you feel a
+            preference for a certain therapist, it's worth discussing your feelings with them. Likewise, if you don't feel a
+            connection with a therapist, it's okay to explore other options. Your comfort, trust, and alignment with the therapist
+            are essential for the therapeutic journey to be successful, that includes gender and race of the therapist.
+        </p>
+        <br />
+        <h3>Reason for Counseling</h3>
+        <p>
+            Understanding the reason for counseling is a foundational step that guides the
+            entire therapeutic process. It provides direction, context, and purpose for both
+            the client and the therapist, enhancing the likelihood of successful outcomes.
+        </p>
+        <div class="Button-container">
+            <a class="" asp-area="" asp-controller="Counseling" asp-action="CounselBook">Start booking appointment</a>
+            <a class="" asp-area="" asp-controller="Home" asp-action="Index_dash">  Back</a>
+        </div>
+    </div>
+
+</body>
