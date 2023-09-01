@@ -19,6 +19,11 @@ namespace GeeksProject02.Controllers
             return View();
         }
 
+        public IActionResult PrefferedTherapist()
+        {
+            return View();
+        }
+
 
     }
 }
