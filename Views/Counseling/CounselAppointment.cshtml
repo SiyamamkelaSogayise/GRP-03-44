@@ -24,25 +24,43 @@
                 <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
             </ul>
         </nav>
-      </div>  
-        <h1>Reason for Counseling</h1>
+        <h1>Patient Details</h1>
         <br />
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Brief discription of the issues the patient is seeking help for</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share this information with anyone else.</div>
+<form>   
+        <label for="idNumber">Enter ID Number:</label>
+        <input type="text" id="idNumber" name="idNumber" />
+        <br />
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="Surname">Surname</label>
+                <input type="text" class="form-control" id="Surname" placeholder="Surname">
             </div>
             <br />
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Any specific conrcerns</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div> 
-        </form>
+</form>
+            <h1>Contact Details and Address</h1>
+<form>
+    <div class="form-group">
+        <label for="PhoneNumber">Phone Number</label>
+        <input type="number" class="form-control" id="PhoneNumber" aria-describedby="PhoneNumber" placeholder="Phone Number">
+    </div>
+</form>
+    <br />
+    </div>
+    <div> 
+        <label for="EmailAddress">EmailAddress</label>
+        <input type="email" class="form-control" id="EmailAddress" placeholder="EmailAddress">
+        </div>
         <br />
-       
+<form>
+   <div class="Button-container">
             <div class="Button-container">
-                <a class="" asp-area="" asp-controller="Counseling" asp-action="CounselAppointment">Next</a>
-                <a class="" asp-area="" asp-controller="Counseling" asp-action="Counsel">Restart the process</a>
-       </div>
-</body>
+               <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="" asp-area="" asp-controller="Counseling" asp-action="Counsel"> Restart the process</a>
+            </div
+ </form>   
+    
+    </body>
+    
