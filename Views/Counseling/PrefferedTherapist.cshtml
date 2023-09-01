@@ -24,26 +24,45 @@
                 <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
             </ul>
         </nav>
-        <h1>Medical History</h1>>
+        <h1>Prefferred Therapist</h1>
         <br />
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><h3>Condition</h3></label>
-            <input class="form-control form-control-lg" type="text" placeholder="type condition" aria-label=".form-control-lg example">
-
-
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"><h3>Treatment</h3></label>
-            <input class="form-control form-control-lg" type="text" placeholder="type treatment" aria-label=".form-control-lg example">
-        </div>
-        <br />
-        <div> 
-            <div class="Button-container">
-                <a class="" asp-area="" asp-controller="Counseling" asp-action="PrefferedTherapist">Next</a>
-                <a class="" asp-area="" asp-controller="Counseling" asp-action="Counsel">Restart the process</a>
-            </div>
+        <select class="form-select" aria-label="Have a preference for a particular therapist based on recommendation">
+            <option selected>Have a preference for a particular therapist based on recommendation</option>
+            <option value="1">NO</option>
+            <option value="2">Dr Ndlovu</option>
+            <option value="3">Dr Stephen</option>
+            <option value="2">Dr Charles</option>
             
-          
+        </select>
+        <br />
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Prefer any</option>
+            </select>
+        </div>
+        <br />
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Race</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">Black</option>
+                <option value="2">White</option>
+                <option value="3">Colored</option>
+            </select>
+        </div>
+        <br />
+        <div class="Button-container">
+            <div class="Button-container">
+                <a class="" asp-area="" asp-controller="Counseling" asp-action="CounselingReasont">Next</a>
+                <a class="" asp-area="" asp-controller="Counseling" asp-action="Counsel">Restart the proccess</a>
+            </div>
+
+
+
         </div>
     </div>
 </body>
