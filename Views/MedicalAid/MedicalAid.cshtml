@@ -11,35 +11,34 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Define a dictionary to store kids vaccine
-            var VaccineRecipient = {
+            // Define a dictionary to store province-city mapping
+            var provinceCities = {
                 "For Adults": ["Influenza (Flu)", "Pneumococcal", "Tetanus, Diphtheria, Pertussis (Tdap/Td)", "Hepatitis A and B", "Human Papillomavirus (HPV)", "Covid-19"],
-                "For kids": ["Measles, Mumps, and Rubella (MMR)", "Chickenpox (Varicella)", "Influenza (flu)", "Diphtheria,tetanus, and whooping cough(pertussis)(DTaP)", "Polio(IPV)", "Rotavirus (RV)"],
-                
+                "For Kids": ["Hepatitis B", "Rotavirus(RV)", "Diphtheria", "Pertussis(Whooping cough) ", "Tetanus", "Haemophilus influenzae type b"],
             };
 
             // Function to update city options based on the selected province
-            function updateVaccine(selectedVaccineRecipient) {
-                var cityDropdown = $("#Vaccine");
+            function updateCityOptions(selectedProvince) {
+                var cityDropdown = $("#cityDropdown");
                 cityDropdown.empty();
 
-                var Vaccine = VaccineRecipient[selectedVaccineRecipient];
-                if (Vaccine) {
-                    Vaccine.forEach(function (Vaccine) {
-                        cityDropdown.append($("<option>").val(Vaccine).text(Vaccine));
+                var cities = provinceCities[selectedProvince];
+                if (cities) {
+                    cities.forEach(function (city) {
+                        cityDropdown.append($("<option>").val(city).text(city));
                     });
                 }
-
             }
+
             // Attach change event handler to the province dropdown
-            $("#VaccineRecipient").on("change", function () {
-                var selectedVaccineRecipient = $(this).val();
-                updateVaccineOptions(selectedVaccineRecipient);
+            $("#provinceDropdown").on("change", function () {
+                var selectedProvince = $(this).val();
+                updateCityOptions(selectedProvince);
             });
 
             // Initialize city options based on the initial selected province
-            updateVaccineOptions($("#VaccineRecipient").val());
-            });
+            updateCityOptions($("#provinceDropdown").val());
+        });
     </script>
     <script>
         $(document).ready(function () {
@@ -80,18 +79,15 @@
     </div>
 </body>
 <h1>Vaccine & Medical Aid Details</h1>
-<div class="form-group col-md-4">
-    <label for="VaccineRecipient">Choose Vaccine Recipient:</label>
-    <label for="VaccineRecipient">Choose Vaccine Recipient:</label>
+    <label for="provinceDropdown">Vaccine Recipient:</label>
     <select id="provinceDropdown" class="custom-dropdown">
         <option value="For Adults">For Adults</option>
         <option value="For Kids">For Kids</option>>
     </select>
-    <label for="Vaccine">Vaccine:</label>
+    <label for="cityDropdown">Vaccines:</label>
     <select id="cityDropdown" class="custom-dropdown">
-        <!-- City options will be populated dynamically -->
+    <!-- City options will be populated dynamically -->
     </select>
-</div>
 <div class="form-group col-md-4">
      <label for="medicalAidNumber">Do you belong to a Medical Aid:</label>
      <select id="medicalAidDropdown" class="form-group col-md-4">

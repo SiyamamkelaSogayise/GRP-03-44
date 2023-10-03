@@ -1,53 +1,344 @@
-﻿@page
-@model GeeksProject02.Models.VaccineModel
-@{
-    Layout = "_LayoutVaccine";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Dashboard | By The Innovative Geeks</title>
-    <link rel="stylesheet" href="~/css/Vaccine.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+     <title>The Innovative Geeks | eNompilo</title> 
+ </head> 
 <body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
-                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
-                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
-                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
+     <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <ul class="nav__links">
+                <li><Link to="/">Home</li>
+                <li><Link to="/about-us">About Us</li>
+                <li><Link to="/services">Services</li>
+                <li><Link to="/contact-us">Contact Us</li>
+
+
             </ul>
+            <button class="btn">Contact Us</button>
         </nav>
-        <style>
-            body {
-                font-family: arial, sans-serif;
-            }
-        </style>
+    </header> 
+	<div id="BodyWrapper" class="ContentWrapper">
+		<div class="grey">
+			<div class="container">
+				<div class="row">
+					<div id="dnn_TopContent" class="col-lg-12 DNNEmptyPane"></div>
+				</div>
+			</div>
+	    </div>
+	</div>
+			<div class="BannerContainer">
+				<div id="dnn_Banner" class="Banner">
+					<div class="DnnModule DnnModule-DNN_HTML DnnModule-10675 DnnVersionableControl">
+						<a name="10675"></a>
+						<div class="DNNContainer_noTitle">
+							<div id="dnn_ctr10675_ContentPane">
+								<!-- Start_Module_10675 --><div id="dnn_ctr10675_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+									<div id="dnn_ctr10675_HtmlModule_lblContent">
+										<div class="CovidBanner">
+											 <img class="DesktopImage" src="/css/preventive-coronavirus-vaccine-syringe.jpg" height="500" width="350"> 
+											<div class="dnnImageToolWrapper" contenteditable="false" style="float: none;">
+											</div>
+										</div>
+									</div>
 
-        <div class="dashboard-container">
-            <h1>WELCOME TO VACCINATION</h1>
-            <h2>The first step towards booting your health and your dependents</h2>
-        </div>
-        <div>
-            <a class="btn btn-primary" asp-area="" asp-controller="VaccineForAdults" asp-action="VaccineForAdults">Make a Booking</a>>
-        </div>
-        <a href="https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination" class="btn btn-primary">For More Information</a>
 
+
+
+								</div><!-- End_Module_10675 -->
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			 <h1>
+        <span id="dnn_PageTitle" class="PageTitle">Information on Vaccination</span>
+    </h1> 
+	<div class="container">
+
+		<div class="row CovidTopSection">
+			<div id="dnn_ContentLeftBlock" class="col-lg-6 col-md-12">
+				<div class="DnnModule DnnModule-DNN_HTML DnnModule-11297 DnnVersionableControl">
+					<a name="11297"></a>
+					<div class="DNNContainer_noTitle">
+						<div id="dnn_ctr11297_ContentPane">
+							<!-- Start_Module_11297 --><div id="dnn_ctr11297_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+								<div id="dnn_ctr11297_HtmlModule_lblContent">
+									<div class="CovidPage InfoBlock">
+										 <div class="InfoLinks">
+											<span><a href="/">HOME</a></span><span><a>INFORMATION ON COVID-19</a></span>
+										</div> 
+										<div class="InfoBlockTitle">
+											Welcome To Vaccination
+										</div>
+										<div class="InfoBlockDescription">
+											For the latest information on Covid-19 you can join the official South African government Covid-19 WhatsApp group. Save the number, 060 012 3456 on your WhatsApp contact list and then say 'Hi' to be added to the group. You will receive a welcome notification and can then select from the menu what type of information you would like.
+										</div>
+									</div>
+								</div>
+
+
+
+
+							</div><!-- End_Module_11297 -->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-11537 DnnVersionableControl">
+					<a name="11537"></a>
+					<div class="DNNContainer_noTitle">
+						<div id="dnn_ctr11537_ContentPane">
+							<!-- Start_Module_11537 --><div id="dnn_ctr11537_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+								<div id="dnn_ctr11537_HtmlModule_lblContent">
+									<div style="padding:30px; background:#ffffff; border-radius: 5px; margin-top:20px">
+										<h2>For More Information on Vaccination</h2>
+									<a href="https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination">Click here</a>
+									</div> 
+								</div>
+
+
+
+
+							</div><!-- End_Module_11537 -->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div id="dnn_ContentRightBlock" class="col-lg-6 col-md-12">
+				<div class="DnnModule DnnModule-DNN_HTML DnnModule-11311 DnnVersionableControl">
+					<a name="11311"></a>
+					<div class="DNNContainer_noTitle">
+						<div id="dnn_ctr11311_ContentPane">
+							<!-- Start_Module_11311 --><div id="dnn_ctr11311_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+								<div id="dnn_ctr11311_HtmlModule_lblContent">
+									<div class="CovidPage StatsBlock">
+										<div class="StatsDetails">
+											<h2 class="StatsTitle">
+												Official South African statistics from the Government on COVID-19
+											</h2>
+											<div class="StatsTime">
+												Updated daily at 08:00
+											</div>
+											<div class="CovidStats">
+												<div class="StatBlock">
+													<div class="heading">
+														COVID-19 tests completed
+													</div>
+													<div class="number">
+														<span>24 198 159</span>
+													</div>
+												</div>
+												<div class="StatBlock">
+													<div class="heading">
+														Positives cases
+													</div>
+													<div class="number">
+														<span>3 742 107</span>&nbsp; &nbsp; &nbsp;
+													</div>
+												</div>
+											</div>
+											<div class="CovidStats">
+												<div class="StatBlock">
+													<div class="heading">
+														Recoveries
+													</div>
+													<div class="number">
+														3 627 969
+													</div>
+												</div>
+												<div class="StatBlock">
+													<div class="heading">
+														Deaths
+													</div>
+													<div class="number">
+														100 181&nbsp; &nbsp; &nbsp;
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="WebsiteWrapper">
+											<div class="StatsLogo">
+												<img src="/css/pexels-nataliya-vaitkevich-5863404.jpg" height="150" width="100">
+											</div>
+											<div class="WebsiteLink">
+												<span>COVID-19</span>
+												<span>Online Resource &amp; News Portal </span>
+												<a class="GoldLink" href="https://sacoronavirus.co.za/" target="_blank">www.sacoronavirus.co.za</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+							</div><!-- End_Module_11311 -->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="dnn_MiddleContent" class="col-lg-12">
+				<div class="DnnModule DnnModule-DNN_HTML DnnModule-11576 DnnVersionableControl">
+					<a name="11576"></a>
+					<div class="DNNContainer_noTitle">
+						<div id="dnn_ctr11576_ContentPane">
+							<!-- Start_Module_11576 --><div id="dnn_ctr11576_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+								<div id="dnn_ctr11576_HtmlModule_lblContent">
+									<div class="WhiteBG" id="SplitBanner">
+										<div class="Image">
+											<img src="/css/pexels-pavel-danilyuk-5998489.jpg">
+										</div>
+										<div class="Content">
+											<div class="TextWrapper">
+												<h6>The Impact of the COVID-19 Vaccine </h6>
+												<p>
+													As the wave caused by the Delta variant spreads around the world we can now evaluate the positive impact of the COVID-19 vaccination campaign that was initiated in January 2020 in many countries. Now that 48.7% of the world population have been vaccinated, here is what studies tell us about the COVID vaccine.
+												</p>
+												<a class="btn btn-primary" href="/Coronavirus-Information-on-COVID-19/The-Impact-of-the-COVID-19-Vaccine" tabindex="0">Learn more</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+							</div><!-- End_Module_11576 -->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-10680 DnnVersionableControl">
+					<a name="10680"></a>
+					<div class="DNNContainer_noTitle">
+						<div id="dnn_ctr10680_ContentPane">
+							<!-- Start_Module_10680 --><div id="dnn_ctr10680_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+								<div id="dnn_ctr10680_HtmlModule_lblContent">
+									<div class="WhiteBG" id="SplitBanner">
+										<div class="Image">
+											<img src="/css/pexels-karolina-grabowska-5207020.jpg">
+										</div>
+										<div class="Content">
+											<div class="TextWrapper">
+												<h6>COVID-19 vaccinations</h6>
+												<p>
+													South Africa is in the process of rolling out its national COVID-19 vaccine programme, which aims to vaccinate over 40 million South Africans over three phases. This key intervention is meant to mitigate the public health and economic impact of the COVID-19 pandemic. Netcare has also set up vaccination sites in Johannesburg, Cape Town and Durban to help assist with the rollout and are urging everyone eligible for vaccinations to use this opportunity to help protect themselves, their loved ones and others.
+												</p>
+												<a class="btn btn-primary" href="/Coronavirus-Information-on-COVID-19/Vaccine-Information" tabindex="0">Learn more</a>
+											</div>
+										</div>
+									</div>
+									<div class="BannerContent" id="SplitBanner">
+										<div class="Image">
+											<img src="/css/pexels-gustavo-fring-8770707.jpg">
+										</div>
+										<div class="Content">
+											<div class="TextWrapper">
+												<h6>Busting vaccine myths</h6>
+												<p>
+													Many instances of misinformation have been recorded during the COVID-19 pandemic and myths about vaccines and the COVID-19 vaccine abound.
+												</p>
+												<a class="btn btn-primary" href="/Coronavirus-Information-on-COVID-19/Busting-vaccine-myths" tabindex="0">Read COVID-19 vaccine facts and myths</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+							</div><!-- End_Module_10680 -->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="dnn_MiddleContentTwo" class="col-lg-12">
+				<div class="DnnModule DnnModule-DNN_HTML DnnModule-11307 DnnVersionableControl">
+					<a name="11307"></a>
+					<div class="DNNContainer_noTitle">
+						<div id="dnn_ctr11307_ContentPane">
+							<!-- Start_Module_11307 --><div id="dnn_ctr11307_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+								<div id="dnn_ctr11307_HtmlModule_lblContent"></div>
+
+
+
+
+							</div><!-- End_Module_11307 -->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+   
+   
+<footer class="footer">
+    <div class="section__container footer__container">
+        <div class="footer__col">
+            <h3>e-<span>Nompilo</span></h3>
+            <p>
+                We are honored to be a part of your healthcare journey and committed
+                to delivering compassionate, personalized, and top-notch care every
+                step of the way.
+            </p>
+            <p>
+                Trust us with your health, and let us work together to achieve the
+                best possible outcomes for you and your loved ones.
+            </p>
+        </div>
+        <div class="footer__col">
+            <h4>About Us</h4>
+            <p>Home</p>
+            <p>About Us</p>
+            <p>Work With Us</p>
+            <p>Our Blog</p>
+            <p>Terms & Conditions</p>
+        </div>
+        <div class="footer__col">
+            <h4>Services</h4>
+            <p>Search Terms</p>
+            <p>Advance Search</p>
+            <p>Privacy Policy</p>
+
+        </div>
+        <div class="footer__col">
+            <h4>Contact Us</h4>
+            <p>
+                <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+            </p>
+            <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+            <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+        </div>
     </div>
+    <div class="footer__bar">
+        <div class="footer__bar__content">
+            <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+            <div class="footer__socials">
+                <span><i class="ri-instagram-line"></i></span>
+                <span><i class="ri-facebook-fill"></i></span>
+                <span><i class="ri-heart-fill"></i></span>
+                <span><i class="ri-twitter-fill"></i></span>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
+</html>
 
-
-
-
-
-
-
-
-
-
+        
