@@ -17,5 +17,8 @@ public class GeeksProject02User : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
+
+    [NotMapped]
+    public string Email { get; set; }
 }
 

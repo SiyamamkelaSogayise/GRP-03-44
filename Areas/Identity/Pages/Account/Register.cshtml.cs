@@ -19,6 +19,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using GeeksProject02.Data;
+using GeeksProject02.Controllers;
+using GeeksProject02.Models;
 
 namespace GeeksProject02.Areas.Identity.Pages.Account
 {
@@ -30,13 +34,17 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<GeeksProject02User> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly GeeksProject02Context _context;
+        private readonly IConfiguration _configuration;
 
         public RegisterModel(
             UserManager<GeeksProject02User> userManager,
             IUserStore<GeeksProject02User> userStore,
             SignInManager<GeeksProject02User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            GeeksProject02Context context,
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +52,8 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -122,9 +132,11 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                var connectionString = _configuration.GetConnectionString("GeeksProject02ContextConnection");
                 var user = CreateUser();
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
+                user.Email = Input.Email;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -145,6 +157,24 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    // Patient In
+                    var options = new DbContextOptionsBuilder<GeeksProject02Context>()
+                        .UseSqlServer(connectionString).Options;
+
+                    using (var context = new GeeksProject02Context(options))
+                    {
+                        var patient = new Patient_Info
+                        {
+                            first_name = user.FirstName,
+                            last_name = user.LastName,
+                            email = user.Email,
+                            role = false
+                        };
+
+                        context.Patient_Info.Add(patient);
+                        await context.SaveChangesAsync();
+                    }
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

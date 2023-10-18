@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeeksProject02.Migrations
 {
     [DbContext(typeof(GeeksProject02Context))]
-    partial class GeeksProject02ContextModelSnapshot : ModelSnapshot
+    [Migration("20231018053402_patientinfo")]
+    partial class patientinfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,9 +116,6 @@ namespace GeeksProject02.Migrations
                     b.Property<string>("last_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("role")
-                        .HasColumnType("bit");
 
                     b.HasKey("patient_ID");
 

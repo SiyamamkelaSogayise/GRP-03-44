@@ -1,4 +1,5 @@
 ﻿using GeeksProject02.Areas.Identity.Data;
+using GeeksProject02.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -19,4 +20,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+    //public DbSet<SuperVillains1> SuperVillians { get; set; }
+
+    public DbSet<Patient_Info> Patient_Info { get; set; }
 }
