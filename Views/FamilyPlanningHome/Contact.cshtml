@@ -1,31 +1,274 @@
 ﻿@{
-    Layout = "FamilyPlanning";
+    ViewData["Title"] = "Family Planning Ovulation Calculator";
 }
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="~/css/FamilyPlanningStyleSheet.css" asp-append-version="true" />
-    @*<link rel="stylesheet" href="~/css/_Layout.cshtml.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/_Layout.css" asp-append-version="true" />*@
+    @*<link rel="stylesheet" href="~/css/FamilyPlanningStyleSheet.css" asp-append-version="true" />*@
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1." />
+    <link href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fremixicon%403.4.0%2Ffonts%2Fremixicon.css&data=05%7C01%7Cs223005924%40mandela.ac.za%7C666499ffd23f46ca9ab608dbcfb90e5b%7Cbd70eeb3a537435a937c7cd330dc74d8%7C0%7C0%7C638332165936090884%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wlSp2KjUokJgR7%2B%2F4xBcstx0R%2Bl%2BqNpDUdALnBmm9sQ%3D&reserved=0"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>The Innovative Geeks | eNompilo</title>
+
+    <style>
+
+        .calculator_ovulation {
+            width: 100%;
+            max-width: 540px;
+            min-width: 330px;
+            height: auto;
+            border: 2px solid black;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 0 30px grey;
+            border-radius: 4px;
+        }
+
+        .container-header {
+            margin: 10px 0;
+            padding-bottom: 9px;
+            font-size: 36px;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        .container-calc {
+            border: 1px solid #f3648c;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+
+        .calc-label {
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .container-calc #men_day,
+        .container-calc #men_month,
+        .container-calc #men_year .calc-param {
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+            color: #555;
+            font-size: 16px;
+            height: 34px;
+            line-height: 1.42857;
+            padding: 6px 12px;
+            transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+            min-width: 120px;
+            width: 100%;
+        }
+
+        .container-calc #men_day,
+        .container-calc #men_month,
+        .container-calc #men_year,
+        .calc-param {
+            background-color: #f3f8fb;
+            border: 1px solid #68a9ca;
+            color: #5181ad;
+            font-size: 17px;
+            margin: 0 5px;
+            text-align: center;
+        }
+
+        .container-calc .cal {
+            text-align: center;
+        }
+
+        .container-calc #edit-submit {
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: normal;
+            padding: 10px;
+            text-align: center;
+            touch-action: manipulation;
+            vertical-align: middle;
+            white-space: nowrap;
+            letter-spacing: 2px;
+            outline: none;
+            font-size: 18px;
+            width: 40%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 30%;
+            color: #fff !important;
+            border: 2px solid #6598ff !important;
+            background-color: #6598ff !important;
+            border-radius: 50px !important;
+            text-align: center;
+        }
+
+            .container-calc #edit-submit:hover {
+                color: #6598ff !important;
+                border: 2px solid #6598ff !important;
+                background-color: #fff !important;
+            }
+
+        .container-answer {
+            background-color: #f491ad;
+            color: #fff;
+            font-size: 20px;
+            padding: 15px;
+            position: relative;
+            text-align: center;
+        }
+
+            .container-answer::after {
+                border-color: #f491ad transparent;
+                border-style: solid;
+                border-width: 0 30px 15px;
+                content: "";
+                display: block;
+                left: 50%;
+                margin-left: -30px;
+                position: absolute;
+                top: -15px;
+                width: 0;
+                z-index: 1;
+            }
+
+        .calculator_pregnancy .calc_image {
+            width: 100%;
+            height: auto;
+        }
+
+        .container-calc #edit-n {
+            border-bottom: 1px solid #dedede;
+            margin-bottom: 15px;
+            padding: 15px 0;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-rows: repeat(1, 50px);
+        }
+
+        ::-webkit-inner-spin-button {
+            display: none;
+            -webkit-appearance: none;
+        }
+
+        .container_image {
+            position: relative;
+            width: auto;
+            overflow: hidden;
+        }
+
+            .container_image img {
+                width: 100%;
+            }
+
+    </style>
+
 </head>
 
+
+
+
 <body>
-    <h3 style="color:Background">
+    <div class="page-wrap">
+        <header>
+            <nav class="section__container nav__container">
+                <div class="nav__logo">e-<span>Nompilo</span></div>
+                <ul class="nav__links">
+                    <li><a asp-controller="FamilyPlanningHome"   asp-action="Add">Home</a></li>
+                    <li><Link to="/about-us">About Us</li>
+                    <li><Link to="/services">Services</li>
+                    <li><Link to="/contact-us">Contact Us</li>
+                </ul>
+                <button class="btn">Contact Us</button>
+            </nav>
+        </header>
 
-        Customer Care
-    </h3>
-    <h3 style="color:Background">
-        Call : 041-625-8000
-    </h3>
+        <p style="background-color:#12ac8e"><a class="btn btn-secondary" asp-controller="FamilyPlanningHome" asp-action="Add">Back</a>
 
-    <h3 style="color:Background">
-        Emergency
-    </h3>
-    <h3 style="color:Background">
-        041-533-3999
-    </h3>
-    <h3 style="color:Background">
-        Email
-    </h3>
-    <h3 style="color:Background">
-        e-Nompilhealth@outlook.ac.za  
-    </h3>
+<div class="calculator_ovulation">
+    <div class="container_image">
+        <img class="calculator_ovulation" src="/css/FamilyPlanningovulationcalculator.jpg">
+    </div>
+    <div class="container-header">Ovulation Calculator</div>
+    <div class="container-calc">
+        <label class="calc-label" for="edit-n">Enter the first day of your last menstrual period, as well as the duration of your shortest and longest menstrual cycles (in days):</label>
+
+        <div id="edit-n" class="calc-params">
+
+            <input type="date" class="calc-param cal" id="men_date">
+            <input class="calc-param" id="men_min" placeholder="short cycle">
+            <input class="calc-param" id="men_max" placeholder="long cycle">
+
+        </div>
+
+        <button onclick="calculate();" id="edit-submit" class="form-submit">Calculate</button>
+    </div>
+    <div class="container-answer">
+        <div id="result_1"> </div>
+        <div id="result_2"> </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="section__container footer__container">
+        <div class="footer__col">
+            <h3>e-<span>Nompilo</span></h3>
+            <p>
+                We are honored to be a part of your healthcare journey and committed
+                to delivering compassionate, personalized, and top-notch care every
+                step of the way.
+            </p>
+            <p>
+                Trust us with your health, and let us work together to achieve the
+                best possible outcomes for you and your loved ones.
+            </p>
+        </div>
+        <div class="footer__col">
+            <h4>About Us</h4>
+            <p>Home</p>
+            <p>About Us</p>
+            <p>Work With Us</p>
+            <p>Our Blog</p>
+            <p>Terms & Conditions</p>
+        </div>
+        <div class="footer__col">
+            <h4>Services</h4>
+            <p>Search Terms</p>
+            <p>Advance Search</p>
+            <p>Privacy Policy</p>
+
+        </div>
+        <div class="footer__col">
+            <h4>Contact Us</h4>
+            <p>
+                <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+            </p>
+            <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+            <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+        </div>
+    </div>
+    <div class="footer__bar">
+        <div class="footer__bar__content">
+            <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+            <div class="footer__socials">
+                <span><i class="ri-instagram-line"></i></span>
+                <span><i class="ri-facebook-fill"></i></span>
+                <span><i class="ri-heart-fill"></i></span>
+                <span><i class="ri-twitter-fill"></i></span>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+
+<script src="/js/FamPlanningContraceptiveCalc.js"></script>
+
 </body>
+</html>
