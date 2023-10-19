@@ -574,6 +574,78 @@ media (max-width:767px) {
         justify-content: flex-start;
     
     }
+    button {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
 
 
 
@@ -587,8 +659,8 @@ media (max-width:767px) {
 
                                     <div class="background-image">
                                         <div class="background-content">
-                                            <h1>provide an exceptional <br> patient experience</h1>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessit<br>atibus reiciendis eos saepe vitae quibusdam corrupti ip<br> ipsa asperiores reprehenderit </p>
+                                            <h1>Welcome to eNompilo Pschologists</h1>
+                                            <p>We are multi-faceted pschologist practice </p>
                                             <a href="#">Read more</a>
                                         </div>
                                     </div>
@@ -597,9 +669,20 @@ media (max-width:767px) {
                                         <div class="main-about">
                                             <div class="inner-about">
                                                 <div class="about-content">
-                                                    <h1>about us</h1>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, consequuntur harum beatae inventore voluptatem numquam voluptatibus fuga, cupiditate cumque porro perferendis tempora, adipisci culpa odio molestias dolorem blanditiis quos ad!</p>
-                                                    <a href="#">Read more</a>
+                                                    <h1>Is Psychotherapy for you?</h1>
+                                                    <p>
+                                                        You have found our page because you know that your life could be better. You may be feeling stuck, alone or hopeless and are looking for ways to create change and get support. Or you may be curious about how psychotherapy can help you to grow and reach your full potential.
+                                                        Maybe there is a problem within your relationship or with your child and you need outside support.
+                                                        Through counselling, we will help you to identify how to make progress and create a life of meaning.
+                                                        Therapy is a commitment to change. The number of sessions needed depends on each person but generally, the therapy process can take between 2 months - 12 months. Remember meaningful, long-term change takes time.
+
+                                                        If you are still unsure about psychotherapy read more about our services or download our Free mental health guide.
+                                                    </p>
+                                                    
+  
+                                                      <button>
+                                                      Download Mental Health Guide
+                                                      </button>
                                                 </div>
 
                                             </div>
@@ -614,8 +697,8 @@ media (max-width:767px) {
                                     <div class="our-services">
                                         <div class="service-content">
                                             <div class="left-service-content">
-                                                <h1>Our special services</h1>
-                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis animi similique perspiciatis, impedit blanditiis itaque consequuntur laboriosam ipsa asperiores?</p>
+                                                <h1>What form of psychotherapy are you looking for</h1>
+                                                <p>Not sure about psychotherapy?Looking for a specific service?<br />Find out more about what we offer.</p>
                                             </div>
 
                                             <div class="right-service-content">
@@ -630,8 +713,9 @@ media (max-width:767px) {
                                                 <div class="service-icon">
                                                     <i class="fas fa-notes-medical"></i>
                                                 </div>
-                                                <h2>health care</h2>
-                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum corporis impedit nam quaerat vitae incidunt aspernatur, conseq</p>
+                                               <button>
+                                                 Services
+                                                 </button>
 
                                             </div>
 
@@ -639,8 +723,9 @@ media (max-width:767px) {
                                                 <div class="service-icon">
                                                     <i class="fas fa-hospital-user"></i>
                                                 </div>
-                                                <h2>health care</h2>
-                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum corporis impedit nam quaerat vitae incidunt aspernatur, conseq</p>
+                                                <button>
+                                                 Online Sessions
+                                                </button>
 
                                             </div>
 
@@ -648,8 +733,10 @@ media (max-width:767px) {
                                                 <div class="service-icon">
                                                     <i class="fas fa-user-md"></i>
                                                 </div>
-                                                <h2>health care</h2>
-                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum corporis impedit nam quaerat vitae incidunt aspernatur, conseq</p>
+                                                 <button>
+                                                   In-Person Session
+
+                                                 </button>
 
                                             </div>
                                         </div>

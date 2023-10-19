@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeeksProject02.Migrations
 {
     [DbContext(typeof(GeeksProject02Context))]
-    partial class GeeksProject02ContextModelSnapshot : ModelSnapshot
+    [Migration("20231018163211_bok")]
+    partial class bok
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,31 +148,6 @@ namespace GeeksProject02.Migrations
                     b.HasKey("patient_ID");
 
                     b.ToTable("Patient_Info");
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.Pregnancy_Tracker", b =>
-                {
-                    b.Property<int>("pregnancy_ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("pregnancy_ID"), 1L, 1);
-
-                    b.Property<int>("current_day")
-                        .HasColumnType("int");
-
-                    b.Property<int>("current_week")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("delivery_date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("last_period")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("pregnancy_ID");
-
-                    b.ToTable("Pregnancy_Tracker");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -1,13 +1,16 @@
 ﻿@{
-    Layout = "_layoutChronicMedication";
+    Layout = "_LayoutChronicMedication";
 }
+
+@model IEnumerable<GeeksProject02.Models.BookingChronic>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no ">
     <title>Image on the Right</title>
-    <link rel="stylesheet" href="~/css/MentalHealth.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Manage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DemoMpho.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
     <script src="http://kit.fontawesome.com/a076d05399.js"></script>
@@ -29,35 +32,79 @@
             <button class="btn">Contact Us</button>
         </nav>
     </header>
-    <div class="mental__image">
-        <img src="/css/yoga.jpg" alt="" />
+
+
+    <div class="container--x">
+        <table style="width:100%">
+            <thead>
+                <tr>
+                    <th style="font-size: 18px; text-align: center;">Confirmed Appointments</th>
+                </tr>
+             @*    <tr>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>mobile number</th>
+                    <th>date</th>
+
+                </tr> *@
+            </thead>
+
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.PreferredGenderConsultant</td>
+                        <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingDate</td>
+                        <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingTime</td>
+                      
+
+
+
+
+
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+
     </div>
-    <h1>Mental health</h1>
-    <p>
-        Mental health is critically important for individuals dealing with chronic diseases for several reasons:
-    </p>
-    <div class="content">
-        <h2>1.Improved Cardiovascular Health </h2>
-        <p>Regular exercise strengthens the heart and improves circulation, reducing the risk of heart diseases, stroke, and high blood pressure</p>
-        <h3>2.Weight Management </h3>
-        <p>Exercise helps in controlling weight, which is vital in managing chronic conditions like diabetes, arthritis, and heart disease.<br /> Maintaining a healthy weight can improve overall health and reduce the severity of symptoms</p>
-        <h4>3.Enhanced Respiratory Function</h4>
-        <p>For conditions like asthma and chronic obstructive pulmonary disease (COPD), exercise can improve lung capacity and make breathing easier.</p>
-        <h5>4.Better Blood Sugar Controlt</h5>
-        <p>Physical activity helps in regulating blood sugar levels, which is critical for managing diabetes. Exercise increases insulin sensitivity, allowing the body to use glucose more effectively</p>
-        <h6>REFRENCES</h6>
-        <div class="InfoLinks">
-            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4698554/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4698554/</a>
-            <a href="https://medlineplus.gov/mentalhealth">https://medlineplus.gov/mentalhealth</a>
 
-        </div>
 
-        <div class="video-container">
-            <!-- YouTube Video Embed Code -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/lVTweBIJJQE" frameborder="0" allowfullscreen></iframe>
-        </div>
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,5 +163,3 @@
     </footer>
 </body>
 </html>
-
-
