@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using GeeksProject02.Models;
 
 namespace GeeksProject02.Controllers
 {
@@ -6,6 +7,7 @@ namespace GeeksProject02.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
         public IActionResult CheckUps()
