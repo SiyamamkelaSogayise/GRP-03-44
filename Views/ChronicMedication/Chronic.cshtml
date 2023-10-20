@@ -20,14 +20,19 @@
         <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
             <ul class="nav__links">
+                <a asp-action="" asp-controller="">
                 <li><Link to="/">Home</li>
+                </a>
+                  <a asp-action="" asp-controller="">
                 <li><Link to="/about-us">About Us</li>
-                <li><Link to="/services">Services</li>
-                <li><Link to="/contact-us">Contact Us</li>
-
+                </a>
+               <a asp-action="" asp-controller="">
+                <li><Link to="/contact-us">View Medical record</li>
+                </a>
 
             </ul>
-            <button class="btn">Contact Us</button>
+            @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
+            <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a>
         </nav>
     </header>
     <div class="container">
