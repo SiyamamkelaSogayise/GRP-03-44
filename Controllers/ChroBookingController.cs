@@ -13,7 +13,7 @@ namespace GeeksProject02.Controllers
         }
         public IActionResult Manage()
         {
-            IEnumerable<BookingChronic> objList = dbContext.ChronicBooking;
+            IEnumerable<ChronicBooking> objList = dbContext.BookingChronic;
             return View(objList);
         }
         public IActionResult Book()
@@ -22,11 +22,11 @@ namespace GeeksProject02.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Book(BookingChronic obj)
+        public IActionResult Book(ChronicBooking obj)
         {
             if (ModelState.IsValid)
             {
-                dbContext.ChronicBooking.Add(obj);
+                dbContext.BookingChronic.Add(obj);
                 dbContext.SaveChanges();
                 return RedirectToAction("Book");
             }
