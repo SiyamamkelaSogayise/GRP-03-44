@@ -122,7 +122,7 @@
     text-decoration: none;
 }
 html{
-    font-size: 62.5%;
+    font-size: 85.5%;
     
 }
 .header{
@@ -172,18 +172,8 @@ html{
     margin-right: 1rem;
     color: white;
     display: none;
-}
-.icons a{
-    color: white;
-    background: var(--secclr);
-    padding: 1.5rem 3rem;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    transition: .5s;
-}
-.icons a:hover{
-    background: transparent;
-    border: 1px solid var(--secclr);
+
+};
 }
 .navbar.active{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -656,43 +646,51 @@ button:active {
                                     </style>
 
 
-
-                                    <div class="background-image">
-                                        <div class="background-content">
-                                            <h1>Welcome to eNompilo Pschologists</h1>
-                                            <p>We are multi-faceted pschologist practice </p>
-                                            <a href="#">Read more</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="about">
-                                        <div class="main-about">
-                                            <div class="inner-about">
-                                                <div class="about-content">
-                                                    <h1>Is Psychotherapy for you?</h1>
-                                                    <p>
-                                                        You have found our page because you know that your life could be better. You may be feeling stuck, alone or hopeless and are looking for ways to create change and get support. Or you may be curious about how psychotherapy can help you to grow and reach your full potential.
-                                                        Maybe there is a problem within your relationship or with your child and you need outside support.
-                                                        Through counselling, we will help you to identify how to make progress and create a life of meaning.
-                                                        Therapy is a commitment to change. The number of sessions needed depends on each person but generally, the therapy process can take between 2 months - 12 months. Remember meaningful, long-term change takes time.
-
-                                                        If you are still unsure about psychotherapy read more about our services or download our Free mental health guide.
-                                                    </p>
-                                                    
-  
-                                                      <button>
-                                                      Download Mental Health Guide
-                                                      </button>
-                                                </div>
-
-                                            </div>
-                                            <div class="inner-about">
-                                                <div class="inner-about-image">
-                                                    <img src="/css/chiness.jpg" alt="">
-                                                </div>
+                                    <section>    
+                                        <div class="background-image">
+                                            <div class="background-content">
+                                                <h1>Welcome to eNompilo Pschologists</h1>
+                                                <p>We are multi-faceted pschologist practice </p>
+                                                <a href="#">Read more</a>
                                             </div>
                                         </div>
-                                    </div>
+
+                                    </section>
+                                    
+                                    <section>
+                                        <div class="about">
+                                            <div class="main-about">
+                                                <div class="inner-about">
+                                                    <div class="about-content">
+                                                        <h1>Is Psychotherapy for you?</h1>
+                                                        <p>
+                                                            You have found our page because you know that your life could be better. You may be feeling stuck, alone or hopeless and are looking for ways to create change and get support. Or you may be curious about how psychotherapy can help you to grow and reach your full potential.
+                                                            Maybe there is a problem within your relationship or with your child and you need outside support.
+                                                            Through counselling, we will help you to identify how to make progress and create a life of meaning.
+                                                            Therapy is a commitment to change. The number of sessions needed depends on each person but generally, the therapy process can take between 2 months - 12 months. Remember meaningful, long-term change takes time.
+
+                                                            If you are still unsure about psychotherapy read more about our services or download our Free mental health guide.
+                                                        </p>
+
+                                                        <div class="right-service-content">
+                                                            <div class="right-btn">
+                                                                <a href="#">Download Mental health Guide</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="inner-about">
+                                                    <div class="inner-about-image">
+                                                        <img src="/css/chiness.jpg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </section>
+                                    <
 
                                     <div class="our-services">
                                         <div class="service-content">
@@ -701,11 +699,7 @@ button:active {
                                                 <p>Not sure about psychotherapy?Looking for a specific service?<br />Find out more about what we offer.</p>
                                             </div>
 
-                                            <div class="right-service-content">
-                                                <div class="right-btn">
-                                                    <a href="#">See all services</a>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
 
                                         <div class="main-services">
@@ -713,9 +707,7 @@ button:active {
                                                 <div class="service-icon">
                                                     <i class="fas fa-notes-medical"></i>
                                                 </div>
-                                               <button>
-                                                 Services
-                                                 </button>
+                                                <a class="btn btn-primary" asp-area="" asp-controller="//SERVICES PAGE" asp-action="Counsel">Services</a>
 
                                             </div>
 
@@ -723,20 +715,14 @@ button:active {
                                                 <div class="service-icon">
                                                     <i class="fas fa-hospital-user"></i>
                                                 </div>
-                                                <button>
-                                                 Online Sessions
-                                                </button>
-
+                                                <a class="btn btn-primary" asp-area="" asp-controller="//ONLINE SESSION" asp-action="Counsel">Online Session</a>
                                             </div>
 
                                             <div class="inner-services-content">
                                                 <div class="service-icon">
                                                     <i class="fas fa-user-md"></i>
                                                 </div>
-                                                 <button>
-                                                   In-Person Session
-
-                                                 </button>
+                                                <a class="btn btn-primary" asp-area="" asp-controller="//In-PERSON" asp-action="Counsel">In-Person Session</a>
 
                                             </div>
                                         </div>
