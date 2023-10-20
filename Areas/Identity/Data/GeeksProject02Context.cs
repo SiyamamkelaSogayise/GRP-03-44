@@ -24,6 +24,10 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
 
     public DbSet<Patient_Info> Patient_Info { get; set; }
     public DbSet<Pregnancy_Tracker> Pregnancy_Tracker { get; set; }
-    public DbSet<BookingChronic> ChronicBooking { get; set; }
+
+    
+
+
     public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
+    public DbSet<ChronicBooking> BookingChronic { get; set; }
 }

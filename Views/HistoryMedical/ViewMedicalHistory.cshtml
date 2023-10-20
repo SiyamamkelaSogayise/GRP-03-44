@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no ">
     <title>Image on the Right</title>
-    <link rel="stylesheet" href="~/css/MedicalHistory.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ViewMedical.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DemoMpho.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
     <script src="http://kit.fontawesome.com/a076d05399.js"></script>
@@ -41,12 +41,12 @@
             <h3 class="section-heading">Medical Conditions</h3>
                 <ul>
                    
-                    <li><strong>Name:</strong> John Doe</li>
-                    <li><strong>Gender:</strong> January 15, 1980</li>
-                    <li><strong>Mobile Number:</strong> 123 Main St, Cityville</li>
-                    <li><strong>Status:</strong> 123 Main St, Cityville</li>
-                    <li><strong>Date Of Birth:</strong> 123 Main St, Cityville</li>
-                    <li><strong>LifeStyle:</strong> 123 Main St, Cityville</li>
+                    <li><strong>Name:</strong>       @mpho.Name </li>
+                    <li><strong>Gender:</strong>     @mpho.Surname </li>
+                    <li><strong>Mobile Number:</strong> @mpho.MobileNumber </li>
+                    <li><strong>Status:</strong>  @mpho.Status</li>
+                    <li><strong>Date Of Birth:</strong>  @mpho.DateOfBirth</li>
+                    <li><strong>LifeStyle:</strong>  @mpho.LifeStyle</li>
                
                   
                    
@@ -58,13 +58,13 @@
             <h3 class="section-heading">Medical Conditions</h3>
          
      <ul>
-            <li><strong>Allergies:</strong> John Doe</li>
-            <li><strong>surgiersUndergone:</strong> January 15, 1980</li>
-            <li><strong>FamilyMedicalHistory:</strong> 123 Main St, Cityville</li>
-            <li><strong>PreviousMedication:</strong> 123 Main St, Cityville</li>
-            <li><strong>ImmunizationHistory:</strong> 123 Main St, Cityville</li>
-            <li><strong>Hospitalizations:</strong> 123 Main St, Cityville</li>
-            <li class="list-heading">Emergency Details</li>
+            <li><strong>Allergies:</strong>  @mpho.Allergies</li>
+            <li><strong>Surgiers Undergone:</strong>  @mpho.surgiersUndergone</li>
+            <li><strong>Family Medical History:</strong>  @mpho.FamilyMedicalHistory </li>
+            <li><strong>Previous Medication:</strong>  @mpho.PreviousMedication</li>
+            <li><strong>Immunization History:</strong>  @mpho.ImmunizationHistory</li>
+            <li><strong>Hospitalizations:</strong>  @mpho.Hospitalizations </li>
+            <li class="list-heading"></li>
 </ul>
             </div>
             <div class="section">
@@ -73,10 +73,10 @@
             <ul>
             
 
-            <li><strong>HomeTelePhoneNumber:</strong> John Doe</li>
-            <li><strong>WorkTelePhoneNumber:</strong> January 15, 1980</li>
-            <li><strong>NextOfKinNumber:</strong> 123 Main St, Cityville</li>
-            <li><strong>InsurenceProvideNumber:</strong> 123 Main St, Cityville</li>
+            <li><strong>Home TelePhone Number:</strong>  @mpho.HomeTelePhoneNumber </li>
+            <li><strong>Work TelePhone Number:</strong>  @mpho.WorkTelePhoneNumber</li>
+            <li><strong>Next Of Kin Number:</strong>  @mpho.NextOfKinNumber </li>
+            <li><strong>Insurence Provider Number:</strong>  @mpho.InsurenceProvideNumber</li>
             </ul>
             </div>
            

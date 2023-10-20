@@ -2,7 +2,7 @@
     Layout = "_LayoutChronicMedication";
 }
 
-@model IEnumerable<GeeksProject02.Models.BookingChronic>
+@model IEnumerable<GeeksProject02.Models.ChronicBooking>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,59 +32,60 @@
             <button class="btn">Contact Us</button>
         </nav>
     </header>
+    <div class="container">
+        <div class="image"></div>
+        <div class="text">
 
+            <p>Welcome to our Health Care Portal as Enompilo Facility your well-being is our top priority. <br />To ensure you receive the best care tailored to your needs, please take a moment to provide us with your medical history.<br /> Your detailed information helps us deliver personalized and accurate healthcare services.<br /> Thank you for entrusting us with your health information. </p>
+        </div>
+        </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Patient Email</th>
+                <th>Booking Date</th>
+                <th>Preferred Gender Consultant</th>
 
-    <div class="container--x">
-        <table style="width:100%">
-            <thead>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
                 <tr>
-                    <th style="font-size: 18px; text-align: center;">Confirmed Appointments</th>
+
+
+
+                   
+                    <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingName</td>
+                    <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingEmail</td>
+                    <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingDate</td>
+                    <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.PreferredGenderConsultant</td>
+                    
+
+
+
+
+
+
                 </tr>
-             @*    <tr>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>mobile number</th>
-                    <th>date</th>
-
-                </tr> *@
-            </thead>
-
-            <tbody>
-                @foreach (var obj in Model)
-                {
-                    <tr>
-                        <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.PreferredGenderConsultant</td>
-                        <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingDate</td>
-                        <td width="35%" style="color: black ;font-weight:bold;" class="fs-10">@obj.BookingTime</td>
-                      
 
 
 
+            }
 
 
-                    </tr>
 
-                }
-            </tbody>
-
-        </table>
-
-    </div>
+        </tbody>
+       
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+    </table>
 
 
 
@@ -161,5 +162,5 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
+    </body>
+    </html>
