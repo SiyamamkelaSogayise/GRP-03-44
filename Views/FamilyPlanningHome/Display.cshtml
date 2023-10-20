@@ -1,83 +1,284 @@
 ﻿@{
-    Layout = "FamilyPlanning";
+    ViewData["Title"] = "Family Planning Methods";
 }
-<head>
-    <link rel="stylesheet" href="~/css/FamilyPlanningStyleSheet.css" asp-append-version="true" />
-    @*<link rel="stylesheet" href="~/css/_Layout.cshtml.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/_Layout.css" asp-append-version="true" />*@
-</head>
-<body>
-    <h2>
-        WHAT IS FAMILY PLANNING?
-    </h2>
-    
-    <p style ="color:Background">
 
-        Family planning refers to the practice of controlling the number and spacing of children within a family and making informed decisions about reproductive health. It involves various methods and strategies to help individuals and couples achieve their desired family size while ensuring the health and well-being of both parents and children. Family planning has significant implications for maternal and child health, gender equality, and overall socio-economic development. Here's a comprehensive overview of family planning:
-    </p>
-    <h3 style="color:blue">
-        1. Importance of Family Planning:
-    </h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/FamilyPlanningMethods.css" asp-append-version="true" />
     
-    <p style="color:Background">
-        Health Benefits: Proper family planning can reduce maternal and infant mortality rates by spacing pregnancies and allowing women to recover between pregnancies.
-        Economic Impact: It can lead to reduced strain on resources and healthcare systems, allowing families to allocate resources more effectively.
-        Empowerment: Family planning empowers women to make decisions about their reproductive health and career opportunities.
-        Environmental Sustainability: Slower population growth can contribute to more sustainable resource management.
-    </p>
-    <h3 style="color:blue">
-        2. Methods of Family Planning:
-    </h3>
-    <p style="color:Background">
-        Family planning methods can be broadly categorized into two groups: modern methods and traditional methods.
-    </p>
-    <h3 style ="color:blue">
-        Modern Methods:
-    </h3>
-    <p style="color:Background">
-        Contraceptives: These include birth control pills, intrauterine devices (IUDs), contraceptive implants, patches, injections, and vaginal rings.
-        Barrier Methods: Condoms (male and female) and diaphragms are examples of barrier methods that prevent sperm from reaching the egg.
-        Long-Acting Reversible Contraceptives (LARCs): These include IUDs and contraceptive implants, providing long-term contraception with a single procedure.
-        Sterilization: Surgical procedures like tubal ligation (female sterilization) and vasectomy (male sterilization) permanently prevent pregnancy.
-    </p>
-    <h3 style="color:blue">
-        Tradidtional Methods:
-    </h3>
-    <p style="color:Background">
-        Calendar/Rhythm Method: Predicting fertile days based on menstrual cycles.
-        Withdrawal Method: The man withdraws his penis before ejaculation.
-        Cervical Mucus Method: Monitoring changes in cervical mucus consistency.
-        Basal Body Temperature Method: Tracking slight temperature changes during the menstrual cycle.
-    </p>
-    <h3 style="color:blue">
-        3. Family Planning Services:
-    </h3>
-    <p style="color:Background">
-        Family planning services are typically offered by healthcare providers, clinics, and organizations. These services often include counseling, education, and access to a wide range of contraceptive methods. Many countries have government programs and NGOs dedicated to providing family planning resources.
-    </p>
-    <h3 style="color:blue">
-        4. Challenges and Considerations:
-    </h3>
-    <p style="color:Background">
-        Cultural and Religious Beliefs: Sociocultural factors can influence family planning decisions and access to services.
-        Education: Lack of knowledge about family planning methods can hinder effective decision-making.
-        Access: Limited access to contraceptives and family planning services in certain areas can be a barrier.
-        Gender Inequality: Women's autonomy and rights in making family planning decisions can be restricted in some societies.
-        Health Concerns: Some individuals may have health conditions that affect their choice of contraceptive methods.
-    </p>
-    <h3 style="color:blue">
-        5. Role Of Government Organizations:
-    </h3>
-    <p style="color:Background">
-        Governments and NGOs play a crucial role in promoting family planning through policies, funding, education, and access to services. International organizations like the United Nations and WHO also work to improve global access to family planning.
-    </p>
-    <h3 style="color:blue">
-        6. Importance Of Controlled Decision Making:
-    </h3>
-    <p style="color:Background">
-        Family planning decisions should be based on accurate information and should consider factors such as health, family goals, and personal preferences.
-    </p>
-    <p style="color:Background">
-        It's important to consult with healthcare professionals when considering family planning options, as they can provide tailored advice based on individual health and circumstances.
-    </p>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1." />
+    <link href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fremixicon%403.4.0%2Ffonts%2Fremixicon.css&data=05%7C01%7Cs223005924%40mandela.ac.za%7C666499ffd23f46ca9ab608dbcfb90e5b%7Cbd70eeb3a537435a937c7cd330dc74d8%7C0%7C0%7C638332165936090884%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wlSp2KjUokJgR7%2B%2F4xBcstx0R%2Bl%2BqNpDUdALnBmm9sQ%3D&reserved=0"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>The Innovative Geeks | eNompilo</title>
+
+
+</head>
+
+
+
+
+<body>
+    <div class="page-wrap">
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <ul class="nav__links">
+                <li><Link to="/">Home</li>
+                <li><Link to="/about-us">About Us</li>
+                <li><Link to="/services">Services</li>
+                <li><Link to="/contact-us">Contact Us</li>
+            </ul>
+            <button class="btn">Contact Us</button>
+        </nav>
+    </header>
+
+
+
+        <nav class="flex-nav">
+            <div class="container">
+                <div class="grid">
+                    <div class="column-xs-9 column-md-8">
+                        <p id="logo">Choose Family Planning Methods<span id="highlight">:</span></p>
+                    </div>
+                    <div class="column-xs-3 column-md-4">
+                        <a href="#" class="toggle-nav">Menu <i class="ion-navicon-round"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <main class="intro-section">
+            <div class="container">
+                <div class="grid">
+                    <div class="column-xs-12">
+                        <ul class="slider">
+                            <li class="slider-item active">
+                                <div class="grid vertical">
+                                    <div class="column-xs-12 column-md-2 hide-mobile">
+                                        <div class="intro">
+                                            <a href="#">
+                                                <h1 class="title"><span class="underline">1.Barrier Methods:</span></h1>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="column-xs-12 column-md-10">
+                                        <div class="image-holder">
+                                            <a href="https://www.panhandleobgyn.com/post/understanding-4-types-of-barrier-birth-control-methods"><img src="/css/FamPlanBarrierMethods.jpg"></a>
+                                        </div>
+                                        <div class="grid">
+                                            <div class="column-xs-12 column-md-9">
+                                                <div class="intro show-mobile">
+                                                    <a href="#">
+                                                        <h1 class="title"><span class="underline">1.Barrier Methods:</span></h1>
+                                                    </a>
+                                                </div>
+                                                <p class="description">- Condoms: These are thin sheaths worn on the penis or inserted into the vagina to prevent the sperm from reaching the egg.</p>
+                                                <p class="description">- Diaphragm and Cervical Cap: These are barrier methods that cover the cervix, blocking sperm from entering the uterus.</p>
+                                                <p class="description">For more information click on the picture.........</p>
+                                                <p><a class="btn btn-secondary" asp-controller="AdultsNextPage" asp-action="AdultsNextPage">Book Appointment »</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="slider-item">
+                                <div class="grid vertical">
+                                    <div class="column-xs-12 column-md-2 hide-mobile">
+                                        <div class="intro">
+                                            <a href="#">
+                                                <h1 class="title"><span class="underline">2.Hormonal Methods:</span></h1>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="column-xs-12 column-md-10">
+                                        <div class="image-holder">
+                                            <a href="https://www.healthshots.com/preventive-care/reproductive-care/gynaecologists-guide-to-the-best-birth-control-methods/"> <img src="/css/FamPlanHormornalMethods.jpg"></a>
+                                        </div>
+                                        <div class="grid">
+                                            <div class="column-xs-12 column-md-9">
+                                                <div class="intro show-mobile">
+                                                    <a href="#">
+                                                        <h1 class="title"><span class="underline">2.Hormonal Methods:</span></h1>
+                                                    </a>
+                                                </div>
+                                                <p class="description">- Birth Control Pills:These contain synthetic hormones that prevent ovulation and thicken cervical mucus, making it difficult for sperm to reach the egg.</p>
+                                                <p class="description">- Birth Control Patch: This is a small patch that releases hormones through the skin to prevent ovulation.</p>
+                                                <p class="description">- Birth Control Shot: Also known as Depo-Provera, it is an injection of progestin that prevents ovulation for three months at a time.</p>
+                                                <p class="description">- Birth Control Implant: A small rod placed under the skin that releases hormones to prevent ovulation for up to several years.</p>
+                                                <p class="description">- Hormonal Intrauterine Device (IUD): This is a T-shaped device that is inserted into the uterus to release hormones, preventing pregnancy for several years.</p>
+                                                <p class="description">- Hormonal Vaginal Ring: This is a flexible ring inserted into the vagina that releases hormones to prevent ovulation.</p>
+                                                <p class="description">For more information click on the picture.........</p>
+                                                <p><a class="btn btn-secondary" asp-controller="ContactUs" asp-action="ContactUs">Book Appointment »</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="slider-item">
+                                <div class="grid vertical">
+                                    <div class="column-xs-12 column-md-2 hide-mobile">
+                                        <div class="intro">
+                                            <a href="#">
+                                                <h1 class="title"><span class="underline">3.Intrauterine Devices (IUDs):</span></h1>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="column-xs-12 column-md-10">
+                                        <div class="image-holder">
+                                            <a href="https://www.verywellhealth.com/what-to-expect-during-an-iud-insertion-906772"><img src="/css/FamPlanIUD.jpg"></a>
+                                        </div>
+                                        <div class="grid">
+                                            <div class="column-xs-12 column-md-9">
+                                                <div class="intro show-mobile">
+                                                    <a href="#">
+                                                        <h1 class="title"><span class="underline">3.Intrauterine Devices (IUDs):</span></h1>
+                                                    </a>
+                                                </div>
+                                                <p class="description">- Copper IUD: This type of IUD releases copper, which is toxic to sperm, preventing fertilization.</p>
+                                                <p class="description">- Hormonal IUD: This type of IUD releases progestin, thickening cervical mucus and thinning the uterine lining, preventing sperm from reaching the egg and preventing implantation.</p>
+                                                <p class="description">For more information click on the picture.........</p>
+                                                <p><a class="btn btn-secondary" asp-controller="ContactUs" asp-action="ContactUs">Book Appointment »</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="slider-item">
+                                <div class="grid vertical">
+                                    <div class="column-xs-12 column-md-2 hide-mobile">
+                                        <div class="intro">
+                                            <a href="#">
+                                                <h1 class="title"><span class="underline">4.Natural Methods:</span></h1>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="column-xs-12 column-md-10">
+                                        <div class="image-holder">
+                                            <a href="https://www.factsaboutfertility.org/physician-attitudes-and-perceptions-toward-nfp-a-research-review/"><img src="/css/FAmPlanNatural.jpg"></a>
+                                        </div>
+                                        <div class="grid">
+                                            <div class="column-xs-12 column-md-9">
+                                                <div class="intro show-mobile">
+                                                    <a href="#">
+                                                        <h1 class="title"><span class="underline">4.Natural Methods:</span></h1>
+                                                    </a>
+                                                </div>
+                                                <p class="description">- Fertility Awareness-Based Methods: These involve tracking a woman's menstrual cycle to determine when she is most fertile and avoiding intercourse during that time.</p>
+                                                <p class="description">- Withdrawal Method: This involves withdrawing the penis from the vagina before ejaculation to prevent sperm from entering the vagina.</p>
+                                                <p class="description">For more information click on the picture.........</p>
+                                                <p><a class="btn btn-secondary" asp-controller="ContactUs" asp-action="ContactUs">Book Appointment »</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="slider-item">
+                                <div class="grid vertical">
+                                    <div class="column-xs-12 column-md-2 hide-mobile">
+                                        <div class="intro">
+                                            <a href="#">
+                                                <h1 class="title"><span class="underline">5.Permanent Methods:</span></h1>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="column-xs-12 column-md-10">
+                                        <div class="image-holder">
+                                            <a href="https://www.besturologyclinic.com/blog/5-reasons-to-consider-a-vasectomy"><img src="/css/FAmPlanVasectomy.jpg"></a>
+                                        </div>
+                                        <div class="grid">
+                                            <div class="column-xs-12 column-md-9">
+                                                <div class="intro show-mobile">
+                                                    <a href="#">
+                                                        <h1 class="title"><span class="underline">5.Permanent Methods::</span></h1>
+                                                    </a>
+                                                </div>
+                                                <p class="description">- Tubal Ligation: Also known as "getting your tubes tied," this is a surgical procedure that blocks the fallopian tubes to prevent eggs from reaching the uterus.</p>
+                                                <p class="description">- Vasectomy: This is a surgical procedure that involves cutting or blocking the tubes that carry sperm, preventing them from reaching the semen.</p>
+                                                <p class="description">For more information click on the picture.........</p>
+                                                
+                                                <p><a class="btn btn-secondary" asp-controller="ContactUs" asp-action="ContactUs">Book Appointment »</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="grid">
+                            <div class="column-xs-12">
+                                <div class="controls">
+                                    <button class="previous">
+                                        <span class="visually-hidden">Previous</span>
+                                        <span class="icon arrow-left" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="next">
+                                        <span class="visually-hidden">Next</span>
+                                        <span class="icon arrow-right" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script src="/js/FamPlanMethods.js"></script>
+
 </body>
+</html>
