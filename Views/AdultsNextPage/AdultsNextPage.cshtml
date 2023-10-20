@@ -1,13 +1,46 @@
-﻿@page
-@model GeeksProject02.Models.VaccineForAdultsModel
-@{
-    Layout = "_LayoutVaccine";
-}
+﻿<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Dashboard | By The Innovative Geeks</title>
-    <link rel="stylesheet" href="~/css/Vaccine.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+          rel="stylesheet" />
+    <!-- Template CSS -->
+    @* <link rel="stylesheet" href="~/css/ContactUs.css" asp-append-version="true" />  *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/css/Vaccine.css" asp-append-version="true" /> *@
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -15,9 +48,31 @@
             var provinceCities = {
                 "Eastern Cape": ["Port Elizabeth", "East London", "Mthatha", "King Williams Town", "Queens Town"],
                 "Western Cape": ["Khayelitsha", "Parow", "Stellenbosch", "Bellville", "Paarl"],
-                "Gauteng": ["Johannesburg", "Pretoria", "Centurion", "Thembisa", "Soweto"],
+                "Gauteng": ["Johannesburg", "Pretoria", "Thembisa", "Soweto"],
                 "Kwazulu-Natal": ["Durban", "Richards Bay", "Umhlanga Rocks", "St. Lucia", "Scottsburgh"],
                 "Limpompo": ["Polokwane", "Giyane", "Thohoyandou", "Thabazimbi", "Musina"]
+            };
+
+            // Define a dictionary to store city-suburb mapping
+            var citySuburbs = {
+                "Port Elizabeth": ["Summerstrand", "Walmer", "Blue Water Bay"],
+                "East London": ["Amalinda", "Gonubie", "Mdatsane"],
+                "Mthatha": ["Panne", "North Crest", "Water Fall"],
+                "King Williams Town": ["Ginsburg", "Sweet Water", "Zwelitsha"],
+                "Queens Town": ["Amberdale", "Komani Park", "Ezibeleni"],
+                "Khayelitsha": ["Litha Park", "Holomisa", "WK Section"],
+                "Parow": ["Glenlily", "Parow North", "Beaconvale"],
+                "Stellenbosch": ["Jamestown", "Brandwacht", "Dalsig"],
+                "Bellville": ["Tygervalley", "Durbanville", "Amanda Glen"],
+                "Paarl": ["Chicago", "Dalvale", "Bertville"],
+                "Johannesburg": ["Sandton", "Randburg", "Rosebank"],
+                "Pretoria": ["Centurion", "Waterkloof", "Pretoria North"],
+                "Thembisa": ["Litiba Section", "Moyeni Section", "Thibeng"],
+                "Soweto": ["Orlando", "Diepkloof", "Protea Glen"],
+                "Durban": ["eThekwini", "uMhlanga", "Pinetown"],
+                "Richards Bay": ["Kwa-biyela", "Kwa-malandela", "Mtubatuba"],
+                "Mhlanga Rocks": ["Izinga", "La Lucia", "Ridgeside"],
+                "Polokwane": ["Penina Park", "Annadale", "Ivy Park"],
             };
 
             // Function to update city options based on the selected province
@@ -31,12 +86,33 @@
                         cityDropdown.append($("<option>").val(city).text(city));
                     });
                 }
+
+                // Trigger a change event to populate suburbs for the initial city
+                cityDropdown.change();
             }
 
-            // Attach change event handler to the province dropdown
+            // Function to update suburb options based on the selected city
+            function updateSuburbOptions(selectedCity) {
+                var suburbDropdown = $("#suburbDropdown");
+                suburbDropdown.empty();
+
+                var suburbs = citySuburbs[selectedCity];
+                if (suburbs) {
+                    suburbs.forEach(function (suburb) {
+                        suburbDropdown.append($("<option>").val(suburb).text(suburb));
+                    });
+                }
+            }
+
+            // Attach change event handlers to the province and city dropdowns
             $("#provinceDropdown").on("change", function () {
                 var selectedProvince = $(this).val();
                 updateCityOptions(selectedProvince);
+            });
+
+            $("#cityDropdown").on("change", function () {
+                var selectedCity = $(this).val();
+                updateSuburbOptions(selectedCity);
             });
 
             // Initialize city options based on the initial selected province
@@ -44,65 +120,228 @@
         });
     </script>
 
+    <script>
+        $(document).ready(function () {
+            $("#medicalAidDropdown").on("change", function () {
+                var selectedOption = $(this).val();
+                if (selectedOption === "yes") {
+                    alert("Please provide your medical aid information.");
+                    $("#medicalAidFields").show();
+
+                } else {
+                    $("#medicalAidFields").hide();
+                }
+            });
+
+            $("#submitButton").on("click", function () {
+                // Perform form submission or other actions
+            });
+        });
+    </script>
+
 
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li type="none"><a href="#" class="logo"><img src="~/css/GroupLogo.png" alt="" /><span class="nav-item01">DashBoard</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-home"></i><span class="nav-item02">Home</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-user"></i><span class="nav-item03">Profile</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-wallet"></i><span class="nav-item04">Medical History</span></a></li>
-                @* <li><a href="#"><i class="fas fa-chart"></i><span class="nav-item">Analytics</span></a></li> *@
-                <li type="none"><a href="#"><i class="fas fa-tasks"></i><span class="nav-item05">Tasks</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-cog"></i><span class="nav-item06">Settings</span></a></li>
-                <li type="none"><a href="#"><i class="fas fa-question-circle"></i><span class="nav-item07">Help</span></a></li>
-                <li type="none"><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i><span class="nav-item08">Log Out</span></a></li>
-            </ul>
-        </nav>
-    </div>
-</body>
-<h1>Contact Details and Address</h1>
-<form>
-    <div class="form-group">
-        <label for="PhoneNumber">Phone Number</label>
-        <input type="number" class="form-control" id="PhoneNumber" aria-describedby="PhoneNumber" placeholder="Phone Number">
-    </div>
-    <div class="form-group">
-        <label for="ConfirmPhoneNumber">Confirm Phone Number</label>
-        <input type="number" class="form-control" id="ConfirmPhoneNumber" aria-describedby="ConfirmPhoneNumber" placeholder="Confirm Phone Number">
-    </div>
-    <div class="form-group">
-        <label for="EmailAddress">EmailAddress</label>
-        <input type="email" class="form-control" id="EmailAddress" placeholder="EmailAddress">
-    </div>
-    <label for="provinceDropdown">Province:</label>
-    <select id="provinceDropdown" class="custom-dropdown">
-        <option value="Eastern Cape">Eastern Cape</option>
-        <option value="Western Cape">Western Cape</option>>
-        <option value="Gauteng">Gauteng</option>
-        <option value="Kwazulu-Natal">Kwazulu-Natal</option>
-        <option value="Limpopo">Limpopo</option>
-    </select>
-    <label for="cityDropdown">Cities:</label>
-    <select id="cityDropdown" class="custom-dropdown">
-        <!-- City options will be populated dynamically -->
-    </select>
-    <label for="provinceDropdown">Surburb:</label>
-    <select id="provinceDropdown" class="custom-dropdown">
-        <option value="Summerstrannd">Summerstrand</option>
-        <option value="Walmer">Walmer</option>>
-        <option value="South End">South End</option>
-    </select>
-    <div class="form-group row justify-content-end">
-        <div class="col-sm-10">
-            <a class="btn btn-primary" asp-area="" asp-controller="VaccineForAdults" asp-action="VaccineForAdults">Back</a>
-            < <a class="btn btn-primary" asp-area="" asp-controller="MedicalAid" asp-action="MedicalAid">Next</a>
+    <section class="w3l-bootstrap-header">
+        @* <nav class="section__container"> *@
+            @* <div class="container"> *@
+            @* <a class="navbar-brand" href="index.html">
+            @* <img src="~/css/plus-medical-cross-logo-icon-vector.jpg" class="img-fluid" width="52"> *@
+            @*  e-Nompilo
+            </a>  *@
+            @* !-- if logo is image enable this
+            @* <a class="navbar-b rand" href="index.html"> *@
+            @* <img src="~/css/plus-medical-cross-logo-icon-vector.jpg" alt="Your logo" title="Your logo" style="height:35px;" /> *@
+            @* </a>  *@
+            @* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+            </button> *@
+
+            <nav class="section__container nav__container" color="black">
+                <div class="nav__logo">e-<span>Nompilo</span></div>
+                <ul class="nav__links">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="btn">Contact Us</button>
+
+            </nav>
+    </section>
+    <section class="w3l-about-breadcrumb" color="orange">
+        <div class="breadcrumb-bg breadcrumb-bg-contact py-5" color="orange">
+            <div class="container py-lg-5 py-md-3">
+                <h3><strong>Appointment Request</strong></h3>
+                <p><br>Book your appointment with us by filling the form below</p>
+            </div>
         </div>
-    </div>
+    </section>
 
 
-</form>
+    <form border-radius="5px" background-color="aliceblue" padding="20px">
+        <center><h2>Personal Information</h2></center>
+
+        <div class="form-group">
+            <label for="PhoneNumber">First Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="First Name" placeholder="Alice Number">
+        </div>
+        <div class="form-group">
+            <label for="Surname">Surname</label>
+            <input type="text" class="form-control" id="surname" aria-describedby="surname" placeholder="Smith">
+        </div>
+        <div class="form-group">
+            <label for="IDnumber">ID Number</label>
+            <input type="date" class="form-control" id="IDnumber" aria-describedby="IdNumber" placeholder="27 August 1998">
+        </div>
+        <div>
+            <p>What is your gender?</p>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="Rather not say"> Rather not say
+
+        </div>
+        <div class="form-group">
+            <label for="EmailAddress">EmailAddress</label>
+            <input type="email" class="form-control" id="EmailAddress" placeholder="john.doe@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">phoneNumber</label>
+            <input type="number" class="form-control" id="phoneNumber" placeholder="0837700833">
+        </div>
+        <center><h2>Address</h2></center>
+
+        <label for="provinceDropdown">Province:</label>
+        <select id="provinceDropdown" class="custom-dropdown">
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="Western Cape">Western Cape</option>>
+            <option value="Gauteng">Gauteng</option>
+            <option value="Kwazulu-Natal">Kwazulu-Natal</option>
+            <option value="Limpopo">Limpopo</option>
+        </select>
+        <label for="cityDropdown">Cities:</label>
+        <select id="cityDropdown" class="custom-dropdown">
+            <!-- City options will be populated dynamically -->
+        </select>
+        <label for="suburbDropdown">Suburb:</label>
+        <select id="suburbDropdown">
+            <!-- Suburb options will be populated dynamically -->
+        </select>
+
+
+        <center><h2>Additional Information</h2></center>
+
+        <div class="col-75">
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" width="100px"></textarea>
+        </div>
+
+        <label><b>What is the best way to reach you?</b></label><br>
+
+        <input type="radio" id=" Phone" name="radio" value="Phone" style="margin-left:13px;">&nbspPhone<label for="Phone"></label><br>
+        <input type="radio" id="Email" name="radio" value="Email" style="margin-left:13px;">&nbspEmail<label for="Email"></label><br><br>
+
+        <label><b>Days of the week you are available for appointment:</b></label><br>
+
+        <input type="checkbox" id="day1" name="day1" value="Monday">
+        <label for="day1">Monday</label><br>
+        <input type="checkbox" id="day2" name="day2" value="Tuesday">
+        <label for="day2">Tuesday</label><br>
+        <input type="checkbox" id="day3" name="day3" value="Wednesday">
+        <label for="day3">Wednesday</label><br>
+        <input type="checkbox" id="day4" name="day4" value="Thursday">
+        <label for="day4">Thursday</label><br>
+        <input type="checkbox" id="day5" name="day5" value="Friday">
+        <label for="day5">Friday</label><br><br>
+        <label><b>Best time of day for your appointment:</b></label><br>
+        <input type="checkbox" id="shift1" name="shift1" value="Morning">
+        <label for="shift1">Morning</label><br>
+        <input type="checkbox" id="shift2" name="shift2" value="Evening">
+        <label for="shift2">Afternoon</label><br>
+
+        <center><h2>Payment Method</h2></center>
+        <div class="form-group col-md-4">
+            <label for="medicalAidNumber">Do you belong to a Medical Aid:</label>
+            <select id="medicalAidDropdown" class="form-group col-md-4">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+
+        <div id="medicalAidFields" style="display: none;">
+            <label for="medicalAidNumber">Medical Aid Number:</label>
+            <input type="text" id="medicalAidNumber" name="medicalAidNumber">
+
+            <label for="MedicalAidName">Medical Aid Name:</label>
+            <input type="text" id="MedicalAidName" name="MedicalAidName">
+        </div>
+        <div id="button-container">
+            <button id="back-button">Back</button>
+            <button id="submit-button">Submit</button>
+        </div>
+    </form>
+    <!-- footer-28 block -->
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
 
 
