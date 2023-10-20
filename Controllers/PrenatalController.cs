@@ -5,10 +5,16 @@ namespace GeeksProject02.Controllers
 {
     public class PrenatalController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(Pregnancy_Tracker tracker)
         {
-
-            return View();
+            if(tracker.last_period == default)
+            {
+                return View("PregTracker");
+            }
+            else
+            {
+                return View();
+            }
         }
         public IActionResult CheckUps()
         {
@@ -22,7 +28,7 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
-        public IActionResult AboutUs()
+        public IActionResult PregTracker()
         {
             return View();
         }

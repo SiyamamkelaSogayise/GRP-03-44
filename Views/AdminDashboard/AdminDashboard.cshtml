@@ -1,0 +1,80 @@
+﻿@page
+@model List<GeeksProject02.Models.AddBooking>
+
+@{
+}
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/Admin.css" />
+</head>
+<div class="sidenav">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Booking</a>
+    <a href="#">Contact</a>
+    <a href="#">Add Booking</a>
+</div>
+<h1>Booking Management System </h1>
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Names</th>
+            <th>Date of Birth</th> <!-- Matched to patientbooking.DOB -->
+            <th>Gender</th> <!-- Matched to patientbooking.Gender -->
+            <th>Doctor</th> <!-- Matched to patientbooking.AvailableDays -->
+            <th>Preferred Appointment Time</th> <!-- Matched to patientbooking.PreferredAppointmentTime -->
+            <th>Available Days</th> <!-- Matched to patientbooking.AvailableDays -->
+            <th>Appointment Date</th> <!-- Matched to patientbooking.AppointmentDate -->
+            <th>Payment Method</th> <!-- Matched to patientbooking.PaymentMethod -->
+            <th>Medical Aid Number</th> <!-- Matched to patientbooking.MedicalAidNumber -->
+            <th>Medical Aid Name</th> <!-- Matched to patientbooking.MedicalAidName -->
+            <th>Status</th> <!-- Corresponding to ApprovalStatus -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var addBooking in Model)
+        {
+            <tr>
+                <td>@addBooking.Id</td>
+                <td>@(addBooking.FirstName + " " + addBooking.Surname)</td>
+                <td>@addBooking.DOB</td>
+                <td>@addBooking.Gender</td>
+                <td>@addBooking.AvailableDays</td>
+                <td>@addBooking.PreferredAppointmentTime</td>
+                <td>@addBooking.AppointmentDate</td>
+                <td>@addBooking.IsMedicalAidMember</td>
+                <td><a href="AddBookings/View/@addBooking.Id">View</a></td>
+                
+                @* <td>
+                    @if (addBooking.ApprovalStatus == 1)
+                    {
+                        <span class="badge bg-green">Approved</span>
+                    }
+                    else if (addBooking.ApprovalStatus == 0)
+                    {
+                        <span class="badge bg-red">Pending</span>
+                    }
+                </td> *@
+                @* <td>
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            Actions
+                            <span class="fa fa-caret-down"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Edit</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Delete</a></li>
+                        </ul>
+                    </div>
+                </td> *@
+            </tr>
+        }
+
+    </tbody>
+</table>
