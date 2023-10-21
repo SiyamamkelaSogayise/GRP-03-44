@@ -1,4 +1,5 @@
 ﻿using GeeksProject02.Areas.Identity.Data;
+using GeeksProject02.Data;
 using GeeksProject02.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,15 +9,15 @@ namespace GeeksProject02.Controllers
 
     public class AdminDashboardController : Controller
     {
-        private readonly PatientDBContext patientDBContext;
+        private readonly GeeksProject02Context geeksProject02Context;
 
-        public AdminDashboardController(PatientDBContext patientDBContext)
+        public AdminDashboardController(GeeksProject02Context geeksProject02Context)
         {
-            this.patientDBContext = patientDBContext;
+            this.geeksProject02Context = geeksProject02Context;
         }
         public async Task<IActionResult> AdminDashboard()
         {
-            var addBooking = await patientDBContext.AddBookings.ToListAsync();
+            var addBooking = await geeksProject02Context.AddBookings.ToListAsync();
             return View(addBooking);
         }
         [HttpGet]
@@ -34,28 +35,20 @@ namespace GeeksProject02.Controllers
                 Surname = addBookingRequest.Surname,
                 DOB = addBookingRequest.DOB,
                 Gender = addBookingRequest.Gender,
-                AvailableDays = addBookingRequest.AvailableDays != null
-                ? addBookingRequest.AvailableDays.Select(day => new AvailableDay { Day = day }).ToList()
-                : null,
-                PreferredAppointmentTime = addBookingRequest.PreferredAppointmentTime != null
-                ? addBookingRequest.PreferredAppointmentTime.Select(time => new PreferredAppointmentTime { Time = time }).ToList()
-                : null,
-                AppointmentDate = addBookingRequest.AppointmentDate
+                AppointmentDate = addBookingRequest.AppointmentDate,
+                IsMedicalAidMember = addBookingRequest.IsMedicalAidMember
             };
-            await patientDBContext.AddBookings.AddAsync(addBooking);
-             await patientDBContext.SaveChangesAsync();
+            await geeksProject02Context.AddBookings.AddAsync(addBooking);
+             await geeksProject02Context.SaveChangesAsync();
             return RedirectToAction("AdminDashboard");
         }
         [HttpGet]
         public async  Task<IActionResult >View(int id)
         {
-            var addBooking = await patientDBContext.AddBookings
-        .Include(ab => ab.AvailableDays)
-        .Include(ab => ab.PreferredAppointmentTime)
-        .FirstOrDefaultAsync(x => x.Id == id);
+            var addBooking = await geeksProject02Context.AddBookings.FirstOrDefaultAsync(x => x.Id == id);
             if (addBooking != null)
             {
-                var viewModel = new UpdateViewModel()
+                var viewModel = new AdminViewModel()
                 {
 
                     Id = GenerateId.GenerateUniqueId(),
@@ -63,9 +56,8 @@ namespace GeeksProject02.Controllers
                     Surname = addBooking.Surname,
                     DOB = addBooking.DOB,
                     Gender = addBooking.Gender,
-                    AvailableDays = addBooking.AvailableDays,
-                    PreferredAppointmentTime = addBooking.PreferredAppointmentTime,
-                    AppointmentDate = addBooking.AppointmentDate
+                    AppointmentDate = addBooking.AppointmentDate,
+                    IsMedicalAidMember = addBooking.IsMedicalAidMember,
                 };
                 return await Task.Run(() =>View("View", viewModel));
             }
@@ -73,35 +65,34 @@ namespace GeeksProject02.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> View(UpdateViewModel model)
+        public async Task<IActionResult> View(AdminViewModel model)
         {
             
-            var addBooking = await patientDBContext.AddBookings.FindAsync(model.Id);
+            var addBooking = await geeksProject02Context.AddBookings.FindAsync(model.Id);
             if (addBooking != null)
             {
                 addBooking.FirstName = model.FirstName;
                 addBooking.Surname = model.Surname;
                 addBooking.DOB = model.DOB;
                 addBooking.Gender = model.Gender;
-                addBooking.AvailableDays = model.AvailableDays;
-                addBooking.PreferredAppointmentTime = model.PreferredAppointmentTime;
                 addBooking.AppointmentDate = model.AppointmentDate;
+                addBooking.IsMedicalAidMember= model.IsMedicalAidMember;
 
-                await patientDBContext.SaveChangesAsync();
+                await geeksProject02Context.SaveChangesAsync();
                 return RedirectToAction("AdminDashboard");
             }
             return RedirectToAction("AdminDashboard");
 
         }
         [HttpPost]
-        public async Task<IActionResult> Delete(UpdateViewModel model)
+        public async Task<IActionResult> Delete(AdminViewModel model)
         {
-            var addBooking = await patientDBContext.AddBookings.FindAsync(model.Id);
+            var addBooking = await geeksProject02Context.AddBookings.FindAsync(model.Id);
 
             if (addBooking != null)
             {
-                patientDBContext.AddBookings.Remove(addBooking);
-                await patientDBContext.SaveChangesAsync();
+                geeksProject02Context.AddBookings.Remove(addBooking);
+                await geeksProject02Context.SaveChangesAsync();
 
                 return RedirectToAction("AdminDashboard");
             }

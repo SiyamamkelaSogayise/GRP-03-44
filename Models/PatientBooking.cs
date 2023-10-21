@@ -13,9 +13,6 @@
         public string City { get; set; }
         public string Suburb { get; set; }
         public string AdditionalInfo { get; set; }
-        public string PreferredContactMethod { get; set; }
-        public List<AvailableDay> AvailableDays { get; set; }
-        public List<PreferredAppointmentTime> PreferredAppointmentTime { get; set; }
         public DateTime AppointmentDate { get; set; }
         public bool IsMedicalAidMember { get; set; }
         public string MedicalAidNumber { get; set; }

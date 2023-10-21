@@ -1,58 +1,54 @@
-﻿<h1>Add Booking</h1>
-<form border-radius="5px" background-color="aliceblue" padding="20px" action="Add">
-    
-    <div class="form-group">
-        <label for="PhoneNumber">First Name</label>
-        <input type="text" class="form-control" id="name" aria-describedby="First Name" placeholder="Alice Number">
-    </div>
-    <div class="form-group">
-        <label for="Surname">Surname</label>
-        <input type="text" class="form-control" id="surname" aria-describedby="surname" placeholder="Smith">
-    </div>
-    <div class="form-group">
-        <label for="DOB">Date of Birth</label>
-        <input type="date" class="form-control" id="DOB" aria-describedby="DOB" placeholder="27 August 1998">
-    </div>
-    <div>
-        <p>What is your gender?</p>
-        <input type="radio" name="gender" value="male"> Male
-        <input type="radio" name="gender" value="female"> Female
-        <input type="radio" name="gender" value="Rather not say"> Rather not say
+﻿@page
+@model GeeksProject02.Models.AdminViewModel
 
-    </div> 
-
-    <label><b>Days of the week you are available for appointment:</b></label><br>
-
-    <input type="checkbox" id="day1" name="day1" value="Monday">
-    <label for="day1">Monday</label><br>
-    <input type="checkbox" id="day2" name="day2" value="Tuesday">
-    <label for="day2">Tuesday</label><br>
-    <input type="checkbox" id="day3" name="day3" value="Wednesday">
-    <label for="day3">Wednesday</label><br>
-    <input type="checkbox" id="day4" name="day4" value="Thursday">
-    <label for="day4">Thursday</label><br>
-    <input type="checkbox" id="day5" name="day5" value="Friday">
-    <label for="day5">Friday</label><br><br>
-
-    <label><b>Best time of day for your appointment:</b></label><br>
-    <input type="checkbox" id="shift1" name="shift1" value="Morning">
-    <label for="shift1">Morning</label><br>
-    <input type="checkbox" id="shift2" name="shift2" value="Evening">
-    <label for="shift2">Afternoon</label><br>
+<h1>Add Booking</h1>
+<form method="post" asp-controller="AdultsNextPage" asp-action="AdultsNextPage">
+    <center><h2>Personal Information</h2></center>
 
     <div class="form-group">
-        <label for="AppointmentDate">Appointment Date</label>
-        <input type="date" class="form-control" id="AppointmentDate" aria-describedby="AppointmentDate" placeholder="30 October 2023">
+        <label asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" class="form-control" value="Alice" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
-    <center><h2>Payment Method</h2></center>
-    <div class="form-group col-md-4">
-        <label for="medicalAidNumber">Do you belong to a Medical Aid:</label>
-        <select id="medicalAidDropdown" class="form-group col-md-4">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
+    <div class="form-group">
+        <label asp-for="Surname">Surname</label>
+        <input asp-for="Surname" class="form-control" value="Smith" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DOB">Date of Birth</label>
+        <input asp-for="DOB" type="date" class="form-control" value="2023-01-01" />
+        <span asp-validation-for="DOB" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Gender">Gender</label>
+        <select asp-for="Gender" class="form-control">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="Rather not say">Rather not say</option>
         </select>
     </div>
-    <a class="btn btn-primary" asp-area="" asp-controller="AdminDashboard" asp-action="AdminDashboard">Back</a>
-   
+    <div class="form-group">
+        <label asp-for="AppointmentDate">Appointment Date</label>
+        <input asp-for="AppointmentDate" class="form-control" />
+        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group col-md-4">
+        <label asp-for="IsMedicalAidMember">Do you belong to a Medical Aid:</label>
+        <select id="medicalAidDropdown" asp-for="IsMedicalAidMember">
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+        </select>
+    </div>
+
+
+    <div id="button-container">
+        <button id="back-button">Home</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </form>
+

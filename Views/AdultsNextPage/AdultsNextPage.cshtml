@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿@model GeeksProject02.Models.PatientBooking
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -188,106 +190,108 @@
     </section>
 
 
-    <form border-radius="5px" background-color="aliceblue" padding="20px">
+    
+    <form method="post" asp-controller="AdultsNextPage" asp-action="AdultsNextPage">
         <center><h2>Personal Information</h2></center>
 
         <div class="form-group">
-            <label for="PhoneNumber">First Name</label>
-            <input type="text" class="form-control" id="name" aria-describedby="First Name" placeholder="Alice Number">
+            <label asp-for="FirstName">First Name</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <label for="Surname">Surname</label>
-            <input type="text" class="form-control" id="surname" aria-describedby="surname" placeholder="Smith">
-        </div>
-        <div class="form-group">
-            <label for="IDnumber">ID Number</label>
-            <input type="date" class="form-control" id="IDnumber" aria-describedby="IdNumber" placeholder="27 August 1998">
-        </div>
-        <div>
-            <p>What is your gender?</p>
-            <input type="radio" name="gender" value="male"> Male
-            <input type="radio" name="gender" value="female"> Female
-            <input type="radio" name="gender" value="Rather not say"> Rather not say
 
+        <div class="form-group">
+            <label asp-for="Surname">Surname</label>
+            <input asp-for="Surname" class="form-control" />
+            <span asp-validation-for="Surname" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DOB">Date of Birth</label>
+            <input asp-for="DOB" type="date" class="form-control" />
+            <span asp-validation-for="DOB" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gender">Gender</label>
+            <select asp-for="Gender" class="form-control">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="Rather not say">Rather not say</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EmailAddress">EmailAddress</label>
+            <input asp-for="EmailAddress" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber">phoneNumber</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="EmailAddress">EmailAddress</label>
-            <input type="email" class="form-control" id="EmailAddress" placeholder="john.doe@gmail.com">
+            <label asp-for="AppointmentDate">Appointment Date</label>
+            <input asp-for="AppointmentDate" class="form-control" />
+            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <label for="phoneNumber">phoneNumber</label>
-            <input type="number" class="form-control" id="phoneNumber" placeholder="0837700833">
-        </div>
+
         <center><h2>Address</h2></center>
 
         <label for="provinceDropdown">Province:</label>
-        <select id="provinceDropdown" class="custom-dropdown">
+        <select id="provinceDropdown" class="custom-dropdown" name="Province">
             <option value="Eastern Cape">Eastern Cape</option>
-            <option value="Western Cape">Western Cape</option>>
+            <option value="Western Cape">Western Cape</option>
             <option value="Gauteng">Gauteng</option>
             <option value="Kwazulu-Natal">Kwazulu-Natal</option>
             <option value="Limpopo">Limpopo</option>
         </select>
-        <label for="cityDropdown">Cities:</label>
-        <select id="cityDropdown" class="custom-dropdown">
-            <!-- City options will be populated dynamically -->
+
+        <label for="cityDropdown">City:</label>
+        <select id="cityDropdown" class="custom-dropdown" name="City">
+            <!-- Populate city options dynamically if needed -->
         </select>
+
         <label for="suburbDropdown">Suburb:</label>
-        <select id="suburbDropdown">
-            <!-- Suburb options will be populated dynamically -->
+        <select id="suburbDropdown" name="Suburb">
+            <!-- Populate suburb options dynamically if needed -->
         </select>
 
 
         <center><h2>Additional Information</h2></center>
 
-        <div class="col-75">
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" width="100px"></textarea>
+        <div class="form-group">
+            <label asp-for="AdditionalInfo">Symptoms/Requests</label>
+            <textarea asp-for="AdditionalInfo" class="form-control" style="height:200px"></textarea>
+            <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
         </div>
 
-        <label><b>What is the best way to reach you?</b></label><br>
-
-        <input type="radio" id=" Phone" name="radio" value="Phone" style="margin-left:13px;">&nbspPhone<label for="Phone"></label><br>
-        <input type="radio" id="Email" name="radio" value="Email" style="margin-left:13px;">&nbspEmail<label for="Email"></label><br><br>
-
-        <label><b>Days of the week you are available for appointment:</b></label><br>
-
-        <input type="checkbox" id="day1" name="day1" value="Monday">
-        <label for="day1">Monday</label><br>
-        <input type="checkbox" id="day2" name="day2" value="Tuesday">
-        <label for="day2">Tuesday</label><br>
-        <input type="checkbox" id="day3" name="day3" value="Wednesday">
-        <label for="day3">Wednesday</label><br>
-        <input type="checkbox" id="day4" name="day4" value="Thursday">
-        <label for="day4">Thursday</label><br>
-        <input type="checkbox" id="day5" name="day5" value="Friday">
-        <label for="day5">Friday</label><br><br>
-        <label><b>Best time of day for your appointment:</b></label><br>
-        <input type="checkbox" id="shift1" name="shift1" value="Morning">
-        <label for="shift1">Morning</label><br>
-        <input type="checkbox" id="shift2" name="shift2" value="Evening">
-        <label for="shift2">Afternoon</label><br>
-
         <center><h2>Payment Method</h2></center>
-        <div class="form-group col-md-4">
-            <label for="medicalAidNumber">Do you belong to a Medical Aid:</label>
-            <select id="medicalAidDropdown" class="form-group col-md-4">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+
+        <div class="form-group">
+            <label asp-for="IsMedicalAidMember">Do you belong to a Medical Aid:</label>
+            <select asp-for="IsMedicalAidMember" class="form-control">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
             </select>
         </div>
 
-        <div id="medicalAidFields" style="display: none;">
-            <label for="medicalAidNumber">Medical Aid Number:</label>
-            <input type="text" id="medicalAidNumber" name="medicalAidNumber">
+        <div class="form-group" id="medicalAidFields" style="display: none;">
+            <label asp-for="MedicalAidNumber">Medical Aid Number:</label>
+            <input asp-for="MedicalAidNumber" class="form-control" />
 
-            <label for="MedicalAidName">Medical Aid Name:</label>
-            <input type="text" id="MedicalAidName" name="MedicalAidName">
+            <label asp-for="MedicalAidName">Medical Aid Name:</label>
+            <input asp-for="MedicalAidName" class="form-control" />
         </div>
+
         <div id="button-container">
-            <button id="back-button">Back</button>
-            <button id="submit-button">Submit</button>
+            <button id="back-button">Home</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+
     <!-- footer-28 block -->
     <footer class="footer">
         <div class="section__container footer__container">
