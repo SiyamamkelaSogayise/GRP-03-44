@@ -8,7 +8,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="~/css/ContactUs.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Vaccine.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/css/Vaccine.css" asp-append-version="true" /> *@
 </head>
 <header class="">
 
@@ -19,41 +19,26 @@
     </style>
     <div>
         @* <div class="TopHeader"><div class="top-header-links"><a data-backdrop="false" data-toggle="modal" data-target="#emergencyModal" id="modal-emergency-button" class="emergency-services"><img src="/Portals/_default/skins/netcare-core/images/icons/phone-911.svg" class="phone-911"> <div class="es-fullword">Netcare 911</div> <div class="es-sos"></div></a></div> <div class="top-header-buttons"><div class="searchBoxHeader"><a class="search-button"><div class="container"><img src="/Portals/_default/skins/netcare-core/images/icons/search-nav.svg" class="search-netcare"> <div class="search-netcare-text">Search Netcare</div> <div class="search-netcare-small-text"></div> <div class="search-netcare-text-none"></div></div> <img src="/Portals/_default/skins/netcare-core/images/icons/search-close.svg" class="search-netcare-icon-close"></a> <div class="search-input active" style="display: none;"><input type="text" id="modalSearchTextbox" autocomplete="off" disabled="disabled" class="form-control grey-text"> <div class="search-progress" style="display: block;"><div class="search-progress-bar" style="width: 100%;"></div></div> <div class="search-bar-text"></div> <div class="autocomplete-box"><div class="container-fluid"><div class="row"><div class="suggestions"><div class="SearchResults"><a href="/search?path=hospitals_facilities"><div class="suggestion-text-new"><span>Find a hospital</span></div></a><a href="/search?path=hospitals_specialists"><div class="suggestion-text-new"><span>Find a specialist</span></div></a><a href="/search?path=medicross_medical_dental"><div class="suggestion-text-new"><span>Find a medical or dental centre</span></div></a><a href="/search?path=medicross_gp"><div class="suggestion-text-new"><span>Find a GP</span></div></a><a href="/search?path=medicross_dentist"><div class="suggestion-text-new"><span>Find a dentist</span></div></a><a href="/search?path=pharmacy"><div class="suggestion-text-new"><span></span></div></a><a href="/search?path=medical_conditions"><div class="suggestion-text-new"><span>Find a medical condition</span></div></a><a href="/search"><div class="suggestion-text-new"><span>Looking for something else?</span></div></a></div></div></div></div></div></div></div> <a id="homepage_mynetcareonline-topnav-btn" target="_blank" href="/mynetcare-online" class="login-button"><img src="/Portals/_default/skins/netcare-core/images/icons/avatar-blue.svg" class="not-loggedin"> <div class="login-button-text">MyNetcare Online login</div> <div class="login-button-text-xs"></div></a> <!----> <!----></div></div> <div id="mega-menu-container"> *@
-        <nav id="mega-menu" class="mega-menu-desktop">
-            <!----> <a class="mega-menu-logo" href="/"><img src="/css/hospital-sign-cross-logo-vector-20061329.jpg"></a> <div class="top-level">
-                <div class="link-item has-items">
-                    <div class="link-text">
-                        About eNompilo
-                        <!---->
-                    </div>
-                </div><div class="link-item">
-                    <a href="/Quality-Of-Care/Quality-Of-Care-Overview" target="">
-                        <div class="link-text">
-                            Home
-                            <!---->
-                        </div>
-                    </a>
-                </div><div class="link-item has-items">
-                    <div class="link-text">
-                        About Us
-                        <!---->
-                    </div>
-                </div><div class="link-item has-items">
-                    <div class="link-text">
-                        Our services
-                        <!---->
-                    </div>
-                </div><div class="link-item has-items">
-                    <div class="link-text">
-                        Contact Us
-                        <!---->
-                    </div>
-                </div>
-            </div> <div id="shoppingcart" class=""></div> <a id="homepage_requestanappointment-topnav-btn" target="" class="btn-primary menubar-button" href="/netcare-appointmed/appointmed-form/">Request an appointment</a>
-        </nav> <nav id="mega-menu" class="mega-menu-mobile"><!----> <a class="mega-menu-logo" href="/"><img src="/Portals/_default/skins/netcare-core/images/logos/Netcare.png"></a> <!----> <div></div> <div id="shoppingcartmobile" class=""></div> <div class="mega-menu-mobile-button"></div> <!----></nav> <!----> <!---->
-    </div>
-    </div>
-    <isloggedin style="display:none;"></isloggedin>
+        <nav class="section__container nav__container" color="black">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <ul class="nav__links">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <button class="btn">Contact Us</button>
+
+        </nav>
+      
 </header>
 <body>
     <section class="w3l-about-breadcrumb" color="orange">
