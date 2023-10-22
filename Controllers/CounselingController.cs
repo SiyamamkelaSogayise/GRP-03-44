@@ -34,5 +34,11 @@ namespace GeeksProject02.Controllers
             return View();
         }
 
+        public IActionResult CounselingService()
+        {
+            return View();
+        }
+
+
     }
 }
