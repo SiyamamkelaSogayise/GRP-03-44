@@ -3,28 +3,58 @@
 } *@
 
 
-@model GeeksProject02.Models.Pregnancy_Tracker
+ @model GeeksProject02.Models.Pregnancy_Tracker
+@*  @model GeeksProject02.Models.Patient_Info *@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-@*     <title>Expecting | Pregnancy Calculator</title>
-
+<header>
+    Expecting | Pregnancy Calculator
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta http-equiv="refresh" content="86400">
     <meta name="description" content="A slick pregnancy calculator for the mobile era" />
-
-    <link rel="icon" href="" type="image/x-icon">
+    @*     <link rel="icon" href="" type="image/x-icon">
     <link rel="shortcut icon" href="favico.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="favico.png" /> *@
-    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" href="favico.png" />
+    <meta charset="utf-8" /> *@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - GeeksProject02</title>
+    @ViewData["Title"] - GeeksProject02
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/PregTracker.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Prenatal_Care.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</header>
+<html lang="en">
+<head>
+    <title>Pregnancy Calculator</title>
+    <link rel="stylesheet" type="text/css" href="~/css/PregTracker.css">
 </head>
+<body>
+    <div>
+        <h1>Pregnancy Calculator</h1>
+        <div>
+            <label for="lmp-date">Enter LMP date:</label>
+            <input asp-for="last_period" type="date" id="lmp-date">
+        </div>
+        <div>
+            <button id="calculate-btn">Calculate</button>
+        </div>
+        <div>
+            <br />
+            <label for="output-field">Current week and day of pregnancy:</label>
+            <input asp-for="current_week" type="text" id="output-field" disabled>
+        </div>
+        <div>
+            <br />
+            <button type="submit" id="confirm-btn">Confirm</button>
+        </div>
+    </div>
+        @* <input type="sumbit" class="btn" value="Confirm" /> *@
+    <script src="~/js/PregTracker.js"></script>
+</body>
+</html>
+
+@* </head>
 <body>
     <settings>
         <section id="head">
@@ -86,5 +116,4 @@
 
     <script src="PregTracker.js"></script>
 </body>
-</html>
-
+</html> *@

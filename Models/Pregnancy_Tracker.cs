@@ -10,13 +10,16 @@ namespace GeeksProject02.Models
         [Required]
         public DateTime last_period { get; set; }
 
-        [Required]
-        public DateTime delivery_date { get; set; }
+        //[Required]
+        //public DateTime delivery_date { get; set; }
 
         [Required]
         public int current_week { get; set; }
 
+        //[Required]
+        //public int current_day { get; set; }
+
         [Required]
-        public int current_day { get; set; }
+        public int patient_ID { get;set; }
     }
 }

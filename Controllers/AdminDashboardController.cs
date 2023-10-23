@@ -1,4 +1,5 @@
 ﻿using GeeksProject02.Areas.Identity.Data;
+using GeeksProject02.Data;
 using GeeksProject02.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,9 +9,9 @@ namespace GeeksProject02.Controllers
 
     public class AdminDashboardController : Controller
     {
-        private readonly PatientDBContext patientDBContext;
+        private readonly GeeksProject02Context patientDBContext;
 
-        public AdminDashboardController(PatientDBContext patientDBContext)
+        public AdminDashboardController(GeeksProject02Context patientDBContext)
         {
             this.patientDBContext = patientDBContext;
         }
