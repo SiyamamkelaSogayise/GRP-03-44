@@ -39,6 +39,38 @@ namespace GeeksProject02.Controllers
             return View();
         }
 
+        public IActionResult ChildrenTeen()
+        {
+            return View();
+        }
+
+        public IActionResult CounRelationship()
+        {
+            return View();
+        }
+
+
+        public IActionResult AdultCoun()
+        {
+            return View();
+        }
+
+        public IActionResult AssessementsCoun()
+        {
+            return View();
+        }
+
+        public IActionResult Asseseements()
+        {
+            return View();
+        }
+
+
+
+        public IActionResult DialeticalTherapy()
+        {
+            return View();
+        }
 
     }
 }
