@@ -22,6 +22,6 @@
         </p>
     </div>
     <div class="about__image">
-        <img src="/css/black doctor.jpg" alt="about" />
+        <img src="~/css/black doctor.jpg" alt="about" />
     </div>
 </section>
