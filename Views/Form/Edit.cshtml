@@ -1,13 +1,16 @@
-﻿@{
-    Layout = "_LayoutFormBooking";
-}
+﻿@page
 @model GeeksProject02.Models.Appointments
 
-<h1>Add Booking</h1>
-<form method="post" action="Add" class="mt-5">
-    <center><h2>Personal Information</h2></center>
+<h1>View Booking</h1>
+@* <center><h2>Personal Information</h2></center> *@
+<form class="form-data" method="post" class="mt-5">
+    <div asp-validation-summary="ModelOnly" class="text-danger></div>
+    <div class="form-head"></div>
 
-
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly />
+    </div>
     <label class="form-label fs-14;">First Name<span style="color: red;">*</span>:</label><br>
     <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName"><br>
     <span asp-validation-for="FirstName" class="text-danger"></span>
@@ -65,5 +68,6 @@
     </div>
 
     <input type="submit" class="btn btn-info w-75" value="Submit" />
-</form>
 
+
+</form>

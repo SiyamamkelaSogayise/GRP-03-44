@@ -44,15 +44,15 @@
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    @* <script>
         $(document).ready(function () {
             // Define a dictionary to store province-city mapping
             var provinceCities = {
                 "Eastern Cape": ["Port Elizabeth", "East London", "Mthatha", "King Williams Town", "Queens Town"],
                 "Western Cape": ["Khayelitsha", "Parow", "Stellenbosch", "Bellville", "Paarl"],
                 "Gauteng": ["Johannesburg", "Pretoria", "Thembisa", "Soweto"],
-                "Kwazulu-Natal": ["Durban", "Richards Bay", "Umhlanga Rocks", "St. Lucia", "Scottsburgh"],
-                "Limpompo": ["Polokwane", "Giyane", "Thohoyandou", "Thabazimbi", "Musina"]
+                "Kwazulu-Natal": ["Durban", "Richards Bay", "Umhlanga Rocks"]
+                // "Limpompo": ["Polokwane", "Giyane", "Thohoyandou", "Thabazimbi", "Musina"]
             };
 
             // Define a dictionary to store city-suburb mapping
@@ -73,8 +73,12 @@
                 "Soweto": ["Orlando", "Diepkloof", "Protea Glen"],
                 "Durban": ["eThekwini", "uMhlanga", "Pinetown"],
                 "Richards Bay": ["Kwa-biyela", "Kwa-malandela", "Mtubatuba"],
-                "Mhlanga Rocks": ["Izinga", "La Lucia", "Ridgeside"],
-                "Polokwane": ["Penina Park", "Annadale", "Ivy Park"],
+                "Umhlanga Rocks": ["Izinga", "La Lucia", "Ridgeside"]
+                // "Polokwane": ["Penina Park", "Annadale", "Ivy Park"],
+                // "Giyane": ["Shiviti", "Tshaulu", "Vongani"],
+                // "Thohoyandou": ["Mukula", "Mulenzhe", "Phangami"],
+                // "Thabazimbi": ["Alice", "East London", "Bhisho"],
+                // "Musina": ["Phakamisa", "Libode", "Mhlanga"]
             };
 
             // Function to update city options based on the selected province
@@ -120,7 +124,7 @@
             // Initialize city options based on the initial selected province
             updateCityOptions($("#provinceDropdown").val());
         });
-    </script>
+    </script> *@
 
     <script>
         $(document).ready(function () {
@@ -140,12 +144,12 @@
             });
         });
     </script>
-
+ 
 
 </head>
 <body>
     <section class="w3l-bootstrap-header">
-        @* <nav class="section__container"> *@
+        @* <nav class="section__container">
             @* <div class="container"> *@
             @* <a class="navbar-brand" href="index.html">
             @* <img src="~/css/plus-medical-cross-logo-icon-vector.jpg" class="img-fluid" width="52"> *@
@@ -189,108 +193,66 @@
         </div>
     </section>
 
+   
+    <center><h2>Personal Information</h2></center>
+    <form class="form-data" method="post" asp-action="AdultsNextPage">
+    @* <div asp-validation-summary="ModelOnly" class="text-danger> </div> *@
 
+    <h2 class="underlined-heading">Personal Information</h2>
     
-    <form method="post" asp-controller="AdultsNextPage" asp-action="AdultsNextPage">
-        <center><h2>Personal Information</h2></center>
-
-        <div class="form-group">
-            <label asp-for="FirstName">First Name</label>
-            <input asp-for="FirstName" class="form-control" />
-            <span asp-validation-for="FirstName" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Surname">Surname</label>
-            <input asp-for="Surname" class="form-control" />
-            <span asp-validation-for="Surname" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="DOB">Date of Birth</label>
-            <input asp-for="DOB" type="date" class="form-control" />
-            <span asp-validation-for="DOB" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Gender">Gender</label>
-            <select asp-for="Gender" class="form-control">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="Rather not say">Rather not say</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="EmailAddress">EmailAddress</label>
-            <input asp-for="EmailAddress" class="form-control" />
-            <span asp-validation-for="EmailAddress" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="PhoneNumber">phoneNumber</label>
-            <input asp-for="PhoneNumber" class="form-control" />
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="AppointmentDate">Appointment Date</label>
-            <input asp-for="AppointmentDate" class="form-control" />
-            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-        </div>
-
-        <center><h2>Address</h2></center>
-
-        <label for="provinceDropdown">Province:</label>
-        <select id="provinceDropdown" class="custom-dropdown" name="Province">
-            <option value="Eastern Cape">Eastern Cape</option>
-            <option value="Western Cape">Western Cape</option>
-            <option value="Gauteng">Gauteng</option>
-            <option value="Kwazulu-Natal">Kwazulu-Natal</option>
-            <option value="Limpopo">Limpopo</option>
-        </select>
-
-        <label for="cityDropdown">City:</label>
-        <select id="cityDropdown" class="custom-dropdown" name="City">
-            <!-- Populate city options dynamically if needed -->
-        </select>
-
-        <label for="suburbDropdown">Suburb:</label>
-        <select id="suburbDropdown" name="Suburb">
-            <!-- Populate suburb options dynamically if needed -->
-        </select>
-
-
-        <center><h2>Additional Information</h2></center>
-
-        <div class="form-group">
-            <label asp-for="AdditionalInfo">Symptoms/Requests</label>
-            <textarea asp-for="AdditionalInfo" class="form-control" style="height:200px"></textarea>
-            <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
-        </div>
-
-        <center><h2>Payment Method</h2></center>
-
-        <div class="form-group">
-            <label asp-for="IsMedicalAidMember">Do you belong to a Medical Aid:</label>
-            <select asp-for="IsMedicalAidMember" class="form-control">
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-            </select>
-        </div>
-
-        <div class="form-group" id="medicalAidFields" style="display: none;">
-            <label asp-for="MedicalAidNumber">Medical Aid Number:</label>
-            <input asp-for="MedicalAidNumber" class="form-control" />
-
-            <label asp-for="MedicalAidName">Medical Aid Name:</label>
-            <input asp-for="MedicalAidName" class="form-control" />
-        </div>
-
-        <div id="button-container">
-            <button id="back-button">Home</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+    <label class="form-label fs-14">First Name<span style="color: red;">*</span>:</label>
+    <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName">
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+    
+    <label class="form-label fs-14">Surname<span style="color: red;">*</span>:</label>
+    <input type="text" class="form-control" placeholder="Surname" asp-for="Surname">
+    <span asp-validation-for="Surname" class="text-danger"></span>
+    
+    <label class="form-label fs-14">Gender<span style="color: red;">*</span>:</label>
+    <select class="form-control" asp-for="Gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="Rather not say">Rather not say</option>
+    </select>
+    <span asp-validation-for="Gender" class="text-danger"></span>
+    
+    <label class="form-label fs-14">Phone Number<span style="color: red;">*</span>:</label>
+    <input type="text" class="form-control" placeholder="Phone Number" asp-for="PhoneNumber">
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    
+    <label class="form-label fs-14">Date of Birth<span style="color: red;">*</span>:</label>
+    <input type="date" class="form-control" placeholder="Date of Birth" asp-for="DOB">
+    <span asp-validation-for="DOB" class="text-danger"></span>
+    
+    
+    <label class="form-label fs-14">Appointment Date<span style="color: red;">*</span>:</label>
+    <input type="date" class="form-control" placeholder="" asp-for="AppointmentDate">
+    <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+    
+    <h2 class="underlined-heading">Additional Information</h2>
+    
+    <label class="form-label fs-14">Symptoms/Requests:</label>
+    <textarea class="form-control" asp-for="AdditionalInfo" placeholder="Symptoms/Requests" style="height:200px"></textarea>
+    <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
+    
+    <h2 class="underlined-heading">Payment Method</h2>
+    
+    <label class="form-label fs-14">Do you belong to a Medical Aid:</label>
+    <select class="form-control" id="medicalAidDropdown">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>
+    
+    <div class="form-group" id="medicalAidFields" style="display: none;">
+        <label class="form-label fs-14">Medical Aid Number:</label>
+        <input type="text" class="form-control" placeholder="Medical Aid Number" asp-for="MedicalAidNumber">
+        
+        <label class="form-label fs-14">Medical Aid Name:</label>
+        <input type="text" class="form-control" placeholder="Medical Aid Name" asp-for="MedicalAidName">
+    </div>
+    
+    <input type="submit" class="btn btn-info w-75" value="Submit" />
+</form>
 
     <!-- footer-28 block -->
     <footer class="footer">
