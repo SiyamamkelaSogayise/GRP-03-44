@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+@model GeeksProject02.Models.Appointments
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<h1>View Booking</h1>
+@* <center><h2>Personal Information</h2></center> *@
+<form class="form-data" method="post" class="mt-5">
+    <div asp-validation-summary="ModelOnly" class="text-danger></div>
+    <div class="form-head"></div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly />
+    </div>
+    <label class="form-label fs-14;">First Name<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName"><br>
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+
+    <label class="form-label fs-14;">Surname<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Surname" asp-for="Surname"><br>
+    <span asp-validation-for="Surname" class="text-danger"></span>
+
+    <label class="form-label fs-14;">Date Of Birth<span style="color: red;">*</span>:</label><br>
+    <input type="date" class="form-control" asp-for="DOB"><br>
+    <span asp-validation-for="DOB" class="text-danger"></span>
+
+    <div class="form-floating mb-3">
+        <label for="gender">Gender <span style="color: red;">*</span>:</label>
+        <select class="form-select" id="gender" asp-for="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <label class="form-label fs-14;">Email Address<span style="color: red;">*</span>:</label><br>
+    <input type="email" class="form-control" placeholder="name@example.com" asp-for="EmailAddress"><br>
+    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+
+    <label class="form-label fs-14;">Phone Number<span style="color: red;">*</span>:</label><br>
+    <input type="tel" class="form-control" placeholder="0721784629" asp-for="PhoneNumber"><br>
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Symptoms/Requests" asp-for="AdditionalInfo"></textarea>
+        <label for="AdditionalInfo">AdditionalInfo <span style="color: red;">*</span>:</label>
+        <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control" asp-for="AppointmentDate">
+        <label for="AppointmentDate">Appointment Date <span style="color: red;">*</span>:</label>
+        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+    </div>
+
+    <label class="form-label fs-14">Do you belong to a Medical Aid <span style="color: red;">*</span>:</label>
+    <select class="form-control" id="medicalAidDropdown">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>
+
+    <div class="form-group" id="medicalAidFields" style="display: none;">
+        <label class="form-label fs-14">Medical Aid Number <span style="color: red;">*</span>:</label>
+        <input type="text" class="form-control" placeholder="Medical Aid Number" asp-for="MedicalAidNumber">
+
+        <label class="form-label fs-14">Medical Aid Name<span style="color: red;">*</span>:</label>
+        <input type="text" class="form-control" placeholder="Medical Aid Name" asp-for="MedicalAidName">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Form">Delete</button>
+
+
+</form>

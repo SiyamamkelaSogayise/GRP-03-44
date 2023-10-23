@@ -105,7 +105,7 @@ namespace GeeksProject02.Controllers
                 };
                 return await Task.Run(() => View("View", viewModel));
             }
-            return RedirectToAction("AdminDashboard");
+            return RedirectToAction("Appointments");
 
         }
         [HttpPost]
@@ -143,9 +143,9 @@ namespace GeeksProject02.Controllers
                 _dbContext.Forms.Remove(form);
                 await _dbContext.SaveChangesAsync();
 
-                return RedirectToAction("AdminDashboard");
+                return RedirectToAction("Appointments");
             }
-            return RedirectToAction("AdminDashboard");
+            return RedirectToAction("Appointments");
         }
 
 
