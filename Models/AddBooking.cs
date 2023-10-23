@@ -1,26 +1,23 @@
-﻿namespace GeeksProject02.Models
-{
-    public class AvailableDay
-    {
-        public int Id { get; set; }
-        public string Day { get; set; }
-    }
+﻿using System.ComponentModel.DataAnnotations;
 
-    public class PreferredAppointmentTime
-    {
-        public int Id { get; set; }
-        public string Time { get; set; }
-    }
+namespace GeeksProject02.Models
+{
+   
     public class AddBooking
     {
+        [Key]
         public int Id { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string Surname { get; set; }
+        [Required]
         public string DOB { get; set; }
+        [Required]
         public string Gender { get; set; }
-        public List<AvailableDay>? AvailableDays { get; set; }
-        public List<PreferredAppointmentTime>? PreferredAppointmentTime { get; set; }
+        [Required]
         public DateTime AppointmentDate { get; set; }
+        [Required]
         public bool IsMedicalAidMember { get; set; }
     }
 

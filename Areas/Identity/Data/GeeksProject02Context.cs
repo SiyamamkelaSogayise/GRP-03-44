@@ -30,6 +30,8 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     public DbSet<ChronicBooking> BookingChronic { get; set; }
 
 
-    public DbSet<AddBooking> AddBookings { get; set; }
-    public DbSet<PatientBooking> PatientBookings { get; set; }
+    public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
+    public DbSet<ChronicBooking> BookingChronic { get; set; }
+    
+    public DbSet<Form> Forms { get; set; }
 }

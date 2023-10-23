@@ -54,12 +54,15 @@
         <label class="form-label fs-14;">Name<span style="color: red;">*</span>:</label><br>
         <input type="text" class="form-control" placeholder="Name" asp-for="Name"><br><br>
         <span asp-validation-for="Name" class="text-danger"></span>
+
         <label class="form-label fs-14;">Surname<span style="color: red;">*</span>:</label><br>
         <input type="text" class="form-control" placeholder="Surname" asp-for="Surname"><br><br>
         <span asp-validation-for="Surname" class="text-danger"></span>
+
         <label class="form-label fs-14;">Gender<span style="color: red;">*</span>:</label><br>
         <input type="text" class="form-control" placeholder="Male/Female" asp-for="Gender"><br><br>
         <span asp-validation-for="Gender" class="text-danger"></span>
+
         <label class="form-label fs-14;">Mobile Number<span style="color: red;">*</span>:</label><br>
         <input type="number" class="form-control" placeholder="0721784629" asp-for="MobileNumber"><br><br>
         <span asp-validation-for="MobileNumber" class="text-danger"></span>
@@ -88,6 +91,7 @@
         <label class="form-label fs-14;">Surgeries Undergone:</label><br>
         <input type="text" class="form-control" placeholder="any Surgery done to you" asp-for="surgiersUndergone"><br><br>
         <span asp-validation-for="surgiersUndergone" class="text-danger"></span>
+
         <label class="form-label fs-14;">Family Medical History:</label><br>
         <input type="text" class="form-control" placeholder="Chronic desease affected a family member before" asp-for="FamilyMedicalHistory"><br><br>
         <span asp-validation-for="FamilyMedicalHistory" class="text-danger"></span>
@@ -95,9 +99,11 @@
         <label class="form-label fs-14;">Previous Medication:</label><br>
         <input type="text" class="form-control" placeholder="Previous Medication" asp-for="PreviousMedication"><br><br>
         <span asp-validation-for="PreviousMedication" class="text-danger"></span>
+
         <label class="form-label fs-14;">Immunization History:</label><br>
         <textarea type="text" class="form-control" placeholder="Details about vaccination received" asp-for="ImmunizationHistory"></textarea><br><br>
         <span asp-validation-for="ImmunizationHistory" class="text-danger"></span>
+
         <label class="form-label fs-14;">Hospilitazation:</label><br>
         <input type="text" class="form-control" placeholder="Any previous hospitalizations, including the reason" asp-for="Hospitalizations"><br><br>
         <span asp-validation-for="Hospitalizations" class="text-danger"></span>

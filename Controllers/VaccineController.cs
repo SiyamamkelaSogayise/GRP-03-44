@@ -15,7 +15,14 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
-        
+        public IActionResult VaccineLocations()
+        {
+            return View();
+        }
+        public IActionResult SelfScreening()
+        {
+            return View();
+        }
 
     }
 

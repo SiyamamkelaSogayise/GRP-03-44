@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeeksProject02.Migrations
 {
     [DbContext(typeof(GeeksProject02Context))]
-    partial class GeeksProject02ContextModelSnapshot : ModelSnapshot
+    [Migration("20231023082613_Forms")]
+    partial class Forms
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,16 +97,13 @@ namespace GeeksProject02.Migrations
 
             modelBuilder.Entity("GeeksProject02.Models.ChronicBooking", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BookingID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"), 1L, 1);
 
-                    b.Property<DateTime>("AppointmentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DOB")
+                    b.Property<string>("BookingDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -120,12 +119,7 @@ namespace GeeksProject02.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PatientBookingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddBookingId");
+                    b.HasKey("BookingID");
 
                     b.ToTable("BookingChronic");
                 });
@@ -294,104 +288,6 @@ namespace GeeksProject02.Migrations
                     b.ToTable("Patient_Info");
                 });
 
-            modelBuilder.Entity("GeeksProject02.Models.PatientBooking", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("AdditionalInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("AppointmentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DOB")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmailAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsMedicalAidMember")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MedicalAidName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MedicalAidNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PreferredContactMethod")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Province")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Suburb")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PatientBookings");
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.PreferredAppointmentTime", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("AddBookingId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PatientBookingId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddBookingId");
-
-                    b.HasIndex("PatientBookingId");
-
-                    b.ToTable("PreferredAppointmentTime");
-                });
-
             modelBuilder.Entity("GeeksProject02.Models.Pregnancy_Tracker", b =>
                 {
                     b.Property<int>("pregnancy_ID")
@@ -400,14 +296,17 @@ namespace GeeksProject02.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("pregnancy_ID"), 1L, 1);
 
+                    b.Property<int>("current_day")
+                        .HasColumnType("int");
+
                     b.Property<int>("current_week")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("last_period")
+                    b.Property<DateTime>("delivery_date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("patient_ID")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("last_period")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("pregnancy_ID");
 
@@ -551,28 +450,6 @@ namespace GeeksProject02.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("GeeksProject02.Models.AvailableDay", b =>
-                {
-                    b.HasOne("GeeksProject02.Models.AddBooking", null)
-                        .WithMany("AvailableDays")
-                        .HasForeignKey("AddBookingId");
-
-                    b.HasOne("GeeksProject02.Models.PatientBooking", null)
-                        .WithMany("AvailableDays")
-                        .HasForeignKey("PatientBookingId");
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.PreferredAppointmentTime", b =>
-                {
-                    b.HasOne("GeeksProject02.Models.AddBooking", null)
-                        .WithMany("PreferredAppointmentTime")
-                        .HasForeignKey("AddBookingId");
-
-                    b.HasOne("GeeksProject02.Models.PatientBooking", null)
-                        .WithMany("PreferredAppointmentTime")
-                        .HasForeignKey("PatientBookingId");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -622,20 +499,6 @@ namespace GeeksProject02.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.AddBooking", b =>
-                {
-                    b.Navigation("AvailableDays");
-
-                    b.Navigation("PreferredAppointmentTime");
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.PatientBooking", b =>
-                {
-                    b.Navigation("AvailableDays");
-
-                    b.Navigation("PreferredAppointmentTime");
                 });
 #pragma warning restore 612, 618
         }
