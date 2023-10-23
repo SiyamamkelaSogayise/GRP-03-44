@@ -86,24 +86,30 @@
 
         </button> *@
 
-        <nav class="section__container nav__container" color="black">
+        <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
-            <ul class="nav__links">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="services.html">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-            <button class="btn">Contact Us</button>
+            <nav class="section__container nav__container" color="black">
+                @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                <ul class="nav__links">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                    </li>
+                </ul>
+
+                <a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a>
+            </nav>
+
+        </nav>
         </nav>
     </section>
     <section class="w3l-about-breadcrumb" color="orange">

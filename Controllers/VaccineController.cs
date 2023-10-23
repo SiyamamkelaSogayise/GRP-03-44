@@ -19,6 +19,10 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+        public IActionResult SelfScreening()
+        {
+            return View();
+        }
 
     }
 
