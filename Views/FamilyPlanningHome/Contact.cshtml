@@ -180,12 +180,12 @@
             <nav class="section__container nav__container">
                 <div class="nav__logo">e-<span>Nompilo</span></div>
                 <ul class="nav__links">
-                    <li><a asp-controller="FamilyPlanningHome"   asp-action="Add">Home</a></li>
-                    <li><Link to="/about-us">About Us</li>
-                    <li><Link to="/services">Services</li>
-                    <li><Link to="/contact-us">Contact Us</li>
+                    <li><a style="color:black" asp-controller="FamilyPlanningHome"   asp-action="Index">Home</a></li>
+                    <li><a style="color:black" asp-controller="NewLandingPage" asp-action="Landing Page">About Us</a></li>
+                    <li><a style="color:black" asp-controller="NewLandingPage" asp-action="Landing Page">Services</a></li>
+
                 </ul>
-                <button class="btn">Contact Us</button>
+                <button> <a asp-controller="LandingP_Contactus" asp-action="ContactUs">Services</a></button>
             </nav>
         </header>
 
