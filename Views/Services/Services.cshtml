@@ -16,23 +16,21 @@
                 @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
                 <ul class="nav__links">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                        <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
                     </li>
-                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                        <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
                     </li>
                 </ul>
-
-                <a class="btn btn-primary" asp-area="" asp-controller="AdultsNextPage" asp-action="AdultsNextPage">Request an Appointment</a>
             </nav>
-
+            <div><a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a></div>
         </nav>
         <div class="section__container header__container">
             <div class="header__content">
@@ -45,7 +43,7 @@
                 </p>
                 @* <button class="btn">See Services</button> *@
             </div>
-            
+
         </div>
     </header>
 

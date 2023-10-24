@@ -16,23 +16,21 @@
                 @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
                 <ul class="nav__links">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                        <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Services">Contact Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
                     </li>
                 </ul>
-                
-                <a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a>
             </nav>
-            
+            <div><a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a></div>
         </nav>
         <div class="section__container header__container">
             <div class="header__content">
@@ -62,52 +60,52 @@
         </div>
         <div class="service__grid">
             <div class="service__card">
-                <span><i class="ri-hospital-line"></i></span>
+                <span><i class="ri-syringe-fill"></i></span>
                 <h4>Vaccination</h4>
                 <p>
                     Protect yourself and your loved ones with Vaccination.
                     Safeguarding health, one shot at a time.
                 </p>
-                <a class="btn btn-primary" asp-area="" asp-controller="Vaccine" asp-action="Vaccine">Learn More</a>
+                <a class="btn btn-primary" style="color:white" asp-area="" asp-controller="Vaccine" asp-action="Vaccine">Learn More</a>
             </div>
             <div class="service__card">
-                <span><i class="ri-hospital-line"></i></span>
+                <span><i class="ri-hand-heart-fill"></i></span>
                 <h4>Prenatal Care</h4>
                 <p>
                     Nurturing new life with Prenatal Care.
                     Your journey to motherhood starts here.
                 </p>
-                <a class="btn btn-primary" asp-area="" asp-controller="Prenatal" asp-action="Index">Learn More</a>
+                <a class="btn btn-primary" style="color:white" asp-area="" asp-controller="Prenatal" asp-action="Index">Learn More</a>
 
             </div>
             <div class="service__card">
-                <span><i class="ri-hospital-line"></i></span>
+                <span><i class="ri-home-heart-fill"></i></span>
                 <h4>Family Planning</h4>
                 <p>
                     Take control of your family's future with our Family Planning services.
                     Your choices, your family, your future
                 </p>
-                <a class="btn btn-primary" asp-area="" asp-controller="FamilyPlanningHome" asp-action="Index">Learn More</a>
+                <a class="btn btn-primary" style="color:white" asp-area="" asp-controller="FamilyPlanningHome" asp-action="Index">Learn More</a>
 
             </div>
             <div class="service__card">
-                <span><i class="ri-hospital-line"></i></span>
+                <span><i class="ri-capsule-fill"></i></span>
                 <h4>Chronic Medication</h4>
                 <p>
                     Simplify your healthcare routine.
                     Conveniently collect your chronic medication with us.
                 </p>
-                <a class="btn btn-primary" asp-area="" asp-controller="ChronicMedication" asp-action="Chronic">Learn More</a>
+                <a class="btn btn-primary" style="color:white" asp-area="" asp-controller="ChronicMedication" asp-action="Chronic">Learn More</a>
 
             </div>
             <div class="service__card">
-                <span><i class="ri-hospital-line"></i></span>
+                <span><i class="ri-mental-health-fill"></i></span>
                 <h4>Counselling</h4>
                 <p>
                     Embrace healing and hope through Counseling.
                     We're here to support your emotional well-being.
                 </p>
-                <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="Counsel">Learn More</a>
+                <a class="btn btn-primary" style="color:white" asp-area="" asp-controller="Counseling" asp-action="Counsel">Learn More</a>
             </div>
         </div>
     </section>
