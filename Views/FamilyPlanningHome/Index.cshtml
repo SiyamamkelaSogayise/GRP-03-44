@@ -56,18 +56,29 @@
 
 <body>
     <div class="page-wrap">
-    <header>
-        <nav class="section__container nav__container">
-            <div class="nav__logo">e-<span>Nompilo</span></div>
-            <ul class="nav__links">
-                <li><Link to="/">Home</li>
-                <li><Link to="/about-us">About Us</li>
-                <li><Link to="/services">Services</li>
-                <li><Link to="/contact-us">Contact Us</li>
-            </ul>
-            <button class="btn">Contact Us</button>
-        </nav>
-    </header>
+        <header>
+            <nav class="section__container nav__container">
+                <div class="nav__logo">e-<span>Nompilo</span></div>
+                <nav class="section__container nav__container" color="black">
+                    @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                    <ul class="nav__links">
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
+        </header>
 
     <style>
         .carousel-container {
@@ -168,7 +179,7 @@
                 <img class="bd-placeholder-img rounded-circle" width="80" height="300" src="~/css/Family planning feeedback.jpg" alt="Placeholder: 140x140">
                 <h2>Feedback And Survey</h2>
                     <p>Conduct regular surveys to gauge patient satisfaction with the family planning services provided. Include questions related to the quality of care, the helpfulness of the staff, waiting times, and overall experience.</p>
-                    <p><a class="btn btn-secondary" asp-controller="LandingP_Contactus" asp-action="ContactUs">View details »</a></p>
+                    <p> <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">View details »</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
         <!-- START THE FEATURETTES -->

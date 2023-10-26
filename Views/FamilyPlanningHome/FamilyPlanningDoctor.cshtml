@@ -1,0 +1,220 @@
+﻿<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#patient">Patient</a></li>
+    <li><a data-toggle="tab" href="#prescription">Prescription</a></li>
+    <li><a data-toggle="tab" href="#billing">Billing</a></li>
+    <link rel="stylesheet" href="~/css/FamilyPlanningDoctor.css" asp-append-version="true" />
+</ul>
+<div class="tab-content">
+    <div id="patient" class="tab-pane fade in active">
+        <div class="container-fluid">
+            <div style="height:40px"></div>
+            <div class="row">
+                <div class="col-xs-1 col-sm-2 col-md-2 "></div>
+                <form method="POST" action="" accept-charset="UTF-8" class="form-horizontal col-xs-12 col-sm-10 col-md-8">
+                    <!-- <form class="form-horizontal col-xs-10 col-sm-6 col-md-4 ">-->
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Patient History</legend>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="name">Name</label>
+                            <div class="col-md-5">
+                                <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
+                            </div>
+                            <label class="col-md-1 control-label" for="age">Age</label>
+                            <div class="col-md-2">
+                                <input id="age" name="age" type="text" placeholder="age" class="form-control input-md">
+                            </div>
+                            <label class="col-md-1 control-label" for="Sex">Sex</label>
+                            <div class="col-md-2">
+                                <select class="select form-control" name="sex[]" id="sex">
+                                    <option value="Male">
+                                        Male
+                                    </option>
+                                    <option value="Female">
+                                        Female
+                                    </option>
+                                    <option value="NA">
+                                        NA
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="Address">Address</label>
+                            <div class="col-md-11">
+                                <input id="Address" name="Address" type="text" placeholder="Address" class="form-control input-md">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="occupation">Occupation</label>
+                            <div class="col-md-6">
+                                <input id="occupation" name="occupation" type="text" placeholder="Occupation" class="form-control input-md">
+                            </div>
+                            <label class="col-md-1 control-label" for="phone">Phone No</label>
+                            <div class="col-md-4">
+                                <input id="phone" name="phone" type="text" placeholder="Phone no" class="form-control input-md">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="ref">Ref. by</label>
+                            <div class="col-md-11">
+                                <input id="ref" name="ref" type="text" placeholder="Ref. by" class="form-control input-md">
+                            </div>
+                        </div>
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="history">Medical history</label>
+                            <div class="col-md-11">
+                                <textarea class="form-control" id="history" name="history">Medical history</textarea>
+                            </div>
+                        </div>
+                        <!-- Textarea -->
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="submit"></label>
+                            <div class="col-md-4">
+                                <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!--</form>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="prescription" class="tab-pane fade">
+        <div class="container-fluid">
+            <div style="height:40px"></div>
+            <div class="row">
+                <div class="col-xs-1 col-sm-2 col-md-2 "></div>
+                <form method="POST" action="" accept-charset="UTF-8" class="form-horizontal col-xs-12 col-sm-10 col-md-8">
+                    <!-- <form class="form-horizontal col-xs-10 col-sm-6 col-md-4 ">-->
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Checkup and Prescription</legend>
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="complaint">Chief Complaint</label>
+                            <div class="col-md-11">
+                                <select class="form-control s2" name="complaint[]" id="complaint" multiple="multiple" data-width="100%">
+                                    <option value="bad_breath">
+                                        Bad Breath
+                                    </option>
+                                    <option value="bleeding_gum">
+                                        Bleeding Gum
+                                    </option>
+                                    <option value="swollen_gum">
+                                        Swollen Gum
+                                    </option>
+                                    <option value="gum_pain">
+                                        Gum Pain
+                                    </option>
+                                    <option value="loose_teeth">
+                                        Loose Teeth
+                                    </option>
+                                    <option value="sensitive_teeth">
+                                        Sensitive Teeth
+                                    </option>
+                                    <option value="darkened_teeth">
+                                        Darkened Teeth
+                                    </option>
+                                    <option value="damaged_teeth">
+                                        Damaged Teeth
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Textarea-->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="findings">Clinical Findings</label>
+                            <div class="col-md-11">
+                                <textarea class="form-control" id="findings" name="findings" style="height:150px">Clinical Findings</textarea>
+                            </div>
+                        </div>
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="Investigation">Investigation</label>
+                            <div class="col-md-11">
+                                <textarea class="form-control" id="Investigation" name="Investigation">Investigation</textarea>
+                            </div>
+                        </div>
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="Diagnosis">Diagnosis</label>
+                            <div class="col-md-11">
+                                <textarea class="form-control" id="Diagnosis" name="Diagnosis">Diagnosis</textarea>
+                            </div>
+                        </div>
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="Treatment">Treatment Plan</label>
+                            <div class="col-md-11">
+                                <textarea class="form-control" id="Treatment" name="Treatment" style="height:200px">Treatment Plan</textarea>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="submit"></label>
+                            <div class="col-md-4">
+                                <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!--</form>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="billing" class="tab-pane fade">
+        <div class="container">
+            <div style="height:40px"></div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th class="text-center">
+                                    Treatment done
+                                </th>
+                                <th class="text-center">
+                                    Payment
+                                </th>
+                                <th class="text-center">
+                                    Doctor
+                                </th>
+                                <th class="text-center">
+                                    Note
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    <input type="text" name='treatment0' placeholder='' class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='payment0' placeholder='' class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='doc0' placeholder='' class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='note0' placeholder='' class="form-control" />
+                                </td>
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+        </div>
+    </div>
+</div>
+<script src="~/js/FAmPlanDoctor.js"></script>

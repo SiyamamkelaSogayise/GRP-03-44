@@ -179,13 +179,24 @@
         <header>
             <nav class="section__container nav__container">
                 <div class="nav__logo">e-<span>Nompilo</span></div>
-                <ul class="nav__links">
-                    <li><a style="color:black" asp-controller="FamilyPlanningHome"   asp-action="Index">Home</a></li>
-                    <li><a style="color:black" asp-controller="NewLandingPage" asp-action="Landing Page">About Us</a></li>
-                    <li><a style="color:black" asp-controller="NewLandingPage" asp-action="Landing Page">Services</a></li>
+                <nav class="section__container nav__container" color="black">
+                    @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                    <ul class="nav__links">
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                        </li>
 
-                </ul>
-                <button> <a asp-controller="LandingP_Contactus" asp-action="ContactUs">Services</a></button>
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
             </nav>
         </header>
 
@@ -268,7 +279,7 @@
 </footer>
     </div>
 
-<script src="/js/FamPlanningContraceptiveCalc.js"></script>
+<script src="~/js/FamPlanningContraceptiveCalc.js"></script>
 
 </body>
 </html>
