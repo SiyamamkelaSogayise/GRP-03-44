@@ -33,7 +33,7 @@ builder.Services.AddRazorPages();
 //    options.SmtpPassword = builder.Configuration["EmailSettings:health2023"]; // Add this line
 //});
 
-builder.Services.AddScoped<IEmailService, EmailService>();
+//builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddDbContext<GeeksProject02Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GeeksProject02ContextConnection")));

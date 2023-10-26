@@ -15,7 +15,10 @@
     <title>The Innovative Geeks | eNompilo</title>
 </head>
 <body>
-    <!------------------------------------------------------------------------------------------------------- HEADER ---------------------------------------------->
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------- HEADER ---------------------------------------------------------------------------------->
+
     <header>
         <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
@@ -40,7 +43,10 @@
             <div><a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a></div>
         </nav>
     </header>
-    <!--------------------------------------------------------------------------------------------------------- BODY ---------------------------------------------->
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------------------- BODY ---------------------------------------------------------------------------------->
+
     <div id="BodyWrapper" class="ContentWrapper">
         <div class="grey">
             <div class="container">
@@ -50,7 +56,34 @@
             </div>
         </div>
     </div>
-    <!------------------------------------------------------------------------------------ BODY_NEWS HEADLINES ---------------------------------------------------->
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------- PRENATAL CARE ------------------------------------------------------------------------------------------->
+
+    <section class="section__container about__container">
+        <div class="about__image">
+            <img src="https://images.unsplash.com/photo-1617719712829-62cd0c9af37a?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGhhcHB5JTIwcHJlZ25hbnQlMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D" alt="prenatal care" />
+        </div>
+        <div class="about__content">
+            <h2 class="section__header">What is Prenatal Care</h2>
+            <p>
+                Prenatal care is the health care you get while you are pregnant. It includes your checkups and prenatal testing.
+                Prenatal care can help keep you and your baby healthy. It lets your health care provider spot health problems early.
+                Early treatment can cure many problems and prevent others.
+            </p>
+            <p>
+                Your doctor or midwife will give you a schedule for your prenatal visits. If you are over 35 years old or your pregnancy
+                is high risk because of health problems like diabetes or high blood pressure, your doctor or midwife will probably want to
+                see you more often. You can also expect to see your health care provider more often as your due date gets closer.
+            </p>
+            <br />
+            <a class="btn btn-primary" href="https://www.plannedparenthood.org/learn/pregnancy/prenatal-care">Learn More</a>
+        </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------ BODY_NEWS HEADLINES ---------------------------------------------------------------------------------------->
+
     <section class="news-cards" aria-labelledby="news-title">
         <div class="container">
             <h2 id="news-title">Prenatal News</h2>
@@ -102,33 +135,66 @@
             </ul>
         </div>
     </section>
-    <!------------------------------------------------------------------------------------------------------ BODY_MUMMY N BABY INFO ------------------------------->
 
-    <!------------------------------------------------------------------------------------------------------ MUMMY INFO ------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------ PREGNANCY CALCULATOR --------------------------------------------------------------------->
+
     <section class="section__container about__container">
+        <div class="about__image">
+            <img src="https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?auto=format&fit=crop&q=80&w=2069&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="prenatal care" />
+        </div>
         <div class="about__content">
-            <h2 class="section__header">Your Baby(WEEK 13)</h2>
+            <h2 class="section__header">Gestational Age</h2>
             <p>
-                Your baby is now fully formed and looks much more like a human being. They are about 7.5 cm long — about the size of a peach — and weigh about 30g. They are moving about vigorously in your uterus and they can move their arms and legs, suck their thumb and form a fist.
+                A pregnancy calculator that uses the gestational method calculates a woman's due date based on the gestational
+                age of the fetus. Gestational age is typically measured in weeks, and it begins on the first day of a woman's
+                last menstrual period (LMP).
             </p>
             <p>
-                Their organs, including the liver and pancreas, are starting to function. The vocal cords are beginning to develop, and they have soft hair on their eyebrows and head. They are growing a penis or clitoris, but these are too small to be seen during an ultrasound.
+                This method is commonly used in medical practice because it is easier to determine
+                the date of the LMP compared to the exact date of conception.
+            </p>
+            <div>
+                <br />
+                <a class="btn btn-primary" asp-area="" asp-controller="Prenatal" asp-action="PregTracker">Calculate</a>
+                <a class="btn btn-primary" href="https://medlineplus.gov/ency/article/002367.htm#:~:text=Gestational%20age%20is%20the%20common,from%2038%20to%2042%20weeks.">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------ BODY_MUMMY N BABY INFO ------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------ BABY INFO ------------------------------------------------------------------------------->
+
+    <section class="section__container about__container">
+        <div class="about__content">
+            <h2 class="section__header">Your Baby (WEEK 13)</h2>
+            <p>
+                Your baby is now fully formed and looks much more like a human being. They are about 7.5 cm long — about the size
+                of a peach — and weigh about 30g. They are moving about vigorously in your uterus and they can move their arms and legs,
+                suck their thumb and form a fist.
+            </p>
+            <p>
+                Their organs, including the liver and pancreas, are starting to function. The vocal cords are beginning to develop,
+                and they have soft hair on their eyebrows and head. They are growing a penis or clitoris, but these are too small to be seen during an ultrasound.
             </p>
             <p>
                 The kidneys produce urine, which becomes amniotic fluid. The baby practises breathing and swallowing the fluid.
             </p>
-        </div>
-        <div class="about__image">
-            <img src="https://raisingchildren.net.au/__data/assets/image/0020/35327/pregnancy-w13.jpg" alt="about" />
-        </div>
-        <div>
+            <br />
             <a class="btn btn-primary" href="https://www.babycenter.com/pregnancy/week-by-week/13-weeks-pregnant">Learn More</a>
         </div>
+        <div class="about__image">
+            <img src="https://raisingchildren.net.au/__data/assets/image/0020/35327/pregnancy-w13.jpg" alt="prenatal care" />
+        </div>
     </section>
-    <!-------------------------------------------------------------------------------------- BABY INFO ------------------------------------------------------------>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------------------------------------------------------------------- MUMMY INFO ------------------------------------------------------------------------------------------------>
+
     <section class="section__container about__container">
         <div class="about__content">
-            <h2 class="section__header">Your Body(WEEK 13)</h2>
+            <h2 class="section__header">Your Body (WEEK 13)</h2>
             <p>
                 At 13 weeks, you have officially entered the second trimester of pregnancy. If morning sickness is still a problem, talk to your doctor or midwife about how to manage it.
             </p>
@@ -138,18 +204,43 @@
             <p>
                 You may notice more visible veins, especially in your breasts. You may also be tired, have food cravings or food aversions, or have heartburn, indigestion or constipation.
             </p>
-        </div>
-        <div class="about__image">
-            <img src="https://www.smababy.co.uk/sites/default/files/2020-06/13-weeks-pregnant-banner.jpg" alt="about" />
-        </div>
-        <div>
+            <br />
             <a class="btn btn-primary" href="https://www.babycenter.com/pregnancy/week-by-week/13-weeks-pregnant">Learn More</a>
         </div>
+        <div class="about__image">
+            <img src="https://www.tommys.org/sites/default/files/styles/3x2/public/2022-05/Preg%20calendar%20week%2013.jpg?itok=umyod0_T" alt="prenatal care" />
+        </div>
     </section>
-    <!-------------------------------------------------------------------------------- OTHER SERVICES ---------------------------------------------------------------->
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------ PREGNANCY FITNESS ------------------------------------------------------------------------------------------>
+
+    <section class="section__container about__container">
+        <div class="about__content">
+            <h2 class="section__header">Exercise</h2>
+            <p>
+                Pregnancy is a beautiful thing, but it can be a little uncomfortable and even challenging at times.
+                Exercise during pregnancy might help alleviate many common pregnancy discomforts, benefit the overall
+                health of you and your baby, and boost your mood and your energy level!
+            </p>
+            <p>
+                So, whether you’re looking for ways to incorporate exercise into early pregnancy or want to know 
+                which exercises to avoid during pregnancy, check out the tips and insights we've compiled, along with
+                some safe stretches and simple movements you can add to your fitness routine.
+            </p>
+            <br />
+            <a class="btn btn-primary" href="https://www.momsclub.co.za/blogs/pregnancy/exercise-during-pregnancy-get-moving-with-safe-and-simple-pregnancy-exercises">Learn More</a>
+        </div>
+        <div class="about__image">
+            <img src="https://images.unsplash.com/photo-1665708396599-4b8557e57d97?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="prenatal care" />
+        </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------------------------------------------------------------- OTHER SERVICES ------------------------------------------------------------------------------------------------->
     <section class="section__container why__container">
         <div class="why__image">
-            <img src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdW5zZWxsaW5nfGVufDB8fDB8fHww" alt="why choose us" />
+            <img src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdW5zZWxsaW5nfGVufDB8fDB8fHww" alt="prenatal care" />
         </div>
         <div class="why__content">
             <h2 class="section__header">Ways to Ensure Healthy Pregnancy</h2>
@@ -184,61 +275,10 @@
             </div>
         </div>
     </section>
-    <!----------------------------------------------------------------------------------------------- PREG CALCULATOR -------------------------------------------------->
 
-    @* <br />
-    <h2 id="news-title" style="position:center">Changes to the Baby</h2>
-    <br />
-    <div id="slider">
-        <input type="radio" name="slider" id="slide1" checked>
-        <input type="radio" name="slider" id="slide2">
-        <input type="radio" name="slider" id="slide3">
-        <input type="radio" name="slider" id="slide4">
-        <div id="slides">
-            <div id="overflow">
-                <div class="inner">
-                    <div class="slide slide_1">
-                        <div class="slide-content">
-                            <h2>Slide 1</h2>
-                            <p>Content for Slide 1</p>
-                        </div>
-                    </div>
-                    <div class="slide slide_2">
-                        <div class="slide-content">
-                            <h2>Slide 2</h2>
-                            <p>Content for Slide 2</p>
-                        </div>
-                    </div>
-                    <div class="slide slide_3">
-                        <div class="slide-content">
-                            <h2>Slide 3</h2>
-                            <p>Content for Slide 3</p>
-                        </div>
-                    </div>
-                    <div class="slide slide_4">
-                        <div class="slide-content">
-                            <h2>Slide 4</h2>
-                            <p>Content for Slide 4</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="controls">
-            <label for="slide1"></label>
-            <label for="slide2"></label>
-            <label for="slide3"></label>
-            <label for="slide4"></label>
-        </div>
-        <div id="bullets">
-            <label for="slide1"></label>
-            <label for="slide2"></label>
-            <label for="slide3"></label>
-            <label for="slide4"></label>
-        </div>
-    </div> *@
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------- FOOTER ------------------------------------------------------------------------------->
 
-    <!---------------------------------------------------------------------------------------------------------- FOOTER ------------------------------------------->
     <footer class="footer">
         <div class="section__container footer__container">
             <div class="footer__col">

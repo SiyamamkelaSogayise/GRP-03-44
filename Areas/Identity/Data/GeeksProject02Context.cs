@@ -19,22 +19,22 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
         ConnectionString = connectionString;
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        builder.Entity<Form>()
-                 .Property(f => f.Status)
-                 .HasConversion(
-                     status => status.ToString(),  // Convert enum to string when saving to the database
-                     statusStr => (Form.AppointmentStatus)Enum.Parse(typeof(Form.AppointmentStatus), statusStr) // Convert string to enum when reading from the database
-        );
+    //protected override void OnModelCreating(ModelBuilder builder)
+    //{
+    //    builder.Entity<Form>()
+    //             .Property(f => f.Status)
+    //             .HasConversion(
+    //                 status => status.ToString(),  // Convert enum to string when saving to the database
+    //                 statusStr => (Form.AppointmentStatus)Enum.Parse(typeof(Form.AppointmentStatus), statusStr) // Convert string to enum when reading from the database
+    //    );
 
-        builder.Entity<Form>()
-        .HasOne(f => f.UserAppointment)
-        .WithMany()
-        .HasForeignKey(f => f.AppointmentId);
+    //    builder.Entity<Form>()
+    //    .HasOne(f => f.UserAppointment)
+    //    .WithMany()
+    //    .HasForeignKey(f => f.AppointmentId);
 
-        base.OnModelCreating(builder);
-    }
+    //    base.OnModelCreating(builder);
+    //}
     //public DbSet<SuperVillains1> SuperVillians { get; set; }
 
     public DbSet<Patient_Info> Patient_Info { get; set; }
