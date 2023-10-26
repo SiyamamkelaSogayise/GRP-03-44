@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
+using RequiredAttribute = Microsoft.Build.Framework.RequiredAttribute;
 
 namespace GeeksProject02.Models
 {
-    public class PatientBooking
+    public class Patient
     {
         [Key]
         public int Id { get; set; }
@@ -19,12 +21,6 @@ namespace GeeksProject02.Models
         [Required]
         public string PhoneNumber { get; set; }
         [Required]
-        public string Province { get; set; }
-        [Required]
-        public string City { get; set; }
-        [Required]
-        public string Suburb { get; set; }
-        [Required]
         public string AdditionalInfo { get; set; }
         [Required]
         public DateTime AppointmentDate { get; set; }
@@ -34,5 +30,7 @@ namespace GeeksProject02.Models
         public string MedicalAidNumber { get; set; }
         [Required]
         public string MedicalAidName { get; set; }
+
+        public Form Form { get; set; }
     }
 }

@@ -1,85 +1,84 @@
-﻿@{
-    Layout = "_LayoutFormBooking";
-}
-@model List<GeeksProject02.Models.Form>
+﻿@model List<GeeksProject02.Models.Form>
 
 @{
+    Layout = "_LayoutFormBooking";
 }
+
 <!DOCTYPE html>
-
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/css/Admin.css" />
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/AdminDashboard.css" />
 </head>
-<div class="sidenav">
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Booking</a>
-    <a href="#">Contact</a>
-    <a href="#">Add Booking</a>
-</div>
-<h1>Booking Management System </h1>
-<table id="example1" class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Names</th>
-            <th>Date of Birth</th> <!-- Matched to patientbooking.DOB -->
-            <th>Gender</th>
-            <th>Email Address</th>
-            <th>Phone Number</th><!-- Matched to patientbooking.Gender -->
-            <th>Appointment Date</th> <!-- Matched to patientbooking.AppointmentDate -->
-            <th>Medical Aid</th>
-            <th>Medical Aid Number</th>
-            <th>Medical Aid Name</th>
 
+<body>
+    <div class="sidenav">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Booking</a>
+        <a href="#">Contact</a>
+        <a href="#">Add Booking</a>
+    </div>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var form in Model)
-        {
+    <h1>Booking Management System</h1>
+
+    <table id="example1" class="table table-dark table-striped">
+        <thead>
             <tr>
-                <td>@form.Id</td>
-                <td>@(form.FirstName + " " + form.Surname)</td>
-                <td>@form.DOB</td>
-                <td>@form.Gender</td>
-                <td>@form.EmailAddress</td>
-                <td>@form.PhoneNumber</td>
-                <td>@form.AppointmentDate</td>
-                <td>@form.IsMedicalAidMember</td>
-                <td>@form.MedicalAidNumber</td>
-                <td>@form.MedicalAidName</td>
-                <td><a href="/Form/View/@form.Id">View</a></td>
-
-
-
-                @* <td>
-            @if (addBooking.ApprovalStatus == 1)
-            {
-            <span class="badge bg-green">Approved</span>
-            }
-            else if (addBooking.ApprovalStatus == 0)
-            {
-            <span class="badge bg-red">Pending</span>
-            }
-            </td> *@
-                @* <td>
-            <div class="input-group-btn">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-            Actions
-            <span class="fa fa-caret-down"></span>
-            </button>
-            <ul class="dropdown-menu">
-            <li><a href="#">History</a></li>
-            <li><a href="#">Edit</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Delete</a></li>
-            </ul>
-            </div>
-            </td> *@
+                <th>ID</th>
+                <th>Names</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Symptoms/Requests</th>
+                <th>Appointment Date</th>
+                <th>Medical Aid</th>
+                <th>Medical Aid Number</th>
+                <th>Medical Aid Name</th>
+                <th>Status</th> <!-- New status column -->
             </tr>
-        }
-
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var form in Model)
+            {
+                <tr>
+                    <td>@form.Id</td>
+                    <td>@(form.FirstName + " " + form.Surname)</td>
+                    <td>@form.DOB</td>
+                    <td>@form.Gender</td>
+                    <td>@form.EmailAddress</td>
+                    <td>@form.PhoneNumber</td>
+                    <td>@form.AdditionalInfo</td>
+                    <td>@form.AppointmentDate</td>
+                    <td>@form.IsMedicalAidMember</td>
+                    <td>@form.MedicalAidNumber</td>
+                    <td>@form.MedicalAidName</td>
+                    <td>
+                        @if (form.Status == Form.AppointmentStatus.Pending)
+                        {
+                            <span class="badge bg-red">Pending</span>
+                        }
+                        else if (form.Status == Form.AppointmentStatus.Accepted)
+                        {
+                            <span class="badge bg-green">Accepted</span>
+                        }
+                        else if (form.Status == Form.AppointmentStatus.Declined)
+                        {
+                            <span class="badge bg-red">Declined</span>
+                        }
+                    </td>
+                    <td><a href="/Index/View/@form.Id">View</a></td>
+                    <td>
+                        @if (form.Status == Form.AppointmentStatus.Pending)
+                        {
+                            <a href="/Form/AcceptAppointment/@form.Id">Accept</a>
+                            <a href="/Form/Appointments/@form.Id">Decline</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

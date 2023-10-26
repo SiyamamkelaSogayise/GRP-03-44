@@ -1,20 +1,43 @@
 ﻿using GeeksProject02.Data;
 using GeeksProject02.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace GeeksProject02.Controllers
 {
     public class FormController : Controller
     {
         private readonly GeeksProject02Context _dbContext;
+        private readonly IEmailService _emailService;
+        private readonly IOptions<IEmailService> _emailSettings; // Add this line
 
-        public FormController(GeeksProject02Context dbContext)
+        public FormController(GeeksProject02Context dbContext, IEmailService emailService, IOptions<IEmailService> emailSettings)
         {
             _dbContext = dbContext;
+            _emailService = emailService;
+            _emailSettings = emailSettings; // Add this line
         }
+        public async Task<IActionResult> AppointmentsData()
+        {
+            // Retrieve user data
+            var userData = await _dbContext.Patient.ToListAsync();
 
-        public IActionResult Form()
+            // Retrieve administrative data (assuming AdminAppointments has a foreign key to UserAppointments)
+            var adminData = await _dbContext.Forms.Include(a => a.UserAppointment).ToListAsync();
+
+            // Now you can use userData and adminData as needed
+
+            // For example, you might want to pass this data to a view
+            return View(new AppointmentsViewModel
+            {
+                UserData = userData,
+                AdminData = adminData
+            });
+        }
+            //[Authorize("PatientOnly")]
+            public IActionResult Index()
         {
 
             ViewData["Title"] = "Appointment Request";
@@ -22,20 +45,20 @@ namespace GeeksProject02.Controllers
             // You can set more ViewData values as needed
             return View();
         }
-
+        //[Authorize("PatientOnly")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Form([Bind("FirstName,Surname,DOB,Gender,EmailAddress,PhoneNumber,AdditionalInfo,AppointmentDate,IsMedicalAidMember,MedicalAidNumber,MedicalAidName")] Form model)
+        public IActionResult Index([Bind("FirstName,Surname,DOB,Gender,EmailAddress,PhoneNumber,AdditionalInfo,AppointmentDate,IsMedicalAidMember,MedicalAidNumber,MedicalAidName")] Patient model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     // Directly use the received model for database operations
-                    _dbContext.Forms.Add(model);
+                    _dbContext.Patient.Add(model);
                     _dbContext.SaveChanges();
                     TempData["AlertMessage"] = "Appointment Form completed successfully!";
-                    return RedirectToAction("Form");
+                    return RedirectToAction("Index");
                 }
                 catch (DbUpdateException ex)
                 {
@@ -50,16 +73,19 @@ namespace GeeksProject02.Controllers
             // If ModelState is not valid, return the view with the model to display validation errors
             return View(model);
         }
+        //[Authorize("AdminOnly")]
         public async Task<IActionResult> Appointments()
         {
             var form = await _dbContext.Forms.ToListAsync();
             return View(form);
         }
+        //[Authorize("AdminOnly")]
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
+        //[Authorize("AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> Add(Appointments formRequest)
         {
@@ -81,6 +107,7 @@ namespace GeeksProject02.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction("AdminDashboard");
         }
+        //[Authorize("AdminOnly")]
         [HttpGet]
         public async Task<IActionResult> View(int id)
         {
@@ -108,6 +135,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Appointments");
 
         }
+        //[Authorize("AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> View(Appointments model)
         {
@@ -133,6 +161,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Appointments");
 
         }
+        //[Authorize("AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> Delete(Appointments model)
         {
@@ -147,8 +176,43 @@ namespace GeeksProject02.Controllers
             }
             return RedirectToAction("Appointments");
         }
+        //[Authorize("AdminOnly")]
+        public IActionResult AcceptAppointment(int id)
+        {
+            var form = _dbContext.Forms.Find(id);
+            if (form != null)
+            {
+                form.Status = Form.AppointmentStatus.Accepted;
+                _dbContext.SaveChanges();
 
+                // Send email notification
+                string toEmail = form.EmailAddress;
+                string subject = "Appointment Status: Accepted";
+                string message = "Your appointment has been accepted. Details...";
+                _emailService.SendAppointmentStatusEmailAsync(toEmail, subject, message).Wait();
+            }
 
+            return RedirectToAction("Appointments");
+        }
+
+        //[Authorize("AdminOnly")]
+        public IActionResult DeclineAppointment(int id)
+        {
+            var form = _dbContext.Forms.Find(id);
+            if (form != null)
+            {
+                form.Status = Form.AppointmentStatus.Declined;
+                _dbContext.SaveChanges();
+
+                // Send email notification
+                string toEmail = form.EmailAddress;
+                string subject = "Appointment Status: Declined";
+                string message = "Your appointment has been declined. Details...";
+                _emailService.SendAppointmentStatusEmailAsync(toEmail, subject, message).Wait();
+            }
+
+            return RedirectToAction("Appointments");
+        }
 
 
 

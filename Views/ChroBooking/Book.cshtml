@@ -1,4 +1,4 @@
-﻿@{
+﻿@*  @{
     Layout = "_LayoutChronicMedication";
 }
 @model GeeksProject02.Models.ChronicBooking
@@ -47,8 +47,8 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger> </div>
                     <div class="form-head">
 
-                    @*     <h2>Book Appointment</h2> *@
-                    </div>
+                         <h2>Book Appointment</h2> 
+                     </div>
                    
                     <label class="form-label fs-14;">Name<span style="color: red;">*</span>:</label><br>
                     <input type="text" class="form-control" placeholder="Michael" asp-for="BookingName"><br><br>
@@ -94,42 +94,6 @@
                 </form>
                     </div>
                 
-            
-
-
-     
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <footer class="footer">
@@ -185,3 +149,4 @@
 
 </body>
 </html>
+  *@

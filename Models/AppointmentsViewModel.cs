@@ -1,48 +1,37 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GeeksProject02.Models
 {
-    public class Appointments 
-    { 
-        [Key]
+    public class AppointmentsViewModel
+    {
+        public List<Patient> UserData { get; set; } // Property for user data
+        public List<Form> AdminData { get; set; }   // Property for admin data
+    
+         [Key]
         public int Id { get; set; }
 
-        [Required]
         public string FirstName { get; set; }
 
-        [Required]
         public string Surname { get; set; }
 
-        [Required]
-        
-        
         public DateTime DOB { get; set; }
 
-        [Required]
         public string Gender { get; set; }
-
-        [Required]
 
         public string EmailAddress { get; set; }
 
-        [Required]
-
         public string PhoneNumber { get; set; }
 
-        [Required]
         public string AdditionalInfo { get; set; }
 
-        [Required]
         public DateTime AppointmentDate { get; set; }
 
-        [Required]
         public bool IsMedicalAidMember { get; set; }
 
-       
         public string MedicalAidNumber { get; set; }
 
-        
         public string MedicalAidName { get; set; }
+
+        public Form.AppointmentStatus Status { get; set; }
     }
 }

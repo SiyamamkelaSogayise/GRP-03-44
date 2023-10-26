@@ -1,0 +1,66 @@
+﻿/*header,
+main,
+footer {
+    padding-left: 240px;
+}
+
+body {
+    backgroud: white;
+}
+
+@media only screen and (max-width: 992px) {
+    header,
+    main,
+    footer {
+        padding-left: 0;
+    }
+}
+
+#credits li,
+#credits li a {
+    color: white;
+}
+
+    #credits li a {
+        font-weight: bold;
+    }
+
+.footer-copyright .container,
+.footer-copyright .container a {
+    color: #BCC2E2;
+}
+
+.fab-tip {
+    position: fixed;
+    right: 85px;
+    padding: 0px 0.5rem;
+    text-align: right;
+    background-color: #323232;
+    border-radius: 2px;
+    color: #FFF;
+    width: auto;
+}
+body {
+    font-size: 16px;
+}*/
+
+/* Styles for small screens */
+/*@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+}*/
+
+/* Styles for medium screens */
+/*@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        font-size: 16px;
+    }
+}*/
+
+/* Styles for large screens */
+/*@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}*/

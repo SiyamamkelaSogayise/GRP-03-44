@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeeksProject02.Models
 {
@@ -44,5 +45,19 @@ namespace GeeksProject02.Models
 
         
         public string MedicalAidName { get; set; }
+
+        public int AppointmentId { get; set; }
+        [ForeignKey("AppointmentId")]
+        public Patient UserAppointment { get; set; }
+
+        public enum AppointmentStatus
+        {
+            Pending,
+            Accepted,
+            Declined
+        }
+        public AppointmentStatus Status { get; set; }
     }
+    
 }
+
