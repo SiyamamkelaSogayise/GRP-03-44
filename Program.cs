@@ -24,14 +24,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 // Configure email settings from appsettings.json
-builder.Services.Configure<EmailSettings>(options =>
-{
-    options.FromEmail = builder.Configuration["EmailSettings:FromEmail"];
-    options.SmtpServer = builder.Configuration["EmailSettings:SmtpServer"];
-    options.SmtpPort = int.Parse(builder.Configuration["EmailSettings:SmtpPort"]);
-    options.SmtpUsername = builder.Configuration["EmailSettings:enompilohealth@gmail.com"]; // Add this line
-    options.SmtpPassword = builder.Configuration["EmailSettings:health2023"]; // Add this line
-});
+//builder.Services.Configure<EmailSettings>(options =>
+//{
+//    options.FromEmail = builder.Configuration["EmailSettings:FromEmail"];
+//    options.SmtpServer = builder.Configuration["EmailSettings:SmtpServer"];
+//    options.SmtpPort = int.Parse(builder.Configuration["EmailSettings:SmtpPort"]);
+//    options.SmtpUsername = builder.Configuration["EmailSettings:enompilohealth@gmail.com"]; // Add this line
+//    options.SmtpPassword = builder.Configuration["EmailSettings:health2023"]; // Add this line
+//});
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 

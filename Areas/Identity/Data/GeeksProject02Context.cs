@@ -42,18 +42,17 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
 
 
     public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
-<<<<<<< Updated upstream
-    public DbSet<ChronicBooking> BookingChronic { get; set; }
+
+    //public DbSet<ChronicBooking> BookingChronic { get; set; }
     
-=======
+
     //public DbSet<ChronicBooking> BookingChronic { get; set; }
 
 
     //public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
     //public DbSet<ChronicBooking> BookingChronic { get; set; }
 
->>>>>>> Stashed changes
-    public DbSet<Form> Forms { get; set; }
-    public DbSet<Patient> Patient{ get; set; }
+
+    
     public string ConnectionString { get; }
 }
