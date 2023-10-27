@@ -1,0 +1,66 @@
+﻿@model GeeksProject02.Models.UpdateBookingViewModel
+<center><h2>Update Bookings</h2></center>
+<form method="post" action="Add">
+    <div class="form-group">
+        <label for="First Name">First Name</label>
+        <input type="text" class="form-control" asp-for="FirstName">
+
+    </div>
+    <div class="form-group">
+        <label for="First Name">Surname</label>
+        <input type="text" class="form-control" asp-for="Surname">
+        <
+    </div>
+    <div class="form-group">
+        <label for="BOB">Date of Birth</label>
+        <input type="date" class="form-control" asp-for="DOB">
+
+    </div>
+    <div class="form-floating mb-3">
+        <label for="gender">Gender</label>
+        <select class="form-select" id="gender" asp-for="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="" Email Address>Email Address</label>
+        <input type="email" class="form-control" asp-for="EmailAddress">
+        <
+    </div>
+
+    <div class="form-group">
+        <label for="PhoneNumber">Phone number</label>
+        <input type="tel" class="form-control" asp-for="PhoneNumber">
+    </div>
+    <div class="form-group">
+        <label for="AdditionalInfo"> Additiona Information</label>
+        <textarea class="form-group" asp-for="AdditionalInfo"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-group" asp-for="AppointmentDate">
+        <label for="AppointmentDate">Appointment Date</label>
+    </div>
+
+    <label class="form-group">Do you belong to a Medical Aid:</label>
+    <select class="form-group" id="medicalAidDropdown">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>
+
+    <div>
+        <label class="form-group">Medical Aid Number:</label>
+        <input type="text" class="form-control" placeholder="Medical Aid Number" asp-for="MedicalAidNumber">
+    </div>
+    <div>
+        <label class="form-group">Medical Aid Name:</label>
+        <input type="text" class="form-group" placeholder="Medical Aid Name" asp-for="MedicalAidName">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Last">Delete</button>
+</form>
