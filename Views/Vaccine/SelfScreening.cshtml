@@ -1,6 +1,18 @@
-﻿ nhj    <!DOCTYPE html>
-<html>
+﻿ <!DOCTYPE html>
 <head>
+    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        function showThankYouMessage() {
+            // Prevent the form from submitting to the server
+            event.preventDefault();
+
+            // Hide the form
+            document.querySelector('form').style.display = 'none';
+
+            // Show the thank you message
+            document.getElementById('thankYouMessage').style.display = 'block';
+        }
+    </script>
     <style>
         
         label {
@@ -30,144 +42,206 @@
             line-height: 1.5;
         }
     </style>
-    <title>COVID-19 Vaccine Self-Screening Questionnaire</title>
 </head>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <nav class="section__container nav__container" color="black">
+                @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                <ul class="nav__links">
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+            <div><a class="btn btn-primary" asp-area="" asp-controller="Last" asp-action="Add">Request an Appointment</a></div>
+        </nav>
+    </header>
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<section class="w3l-about-breadcrumb" color="orange">
+    <div class="breadcrumb-bg breadcrumb-bg-contact py-5" color="orange">
+        <div class="container py-lg-5 py-md-3">
+            <h3><strong>Take out Questionnaire</strong></h3>
+            <p><br>Take our questionaire by answering the questions below</p>
+        </div>
+    </div>
+</section>
 <body>
-    <h1>COVID-19 Vaccine Self-Screening Questionnaire</h1>
-    <form action="self-screening" method="post">
+    <form>
         <ol>
             <fieldset>
-                <legend class="border p-2">Have you had a severe allergic reaction (anaphylaxis) to any ingredient in a COVID-19 vaccine?:</legend>
+                <legend class="border p-2">Have you had a severe allergic reaction (anaphylaxis) to any ingredient in a COVID-19 vaccine?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_allergic_reaction" name="allergic_reaction" value="No" checked>
+                    <label for="no_allergic_reaction">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_allergic_reaction" name="allergic_reaction" value="Yes">
+                    <label for="yes_allergic_reaction">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
-                <legend>Have you had a severe allergic reaction (anaphylaxis) to another vaccine or an injectable medication?:</legend>
+                <legend>Have you had a severe allergic reaction (anaphylaxis) to another vaccine or an injectable medication?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_another_allergic_reaction" name="another_allergic_reaction" value="No" checked>
+                    <label for="no_another_allergic_reaction">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_another_allergic_reaction" name="another_allergic_reaction" value="Yes">
+                    <label for="yes_another_allergic_reaction">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
                 <legend>Are you currently pregnant or planning to become pregnant soon?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_pregnant" name="pregnant" value="No" checked>
+                    <label for="no_pregnant">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_pregnant" name="pregnant" value="Yes">
+                    <label for="yes_pregnant">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
                 <legend>Are you currently breastfeeding?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_breastfeeding" name="breastfeeding" value="No" checked>
+                    <label for="no_breastfeeding">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_breastfeeding" name="breastfeeding" value="Yes">
+                    <label for="yes_breastfeeding">Yes</label>
                 </div>
             </fieldset >
             <fieldset class ="border p-2">
                 <legend>Do you have a weakened immune system due to a medical condition or medication?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_weakened_immune_system" name="weakened_immune_system" value="No" checked>
+                    <label for="no_weakened_immune_system">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_weakened_immune_system" name="weakened_immune_system" value="Yes">
+                    <label for="yes_weakened_immune_system">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
                 <legend>Have you had a COVID-19 vaccine before? (Check all that apply)</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_previous_vaccine" name="previous_vaccine" value="No" checked>
+                    <label for="no_previous_vaccine">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_previous_vaccine" name="previous_vaccine" value="Yes">
+                    <label for="yes_previous_vaccine">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
                 <legend>Have you had any COVID-19 symptoms (fever, cough, loss of taste or smell, etc.) in the last 14 days?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_covid_symptoms" name="covid_symptoms" value="No" checked>
+                    <label for="no_covid_symptoms">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_covid_symptoms" name="covid_symptoms" value="Yes">
+                    <label for="yes_covid_symptoms">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
                 <legend>Have you been in close contact with someone who has tested positive for COVID-19 in the last 14 days?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_close_contact" name="close_contact" value="No" checked>
+                    <label for="no_close_contact">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_close_contact" name="close_contact" value="Yes">
+                    <label for="yes_close_contact">Yes</label>
                 </div>
             </fieldset>
             <fieldset class="border p-2">
                 <legend>Have you received any other vaccines in the last 14 days?</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_other_vaccines" name="other_vaccines" value="No" checked>
+                    <label for="no_other_vaccines">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_other_vaccines" name="other_vaccines" value="Yes">
+                    <label for="yes_other_vaccines">Yes</label>
                 </div>
             </fieldset >
             <fieldset class ="border p-2">
                 <legend>Do you have any underlying health conditions or medical concerns you would like to discuss with a healthcare professional before getting the vaccine? (Please specify)</legend>
 
                 <div>
-                    <input type="checkbox" id="scales" name="scales" checked />
-                    <label for="scales">Scales</label>
+                    <input type="radio" id="no_other_vaccines" name="other_vaccines" value="No" checked>
+                    <label for="no_other_vaccines">No</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="horns" name="horns" />
-                    <label for="horns">Horns</label>
+                    <input type="radio" id="yes_other_vaccines" name="other_vaccines" value="Yes">
+                    <label for="yes_other_vaccines">Yes</label>
                 </div>
-            </fieldset>
-        </ol>
-        <input type="submit" value="Submit">
-    </form>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </body>
-</html>
+
