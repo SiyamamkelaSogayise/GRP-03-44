@@ -1,0 +1,89 @@
+﻿@model List<GeeksProject02.Models.Last>
+
+@{
+    Layout = "_LayoutFormBooking";
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    @* <link rel="stylesheet" href="~/css/AdminDashboard.css" /> *@
+</head>
+
+@{
+    Layout = "_LayoutFormBooking";
+}
+
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+    <h1>Booking Management System</h1>
+
+    <table id="example1" class="table able-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Names</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Symptoms/Requests</th>
+                <th>Appointment Date</th>
+                <th>Medical Aid</th>
+                <th>Medical Aid Number</th>
+                <th>Medical Aid Name</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lasts in Model)
+            {
+                <tr>
+                <td>@lasts.Id</td>
+                <td>@(lasts.FirstName + " " + lasts.Surname)</td>
+                <td>@lasts.DOB</td>
+                <td>@lasts.Gender</td>
+                <td>@lasts.EmailAddress</td>
+                <td>@lasts.PhoneNumber</td>
+                <td>@lasts.AdditionalInfo</td>
+                <td>@lasts.AppointmentDate</td>
+                <td>@lasts.IsMedicalAidMember</td>
+                <td>@lasts.MedicalAidNumber</td>
+                <td>@lasts.MedicalAidName</td>
+                <td><a asp-controller="Last" asp-action="View" asp-route-id="@lasts.Id">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
