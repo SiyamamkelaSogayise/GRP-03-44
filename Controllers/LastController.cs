@@ -4,17 +4,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace GeeksProject02.Controllers
 {
     public class LastController : Controller
     {
-        private readonly ApplicationDbContext DbContext;
+        private readonly GeeksProject02Context DbContext;
 
-        public LastController(ApplicationDbContext dbContext)
+        public LastController(GeeksProject02Context dbContext)
         {
             this.DbContext = dbContext;
         }
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -50,7 +51,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Add");
 
         }
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult > View(Guid Id)
         {
@@ -77,7 +78,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Index");
             
         }
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpPost]
         public async Task<IActionResult> View(UpdateBookingViewModel model)
         {
@@ -101,7 +102,7 @@ namespace GeeksProject02.Controllers
             }
             return RedirectToAction("Index");
         }
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(UpdateBookingViewModel model)
         {
