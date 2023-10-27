@@ -1,3 +1,50 @@
-﻿.select2-container {
-    //width: 100% !important;
+﻿html {
+    background-color: #333;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 12px;
+    width: 517 px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+labe {
+    font-weight: bold;
+}
+/* General Form */
+.heading {
+    font-size: 20px;
+}
+
+.gender {
+    position: relative;
+    top: -42px;
+    left: 185px;
+}
+
+.selectOption {
+    width: 239px;
+}
+
+.textboxAddress {
+    width: 474px;
+}
+
+.textboxAddressDetail {
+    width: 232px;
+}
+
+.legend {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.submit {
+    text-align: center;
 }
