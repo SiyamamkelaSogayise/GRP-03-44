@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GeeksProject02.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(GeeksProject02Context))]
     [Migration("20231027052227_Lastings")]
     partial class Lastings
     {
