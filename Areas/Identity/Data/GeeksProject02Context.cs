@@ -55,4 +55,5 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
 
     
     public string ConnectionString { get; }
+    public DbSet<Last> Lasts { get; set; }
 }
