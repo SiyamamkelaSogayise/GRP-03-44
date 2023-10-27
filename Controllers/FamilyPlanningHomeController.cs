@@ -21,5 +21,13 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+        public IActionResult Doctor()
+        {
+            return View();
+        }
+        public IActionResult Admin() 
+        {
+            return View();
+        }
     }
 }

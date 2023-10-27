@@ -35,4 +35,8 @@
     <Folder Include="Views\Form\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Document\" />
+  </ItemGroup>
+
 </Project>

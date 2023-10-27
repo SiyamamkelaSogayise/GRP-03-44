@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <style>
+
+      
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+.theme-text {
+  color: #DC4D01;
+}
+
+.card-img-top {
+  height: 200px;
+  width: 100%;
+}
+.card {
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.card:hover {
+  color: white;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0%;
+  background: #DC4D01;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  z-index: -1;
+}
+.card:hover::before {
+  left: 0%;
+  color: white;
+}
+.container-fluid {
+  background-image: url("blob-scene-haikei.svg");
+  background-position: center;
+  background-size: cover;
+}
+</style>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Linking CSS File index.css -->
+
+    <link rel="stylesheet" href="index.css">
+
+    <title>Services We Offer</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h1 class="text-center mt-5 display-3 fw-bold">Our <span class="theme-text">Services</span></h1>
+        <hr class="mx-auto mb-5 w-25">
+        <div class="row mb-5">
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="~/css/Matured.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Adult Counseling</h3>
+                         
+                        <hr class="mx-auto w-75">
+                        <p>
+                            Therapy is a life changing experience – deciding to reach out is the most important step.
+                            We can help you with things like anxiety, depression, trauma, addiction, growth and mindfulness etc.
+                        </p>
+                        <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="ChildrenTeen">LearnMore</a>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="~/css/Relationship.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Relationship</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            Couples counselling is a type of psychotherapy where each partner is present for the full session.
+                            We help you work on communication and solving issues in your relationship.
+                        </p>
+                         <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="CounRelationship">LearnMore</a>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="~/css/Teen.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Children & Teens</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            The goal is to help children learn to express themselves in healthier ways and discover new and more positive methods to solve problems.
+
+​
+                        </p>
+                        <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="AdultCoun">LearnMore</a>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="~/css/yoga.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Yoga</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                           Yoga is an ancient and complex practice, rooted in Indian philosophy. 
+                           It began as a spiritual practice but has become popular as a way of promoting physical and mental well-being.
+                        </p>
+                        <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="AssessementsCoun">LearnMore</a>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="~/css/MS-Educational-Counseling.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Assessments</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            We offer a variety of assessments for adults and children. These include psychoeducational, concessions, career and emotional. 
+                        </p>
+                        <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="Asseseements">LearnMore</a>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="~/css/LaughDormLounge-Header.png" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Dialetical Behavioural Therapy</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                           We offer DBT to individuals as well as groups online and face to face. DBT works for improving self regulation and interpersonal skills. 
+                        </p>
+                        <a class="btn btn-primary" asp-area="" asp-controller="Counseling" asp-action="DialeticalTherapy">LearnMore</a>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

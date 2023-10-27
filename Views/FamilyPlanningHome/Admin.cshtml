@@ -1,0 +1,703 @@
+﻿@{
+    ViewData["Title"] = "Family Planning Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<link rel="stylesheet" href="~/css/FamilyPlanningStyleSheet.css" asp-append-version="true" />*@
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1." />
+    <link href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fremixicon%403.4.0%2Ffonts%2Fremixicon.css&data=05%7C01%7Cs223005924%40mandela.ac.za%7C666499ffd23f46ca9ab608dbcfb90e5b%7Cbd70eeb3a537435a937c7cd330dc74d8%7C0%7C0%7C638332165936090884%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wlSp2KjUokJgR7%2B%2F4xBcstx0R%2Bl%2BqNpDUdALnBmm9sQ%3D&reserved=0"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/" asp-append-version="true" />
+    <title>The Innovative Geeks | eNompilo</title>
+
+    <style>
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .footer__container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer__col {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .footer__bar__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-container {
+            padding-bottom: 160px; /* Adjust the value as needed */
+        }
+
+        html, body {
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+
+
+
+<body>
+    <div class="page-wrap">
+        <header>
+            <nav class="section__container nav__container">
+                <div class="nav__logo">e-<span>Nompilo</span></div>
+                <nav class="section__container nav__container" color="black">
+                    @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                    <ul class="nav__links">
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="FamilyPlanningHome" asp-action="Admin">Doctor</a>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
+        </header>
+
+        <style>
+            .carousel-container {
+                padding-bottom: 160px; /* Adjust the value as needed */
+            }
+        </style>
+
+
+
+<div class="jumbotron">
+    <div class="container wizard-body">
+        <form class="form-horizontal">
+            <div class="col-md-3 wizard-navigation-left">
+                <ul class="nav nav-pills nav-stacked hidden-sm hidden-xs">
+                    <li class="active">
+                        <a data-toggle="pill" href="#personalInfo">
+                            Personal
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#contactInfo">
+                            Contact
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#generalInfo">
+                            General
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#medicalHistory">
+                            Medical
+                            History
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-pills visible-sm visible-xs">
+                    <li class="active">
+                        <a data-toggle="pill" href="#personalInfo">
+                            Personal
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#contactInfo">
+                            Contact
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#generalInfo">
+                            General
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#medicalHistory">
+                            Medical
+                            History
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9 wizard-content">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="personalInfo">
+                        <h3 style="padding-top:0;margin-top:0;">
+                            Personal
+                            Info
+                        </h3>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Company</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Company" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">SSN</label>
+                            <div class="col-md-10">
+                                <input class="form-control" data-mask="999-99-9999" placeholder="SSN" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                First
+                                Name
+                            </label>
+                            <div class="col-md-7">
+                                <input class="form-control" placeholder="First Name" type="text">
+                            </div><label class="col-md-1 control-label">MI</label>
+                            <div class="col-md-2">
+                                <input class="form-control" maxlength="1" placeholder="MI" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Last
+                                Name
+                            </label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Last Name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Address
+                                Line 1
+                            </label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Address Line 1" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Address
+                                Line 2
+                            </label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Address Line 2" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">City</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="City" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">State</label>
+                            <div class="col-md-4">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        State
+                                    </option>
+                                </select>
+                            </div><label class="col-md-2 control-label">Zip</label>
+                            <div class="col-md-4">
+                                <input class="form-control" placeholder="Zip Code" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Date of
+                                Birth
+                            </label>
+                            <div class="col-md-4">
+                                <input class="form-control" placeholder="Month" type="date">
+                            </div>
+                            <label class="col-md-2 control-label">Gender</label>
+                            <div class="col-md-4">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        Gender
+                                    </option>
+                                    <option>
+                                        Male
+                                    </option>
+                                    <option>
+                                        Female
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Race</label>
+                            <div class="col-md-4">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        Race
+                                    </option>
+                                    <option>
+                                        Caucasian
+                                    </option>
+                                    <option>
+                                        African American
+                                    </option>
+                                    <option>
+                                        Other
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="contactInfo">
+                        <h3 style="padding-top:0;margin-top:0;">
+                            Contact
+                            Info
+                        </h3>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Home Phone</label>
+                            <div class="col-md-10">
+                                <input class="form-control" data-mask="(999) 999-9999" placeholder="Home Phone" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Cell Phone</label>
+                            <div class="col-md-10">
+                                <input class="form-control" data-mask="(999) 999-9999" placeholder="Cell Phone" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Email</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Email" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="generalInfo">
+                        <h3 style="padding-top:0;margin-top:0;">
+                            General
+                            Info
+                        </h3>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Check one</label>
+                            <div class="col-md-10">
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" class="employee-radio">I am an employee</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" class="spouse-dependent-radio">I am a spouse of an employee</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" class="spouse-dependent-radio">I am a dependent of an employee</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="employee-info-pane" style="display:none;">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">ID #</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" placeholder="Employee ID" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="spouse-dependent-info" style="display:none;">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">
+                                    First
+                                    Name
+                                </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" placeholder="First Name" type="text">
+                                </div><label class="col-md-1 control-label">MI</label>
+                                <div class="col-md-2">
+                                    <input class="form-control" maxlength="1" placeholder="MI" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">
+                                    Last
+                                    Name
+                                </label>
+                                <div class="col-md-10">
+                                    <input class="form-control" placeholder="Last Name" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">SSN Last 4</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" placeholder="SSN Last 4" type="text" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="medicalHistory">
+                        <h3 style="padding-top:0;margin-top:0;">Medical History</h3>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">High Blood Pressure</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Heart Attack</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Congestive Heart Failure</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Diabetes</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Poor Circulation</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">High Cholesterol</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Cancer</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Stroke</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Lung Disease (Asthma/COPD)</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Obsesity/Overweight</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Depression</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Anxiety</label>
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Self</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Currently Receiving Treatment</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Family History</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox">Hospitalization in the past 12 months</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="border-top:1px solid #ccc;border-bottom:2px solid #fff;" />
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tobacco/Nicotine Use</label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        Select One
+                                    </option>
+                                    <option>
+                                        Yes
+                                    </option>
+                                    <option>
+                                        No
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Alcohol - Avg. Drinks/Week</label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        Select One
+                                    </option>
+                                    <option>
+                                        None
+                                    </option>
+                                    <option>
+                                        1-7
+                                    </option>
+                                    <option>
+                                        8-14
+                                    </option>
+                                    <option>
+                                        More than 14
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Exercise - Avg. Hours/Week</label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        Select One
+                                    </option>
+                                    <option>
+                                        None
+                                    </option>
+                                    <option>
+                                        1-2.5
+                                    </option>
+                                    <option>
+                                        More than 2.5
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Sleep - Avg. Hours/Night</label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option disabled selected value="">
+                                        Select One
+                                    </option>
+                                    <option>
+                                        Less than 7
+                                    </option>
+                                    <option>
+                                        7-8
+                                    </option>
+                                    <option>
+                                        More than 8
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="col-md-push-3 col-md-9 wizard-footer">
+            <button class="btn btnPrevious">Previous</button>
+            <button class="btn btnNext">Next</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+        <footer class="footer">
+            <div class="section__container footer__container">
+                <div class="footer__col">
+                    <h3>e-<span>Nompilo</span></h3>
+                    <p>
+                        We are honored to be a part of your healthcare journey and committed
+                        to delivering compassionate, personalized, and top-notch care every
+                        step of the way.
+                    </p>
+                    <p>
+                        Trust us with your health, and let us work together to achieve the
+                        best possible outcomes for you and your loved ones.
+                    </p>
+                </div>
+                <div class="footer__col">
+                    <h4>About Us</h4>
+                    <p>Home</p>
+                    <p>About Us</p>
+                    <p>Work With Us</p>
+                    <p>Our Blog</p>
+                    <p>Terms & Conditions</p>
+                </div>
+                <div class="footer__col">
+                    <h4>Services</h4>
+                    <p>Search Terms</p>
+                    <p>Advance Search</p>
+                    <p>Privacy Policy</p>
+
+                </div>
+                <div class="footer__col">
+                    <h4>Contact Us</h4>
+                    <p>
+                        <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                    </p>
+                    <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                    <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+                </div>
+            </div>
+            <div class="footer__bar">
+                <div class="footer__bar__content">
+                    <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                    <div class="footer__socials">
+                        <span><i class="ri-instagram-line"></i></span>
+                        <span><i class="ri-facebook-fill"></i></span>
+                        <span><i class="ri-heart-fill"></i></span>
+                        <span><i class="ri-twitter-fill"></i></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/"></script>
+
+</body>
+</html>
