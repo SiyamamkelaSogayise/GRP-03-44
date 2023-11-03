@@ -10,34 +10,35 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @* <link rel="stylesheet" href="~/css/Vaccine.css" asp-append-version="true" /> *@
 </head>
-    <style>
-        .space-above-footer {
-            padding-top: 0px !important;
-        }
-    </style>
-    <nav class="section__container nav__container">
-        <div class="nav__logo">e-<span>Nompilo</span></div>
-        <nav class="section__container nav__container" color="black">
-            @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
-            <ul class="nav__links">
-                <li class="nav-item">
-                    <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
-                </li>
-            </ul>
-        </nav>
-        <div><a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a></div>
-    </nav>
+@* <style>
+    .space-above-footer {
+        padding-top: 0px !important;
+    }
+</style> *@
 <body>
+<nav class="section__container nav__container">
+    <div class="nav__logo">e-<span>Nompilo</span></div>
+    <nav class="section__container nav__container" color="black">
+        @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+        <ul class="nav__links">
+            <li class="nav-item">
+                <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+    <div><a class="btn btn-primary" asp-area="" asp-controller="Form" asp-action="Form">Request an Appointment</a></div>
+</nav>
+
     <section class="w3l-about-breadcrumb" color="orange">
         <div class="breadcrumb-bg breadcrumb-bg-contact py-5" color="orange">
             <div class="container py-lg-5 py-md-3" color="orange">
@@ -75,7 +76,7 @@
     </section>
     <section class="section__container why__container">
         <div class="why__image">
-            <img src="/css/pexels-mart-production-7089047.jpg" alt="why choose us" />
+            <img src="~/css/pexels-mart-production-7089047.jpg" alt="why choose us" />
         </div>
         <div class="why__content">
             <h2 class="section__header">Why Choose Us</h2>

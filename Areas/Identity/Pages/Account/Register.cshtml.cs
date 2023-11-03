@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable disable
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +21,8 @@ using Microsoft.EntityFrameworkCore;
 using GeeksProject02.Data;
 using GeeksProject02.Controllers;
 using GeeksProject02.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GeeksProject02.Areas.Identity.Pages.Account
 {
@@ -32,6 +36,7 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         private readonly GeeksProject02Context _context;
         private readonly IConfiguration _configuration;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<GeeksProject02User> userManager,
@@ -40,7 +45,8 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             GeeksProject02Context context,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -50,6 +56,7 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
             _emailSender = emailSender;
             _context = context;
             _configuration = configuration;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -113,6 +120,12 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            public string Role { get; set; }
+
+            [ValidateNever]
+            public IEnumerable<SelectListItem> RoleList { get; set; }
         }
 
 
@@ -120,6 +133,15 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            Input = new InputModel()
+            {
+                RoleList = _roleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                })
+            };
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -141,6 +163,8 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    await _userManager.AddToRoleAsync(user, Input.Role);
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

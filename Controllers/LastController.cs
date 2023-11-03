@@ -1,8 +1,11 @@
-﻿using GeeksProject02.Data;
+﻿using GeeksProject02.Areas.Identity.Data;
+using GeeksProject02.Data;
 using GeeksProject02.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
+using System.Reflection.Metadata;
 
 
 namespace GeeksProject02.Controllers
@@ -15,7 +18,27 @@ namespace GeeksProject02.Controllers
         {
             this.DbContext = dbContext;
         }
-        //[Authorize("Admin")]
+
+
+        private GeeksProject02User GetUserDetails()
+        {
+            if (User.Identity != null)
+            {
+                
+                var userId = User.Identity.Name;
+                var user = DbContext.GeeksProject02Users.SingleOrDefault(u => u.Id == userId);
+
+                if (user != null)
+                {
+                    
+                    return user;
+                }
+            }
+
+            return new GeeksProject02User();
+        }
+
+        [Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -24,9 +47,20 @@ namespace GeeksProject02.Controllers
 
         }
         [HttpGet]
+        [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            var user = GetUserDetails(); // Replace with actual code to fetch user data
+
+            var viewModel = new LastViewModel
+            {
+                FirstName = user.FirstName, // Replace with actual property names in your user model
+                LastName = user.LastName,
+                Email = user.Email
+                // Other properties
+            };
+
+            return View(viewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Add(LastViewModel addLastRequest) 
@@ -35,10 +69,10 @@ namespace GeeksProject02.Controllers
             {
                 Id = Guid.NewGuid(),
                 FirstName = addLastRequest.FirstName,
-                Surname = addLastRequest.Surname,
+                LastName = addLastRequest.LastName,
                 DOB = addLastRequest.DOB,
                 Gender = addLastRequest.Gender,
-                EmailAddress = addLastRequest.EmailAddress,
+                Email = addLastRequest.Email,
                 PhoneNumber = addLastRequest.PhoneNumber,
                 AdditionalInfo = addLastRequest.AdditionalInfo,
                 AppointmentDate = addLastRequest.AppointmentDate,
@@ -51,7 +85,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Add");
 
         }
-        //[Authorize("Admin")]
+        [Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult > View(Guid Id)
         {
@@ -62,10 +96,10 @@ namespace GeeksProject02.Controllers
                 {
                     Id = Guid.NewGuid(),
                     FirstName = last.FirstName,
-                    Surname = last.Surname,
+                    LastName = last.LastName,
                     DOB = last.DOB,
                     Gender = last.Gender,
-                    EmailAddress = last.EmailAddress,
+                    Email = last.Email,
                     PhoneNumber = last.PhoneNumber,
                     AdditionalInfo = last.AdditionalInfo,
                     AppointmentDate = last.AppointmentDate,
@@ -78,7 +112,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Index");
             
         }
-        //[Authorize("Admin")]
+        [Authorize("Admin")]
         [HttpPost]
         public async Task<IActionResult> View(UpdateBookingViewModel model)
         {
@@ -86,10 +120,10 @@ namespace GeeksProject02.Controllers
             if (last != null)
             {
                 last.FirstName = model.FirstName;
-                last.Surname = model.Surname;
+                last.LastName = model.LastName;
                 last.DOB = model.DOB;
                 last.Gender = model.Gender;
-                last.EmailAddress = model.EmailAddress;
+                last.Email = model.Email;
                 last.PhoneNumber = model.PhoneNumber;
                 last.AdditionalInfo = model.AdditionalInfo;
                 last.IsMedicalAidMember = model.IsMedicalAidMember;
@@ -102,7 +136,7 @@ namespace GeeksProject02.Controllers
             }
             return RedirectToAction("Index");
         }
-        //[Authorize("Admin")]
+        [Authorize("Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(UpdateBookingViewModel model)
         {

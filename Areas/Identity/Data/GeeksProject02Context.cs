@@ -13,7 +13,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
         : base(options)
     {
     }
-
+    public DbSet<GeeksProject02User> GeeksProject02Users { get; set; }
     public GeeksProject02Context(string connectionString)
     {
         ConnectionString = connectionString;

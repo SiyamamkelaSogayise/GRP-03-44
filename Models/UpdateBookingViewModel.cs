@@ -9,13 +9,13 @@ namespace GeeksProject02.Models
         [Required]
         public string FirstName { get; set; }
         [Required]
-        public string Surname { get; set; }
+        public string LastName { get; set; }
         [Required]
         public DateTime DOB { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]
-        public string EmailAddress { get; set; }
+        public string Email { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
         [Required]

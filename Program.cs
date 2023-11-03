@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using GeeksProject02.Areas.Identity.Data;
 using Microsoft.Extensions.Configuration; // Added this using directive
 using GeeksProject02.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("GeeksProject02ContextConnection") ?? throw new InvalidOperationException("Connection string 'GeeksProject02ContextConnection' not found.");
@@ -11,7 +12,8 @@ var connectionString = builder.Configuration.GetConnectionString("GeeksProject02
 builder.Services.AddDbContext<GeeksProject02Context>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<GeeksProject02User>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<GeeksProject02User>().AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<GeeksProject02Context>();
 
 builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
@@ -40,11 +42,14 @@ builder.Services.AddDbContext<GeeksProject02Context>(options =>
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("PatientOnly", policy =>
+    options.AddPolicy("Patient", policy =>
         policy.RequireRole("Patient"));
 
-    options.AddPolicy("AdminOnly", policy =>
-        policy.RequireRole("Administrator"));
+    options.AddPolicy("Admin", policy =>
+        policy.RequireRole("Admin"));
+
+    options.AddPolicy("Doctor", policy =>
+        policy.RequireRole("Doctor"));
 });
 
 var app = builder.Build();

@@ -1,18 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GeeksProject02.Areas.Identity.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace GeeksProject02.Models
 {
     public class LastViewModel
     {
+        public GeeksProject02User UserDetails { get; set; }
+
+        
+
         public string FirstName { get; set; }
         [Required]
-        public string Surname { get; set; }
+        public string LastName { get; set; }
         [Required]
         public DateTime DOB { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]
-        public string EmailAddress { get; set; }
+        public string Email{ get; set; }
         [Required]
         public string PhoneNumber { get; set; }
         [Required]
