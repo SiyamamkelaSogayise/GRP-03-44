@@ -1,0 +1,208 @@
+﻿@{
+    Layout = "_layoutChronicMedication";
+}
+@model GeeksProject02.Models.Diagnosis
+@{
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+@if (!string.IsNullOrWhiteSpace(@errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class=" btn-close float-end" data-bs-dismissal="Alert"></button>
+    </div>
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no ">
+    <title>Image on the Right</title>
+    <link rel="stylesheet" href="~/css/Diagnosis.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DemoMpho.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
+    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <ul class="nav__links">
+                <a asp-action="" asp-controller="">
+                <li><Link to="/">Home</li>
+                </a>
+                <a asp-action="" asp-controller="">
+                <li><Link to="/about-us">About Us</li>
+                </a>
+                <a asp-action="" asp-controller="">
+                <li><Link to="/contact-us">View Medical record</li>
+                </a>
+
+            </ul>
+            @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
+            <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="image"></div>
+        <div class="text">
+
+            <p>Welcome to our Health Care Portal as Enompilo Facility your well-being is our top priority. <br />To ensure you receive the best care tailored to your needs, please take a moment to provide us with your medical history.<br /> Your detailed information helps us deliver personalized and accurate healthcare services.<br /> Thank you for entrusting us with your health information. </p>
+        </div>
+    </div>
+    <form class="form-data" method="post" asp-action="SaveDiagnosis">
+        <div asp-validation-summary="ModelOnly" class="text-danger> </div>
+        <div class="form-head">
+
+            @*  <h2>Book Appointment</h2> *@
+        </div>
+        <h2>Personal Details</h2>
+        <label class="form-label fs-14;"> Patient Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Patient Name" asp-for="PatientName"><br><br>
+        <span asp-validation-for="PatientName" class="text-danger"></span>
+        <label class="form-label fs-14;">Date of Birth<span style="color: red;">*</span>:</label><br>
+        <input type="date" class="form-control" placeholder="2002/02/12" asp-for="DateofBirth"><br><br>
+        <span asp-validation-for="DateofBirth" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Gender<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Male/Female" asp-for="Gender"><br><br>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+        <h2>Symptoms</h2>
+        <label class="form-label fs-14;">Primary Sysmptoms<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="primary Sysmptoms" asp-for="PrimarySymptoms"><br><br>
+        <span asp-validation-for="PrimarySymptoms" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Secondary Symptoms<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Secondary Sysmptoms" asp-for="SecondarySymptoms"><br><br>
+        <span asp-validation-for="SecondarySymptoms" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Severity<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Seveirty" asp-for="Severity"><br><br>
+        <span asp-validation-for="Severity" class="text-danger"></span>
+        <h2>Vital Signs</h2>
+        <label class="form-label fs-14;">Blood Pressure<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Blood Preasure" asp-for="BloodPressure"><br><br>
+        <span asp-validation-for="BloodPressure" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Heart Rate<span style="color:red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Heart Rate" asp-for="HeartRate"><br><br>
+        <span asp-validation-for="HeartRate" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Respiration Rate<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Respiration" asp-for="RespirationRate"><br><br>
+        <span asp-validation-for="RespirationRate" class="text-danger"></span>
+
+
+        <label class="form-label fs-14;">Temperature<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Tempereture" asp-for="Temperature"><br><br>
+        <span asp-validation-for="Temperature" class="text-danger"></span>
+        <h2>Diagnosis and Treatment</h2>
+
+        <label class="form-label fs-14;">Diagnosis Results<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="results" asp-for="DiagnosisResults"><br><br>
+        <span asp-validation-for="DiagnosisResults" class="text-danger"></span>
+
+
+        <label class="form-label fs-14;">Treatment Plan<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Treatment Plan" asp-for="TreatmentPlan"><br><br>
+        <span asp-validation-for="TreatmentPlan" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Followup Instructions<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Instructions" asp-for="FollowupInstructions"><br><br>
+        <span asp-validation-for="FollowupInstructions" class="text-danger"></span>
+
+        <h2>Provider Information</h2>
+
+        <label class="form-label fs-14;">Doctor Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Name" asp-for="PhysicianName"><br><br>
+        <span asp-validation-for="PhysicianName" class="text-danger"></span>
+
+        <label class="form-label fs-14;"> Hospital<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="enompilo" asp-for=" Hospital"><br><br>
+        <span asp-validation-for=" Hospital" class="text-danger"></span>
+
+
+        <label class="form-label fs-14;"> Date<span style="color: red;">*</span>:</label><br>
+        <input type="date" class="form-control" placeholder="2003-04-12" asp-for=" Date"><br><br>
+        <span asp-validation-for=" Date" class="text-danger"></span>
+
+
+        <label class="form-label fs-14;">SignatureByName<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="michael" asp-for="SignatureByName"><br><br>
+        <span asp-validation-for="SignatureByName" class="text-danger"></span>
+
+        <div class=" form-group row">
+            <div class=" col-8 offset-2 row">
+                <div class="col">
+                    <input type="submit" class=" btn btn-info w-75" value="SaveDiagnosis" />
+
+                </div>
+                <div class="col">
+                    <a asp-action="Doctor" class="btn btn-dark w-75">Black</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

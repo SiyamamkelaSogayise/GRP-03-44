@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeeksProject02.Migrations
 {
     [DbContext(typeof(GeeksProject02Context))]
-    partial class GeeksProject02ContextModelSnapshot : ModelSnapshot
+    [Migration("20231106182737_Diagnosis")]
+    partial class Diagnosis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -348,35 +350,6 @@ namespace GeeksProject02.Migrations
                     b.HasKey("MedicalHistoryID");
 
                     b.ToTable("ChronicMedicalHistory");
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.NextMeetings", b =>
-                {
-                    b.Property<int>("ChronicBookingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChronicBookingID"), 1L, 1);
-
-                    b.Property<string>("ChronicBookingDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ChronicReason")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SignitureByName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("chronicBookingTime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ChronicBookingID");
-
-                    b.ToTable("NextMeetings");
                 });
 
             modelBuilder.Entity("GeeksProject02.Models.Notes", b =>

@@ -56,4 +56,10 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     
     public string ConnectionString { get; }
     public DbSet<Last> Lasts { get; set; }
+
+    public DbSet<ChronicPrescription>ChronicPrescriptions { get; set; }
+    public DbSet<Notes>Notes { get; set; }
+    public DbSet<Diagnosis> Diagnosis { get; set; }
+    public DbSet<NextMeetings> NextMeetings { get; set; }
+    
 }
