@@ -1,5 +1,5 @@
-﻿
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+﻿@import url('http://https://fonts.googleapis.com/css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,700;1,100&display=swap');
 
 :root {
     --primary-color: #12ac8e;
@@ -77,12 +77,14 @@ header {
     font-weight: 600;
     color: var(--white);
 }
-a{
-    color : black;
+
+a {
+    color: black;
 }
-    .nav__logo span {
-        color: var(--secondary-color);
-    }
+
+.nav__logo span {
+    color: var(--secondary-color);
+}
 
 .nav__links {
     list-style: none;
@@ -363,10 +365,70 @@ button {
 
 .card-container {
     display: flex;
-    font-size: 35px;
-    /*   background-color:blue;*/
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    color: white;
+}
 
-    text-decoration: none;
+    .card-container .btn {
+        background-color: #126c6c
+    }
+
+
+
+.icon {
+    display: flex;
+    justify-content: center; /* Align horizontally at the center */
+    align-items: center; /* Align vertically at the center */
+    width: 50px; /* Set the width of the icon container */
+    height: 50px; /* Set the height of the icon container */
+    text-align: center;
+    margin-left: 150px;
+    font-size: 50px;
+    color: white;
+}
+
+.card1 {
+    background-color: #7cdecb;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card2 {
+    background-color: #7cdecb;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card3 {
+    background-color: #7cdecb;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*button {
+    text-align: center;
+    background-color: #0d846c;
+    color: white;
+    margin-left: 100px;
+    justify-content: space-around;
+    border-radius: 5%;
+    width: 150px;*/ /* Set the width of the button */
+/*height: 50px;*/ /* Set the height of the button */
+/*font-size: 20px;
+}*/
+
+/*.card-container {
+    display: flex;
+    font-size: 35px;*/
+/*   background-color:blue;*/
+
+/*text-decoration: none;
     font-weight: Bold;
     justify-content: space-between;
 }
@@ -375,8 +437,8 @@ button {
     transform: translateX(-10px);
     color: black;
     background-color: white;
-    border-radius: 10px; /* Optional: adds rounded corners to the card */
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;*/ /* Optional: adds rounded corners to the card */
+/*box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     width: 20%;
     justify-content: center;
     margin-top: 30px;
@@ -391,8 +453,8 @@ button {
     transform: translateX(-10px);
     color: black;
     background-color: white;
-    border-radius: 10px; /* Optional: adds rounded corners to the card */
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;*/ /* Optional: adds rounded corners to the card */
+/*box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     width: 20%;
     justify-content: center;
     margin-top: 30px;
@@ -403,10 +465,10 @@ button {
     transform: translateX(-10px);
     color: black;
     background-color: white;
-    border-radius: 10px; /* Optional: adds rounded corners to the card */
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;*/ /* Optional: adds rounded corners to the card */
+/*box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     width: 20%;
     justify-content: center;
     margin-top: 30px;
     margin-bottom: 20px;
-}
+}*/
