@@ -52,6 +52,8 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     //public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
     //public DbSet<ChronicBooking> BookingChronic { get; set; }
 
+    //Family Planning Admin
+    public DbSet<FamilyPlanningAdmin> GetFamilyPlanningAdmins { get; set; } 
 
     
     public string ConnectionString { get; }
