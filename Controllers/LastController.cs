@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection.Metadata;
 
-
 namespace GeeksProject02.Controllers
 {
     public class LastController : Controller
@@ -25,12 +24,8 @@ namespace GeeksProject02.Controllers
             if (User.Identity != null)
             {
                 
-                var userId = User.Identity.Name;
-                var user = DbContext.GeeksProject02Users.SingleOrDefault(u => u.Id == userId);
-
                 if (user != null)
                 {
-                    
                     return user;
                 }
             }
