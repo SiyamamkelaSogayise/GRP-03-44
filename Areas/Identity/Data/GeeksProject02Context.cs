@@ -53,9 +53,10 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     //public DbSet<ChronicBooking> BookingChronic { get; set; }
 
     //Family Planning Admin
-    public DbSet<FamilyPlanningAdmin> GetFamilyPlanningAdmins { get; set; } 
+    public DbSet<FamilyPlanningAdmin> GetFamilyPlanningAdmins { get; set; }
 
-    
+
     public string ConnectionString { get; }
     public DbSet<Last> Lasts { get; set; }
+    public object FamilyPlanningAdmin { get; internal set; }
 }

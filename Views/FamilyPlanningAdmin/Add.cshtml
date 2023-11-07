@@ -1,0 +1,235 @@
+﻿@model GeeksProject02.Models.FamilyPlanningAdmin
+
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/FamilyPlanningMethods.css" asp-append-version="true" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1." />
+    <link href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fremixicon%403.4.0%2Ffonts%2Fremixicon.css&data=05%7C01%7Cs223005924%40mandela.ac.za%7C666499ffd23f46ca9ab608dbcfb90e5b%7Cbd70eeb3a537435a937c7cd330dc74d8%7C0%7C0%7C638332165936090884%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wlSp2KjUokJgR7%2B%2F4xBcstx0R%2Bl%2BqNpDUdALnBmm9sQ%3D&reserved=0"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/FamilyPlanningDoctor.css" asp-append-version="true" />
+    <title>The Innovative Geeks | eNompilo</title>
+
+
+</head>
+
+
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <nav class="section__container nav__container" color="black">
+                @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                <ul class="nav__links">
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    <h1>Add New Patient</h1>
+    <fieldset>
+        <form method="post" action="Add" name="Field" onsubmit="validateField()" required>
+            <fieldset>
+                <legend class="legend">Personal Information</legend>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Surname</label>
+                    <input type="text" class="form-control" asp-for="Surname">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control" asp-for="DateOfBirth">
+                </div>
+                <select class="form-select" aria-label="Select Gender">
+                    <option selected>Choose Gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+
+                    <input type="" class="form-control" asp-for="GenderIdentity">
+
+                </select>
+                <div class="mb-3">
+                    <label for="" class="form-label">Patient Adress</label>
+                    <input type="text" class="form-control" asp-for="Address">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Cellphone Number</label>
+                    <input type="text" class="form-control" asp-for="PhoneNumber">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Patient Email address</label>
+                    <input type="email" class="form-control" placeholder="name@example.com" asp-for="Email">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="legend">Insurance Information</legend>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Insurance Provider</label>
+                    <input type="text" class="form-control" asp-for="InsuranceProvider">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Policy Nmuber</label>
+                    <input type="text" class="form-control" asp-for="PolicyNumber">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Group Id</label>
+                    <input type="datetime" class="form-control" asp-for="GroupID">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="legend">Medical History</legend>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Existing Medical Conditions</label>
+                    <input type="text" class="form-control" asp-for="ExistingMedicalConditions">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Allergies</label>
+                    <input type="text" class="form-control" asp-for="Allergies">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Current Chronic Medications</label>
+                    <input type="datetime" class="form-control" asp-for="CurrentMedications">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Surgical History</label>
+                    <input type="email" class="form-control" asp-for="SurgicalHistory">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="legend">Reproductive Health History (If Applicable)</legend>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Menstrual History</label>
+                    <input type="text" class="form-control" asp-for="MenstrualHistory">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Pregnancy History</label>
+                    <input type="text" class="form-control" asp-for="PregnancyHistory">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Contraceptives History</label>
+                    <input type="datetime" class="form-control" asp-for="ContraceptiveHistory">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">STI History</label>
+                    <input type="email" class="form-control" asp-for="STIHistory">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="legend">Emergency Contact Information</legend>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Emergency Contact Name</label>
+                    <input type="text" class="form-control" asp-for="EmergencyContactName">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Emergency Contact Relationship</label>
+                    <input type="text" class="form-control" asp-for="EmergencyContactRelationship">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Emergency Contact CellPhone Number</label>
+                    <input type="datetime" class="form-control" asp-for="EmergencyContactPhoneNumber">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="legend">Emergency Contact Information</legend>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Does the patient have any preffered Doctor or HealtCare Provider, If applicable please specify.</label>
+                    <input type="text" class="form-control" asp-for="PreferredDoctor">
+                </div>
+            </fieldset>
+        </form>
+
+        <label for="ratinghealth">When you think about your health care, how much do you agree or disagree with this statement: "I receive exactly what I want and need exactly when and how I want and need it."</label>
+        <br>
+        * Taking 1 to be strongly dis-agree and 5 to be strongly agree
+        <br>
+        1
+        <input type="range" name="ratinghealth" min="1" max="5">5
+
+
+        
+            <button type="submit" class="btn btn-primary">Submit</button>
+  
+
+
+    </fieldset>
+
+
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
