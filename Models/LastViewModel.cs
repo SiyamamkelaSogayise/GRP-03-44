@@ -6,6 +6,7 @@ namespace GeeksProject02.Models
     public class LastViewModel
     {
         public GeeksProject02User UserDetails { get; set; }
+        public GeeksProject02User UserStatus { get; set; }
 
         
 

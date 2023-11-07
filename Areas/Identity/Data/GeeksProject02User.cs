@@ -22,5 +22,20 @@ public class GeeksProject02User : IdentityUser
 
     [NotMapped]
     public string Email { get; set; }
+
+    //public string UserStatus
+    //{
+    //    get
+    //    {
+    //        if (LockoutEnabled)
+    //        {
+    //            return "Inactive";
+    //        }
+    //        else
+    //        {
+    //            return "Active";
+    //        }
+    //    }
+    //}
 }
 
