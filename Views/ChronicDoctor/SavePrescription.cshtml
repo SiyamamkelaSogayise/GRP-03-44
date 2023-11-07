@@ -1,0 +1,184 @@
+﻿@{
+    Layout = "_LayoutChronicMedication";
+}
+
+@model GeeksProject02.Models.ChronicPrescription
+@{
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+@if (!string.IsNullOrWhiteSpace(@errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class=" btn-close float-end" data-bs-dismissal="Alert"></button>
+    </div>
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/PrescriptionView.css" asp-append-version="true" />
+    <title>Show/Hide Example</title>
+</head>
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <ul class="nav__links">
+                <a asp-action="" asp-controller="">
+                <li><Link to="/">Home</li>
+                </a>
+                <a asp-action="" asp-controller="">
+                <li><Link to="/about-us">About Us</li>
+                </a>
+                <a asp-action="" asp-controller="">
+                <li><Link to="/contact-us">View Medical record</li>
+                </a>
+
+            </ul>
+            @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
+            <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="image"></div>
+        <div class="text">
+            <h2>chronic Medication</h2>
+            <p>Welcome to our Chronic Medication facility.<br /> your trusted source for comprehensive information, guida</p>
+        </div>
+    </div>
+    <h2 class=" heading">Add Prescription</h2>
+    <form class="form-data" method="post" asp-action="SavePrescription">
+        <div asp-validation-summary="ModelOnly" class="text-danger> </div>
+        <div class="form-head">
+
+            @*  <h2>Book Appointment</h2> *@
+        </div>
+
+        <label class="form-label fs-14;"> Doctor Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Dr Michael" asp-for="DoctorName"><br><br>
+        <span asp-validation-for="DoctorName" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Licence Number<span style="color: red;">*</span>:</label><br>
+        <input type="number" class="form-control" placeholder="2345667" asp-for="LicenceNUmber"><br><br>
+        <span asp-validation-for="LicenceNUmber" class="text-danger"></span><br />
+
+        <label class="form-label fs-14;">Date<span style="color: red;">*</span>:</label><br>
+        <input type="date" class="form-control" placeholder="2020/12/2024" asp-for="Date"><br><br>
+        <span asp-validation-for="Date" class="text-danger"></span><br />
+
+        <label class="form-label fs-14;">Patient Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Siphosethu" asp-for="PatientName"><br><br>
+        <span asp-validation-for="PatientName" class="text-danger"></span><br />
+
+
+        <label class="form-label fs-14;"> Medication Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Panado" asp-for="MedicationName"><br><br>
+        <span asp-validation-for=" MedicationName" class="text-danger"></span><br />
+
+        <label class="form-label fs-14;"> Dosage Instruction<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="4 times a day" asp-for="DosageInstruction"><br><br>
+        <span asp-validation-for=" DosageInstruction" class="text-danger"></span><br />
+
+        <label class="form-label fs-14;"> Signiture by Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Dr Michael" asp-for="Signiture"><br><br>
+        <span asp-validation-for=" Signiture" class="text-danger"></span><br />
+
+
+
+
+
+
+
+
+
+
+
+        <div class=" form-group row">
+            <div class=" col-8 offset-2 row">
+                <div class="col">
+                    <input type="submit" class=" btn btn-info w-75" value="SavePrescription" />
+
+                </div>
+                <div class="col">
+                    <a asp-action="Doctor" class="btn btn-dark w-75">Black</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
