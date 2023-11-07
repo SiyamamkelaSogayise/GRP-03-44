@@ -25,7 +25,8 @@
         <th>@Html.DisplayNameFor(model => model.AccessFailedCount)</th>
         <th>@Html.DisplayNameFor(model => model.FirstName)</th>
         <th>@Html.DisplayNameFor(model => model.LastName)</th>
-        <!-- Add other table columns as needed -->
+        <th>@Html.DisplayNameFor(model => model.Status)</th>
+        
     </tr>
     @foreach (var item in Model)
     {
@@ -44,7 +45,21 @@
             <td>@Html.DisplayFor(modelItem => item.AccessFailedCount)</td>
             <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
             <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+            <td>
+                <button type="button" id="lbtnStatus" color="green"><span class="label-success">Active</span></button>
+            </td>
             
         </tr>
     }
 </table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#lbtnStatus').click(function () {
+            if ($(this).find('span').hasClass("label-success"))
+                $(this).find('span').removeClass("label-success").addClass("label-danger").text("InActive");
+            else
+                $(this).find('span').removeClass("label-danger").addClass("label-success").text("Active");
+        });
+    });
+</script>
+}

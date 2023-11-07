@@ -1,0 +1,38 @@
+﻿@model AddVaccineViewModel
+
+@{
+    ViewData["Title"] = "Add Vaccine";
+}
+@{
+    Layout = "_LayoutFormBooking";
+}
+
+<h2>Add Vaccine</h2>
+
+@using (Html.BeginForm("Add", "AvailableVaccine", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsAvailable)
+        @Html.CheckBoxFor(model => model.IsAvailable)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RestockDate)
+        @Html.TextBoxFor(model => model.RestockDate, new { @class = "form-control", type = "date" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Vaccine</button>
+}
