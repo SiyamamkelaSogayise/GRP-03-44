@@ -71,11 +71,11 @@
 <form method="post" action="Add">
     <div class="form-group">
         <label for="First Name">First Name</label>
-        <input type="text" class="form-control" asp-for="FirstName" value="@ViewBag.FirstName">
+        <input type="text" class="form-control" asp-for="FirstName" value="@Model.FirstName" required>
     </div>
     <div class="form-group">
         <label for="LastName">Surname</label>
-        <input type="text" class="form-control" asp-for="LastName" value="@ViewBag.LastName">
+        <input type="text" class="form-control" asp-for="LastName" value="@Model.LastName" required>
     </div>
 
     <div class="form-group">
@@ -95,7 +95,7 @@
 
     <div class="form-group">
         <label for="Email">Email Address</label>
-        <input type="email" class="form-control" asp-for="Email" value="@ViewBag.Email">
+        <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required>
     </div>
     <div class ="form-group">
         <label for="PhoneNumber">Phone number</label>

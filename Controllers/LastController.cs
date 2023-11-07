@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection.Metadata;
+using System.Security.Claims;
 
 namespace GeeksProject02.Controllers
 {
@@ -23,7 +24,9 @@ namespace GeeksProject02.Controllers
         {
             if (User.Identity != null)
             {
-                
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; // Get the user's ID
+                var user = DbContext.Users.FirstOrDefault(u => u.Id == userId);
+
                 if (user != null)
                 {
                     return user;
