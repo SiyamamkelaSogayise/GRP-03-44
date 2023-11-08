@@ -3,6 +3,7 @@ using GeeksProject02.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Collections.Generic;
 
 namespace GeeksProject02.Controllers
 {
@@ -70,6 +71,52 @@ namespace GeeksProject02.Controllers
                 // Handle the case where addVacineRequest is null
                 return RedirectToAction("Add"); // or return an error view
             }
+        }
+        [HttpGet]
+        public IActionResult SearchVaccines(string search)
+        {
+            // Implement the search logic here
+            var vaccines = dbContext.AvailableVaccines.Where(v => v.Name.Contains(search)).ToList();
+
+            return View(vaccines);
+        }
+        [HttpGet]
+        public async Task<IActionResult> View(int Id)
+        {
+            var availableVaccine = await dbContext.AvailableVaccines.FirstOrDefaultAsync(x => x.Id == Id);
+            if (availableVaccine != null)
+            {
+                var viewModel = new AddVaccineViewModel()
+                {
+                    
+                    Name = availableVaccine.Name,
+                    Description = availableVaccine.Description,
+                    IsAvailable = availableVaccine.IsAvailable,
+                    RestockDate = availableVaccine.RestockDate,
+                    
+                };
+                return await Task.Run(() => View("View", viewModel));
+            }
+            return RedirectToAction("Index");
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> View(AddVaccineViewModel model)
+        {
+            var availableVaccine = await dbContext.AvailableVaccines.FindAsync(model.Id);
+            if (availableVaccine != null)
+            {
+                availableVaccine.Name = model.Name;
+                availableVaccine.Description = model.Description;
+                availableVaccine.IsAvailable = model.IsAvailable;
+                availableVaccine.RestockDate = model.RestockDate;
+                
+
+                await dbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using GeeksProject02.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,7 +16,18 @@ namespace GeeksProject02.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            if (User.IsInRole("Admin"))
+            {
+                // Redirect the administrator to the admin landing page
+                return RedirectToAction("Index", "Last");
+            }
+            else if (User.IsInRole("Doctor"))
+            {
+                return RedirectToAction("Name of doctor method", "name of controller");
+            }
+
+            // For other users, show the default landing page
+            return RedirectToAction("Index_dash");
         }
 
         public IActionResult Privacy()
@@ -28,10 +40,12 @@ namespace GeeksProject02.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
         public IActionResult Index_dash()
         {
             return View();
         }
+        
        
     }
 }

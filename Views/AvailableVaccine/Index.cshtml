@@ -121,11 +121,13 @@ body {
 }
 </style>
 <div class="search-container">
-    <form action="/action_page.php">
+    <form asp-action="SearchVaccines" method="get">
         <input type="text" placeholder="Search.." name="search">
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 </div>
+
+<a class="btn btn-primary" style="color:white" asp-area="" asp-controller="AvailableVaccine" asp-action="Add">Add Vaccine</a>
 <h1>Available Vaccines</h1>
 
 <table id="example1" class="table able-striped">
@@ -149,7 +151,7 @@ body {
                 <td>@Html.DisplayFor(modelItem => item.IsAvailable)</td>
                 <td>@Html.DisplayFor(modelItem => item.RestockDate)</td>
                 
-                <td><a asp-controller="Last" asp-action="View" asp-route-id="@item.Id">View</a></td>
+                <td><a asp-controller="AvailableVaccine" asp-action="View" asp-route-id="@item.Id">View</a></td>
             </tr>
         }
     </tbody>
