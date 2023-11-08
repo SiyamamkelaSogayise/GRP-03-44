@@ -45,7 +45,7 @@ namespace GeeksProject02.Controllers
 
         }
         [HttpGet]
-        [HttpGet]
+        
         public IActionResult Add()
         {
             var user = GetUserDetails(); // Replace with actual code to fetch user data

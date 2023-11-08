@@ -5,14 +5,14 @@ namespace GeeksProject02.Models
     public class AddVaccineViewModel
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         [Display(Name = "Vaccine Name")]
         public string Name { get; set; }
         [Required]
         [Display(Name = "Description")]
         public string Description { get; set; }
-        [Required]
+        
         [Display(Name = "Is Available")]
         public bool IsAvailable { get; set; }
         [Required]

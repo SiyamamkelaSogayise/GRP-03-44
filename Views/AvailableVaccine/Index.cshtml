@@ -1,4 +1,4 @@
-﻿@model List<GeeksProject02.Models.AvailableVaccine>
+﻿@model IEnumerable<GeeksProject02.Models.AvailableVaccine>
 
 @{
     Layout = "_LayoutFormBooking";
@@ -131,25 +131,25 @@ body {
 <table id="example1" class="table able-striped">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Names</th>
-            <th>Description</th>
-            <th>Available/Unavailable</th>
-            <th>RestockDate</th>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.IsAvailable)</th>
+            <th>@Html.DisplayNameFor(model => model.RestockDate)</th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach (var availableVaccine in Model)
+        @foreach (var item in Model)
         {
             <tr>
-                <td>@availableVaccine.Id</td>
-                <td>@availableVaccine.Name </td>
-                <td>@availableVaccine.Description</td>
-                <td>@availableVaccine.IsAvailable</td>
-                <td>@availableVaccine.RestockDate</td>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name )</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsAvailable)</td>
+                <td>@Html.DisplayFor(modelItem => item.RestockDate)</td>
                 
-                <td><a asp-controller="Last" asp-action="View" asp-route-id="@availableVaccine.Id">View</a></td>
+                <td><a asp-controller="Last" asp-action="View" asp-route-id="@item.Id">View</a></td>
             </tr>
         }
     </tbody>

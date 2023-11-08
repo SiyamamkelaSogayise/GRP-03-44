@@ -14,17 +14,19 @@ namespace GeeksProject02.Controllers
                 this.dbContext = dbContext;
         }
         [HttpGet]
-        public IActionResult AvailableVaccine()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var availableVaccine = await dbContext.AvailableVaccines.ToListAsync();
+            return View(availableVaccine);
         }
+        
         [HttpPost]
-        public JsonResult ChangeAvailability(int vaccineId, bool isAvailable)
+        public JsonResult ChangeAvailability(int Id, bool isAvailable)
         {
             
             try
             {
-                var vaccine = dbContext.AvailableVaccines.Find(vaccineId);
+                var vaccine = dbContext.AvailableVaccines.Find(Id);
                 if (vaccine != null)
                 {
                     vaccine.IsAvailable = isAvailable;
@@ -38,10 +40,11 @@ namespace GeeksProject02.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
-        public ActionResult Add()
+        [HttpGet]
+        public async Task<ActionResult> Add()
         {
             var model = new AddVaccineViewModel();
-            return View(model);
+            return await Task.Run(() => View("Add", model));
         }
 
         // POST: /Vaccine/Add
@@ -49,19 +52,24 @@ namespace GeeksProject02.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(AddVaccineViewModel addVacineRequest)
         {
-            var availableVaccine = new AvailableVaccine()
+            if (addVacineRequest != null)
             {
-                Id = Guid.NewGuid(),
-                Name = addVacineRequest.Name,
-                Description = addVacineRequest.Description,
-                IsAvailable = addVacineRequest.IsAvailable,
-                RestockDate = addVacineRequest.RestockDate,
-                
-            };
-            await dbContext.AvailableVaccines.AddAsync(availableVaccine);
-            await dbContext.SaveChangesAsync();
-            return RedirectToAction("AvailableVaccine");
-
+                var availableVaccine = new AvailableVaccine()
+                {
+                    Name = addVacineRequest.Name,
+                    Description = addVacineRequest.Description,
+                    IsAvailable = addVacineRequest.IsAvailable,
+                    RestockDate = addVacineRequest.RestockDate,
+                };
+                await dbContext.AvailableVaccines.AddAsync(availableVaccine);
+                await dbContext.SaveChangesAsync();
+                return RedirectToAction("Add");
+            }
+            else
+            {
+                // Handle the case where addVacineRequest is null
+                return RedirectToAction("Add"); // or return an error view
+            }
         }
 
     }
