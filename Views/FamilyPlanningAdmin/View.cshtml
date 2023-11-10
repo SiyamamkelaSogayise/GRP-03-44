@@ -1,8 +1,8 @@
 ﻿@{
-    Layout = "_LayoutFP";
+    Layout = "FamilyplanningViewPatientAdmin.cshtml";
 }
 
-@model GeeksProject02.Models.FamilyPlanningAdmin
+@model GeeksProject02.Models.FamilyPlanningAdminUpdate
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +20,18 @@
 
 </head>
 
-
 <body>
- 
-    <h1>Add New Patient</h1>
+
+    <h1>Edit Patient Information</h1>
     <fieldset>
-        <form method="post" action="Add" >
+        <form method="post" action="View">
             <fieldset>
                 <legend class="legend">Personal Information</legend>
 
+                <div class="mb-3">
+                    <label for="" class="form-label">Id</label>
+                    <input type="text" class="form-control" asp-for="Id" readonly>
+                </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Name</label>
                     <input type="text" class="form-control" asp-for="Name">
@@ -144,23 +147,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <p><a class="btn btn-secondary" asp-controller="FamilyPlanningAdmin" asp-action="Index">View Patient Detail »</a></p>
         </form>
-
-        <label for="ratinghealth">When you think about your health care, how much do you agree or disagree with this statement: "I receive exactly what I want and need exactly when and how I want and need it."</label>
-        <br>
-        * Taking 1 to be strongly dis-agree and 5 to be strongly agree
-        <br>
-        1
-        <input type="range" name="ratinghealth" min="1" max="5">5
-
-
-
-        
-  
-
-
     </fieldset>
-
-
 
     <footer class="footer">
         <div class="section__container footer__container">

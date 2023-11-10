@@ -1,0 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace GeeksProject02.Views.Shared
+{
+    public class FamPlanEditPatientAdminModel : PageModel
+    {
+        public void OnGet()
+        {
+        }
+    }
+}
