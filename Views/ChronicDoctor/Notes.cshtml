@@ -1,4 +1,4 @@
-﻿
+﻿@* 
 @{
     Layout = "_LayoutChronicMedication";
 }
@@ -21,12 +21,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/Notes.css" asp-append-version="true" />
- @*   < link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> *@
+    < link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
     <title>Show/Hide Example</title>
         
 
 </head>
-<body>
+<body> *@
+@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model GeeksProject02.Models.Notes
         <header>
         <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
@@ -127,7 +163,7 @@
 
 
 
-    <footer class="footer">
+   @*  <footer class="footer">
         <div class="section__container footer__container">
             <div class="footer__col">
                 <h3>e-<span>Nompilo</span></h3>
@@ -176,9 +212,8 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> *@
 
-</Body>
-</html>
+
 
 
