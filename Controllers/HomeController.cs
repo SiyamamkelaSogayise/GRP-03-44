@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace GeeksProject02.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -40,7 +41,7 @@ namespace GeeksProject02.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+        //[Authorize("Patient")]
         public IActionResult Index_dash()
         {
             return View();

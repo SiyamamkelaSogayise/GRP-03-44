@@ -138,6 +138,11 @@ body {
             <th>@Html.DisplayNameFor(model => model.Description)</th>
             <th>@Html.DisplayNameFor(model => model.IsAvailable)</th>
             <th>@Html.DisplayNameFor(model => model.RestockDate)</th>
+            
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Action</th>
+            }
 
         </tr>
     </thead>
@@ -150,8 +155,14 @@ body {
                 <td>@Html.DisplayFor(modelItem => item.Description)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsAvailable)</td>
                 <td>@Html.DisplayFor(modelItem => item.RestockDate)</td>
-                
-                <td><a asp-controller="AvailableVaccine" asp-action="View" asp-route-id="@item.Id">View</a></td>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-controller="AvailableVaccine" asp-action="View" asp-route-id="@item.Id">View</a>
+                        
+                    </td>
+                }
             </tr>
         }
     </tbody>
