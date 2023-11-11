@@ -1,23 +1,41 @@
 ﻿@{
-    Layout = "_LayoutChronicMedication";
+    Layout = "LayoutForms";
 
 }
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    </style>
 @model IEnumerable<GeeksProject02.Models.ChronicPrescription>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1 ,shrink-to-fit=no ">
-    <title>Image on the Right</title>
-    <link rel="stylesheet" href="~/css/DocNotes.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DemoMpho.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
-    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-
-</head>
-<body>
     <header>
         <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
@@ -103,7 +121,7 @@
 
 
 
-    <footer class="footer">
+@*     <footer class="footer">
         <div class="section__container footer__container">
             <div class="footer__col">
                 <h3>e-<span>Nompilo</span></h3>
@@ -152,10 +170,8 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> *@
 
 
 
-</body>
-</html>
 

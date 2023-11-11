@@ -1,7 +1,38 @@
 ﻿@{
-    Layout = "_LayoutChronicMedication";
+    Layout = "LayoutForms";
 }
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+ </style>
 @model GeeksProject02.Models.NextMeetings
 @{
     var errorMessage = TempData["errorMessage"]?.ToString();
@@ -14,15 +45,7 @@
     </div>
 
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/PrescriptionView.css" asp-append-version="true" />
-    <title>Show/Hide Example</title>
-</head>
-<body>
+
     <header>
         <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
@@ -50,7 +73,7 @@
         </div>
     </div>
     <h2 class=" heading">Add Prescription</h2>
-    <form class="form-data" method="post" asp-action="SendBooking">
+<form class="form-data" method="post" asp-action="FollowUpMeetings">
         <div asp-validation-summary="ModelOnly" class="text-danger> </div>
         <div class="form-head">
 
@@ -59,7 +82,7 @@
 
         <label class="form-label fs-14;">Date<span style="color: red;">*</span>:</label><br>
         <input type="date" class="form-control" placeholder="Dr Michael" asp-for="ChronicBookingDate"><br><br>
-        <span asp-validation-for="ChronicBookingDate" class="text-danger"></span>
+    <span asp-validation-for="ChronicBookingDate" class="text-danger"></span><br />
 
         <label class="form-label fs-14;">Time<span style="color: red;">*</span>:</label><br>
         <input type="time" class="form-control" placeholder="2345667" asp-for="chronicBookingTime"><br><br>
@@ -89,7 +112,7 @@
         <div class=" form-group row">
             <div class=" col-8 offset-2 row">
                 <div class="col">
-                    <input type="submit" class=" btn btn-info w-75" value="SendBooking" />
+                <input type="submit" class=" btn btn-info w-75" value="FollowUpMeetings" />
 
                 </div>
                 <div class="col">
@@ -119,7 +142,7 @@
 
 
 
-
+@* 
     <footer class="footer">
         <div class="section__container footer__container">
             <div class="footer__col">
@@ -169,7 +192,6 @@
                 </div>
             </div>
         </div>
-    </footer>
-</body>
-</html>
+    </footer> *@
+
 

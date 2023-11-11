@@ -1,0 +1,1594 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    --primary-color: #12ac8e;
+    --primary-color-dark: #0d846c;
+    --primary-color-light: #e9f7f7;
+    --secondary-color: #fb923c;
+    --text-dark: #333333;
+    --text-light: #767268;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+    /*background-color: forestgreen;*/ /* Add this line to set the background color to white */
+}
+
+.section__header {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+
+.btn {
+    padding: 0.75rem 2rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    white-space: nowrap;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    background-image: linear-gradient( to right, rgba(18, 172, 142, 0.9), rgba(18, 172, 142, 0.7) ), url("pexels-mart-production-7088526.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.nav__container {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+    .nav__logo span {
+        color: var(--secondary-color);
+    }
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.link a {
+    padding: 0.5rem;
+    color: var(--primary-color-light);
+}
+
+    .link a:hover {
+        color: var(--white);
+    }
+
+.header__container {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+    .header__container h1 {
+        margin-bottom: 1rem;
+        max-width: 800px;
+        font-size: 3.5rem;
+        line-height: 4rem;
+        color: var(--white);
+    }
+
+    .header__container p {
+        margin-bottom: 2rem;
+        max-width: 600px;
+        color: var(--primary-color-light);
+    }
+
+.header__form {
+    width: 100%;
+    max-width: 350px;
+}
+
+    .header__form form {
+        display: grid;
+        gap: 1rem;
+        padding: 2rem;
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .header__form input {
+        padding: 1rem;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        color: var(--primary-color);
+        background-color: var(--primary-color-light);
+        border-radius: 5px;
+    }
+
+        .header__form input::placeholder {
+            color: var(--primary-color);
+        }
+
+.form__btn {
+    background-color: var(--primary-color);
+    transition: 0.3s;
+}
+
+    .form__btn:hover {
+        background-color: var(--primary-color-dark);
+    }
+
+.header__form h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.service__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.service__header__content p {
+    max-width: 600px;
+    color: var(--text-light);
+}
+
+.service__btn {
+    padding: 0.75rem 1rem;
+    outline: none;
+    font-size: 1rem;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    border-radius: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .service__btn:hover {
+        color: var(--white);
+        background-color: var(--primary-color);
+    }
+
+.service__grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service__card {
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+    .service__card span {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 10px 20px;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        background-color: var(--primary-color-light);
+        border-radius: 100%;
+        transition: 0.3s;
+    }
+
+    .service__card h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .service__card p {
+        margin-bottom: 1rem;
+        color: var(--text-light);
+    }
+
+    .service__card a {
+        color: var(--primary-color);
+    }
+
+        .service__card a:hover {
+            color: var(--primary-color-dark);
+        }
+
+    .service__card:hover span {
+        color: var(--primary-color-light);
+        background-color: var(--primary-color);
+    }
+
+.about__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.about__content p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.about__image img {
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.why__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.why__image img {
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.why__content p {
+    color: var(--text-light);
+}
+
+.why__grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 80px auto;
+    gap: 2rem;
+}
+
+    .why__grid span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        border-radius: 10px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .why__grid h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .why__grid p {
+        color: var(--text-light);
+    }
+
+.doctors__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.doctors__header__content p {
+    max-width: 600px;
+    color: var(--text-light);
+}
+
+.doctors__nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+    .doctors__nav span {
+        padding: 5px 15px;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        background-color: var(--primary-color-light);
+        cursor: pointer;
+    }
+
+.doctors__grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.doctors__card {
+    text-align: center;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.doctors__card__image {
+    position: relative;
+    overflow: hidden;
+}
+
+.doctors__socials {
+    position: absolute;
+    left: 0;
+    bottom: -4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: 0.5s;
+}
+
+    .doctors__socials span {
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        background-color: var(--white);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .doctors__socials span:hover {
+            color: var(--primary-color);
+        }
+
+.doctors__card:hover .doctors__socials {
+    bottom: 2rem;
+}
+
+.doctors__card h4 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.doctors__card p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.footer {
+    background-color: var(--primary-color-light);
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: 400px repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer__col h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+    .footer__col h3 span {
+        color: var(--secondary-color);
+    }
+
+.footer__col h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.footer__col p {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .footer__col p:hover {
+        color: var(--primary-color);
+    }
+
+.footer__col i {
+    color: var(--primary-color);
+}
+
+.footer__bar {
+    background-color: var(--primary-color);
+}
+
+.footer__bar__content {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+    .footer__bar__content p {
+        font-size: 0.8rem;
+        color: var(--white);
+    }
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+@media (width < 900px) {
+    .service__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .about__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .about__image {
+        grid-area: 1/1/2/2;
+    }
+
+    .about__content {
+        text-align: center;
+    }
+
+    .why__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .why__content {
+        text-align: center;
+    }
+
+    .why__grid {
+        text-align: left;
+    }
+
+    .doctors__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .footer__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (width < 780px) {
+    .nav__links {
+        display: none;
+    }
+
+    .header__container {
+        flex-direction: column;
+    }
+}
+
+@media (width < 600px) {
+    .service__header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .why__grid {
+        column-gap: 1rem;
+    }
+
+    .doctors__header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doctors__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer__bar__content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.InfoLinks {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.InfoBlockTitle {
+    font-size: 80px;
+    line-height: 112%;
+    color: #1D3443;
+    font-family: "Open Sans Light";
+    font-weight: 300;
+    letter-spacing: -0.03em;
+}
+
+.InfoBlockDescription {
+    color: #80898f;
+    font-size: 20px;
+    line-height: 130%;
+    font-family: 'Open Sans Semi-Bold';
+    font-weight: 400;
+    margin: 45px 0;
+}
+
+dnn_PageTitle {
+    visibility: hidden !important;
+    margin-top: -30px;
+    height: 1px !important;
+    display: block;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+.CovidTopSection {
+    margin-bottom: 8%;
+}
+
+@media (min-width: 992px) {
+    .col-lg-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+.DnnModule DnnModule-DNN_HTML DnnModule-11576 DnnVersionableControl {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.DNNContainer_noTitle {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.dnn_ctr11576_ContentPane {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.dnn_ctr11576_ModuleContent {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.dnn_ctr11576_HtmlModule_lblContent {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+@media (max-width: 1400px) {
+    .CovidPage.InfoBlock {
+        margin-top: -410px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .CovidPage.InfoBlock {
+        margin-top: -470px;
+        padding: 50px 45px;
+    }
+}
+
+#SplitBanner.WhiteBG {
+    background: #fff;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.05);
+    border-radius: 3px;
+}
+
+#SplitBanner .Image {
+    width: 44%;
+    display: block;
+}
+
+#SplitBanner .Content {
+    width: 56%;
+    display: flex;
+    align-items: center;
+    padding: 0 60px 0 100px;
+}
+
+    #SplitBanner .Content .TextWrapper h6 {
+        color: #80898F;
+        margin-bottom: 30px;
+    }
+
+#SplitBanner.WhiteBG {
+    background: #fff;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.05);
+    border-radius: 3px;
+}
+
+#SplitBanner {
+    display: flex;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+#BodyWrapper {
+    padding-top: 140px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin-bottom: -1px;
+}
+
+.grey {
+    background: #f7f7f7 !important;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.DNNEmptyPane {
+    width: 0px;
+}
+
+.BannerContainer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.dnn_Banner {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.DesktopImage {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.CovidBanner .DesktopImage {
+    display: block;
+}
+
+.CovidBanner img {
+    width: 100%;
+    display: block;
+    z-index: -1;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+
+a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.CovidBanner {
+    font-family: 'Open Sans','Open Sans Bold','Open Sans Light','Open Sans Semi-Bold';
+}
+
+.dnnImageToolWrapper {
+    font-family: "Open Sans";
+    color: #57656E;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.dnn_ctr10675_HtmlModule_lblContent {
+    font-family: "Open Sans";
+    color: #57656E;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+DNNContainer_noTitle {
+    font-family: "Open Sans";
+    color: #57656E;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+dnn_ctr10675_ContentPane {
+    font-family: "Open Sans";
+    color: #57656E;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace url("http://www.w3.org/1999/xhtml");
+
+.videocontrols {
+    writing-mode: horizontal-tb;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    overflow: hidden;
+    direction: ltr;
+    /* Prevent selection from interacting weirdly with the page,
+   * see bug 1766093. Our text selection story with shadow dom should be
+   * better, see bug 1590379 */
+    user-select: none;
+    /* Prevent unwanted style inheritance. See bug 554717. */
+    text-align: left;
+    list-style-image: none !important;
+    font: normal normal normal 100%/normal sans-serif !important;
+    text-decoration: none !important;
+    white-space: normal !important;
+}
+
+    .videocontrols[flipped="true"] {
+        transform: scaleX(-1);
+    }
+
+.controlsContainer {
+    --clickToPlay-size: 48px;
+    --button-size: 30px;
+    --timer-size: 40px;
+    --timer-long-size: 60px;
+    --track-size: 5px;
+    --thumb-size: 13px;
+    --label-font-size: 13px;
+    --pip-toggle-padding: 5px;
+    --control-focus-outline: 2px solid #00DDFF;
+    --control-focus-outline-offset: -2px;
+    --pip-toggle-icon-width-height: 16px;
+    --pip-toggle-translate-x: calc(100% - var(--pip-toggle-icon-width-height) - 2 * var(--pip-toggle-padding));
+    color: #fff;
+}
+
+    .controlsContainer.touch {
+        --clickToPlay-size: 64px;
+        --button-size: 40px;
+        --timer-size: 52px;
+        --timer-long-size: 78px;
+        --track-size: 7px;
+        --thumb-size: 16px;
+        --label-font-size: 16px;
+    }
+
+/* Some CSS custom properties defined here are referenced by videocontrols.js */
+.controlBar {
+    /* Do not delete: these variables are accessed by JavaScript directly.
+     see videocontrols.js and search for |-width|. */
+    --clickToPlay-width: var(--clickToPlay-size);
+    --playButton-width: var(--button-size);
+    --scrubberStack-width: 64px;
+    --muteButton-width: var(--button-size);
+    --volumeStack-width: 48px;
+    --castingButton-width: var(--button-size);
+    --closedCaptionButton-width: var(--button-size);
+    --fullscreenButton-width: var(--button-size);
+    --positionDurationBox-width: var(--timer-size);
+    --durationSpan-width: var(--timer-size);
+    --positionDurationBox-width-long: var(--timer-long-size);
+    --durationSpan-width-long: var(--timer-long-size);
+}
+
+.touch .controlBar {
+    /* Do not delete: these variables are accessed by JavaScript directly.
+     see videocontrols.js and search for |-width|. */
+    --scrubberStack-width: 84px;
+    --volumeStack-width: 64px;
+}
+
+.controlsContainer [hidden],
+.controlBar[hidden] .progressBar,
+.controlBar[hidden] .bufferBar,
+.videocontrols[inDOMFullscreen] > .controlsContainer > .controlsOverlay > #pictureInPictureToggle {
+    display: none;
+}
+
+/* We hide the controlBar visually so it doesn't obscure the video. However,
+ * we still want to expose it to a11y so users who don't use a mouse can access
+ * it.
+ */
+.controlBar[hidden] {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.controlBar[size="hidden"] {
+    display: none;
+}
+
+.controlsSpacer[hideCursor] {
+    cursor: none;
+}
+
+.controlsContainer,
+.progressContainer {
+    position: relative;
+    height: 100%;
+}
+
+.stackItem {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.statusOverlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(80,80,80, .85);
+}
+
+.controlsOverlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.controlsSpacerStack {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.controlBar {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 40px;
+    padding: 0 9px;
+    background-color: rgba(26,26,26,.8);
+}
+
+.touch .controlBar {
+    height: 52px;
+}
+
+.controlBar > .button {
+    /* Prevent #textTrackListContainer from blocking clicks on controls */
+    z-index: 1;
+    height: 100%;
+    min-width: var(--button-size);
+    min-height: var(--button-size);
+    padding: 6px;
+    border: 0;
+    margin: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    background-clip: content-box;
+    -moz-context-properties: fill;
+    fill: currentColor;
+    color: inherit;
+    /* We don't suppress ::-moz-focus-inner, so that does for a focus indicator */
+    outline: none;
+}
+
+    /* Keyboard focus styling for interactive control elements (includes control
+   bar, click to play and track list) */
+    .controlBar > .button:focus-visible,
+    .volumeControl:focus-visible,
+    .scrubber:focus-visible,
+    .clickToPlay:focus-visible,
+    .textTrackList > .textTrackItem:focus-visible {
+        outline: var(--control-focus-outline);
+        outline-offset: var(--control-focus-outline-offset);
+    }
+
+.touch .controlBar > .button {
+    background-size: 24px 24px;
+}
+
+.controlBar > .button:enabled:hover {
+    fill: #48a0f7;
+}
+
+    .controlBar > .button:enabled:hover:active {
+        fill: #2d89e6;
+    }
+
+.playButton {
+    background-image: url(chrome://global/skin/media/pause-fill.svg);
+}
+
+    .playButton[paused] {
+        background-image: url(chrome://global/skin/media/play-fill.svg);
+    }
+
+.muteButton {
+    background-image: url(chrome://global/skin/media/audio.svg);
+}
+
+    .muteButton[muted] {
+        background-image: url(chrome://global/skin/media/audio-muted.svg);
+    }
+
+    .muteButton[noAudio] {
+        background-image: url(chrome://global/skin/media/audioNoAudioButton.svg);
+    }
+
+        .muteButton[noAudio] + .volumeStack {
+            display: none;
+        }
+
+.castingButton {
+    background-image: url(chrome://global/skin/media/castingButton-ready.svg);
+}
+
+    .castingButton[enabled] {
+        background-image: url(chrome://global/skin/media/castingButton-active.svg);
+    }
+
+.closedCaptionButton {
+    background-image: url(chrome://global/skin/media/closedCaptionButton-cc-off.svg);
+}
+
+    .closedCaptionButton[enabled] {
+        background-image: url(chrome://global/skin/media/closedCaptionButton-cc-on.svg);
+    }
+
+.fullscreenButton {
+    background-image: url(chrome://global/skin/media/fullscreenEnterButton.svg);
+}
+
+    .fullscreenButton[fullscreened] {
+        background-image: url(chrome://global/skin/media/fullscreenExitButton.svg);
+    }
+
+.controlBarSpacer {
+    flex-grow: 1;
+}
+
+.volumeControl::-moz-range-thumb,
+.scrubber::-moz-range-thumb {
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    border: none;
+    border-radius: 50%;
+    /* this is a foreground element even though it is implemented as a background */
+    background-color: currentColor;
+    filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.65));
+}
+
+.volumeControl,
+.scrubber {
+    outline: none;
+}
+
+.progressBackgroundBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressStack {
+    position: relative;
+    width: 100%;
+    height: var(--track-size);
+}
+
+.scrubberStack {
+    /* minus margin to get basis of required width */
+    min-width: calc(var(--scrubberStack-width) - 18px);
+    flex-basis: calc(var(--scrubberStack-width) - 18px);
+    flex-grow: 2;
+    flex-shrink: 0;
+    margin: 0 9px;
+}
+
+.volumeStack {
+    max-width: 60px;
+    min-width: var(--volumeStack-width);
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 6px;
+    margin-left: 4px;
+}
+
+.bufferBar,
+.progressBar,
+.scrubber,
+.volumeControl {
+    bottom: 0;
+    color: inherit;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: calc(var(--track-size) / 2);
+    margin: 0;
+    background: none;
+    outline: none;
+}
+
+.bufferBar {
+    background-color: rgba(0,0,0,0.7);
+}
+
+    .bufferBar::-moz-progress-bar,
+    .progressBar::-moz-progress-bar {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        border-radius: calc(var(--track-size) / 2);
+        background: none;
+    }
+
+    .bufferBar::-moz-progress-bar {
+        background-color: rgba(255,255,255,0.3);
+        border-radius: calc(var(--track-size) / 2);
+    }
+
+.progressBar::-moz-progress-bar {
+    background-color: #00b6f0;
+}
+
+.scrubber:hover::-moz-range-thumb,
+.volumeControl:hover::-moz-range-thumb {
+    background-color: #48a0f7;
+}
+
+.scrubber:active::-moz-range-thumb,
+.volumeControl:active::-moz-range-thumb {
+    background-color: #2d89e6;
+}
+
+.scrubber::-moz-range-track,
+.scrubber::-moz-range-progress {
+    background-color: transparent;
+}
+
+.volumeControl::-moz-range-progress,
+.volumeControl::-moz-range-track {
+    height: var(--track-size);
+    border-radius: calc(var(--track-size) / 2);
+}
+
+.volumeControl::-moz-range-progress {
+    /* this is a foreground element even though it is implemented as a background */
+    background-color: currentColor;
+}
+
+.volumeControl::-moz-range-track {
+    background-color: rgba(0,0,0,0.7);
+}
+
+@media (prefers-contrast) {
+    /* Show a border in high contrast mode since background-colors
+     are not shown. */
+    .scrubber::-moz-range-track,
+    .volumeControl::-moz-range-track {
+        border: 1px solid;
+    }
+
+    .scrubber::-moz-range-progress,
+    .volumeControl::-moz-range-progress {
+        border: 2px solid;
+    }
+}
+
+.textTrackListContainer {
+    position: absolute;
+    right: 5px;
+    bottom: 45px;
+    top: 5px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.textTrackList {
+    flex: 0 1 auto;
+    border: 1px solid #000;
+    border-radius: 2.5px;
+    padding: 5px 0;
+    vertical-align: middle;
+    background-color: #000;
+    opacity: 0.7;
+    overflow-y: auto;
+}
+
+.touch .textTrackList {
+    bottom: 58px;
+}
+
+.textTrackList > .textTrackItem {
+    display: block;
+    width: 100%;
+    height: var(--button-size);
+    font-size: var(--label-font-size);
+    padding: 2px 10px;
+    border: none;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    color: inherit;
+}
+
+    .textTrackList > .textTrackItem:hover {
+        background-color: #444;
+    }
+
+    .textTrackList > .textTrackItem[aria-checked="true"] {
+        color: #48a0f7;
+    }
+
+.positionLabel,
+.durationLabel {
+    display: none;
+}
+
+.positionDurationBox {
+    text-align: center;
+    padding-inline-start: 1px;
+    padding-inline-end: 9px;
+    white-space: nowrap;
+    font: message-box;
+    font-size: var(--label-font-size);
+    font-size-adjust: 0.55;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (-moz-platform: macos) {
+    .positionDurationBox {
+        font-size-adjust: unset;
+        font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    }
+}
+
+.duration {
+    display: inline-block;
+    white-space: pre;
+    color: #929292;
+}
+
+.statusIcon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 20px;
+}
+
+/* Not showing the throbber on mobile because of conflict with m.youtube.com (see bug 1289412) */
+.controlsContainer:not(.mobile) .statusIcon[type="throbber"] {
+    background: url(chrome://global/skin/media/throbber.png) no-repeat center;
+}
+
+    .controlsContainer:not(.mobile) .statusIcon[type="throbber"][stalled] {
+        background: url(chrome://global/skin/media/stalled.png) no-repeat center;
+    }
+
+.statusIcon[type="error"],
+.statusIcon[type="pictureInPicture"] {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.statusIcon[type="error"] {
+    min-width: 70px;
+    min-height: 60px;
+    background-image: url(chrome://global/skin/media/error.png);
+}
+
+.statusIcon[type="pictureInPicture"] {
+    min-width: 84px;
+    min-height: 84px;
+    background-image: url(chrome://global/skin/media/picture-in-picture-open.svg);
+    -moz-context-properties: fill;
+    fill: currentColor;
+}
+
+.videocontrols[localedir="rtl"] .statusIcon[type="pictureInPicture"] {
+    transform: scaleX(-1);
+}
+
+.pictureInPictureToggleLabel {
+    margin-inline-start: var(--pip-toggle-padding);
+}
+
+/* Overlay Play button */
+.clickToPlay {
+    appearance: none;
+    border: none;
+    min-width: var(--clickToPlay-size);
+    min-height: var(--clickToPlay-size);
+    border-radius: 50%;
+    background-image: url(chrome://global/skin/media/play-fill.svg);
+    background-repeat: no-repeat;
+    background-position: 54% 50%;
+    background-size: 40% 40%;
+    background-color: #1a1a1a;
+    -moz-context-properties: fill;
+    fill: currentColor;
+    color: inherit;
+    opacity: 0.8;
+    position: relative;
+    top: 20px;
+}
+
+    .controlsSpacerStack:hover > .clickToPlay,
+    .clickToPlay:hover {
+        opacity: 0.55;
+    }
+
+        .controlsSpacerStack:hover > .clickToPlay[fadeout] {
+            opacity: 0;
+        }
+
+.controlBar[fullscreen-unavailable] .fullscreenButton {
+    display: none;
+}
+
+.statusOverlay[fadeout],
+.statusOverlay[error] + .controlsOverlay > .controlsSpacerStack {
+    opacity: 0;
+}
+
+.pictureInPictureOverlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    background-color: rgb(12, 12, 13);
+}
+
+/* Status description formatting */
+.statusLabel {
+    display: none;
+    padding: 0 10px;
+    text-align: center;
+    font: message-box;
+    font-size: 14px;
+}
+
+.videocontrols[localedir="rtl"] .statusLabel {
+    direction: rtl;
+}
+
+[status="errorAborted"] > #errorAborted,
+[status="errorNetwork"] > #errorNetwork,
+[status="errorDecode"] > #errorDecode,
+[status="errorSrcNotSupported"] > #errorSrcNotSupported,
+[status="errorNoSource"] > #errorNoSource,
+[status="errorGeneric"] > #errorGeneric,
+[status="pictureInPicture"] > #pictureInPicture {
+    display: inline;
+}
+
+@media (-moz-platform: windows) and (prefers-contrast) {
+    .controlsSpacer,
+    .clickToPlay {
+        background-color: transparent;
+    }
+}
+
+.a11y-only {
+    position: absolute;
+    left: -10000px;
+    width: 100px;
+    height: 100px;
+}
+
+.CovidPage.StatsBlock h2 {
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+}
+
+.StatsDetails {
+    padding: 35px 45px 20px 45px;
+    background: rgba(29,52,67,0.94);
+    box-shadow: 0px 6px 100px rgba(29,52,67,0.24);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.CovidPage.InfoBlock {
+    margin-top: -480px;
+}
+
+.CovidPage.StatsBlock {
+    margin-top: -350px;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+#dnn_PageTitle {
+    visibility: hidden !important;
+    margin-top: -30px;
+    height: 1px !important;
+    display: block;
+    z-index: -1;
+}
+
+.CovidPage.StatsBlock .StatsDetails {
+    padding: 35px 45px 20px 45px;
+    background: rgba(29,52,67,0.94);
+    box-shadow: 0px 6px 100px rgba(29,52,67,0.24);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.CovidPage.StatsBlock h2 {
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+}
+/*.container {
+    max-width: 960px;
+}
+.container {
+    max-width: 960px;
+}*/
+/*.container {
+    max-width: 720px;
+}
+.CovidTopSection {
+    margin-bottom: 8%;
+}*/
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.dnnImageToolWrapper {
+    float: none;
+}
+
+.number {
+    font-family: "Montserrat Thin";
+    font-size: 35px;
+    line-height: 50px;
+    margin-top: 5px;
+}
+
+.CovidPage.StatsBlock .CovidStats .StatBlock {
+    display: inline-block;
+    padding-left: 45px;
+}
+
+    .CovidPage.StatsBlock .CovidStats .StatBlock .heading {
+        font-family: "Open Sans Light";
+        color: aliceblue;
+        line-height: 24px;
+        font-size: 16px;
+    }
+
+.CovidBlockWrapper .CovidStats, .CovidPage.StatsBlock .CovidStats {
+    margin-bottom: 15px;
+    display: block;
+}
+
+    .CovidPage.StatsBlock .CovidStats .StatBlock {
+        display: inline-block;
+        padding-left: 45px;
+    }
+
+        .CovidPage.StatsBlock .CovidStats .StatBlock .heading {
+            font-family: "Open Sans Light";
+            line-height: 24px;
+            font-size: 16px;
+        }
+
+        .CovidPage.StatsBlock .CovidStats .StatBlock .number {
+            font-size: 34px;
+        }
+
+.CovidPage.StatsBlock .StatsTime {
+    font-weight: bold;
+    color: aliceblue;
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+
+.CovidPage.StatsBlock .CovidStats .StatBlock .number {
+    font-size: 38px;
+}
+
+.CovidPage.StatsBlock .CovidStats .StatBlock .number {
+    font-family: "Montserrat Thin";
+    color: aliceblue;
+    font-size: 35px;
+    line-height: 50px;
+    margin-top: 5px;
+}
+
+.CovidPage.StatsBlock .CovidStats .StatBlock:first-child {
+    width: 50%;
+}
+
+.CovidPage.StatsBlock .CovidStats .StatBlock:first-child {
+    padding-left: 0px;
+}
+
+.CovidPage.StatsBlock .CovidStats .StatBlock {
+    display: inline-block;
+    padding-left: 45px;
+}
+
+    .CovidPage.StatsBlock .CovidStats .StatBlock .heading {
+        font-family: "Open Sans Light";
+        color: aliceblue;
+        line-height: 24px;
+        font-size: 16px;
+    }
+
+.CovidPage.InfoBlock {
+    background: linear-gradient( 181.93deg,#fff 1.63%,#f7f7f7 85.81%);
+    border-radius: 3px;
+    width: 100%;
+    margin-top: -550px;
+    padding: 50px 100px 35px 45px;
+}
+
+.CovidPage.InfoBlock {
+    margin-top: -470px;
+    padding: 50px 45px;
+}
+
+    .CovidPage.InfoBlock .InfoBlockTitle {
+        font-size: 80px;
+        line-height: 112%;
+        color: #1D3443;
+        font-family: "Open Sans Light";
+        font-weight: 300;
+        letter-spacing: -0.03em;
+    }
+
+    .CovidPage.InfoBlock .InfoBlockDescription {
+        color: #80898f;
+        font-size: 20px;
+        line-height: 130%;
+        font-family: 'Open Sans Semi-Bold';
+        font-weight: 400;
+        margin: 45px 0;
+    }
