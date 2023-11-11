@@ -109,7 +109,14 @@
         <input type="date" class="form-group" asp-for="AppointmentDate">
         <label for="AppointmentDate">Appointment Date</label>   
     </div>
-
+    <label class="form-group">Choose a Vaccine:</label>
+    <select class="form-group" asp-for="SelectedVaccineId">
+        <option value="" selected disabled>Select a Vaccine</option>
+        @foreach (var vaccine in Model.AvailableVaccines)
+        {
+            <option value="@vaccine.Id">@vaccine.VaccineName - @vaccine.Status</option>
+        }
+    </select>
     <label class="form-group">Do you belong to a Medical Aid:</label>
     <select class="form-group" id="medicalAidDropdown">
         <option value="no">No</option>

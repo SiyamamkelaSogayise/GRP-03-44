@@ -14,28 +14,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     {
     }
     
-    //public GeeksProject02Context(string connectionString)
-    //{
-    //    ConnectionString = connectionString;
-    //}
-
-    //protected override void OnModelCreating(ModelBuilder builder)
-    //{
-    //    builder.Entity<Form>()
-    //             .Property(f => f.Status)
-    //             .HasConversion(
-    //                 status => status.ToString(),  // Convert enum to string when saving to the database
-    //                 statusStr => (Form.AppointmentStatus)Enum.Parse(typeof(Form.AppointmentStatus), statusStr) // Convert string to enum when reading from the database
-    //    );
-
-    //    builder.Entity<Form>()
-    //    .HasOne(f => f.UserAppointment)
-    //    .WithMany()
-    //    .HasForeignKey(f => f.AppointmentId);
-
-    //    base.OnModelCreating(builder);
-    //}
-    //public DbSet<SuperVillains1> SuperVillians { get; set; }
+    
 
     public DbSet<Patient_Info> Patient_Info { get; set; }
     public DbSet<Pregnancy_Tracker> Pregnancy_Tracker { get; set; }
@@ -44,15 +23,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
     public DbSet<AvailableVaccine> AvailableVaccines { get; set; }
 
-    //public DbSet<ChronicBooking> BookingChronic { get; set; }
-
-
-    //public DbSet<ChronicBooking> BookingChronic { get; set; }
-
-
-    //public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
-    //public DbSet<ChronicBooking> BookingChronic { get; set; }
-
+   
 
 
     public DbSet<GeeksProject02User> GeeksProject02Users { get; set; }
@@ -65,6 +36,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     public DbSet<Notes>Notes { get; set; }
     public DbSet<Diagnosis> Diagnosis { get; set; }
     public DbSet<NextMeetings> NextMeetings { get; set; }
+   public DbSet<Stock> Stocks { get; set; }
     
 
 }

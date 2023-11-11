@@ -23,6 +23,8 @@ namespace GeeksProject02.Models
         [Required]
         public DateTime AppointmentDate { get; set; }
         [Required]
+        public string Stock { get; set; }
+        [Required]
         public bool IsMedicalAidMember { get; set; }
 
         public string MedicalAidNumber { get; set; }

@@ -1,0 +1,46 @@
+﻿@model List<GeeksProject02.Models.Stock>
+
+<h1>Vaccine Inventory</h1>
+<a asp-action="ExportToExcel" asp-controller="VaccineInventory" class="btn btn-success">Export to Excel</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vaccine Name</th>
+            <th>Vaccine Brand</th>
+            <th>Presentation</th>
+            <th>DosesPerBox</th>
+            <th>BoxLotNumbers</th>
+            <th>BoxExpirationDate</th>
+            <th>DoseLotNumbers</th>
+            <th>DoseExpiration Date</th>
+            <th>DosesonHand</th>
+            <th>TotalDoses</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.VaccineName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Brand)</td>
+                <td>@Html.DisplayFor(modelItem => item.Presentation)</td>
+                <td>@Html.DisplayFor(modelItem => item.DosesPerBox)</td>
+                <td>@Html.DisplayFor(modelItem => item.PresentationBoxLotNumbers)</td>
+                <td>@Html.DisplayFor(modelItem => item.PresentationBoxExpirationDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DoseLotNumbers)</td>
+                <td>@Html.DisplayFor(modelItem => item.DoseExpirationDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DosesOnHand)</td>
+                <td>@Html.DisplayFor(modelItem => item.TotalDosesOnHand)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>
+                    <a asp-controller="VaccineInventory" asp-action="View" asp-route-id="@item.Id">View</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

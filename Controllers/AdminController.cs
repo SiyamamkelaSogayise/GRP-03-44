@@ -17,7 +17,7 @@ namespace GeeksProject02.Controllers
 
         public ActionResult AdminPage()
         {
-            return View(bookings);
+            return View();
         }
     }
 }

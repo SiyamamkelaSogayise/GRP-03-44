@@ -149,5 +149,29 @@ namespace GeeksProject02.Controllers
             }
             return RedirectToAction("Index");
         }
+        public IActionResult AddVaccine()
+        {
+
+            var availableVaccines = GetAvailableVaccines();
+
+            var model = new LastViewModel
+            {
+                AvailableVaccines = availableVaccines,
+                // ... other properties
+            };
+
+            return View(model);
+        }
+
+        // Assuming this method retrieves the list of available vaccines from the database
+        private List<Stock> GetAvailableVaccines()
+        {
+            
+            var stock = DbContext.Stocks
+                .Where(v => v.Status == "Available" || v.Status == "Low Stock" || v.Status == "Unavailable")
+                .ToList();
+
+            return stock;
+        }
     }
 }

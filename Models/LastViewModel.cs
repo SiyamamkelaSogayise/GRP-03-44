@@ -26,6 +26,9 @@ namespace GeeksProject02.Models
         [Required]
         public DateTime AppointmentDate { get; set; }
         [Required]
+        public int SelectedVaccineId { get; set; }
+        public List<Stock> AvailableVaccines { get; set; } = new List<Stock>();
+        [Required]
         public bool IsMedicalAidMember { get; set; }
 
         public string MedicalAidNumber { get; set; }

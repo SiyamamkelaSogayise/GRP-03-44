@@ -1,0 +1,65 @@
+﻿@model GeeksProject02.Models.AddInventoryViewModel
+@{
+    Layout = "_LayoutFormBooking";
+}
+
+<h1>Add New Vaccine Inventory</h1>
+
+<form asp-action="AddInventory" method="post">
+    <div class="form-group">
+        <label asp-for="Id"> ID</label>
+        <input asp-for="Id" class="form-control"  readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="VaccineName">Vaccine Name</label>
+        <input asp-for="VaccineName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Brand">Vaccine Brand</label>
+        <input asp-for="Brand" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Presentation">Presentation</label>
+        <select asp-for="Presentation" class="form-control">
+            <option value="Syringes">Syringes</option>
+            <option value="Vials">Vials</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="DosesPerBox">Doses per Presentation Box</label>
+        <input asp-for="DosesPerBox" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PresentationBoxLotNumbers">Presentation Box Lot Numbers</label>
+        <input asp-for="PresentationBoxLotNumbers" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PresentationBoxExpirationDate">Presentation Box Expiration Date</label>
+        <input asp-for="PresentationBoxExpirationDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DoseLotNumbers">Dose Lot Numbers</label>
+        <input asp-for="DoseLotNumbers" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DoseExpirationDate">Dose Expiration Date</label>
+        <input asp-for="DoseExpirationDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DosesOnHand">Doses on Hand</label>
+        <input asp-for="DosesOnHand" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TotalDosesOnHand">Total Doses on Hand</label>
+        <input asp-for="TotalDosesOnHand" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Status">Status</label>
+        <select asp-for="Status" class="form-control">
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+            <option value="Low Stock">Low Stock</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Inventory</button>
+</form>
