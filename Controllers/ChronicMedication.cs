@@ -43,5 +43,10 @@ namespace GeeksProject02.Controllers
             IEnumerable<NextMeetings> objList = _Context.NextMeetings;
             return View(objList);
         }
+        public IActionResult AddMedicalHistory()
+        {
+            
+            return View();
+        }
     }
 }

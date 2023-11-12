@@ -27,8 +27,8 @@
                 <a asp-action="" asp-controller="">
                 <li><Link to="/about-us">About Us</li>
                 </a>
-                <a asp-action="" asp-controller="">
-                <li><Link to="/contact-us">View Medical record</li>
+                <a asp-action="AddMedicalHistory" asp-controller="ChronicMedication">
+                <li><Link to="/contact-us">Add Medical History</li>
                 </a>
 
             </ul>
@@ -165,7 +165,7 @@
                 <i class="fas fa-heart"></i>
             </div>
             <h1>Check Bookings</h1>
-            <a asp-action="Bookings" asp-controller="ChronicMedication" class="btn">Click</a>
+            <a asp-action="FollowUpMeetings" asp-controller="ChronicMedication" class="btn">Click</a>
         </div>
         @*   card2 *@
         <div class="card2">

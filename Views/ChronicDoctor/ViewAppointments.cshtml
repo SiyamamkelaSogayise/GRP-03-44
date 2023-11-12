@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model IEnumerable<GeeksProject02.Models.NextMeetings>
+@{
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+@if (!string.IsNullOrWhiteSpace(@errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class=" btn-close float-end" data-bs-dismissal="Alert"></button>
+    </div>
+
+}
+
+<header>
+    <nav class="section__container nav__container">
+        <div class="nav__logo">e-<span>Nompilo</span></div>
+        <ul class="nav__links">
+            <a asp-action="" asp-controller="">
+            <li><Link to="/">Home</li>
+            </a>
+            <a asp-action="" asp-controller="">
+            <li><Link to="/about-us">About Us</li>
+            </a>
+            <a asp-action="" asp-controller="">
+            <li><Link to="/contact-us">View Medical record</li>
+            </a>
+
+        </ul>
+        @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
+        <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a>
+    </nav>
+</header>
+<div class="container">
+    <div class="image"></div>
+    <div class="text">
+        <h2>chronic Medication</h2>
+        <p>Welcome to our Chronic Medication facility.<br /> your trusted source for comprehensive information, guida</p>
+    </div>
+</div>
+<br />
+<br />
+@if (Model.Count() > 0)
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Appointment Reason</th>
+                <th scope="col">Doctors Signiture</th>
+            </tr>
+        </thead>
+        @foreach (var mpho in Model)
+        {
+            <tbody>
+                <tr>
+
+                    <td>@mpho.ChronicBookingDate</td>
+                    <td>@mpho.chronicBookingTime</td>
+                    <td>@mpho.ChronicReason </td>
+                    <td>@mpho.SignitureByName</td>
+
+                </tr>
+
+
+
+            </tbody>
+        }
+    </table>
+
+}
+else
+{
+    <p>no appointments available</p>
+}
+
+
+
+
+
