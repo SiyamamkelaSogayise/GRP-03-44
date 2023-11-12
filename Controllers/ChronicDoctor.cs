@@ -36,6 +36,69 @@ namespace GeeksProject02.Controllers
                 return View();
             }
         }
+        public IActionResult Diagnosis()
+        {
+            IEnumerable<Diagnosis> objList = _Context.Diagnosis;
+            return View(objList);
+        }
+        [HttpGet]
+        public IActionResult ViewDiagnosis(int? ID)
+        {
+            if (ID == null || ID == 0)
+            {
+                return NotFound();
+            }
+            var obj = _Context.Diagnosis.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+
+
+
+            return View(obj);
+        } 
+        [HttpGet]
+        public IActionResult UpdateDiagnosis(int? ID)
+        {
+            if (ID == null || ID == 0)
+            {
+                return NotFound();
+            }
+            var obj = _Context.Diagnosis.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+
+
+
+            return View(obj);
+        }
+        public IActionResult DeleteDiagnosis(int? ID)
+        {
+            var obj = _Context.Diagnosis.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _Context.Diagnosis.Remove(obj);
+            _Context.SaveChanges();
+            TempData["SuccessMessage"] = "Deleted !";
+            return RedirectToAction("Diagnosis");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateDiagnosis(Diagnosis obj)
+        {
+            _Context.Diagnosis.Update(obj);
+            _Context.SaveChanges();
+            TempData["SuccessMessage"] = "DragonBallz Updated Successfully!";
+            return RedirectToAction("Diagnosis");
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SavePrescription(ChronicPrescription x)
@@ -149,5 +212,40 @@ namespace GeeksProject02.Controllers
                 return View();
             }
         }
+        public IActionResult ViewAppointments()
+        {
+            IEnumerable<NextMeetings> objList = _Context.NextMeetings;
+            return View(objList);
+        }
+        public IActionResult ViewMedicalHistory()
+        {
+            IEnumerable<MedicalHistory> objList = _Context.ChronicMedicalHistory;
+            return View(objList);
+        }
+        [HttpGet]
+        public IActionResult View(int? ID)
+        {
+            if (ID == null || ID == 0)
+            {
+                return NotFound();
+            }
+            var obj = _Context.ChronicMedicalHistory.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+         
+            
+            
+                return View(obj);
+            
+           
+                    
+
+        }
+        
+
+
     }
 }

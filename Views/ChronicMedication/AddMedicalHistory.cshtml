@@ -1,0 +1,168 @@
+﻿@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model GeeksProject02.Models.MedicalHistory
+
+
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <ul class="nav__links">
+                <li><Link to="/">Home</li>
+                <li><Link to="/about-us">About Us</li>
+                <li><Link to="/services">Services</li>
+                <li><Link to="/contact-us">Contact Us</li>
+
+
+            </ul>
+
+            <a asp-action="ViewMedicalHistory" asp-controller="HistoryMedical" class="btn">View Medical History</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="image"></div>
+        <div class="text">
+
+            <p>Welcome to our Health Care Portal as Enompilo Facility your well-being is our top priority. <br />To ensure you receive the best care tailored to your needs, please take a moment to provide us with your medical history.<br /> Your detailed information helps us deliver personalized and accurate healthcare services.<br /> Thank you for entrusting us with your health information. </p>
+        </div>
+    </div>
+    <h1>Medical Record</h1>
+    <form class="form-data" method="post" asp-action="SubmittDetails">
+        <div asp-validation-summary="ModelOnly" class="text-danger> </div>
+        <div class="form-head">
+
+            @*  <h2>Book Appointment</h2> *@
+        </div>
+
+
+
+        <h2 class=" underlined-heading">Personal Details</h2>
+        <label class="form-label fs-14;">Name<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Name" asp-for="Name"><br><br>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <label class="form-label fs-14;">Surname<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Surname" asp-for="Surname"><br><br>
+        <span asp-validation-for="Surname" class="text-danger"></span>
+        <label class="form-label fs-14;">Gender<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Male/Female" asp-for="Gender"><br><br>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+        <label class="form-label fs-14;">Mobile Number<span style="color: red;">*</span>:</label><br>
+        <input type="number" class="form-control" placeholder="0721784629" asp-for="MobileNumber"><br><br>
+        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Martial Status<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Single\Married\Window\Divorced" asp-for="Status"><br><br>
+        <span asp-validation-for="Status" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Date Of Birth<span style="color: red;">*</span>:</label><br>
+        <input type="date" class="form-control" placeholder="2003-04-12" asp-for="DateOfBirth"><br><br>
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+
+
+
+        <label class="form-label fs-14;">LifeStyle<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Smoking\Alcohol Consumtion\Exercise Habits" asp-for="LifeStyle"><br><br>
+        <span asp-validation-for="LifeStyle" class="text-danger"></span>
+
+        @*
+        Hedear *@
+        <h2 class=" underlined-heading">Medical Conditions</h2>
+        <label class="form-label fs-14;">Allergies<span style="color: red;">*</span>:</label><br>
+        <input type="text" class="form-control" placeholder="Allergies" asp-for="Allergies"><br><br>
+        <span asp-validation-for="Allergies" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Surgeries Undergone:</label><br>
+        <input type="text" class="form-control" placeholder="any Surgery done to you" asp-for="surgiersUndergone"><br><br>
+        <span asp-validation-for="surgiersUndergone" class="text-danger"></span>
+        <label class="form-label fs-14;">Family Medical History:</label><br>
+        <input type="text" class="form-control" placeholder="Chronic desease affected a family member before" asp-for="FamilyMedicalHistory"><br><br>
+        <span asp-validation-for="FamilyMedicalHistory" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Previous Medication:</label><br>
+        <input type="text" class="form-control" placeholder="Previous Medication" asp-for="PreviousMedication"><br><br>
+        <span asp-validation-for="PreviousMedication" class="text-danger"></span>
+        <label class="form-label fs-14;">Immunization History:</label><br>
+        <textarea type="text" class="form-control" placeholder="Details about vaccination received" asp-for="ImmunizationHistory"></textarea><br><br>
+        <span asp-validation-for="ImmunizationHistory" class="text-danger"></span>
+        <label class="form-label fs-14;">Hospilitazation:</label><br>
+        <input type="text" class="form-control" placeholder="Any previous hospitalizations, including the reason" asp-for="Hospitalizations"><br><br>
+        <span asp-validation-for="Hospitalizations" class="text-danger"></span>
+        @*
+        Hedear *@
+        <h2 class=" underlined-heading">Emergency Contacts</h2>
+
+
+        <label class="form-label fs-14;">Home Telephone Number<span style="color: red;">*</span>:</label><br>
+        <input type="number" class="form-control" placeholder="123456789" asp-for="HomeTelePhoneNumber"><br><br>
+        <span asp-validation-for="HomeTelePhoneNumber" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Work Telephone Number:</label><br>
+        <input type="number" class="form-control" placeholder="123456789" asp-for="WorkTelePhoneNumber"><br><br>
+
+
+        <label class="form-label fs-14;">Next of Kin Number<span style="color: red;">*</span>::</label><br>
+        <input type="number" class="form-control" placeholder="123456789" asp-for="NextOfKinNumber"><br><br>
+        <span asp-validation-for="NextOfKinNumber" class="text-danger"></span>
+
+        <label class="form-label fs-14;">Insurence Provide number:</label><br>
+        <input type="number" class="form-control" placeholder="123456789" asp-for="InsurenceProvideNumber"><br><br>
+
+
+
+
+        <input type="submit" class=" btn btn-info w-75" value="SubmittDetails" />
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
