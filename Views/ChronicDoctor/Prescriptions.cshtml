@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model GeeksProject02.Models.ChronicPrescription
+@*  IEnumerable<GeeksProject02.Models.MedicalHistory> *@
+
+<header>
+    <nav class="section__container nav__container">
+        <div class="nav__logo">e-<span>Nompilo</span></div>
+        <ul class="nav__links">
+            <li><Link to="/">Home</li>
+            <li><Link to="/about-us">About Us</li>
+            <li><Link to="/services">Services</li>
+            <li><Link to="/contact-us">Contact Us</li>
+
+
+        </ul>
+        <button class="btn">Contact Us</button>
+    </nav>
+</header>
+<div class="medical-history">
+    <h2>Prescription For @Model.PatientName</h2>
+</div>
+<div class="section">
+@*     <h3 class="section-heading">Medical Conditions</h3> *@
+    <ul>
+
+        <li><strong>Doctor Name:</strong>       @Model.DoctorName </li>
+        <li><strong>:</strong>     @Model.LicenceNUmber </li>
+        <li><strong>:</strong> @Model.Date </li>
+        <li><strong>:</strong>  @Model.PatientName</li>
+        <li><strong>:</strong>  @Model.MedicationName</li>
+        <li><strong>:</strong>  @Model.DosageInstruction</li>
+        <li><strong>:</strong>  @Model.Signiture</li>
+
+
+
+
+    </ul>
+</div>
+<div class="col">
+    <a asp-action="ViewPrescription" class="btn btn-dark w-75">Back</a>
+</div>

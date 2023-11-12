@@ -119,6 +119,23 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+        public IActionResult Prescriptions(int? ID)
+        {
+            if (ID == null || ID == 0)
+            {
+                return NotFound();
+            }
+            var obj = _Context.ChronicPrescriptions.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+
+
+
+            return View(obj);
+        }
         public IActionResult Notes()
         {
             return View();
@@ -244,8 +261,9 @@ namespace GeeksProject02.Controllers
                     
 
         }
-        
+       
 
+        
 
     }
 }

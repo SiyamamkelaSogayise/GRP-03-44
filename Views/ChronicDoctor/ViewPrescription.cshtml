@@ -83,6 +83,14 @@
                         <td> @mpho.MedicationName</td>
                         <td> @mpho.DosageInstruction</td>
                         <td> @mpho.Signiture</td>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="ChronicDoctor" asp-action="Prescrptions" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>View</a>
+                                <a asp-controller="ChronicDoctor" asp-action="UpdateDiagnosis" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>Update</a>
+                                <a asp-controller="ChronicDoctor" asp-action="DeleteDiagnosis" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>Delete</a>
+
+                            </div>
+                        </td>
                 
 
 
@@ -117,6 +125,9 @@
 
 
     </div>
+<div class="col">
+    <a asp-action="Doctor" class="btn btn-dark w-75">Back</a>
+</div>
 
 
 
