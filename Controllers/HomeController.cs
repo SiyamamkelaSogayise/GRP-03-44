@@ -24,7 +24,7 @@ namespace GeeksProject02.Controllers
             }
             else if (User.IsInRole("Doctor"))
             {
-                return RedirectToAction("Name of doctor method", "name of controller");
+                return RedirectToAction("Doctor", "ChronicDoctor");
             }
 
             // For other users, show the default landing page
