@@ -19,11 +19,11 @@
         <nav class="section__container nav__container">
             <div class="nav__logo">e-<span>Nompilo</span></div>
             <ul class="nav__links">
-                <a asp-action="" asp-controller="">
-                <li><Link to="/">Home</li>
+                <a asp-action="ViewMedicalHistory" asp-controller="ChronicDoctor">
+                <li><Link to="/">View Medical History</li>
                 </a>
-                <a asp-action="" asp-controller="">
-                <li><Link to="/about-us">About Us</li>
+                <a asp-action="ViewAppointments" asp-controller="ChronicDoctor">
+                <li><Link to="/about-us">View Appointments</li>
                 </a>
                 <a asp-action="" asp-controller="">
                 <li><Link to="/contact-us">View Medical record</li>
@@ -31,7 +31,7 @@
 
             </ul>
             @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
-            <a asp-action="SendBooking" asp-controller="ChronicDoctor" class="btn">ADD Booking</a>
+            <a asp-action="FollowUpMeetings" asp-controller="ChronicDoctor" class="btn">ADD Booking</a>
         </nav>
     </header>
 
@@ -77,9 +77,37 @@
         </div>
 
     </div>
+    <div class="underlined-heading">
+        <h4>INFORMATION</h4>
+    </div>
 
+    <div class=" card-container">
 
+        <div class="card1">
+            <div class="icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h1>Patients Diagnosis</h1>
+            <a asp-action="Diagnosis" asp-controller="ChronicDoctor" class="btn">Click</a>
+        </div>
+        @*   card2 *@
+        <div class="card2">
+            <div class="icon">
+                <i class="fas fa-pills"></i>
+            </div>
+            <h1>Prescriptions</h1>
+            <a asp-action="ViewPrescription" asp-controller="ChronicDoctor" class="btn">Click</a>
+        </div>
+        @*   card3 *@
+        <div class="card3">
+            <div class="icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <h1>Notes for patients</h1>
+            <a asp-action="Notes" asp-controller="ChronicDoctor" class="btn">Click</a>
+        </div>
 
+    </div>
 
 
 
