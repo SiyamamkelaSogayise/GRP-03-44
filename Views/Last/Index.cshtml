@@ -63,6 +63,7 @@
                 <th>Medical Aid</th>
                 <th>Medical Aid Number</th>
                 <th>Medical Aid Name</th>
+                <th>Selected Vaccine</th>
                
             </tr>
         </thead>
@@ -81,6 +82,7 @@
                 <td>@lasts.IsMedicalAidMember</td>
                 <td>@lasts.MedicalAidNumber</td>
                 <td>@lasts.MedicalAidName</td>
+                <td>@lasts.SelectedVaccine</td>
                 <td><a asp-controller="Last" asp-action="View" asp-route-id="@lasts.Id">View</a></td>
                 </tr>
             }

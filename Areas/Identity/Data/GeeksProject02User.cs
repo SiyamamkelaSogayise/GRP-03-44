@@ -22,8 +22,8 @@ public class GeeksProject02User : IdentityUser
 
     [NotMapped]
     public string Email { get; set; }
-    [Required]
-    public string Status { get; set; }
+    //[Required]
+    //public string Status { get; set; }
     
 }
 

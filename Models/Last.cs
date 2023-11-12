@@ -22,13 +22,15 @@ namespace GeeksProject02.Models
         public string AdditionalInfo { get; set; }
         [Required]
         public DateTime AppointmentDate { get; set; }
-        [Required]
-        public string Stock { get; set; }
+        
+        public string SelectedVaccine { get; set; }
+        public string SelectedVaccineStatus { get; set; }
         [Required]
         public bool IsMedicalAidMember { get; set; }
 
         public string MedicalAidNumber { get; set; }
 
         public string MedicalAidName { get; set; }
+        
     }
 }

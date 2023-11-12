@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection.Metadata;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GeeksProject02.Controllers
 {
@@ -49,12 +50,18 @@ namespace GeeksProject02.Controllers
         public IActionResult Add()
         {
             var user = GetUserDetails(); // Replace with actual code to fetch user data
+            var vaccineList = DbContext.Stocks.Select(s => new SelectListItem
+            {
+                Value = s.VaccineName,
+                Text = $"{s.VaccineName} ({s.Status})"
+            }).ToList();
 
             var viewModel = new LastViewModel
             {
                 FirstName = user.FirstName, // Replace with actual property names in your user model
                 LastName = user.LastName,
-                Email = user.Email
+                Email = user.Email,
+                VaccineList = vaccineList
                 // Other properties
             };
 
@@ -63,6 +70,9 @@ namespace GeeksProject02.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(LastViewModel addLastRequest) 
         {
+            var selectedVaccineParts = addLastRequest.SelectedVaccine.Split(" (");
+            var selectedVaccine = selectedVaccineParts[0];
+            var selectedVaccineStatus = selectedVaccineParts[1].TrimEnd(')');
             var last = new Last()
             {
                 Id = Guid.NewGuid(),
@@ -76,7 +86,9 @@ namespace GeeksProject02.Controllers
                 AppointmentDate = addLastRequest.AppointmentDate,
                 IsMedicalAidMember = addLastRequest.IsMedicalAidMember,
                 MedicalAidNumber = addLastRequest.MedicalAidNumber,
-                MedicalAidName = addLastRequest.MedicalAidName
+                MedicalAidName = addLastRequest.MedicalAidName,
+                SelectedVaccine = selectedVaccine,
+                SelectedVaccineStatus = selectedVaccineStatus
             };
             await DbContext.Lasts.AddAsync(last);
             await DbContext.SaveChangesAsync();
@@ -149,29 +161,6 @@ namespace GeeksProject02.Controllers
             }
             return RedirectToAction("Index");
         }
-        public IActionResult AddVaccine()
-        {
-
-            var availableVaccines = GetAvailableVaccines();
-
-            var model = new LastViewModel
-            {
-                AvailableVaccines = availableVaccines,
-                // ... other properties
-            };
-
-            return View(model);
-        }
-
-        // Assuming this method retrieves the list of available vaccines from the database
-        private List<Stock> GetAvailableVaccines()
-        {
-            
-            var stock = DbContext.Stocks
-                .Where(v => v.Status == "Available" || v.Status == "Low Stock" || v.Status == "Unavailable")
-                .ToList();
-
-            return stock;
-        }
+       
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GeeksProject02.Areas.Identity.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace GeeksProject02.Models
@@ -24,15 +25,15 @@ namespace GeeksProject02.Models
         [Required]
         public string AdditionalInfo { get; set; }
         [Required]
-        public DateTime AppointmentDate { get; set; }
-        [Required]
-        public int SelectedVaccineId { get; set; }
-        public List<Stock> AvailableVaccines { get; set; } = new List<Stock>();
+        public DateTime AppointmentDate { get; set; }   
         [Required]
         public bool IsMedicalAidMember { get; set; }
 
         public string MedicalAidNumber { get; set; }
 
         public string MedicalAidName { get; set; }
+        public List<SelectListItem> VaccineList { get; set; }
+        public string SelectedVaccine { get; set; }
+        public string SelectedVaccineStatus { get; set; }
     }
 }
