@@ -4,9 +4,9 @@ using GeeksProject02.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 
 namespace GeeksProject02.Controllers
@@ -34,8 +34,7 @@ namespace GeeksProject02.Controllers
         }
 
         [HttpPost]
-
-        public async  Task<IActionResult> Add(FamilyPlanningAdmin familyPlanningAdminRequest)
+        public async Task<IActionResult> Add(FamilyPlanningAdmin familyPlanningAdminRequest)
         {
             var familyplanningpatient = new FamilyPlanningAdmin()
             {
@@ -68,49 +67,97 @@ namespace GeeksProject02.Controllers
             await geeksProject02Context.GetFamilyPlanningAdmins.AddAsync(familyplanningpatient);
             await geeksProject02Context.SaveChangesAsync();
             return RedirectToAction("Add");
-
-
         }
-        [HttpPost]
-        public async Task<IActionResult> View(Guid Id)
-        {
-            var familyPlanningAdmin = await GeeksProject02Context.FamilyPlanningAdminUpdate.FirstOrDefaultAsync(x => x.Id == Id);
 
-            if (familyPlanningAdmin == null)
+            [HttpGet]
+            public async Task<IActionResult> View(Guid Id)
             {
-                var viewModel = new FamilyPlanningAdminUpdate()
+
+                var familyPlanningAdmin = await geeksProject02Context.GetFamilyPlanningAdmins.FirstOrDefaultAsync(x => x.Id == Id);
+                if (familyPlanningAdmin != null)
                 {
+                    var viewModel = new FamilyPlanningAdminUpdate()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = familyPlanningAdmin.Name,
+                        Surname = familyPlanningAdmin.Surname,
+                        DateOfBirth = familyPlanningAdmin.DateOfBirth,
+                        GenderIdentity = familyPlanningAdmin.GenderIdentity,
+                        Address = familyPlanningAdmin.Address,
+                        PhoneNumber = familyPlanningAdmin.PhoneNumber,
+                        Email = familyPlanningAdmin.Email,
+                        InsuranceProvider = familyPlanningAdmin.InsuranceProvider,
+                        PolicyNumber = familyPlanningAdmin.PolicyNumber,
+                        GroupID = familyPlanningAdmin.GroupID,
+                        ExistingMedicalConditions = familyPlanningAdmin.ExistingMedicalConditions,
+                        Allergies = familyPlanningAdmin.Allergies,
+                        CurrentMedications = familyPlanningAdmin.CurrentMedications,
+                        SurgicalHistory = familyPlanningAdmin.SurgicalHistory,
+                        MenstrualHistory = familyPlanningAdmin.MenstrualHistory,
+                        PregnancyHistory = familyPlanningAdmin.PregnancyHistory,
+                        ContraceptiveHistory = familyPlanningAdmin.ContraceptiveHistory,
+                        STIHistory = familyPlanningAdmin.STIHistory,
+                        EmergencyContactName = familyPlanningAdmin.EmergencyContactName,
+                        EmergencyContactRelationship = familyPlanningAdmin.EmergencyContactRelationship,
+                        EmergencyContactPhoneNumber = familyPlanningAdmin.EmergencyContactPhoneNumber,
+                        PreferredDoctor = familyPlanningAdmin.PreferredDoctor
+                    };
+                    return await Task.Run(() => View("View", viewModel));
+                }
+                return RedirectToAction("Index");
+            }
 
-                    Id = Guid.NewGuid(),
-                    Name = familyPlanningAdmin.Name,
-                    Surname = familyPlanningAdmin.Surname,
-                    DateOfBirth = familyPlanningAdmin.DateOfBirth,
-                    GenderIdentity = familyPlanningAdmin.GenderIdentity,
-                    Address = familyPlanningAdmin.Address,
-                    PhoneNumber = familyPlanningAdmin.PhoneNumber,
-                    Email = familyPlanningAdmin.Email,
-                    InsuranceProvider = familyPlanningAdmin.InsuranceProvider,
-                    PolicyNumber = familyPlanningAdmin.PolicyNumber,
-                    GroupID = familyPlanningAdmin.GroupID,
-                    ExistingMedicalConditions = familyPlanningAdmin.ExistingMedicalConditions,
-                    Allergies = familyPlanningAdmin.Allergies,
-                    CurrentMedications = familyPlanningAdmin.CurrentMedications,
-                    SurgicalHistory = familyPlanningAdmin.SurgicalHistory,
-                    MenstrualHistory = familyPlanningAdmin.MenstrualHistory,
-                    PregnancyHistory = familyPlanningAdmin.PregnancyHistory,
-                    ContraceptiveHistory = familyPlanningAdmin.ContraceptiveHistory,
-                    STIHistory = familyPlanningAdmin.STIHistory,
-                    EmergencyContactName = familyPlanningAdmin.EmergencyContactName,
-                    EmergencyContactRelationship = familyPlanningAdmin.EmergencyContactRelationship,
-                    EmergencyContactPhoneNumber = familyPlanningAdmin.EmergencyContactPhoneNumber,
-                    PreferredDoctor = familyPlanningAdmin.PreferredDoctor
-                };
 
-                return await Task.Run(() => View("View", viewModel));
+
+        [HttpPost]
+        public async Task<IActionResult> View(FamilyPlanningAdminUpdate model)
+        {
+            var familyPlanningAdmin = await geeksProject02Context.GetFamilyPlanningAdmins.FindAsync(model.Id);
+            if (familyPlanningAdmin != null)
+            { 
+            
+                familyPlanningAdmin.Name = model.Name;
+                familyPlanningAdmin.Surname = model.Surname;
+                familyPlanningAdmin.DateOfBirth = model.DateOfBirth;
+                familyPlanningAdmin.GenderIdentity = model.GenderIdentity;
+                familyPlanningAdmin.Address = model.Address;
+                familyPlanningAdmin.Email = model.Email;
+                familyPlanningAdmin.InsuranceProvider = model.InsuranceProvider;
+                familyPlanningAdmin.PolicyNumber = model.PolicyNumber;
+                familyPlanningAdmin.GroupID = model.GroupID;
+                familyPlanningAdmin.ExistingMedicalConditions = model.ExistingMedicalConditions;
+                familyPlanningAdmin.Allergies = model.Allergies;
+                familyPlanningAdmin.CurrentMedications = model.CurrentMedications;
+                familyPlanningAdmin.SurgicalHistory = model.SurgicalHistory;
+                familyPlanningAdmin.MenstrualHistory = model.MenstrualHistory;
+                familyPlanningAdmin.PregnancyHistory = model.PregnancyHistory;
+                familyPlanningAdmin.ContraceptiveHistory = model.ContraceptiveHistory;
+                familyPlanningAdmin.STIHistory = model.STIHistory;
+                familyPlanningAdmin.EmergencyContactName = model.EmergencyContactName;
+                familyPlanningAdmin.EmergencyContactRelationship = model.EmergencyContactRelationship;
+                familyPlanningAdmin.EmergencyContactPhoneNumber = model.EmergencyContactPhoneNumber;
+                familyPlanningAdmin.PreferredDoctor = model.PreferredDoctor;
+  
+
+                await geeksProject02Context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public async Task<IActionResult> Delete(FamilyPlanningAdminUpdate model)
+        {
+            var familyPlanningAdmin = await geeksProject02Context.GetFamilyPlanningAdmins.FindAsync(model.Id);
 
+            if (familyPlanningAdmin != null)
+            {
+                geeksProject02Context.GetFamilyPlanningAdmins.Remove(familyPlanningAdmin);
+                await geeksProject02Context.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
