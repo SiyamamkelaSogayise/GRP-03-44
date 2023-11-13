@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\FamilyPlanningDoctor\" />
     <Folder Include="Views\Form\" />
   </ItemGroup>
 
