@@ -36,11 +36,16 @@
         padding: 20px;
     }
 </style>
+
+
 <h1>Generate Patient Medical Record</h1>
 <fieldset>
-    <form method="post" action="Add">
-
+    <form method="post" action="Add" class="table" id="results">
         <legend class="legend">Patient Medical Record</legend>
+        <div class="mb-3">
+            <label for="" class="form-label">Id</label>
+            <input type="text" class="form-control" asp-for="Id">
+        </div>
         <div class="mb-3">
             <label for="" class="form-label">Date & Time</label>
             <input type="datetime-local" class="form-control" asp-for="DateTime">
