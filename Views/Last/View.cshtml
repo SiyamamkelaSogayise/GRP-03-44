@@ -96,7 +96,11 @@
         <label class="form-group">Medical Aid Name:</label>
         <input type="text" class="form-group" placeholder="Medical Aid Name" asp-for="MedicalAidName">
     </div>
-    
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedVaccine)
+        <select class="form-select" asp-for="SelectedVaccine" asp-items="@Model.VaccineList" required></select>
+        @Html.ValidationMessageFor(model => model.SelectedVaccine, "", new { @class = "field-validation-error" })
+    </div>
     
     <button type="submit" class="btn btn-primary">Update</button>
     <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Last">Delete</button>

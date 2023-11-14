@@ -1,4 +1,8 @@
-﻿ <!DOCTYPE html>
+﻿ @model GeeksProject02.Models.QuestionnaireResponse
+@{
+    Layout = "_LayoutFormBooking";
+}
+<!DOCTYPE html>
 <head>
     <script src="http://kit.fontawesome.com/a076d05399.js"></script>
     <script>
@@ -231,15 +235,15 @@
                 <legend>Do you have any underlying health conditions or medical concerns you would like to discuss with a healthcare professional before getting the vaccine? (Please specify)</legend>
 
                 <div>
-                    <input type="radio" id="no_other_vaccines" name="other_vaccines" value="No" checked>
-                    <label for="no_other_vaccines">No</label>
+                    <input type="radio" id="no_health_conditions" name="health_conditions" value="No" checked>
+                    <label for="no_health_conditions">No</label>
                 </div>
 
                 <div>
-                    <input type="radio" id="yes_other_vaccines" name="other_vaccines" value="Yes">
-                    <label for="yes_other_vaccines">Yes</label>
+                <input type="radio" id="yes_health_conditions" name="health_conditions" value="Yes">
+                    <label for="yes_health_conditions">Yes</label>
                 </div>
-                </fieldset>
+            </fieldset>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
