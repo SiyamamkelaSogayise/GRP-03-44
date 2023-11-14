@@ -78,17 +78,46 @@
     <div class="container--x">
         @if (Model.Count() > 0)
         {
+        <div class="section">
+            <h3 class="section-heading">Note From a Doctor!!</h3>
+
+        </div>
             @foreach (var mpho in Model)
             {
-                <div class="content">
-                    <h1>@mpho.subject</h1>
-                    <h1>mr @mpho.DoctorName</h1>
-                    <p>@mpho.Date</p>
-
-                    <p>@mpho.Message</p>
+              
+               
 
 
-                </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="section">
+
+                <ul>
+
+                    <li><strong>Subject:</strong>@mpho.subject</li>
+                    <li><strong>Doctor Name:</strong>     @mpho.DoctorName </li>
+                    <li><strong>Date:</strong> @mpho.Date </li>
+                    <li><strong>Message:</strong>  @mpho.Message</li>
+
+
+
+
+
+                </ul>
+            </div>
+
+
+
+
+
             }
 
 
@@ -112,7 +141,13 @@
 
     </div>
 
+<div class=" form-group row">
 
+    <div class="col">
+        <a asp-action="Chronic" class="btn btn-dark w-75">Back</a>
+    </div>
+   
+</div>
 
 
 

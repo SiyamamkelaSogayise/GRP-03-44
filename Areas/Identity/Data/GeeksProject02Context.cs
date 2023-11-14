@@ -46,6 +46,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     public DbSet<NextMeetings> NextMeetings { get; set; }
    public DbSet<Stock> Stocks { get; set; }
     public DbSet<ContactUs> ContactUs { get; set; }
+    public DbSet<Refills> Refills { get; set; }
     
 
 }
