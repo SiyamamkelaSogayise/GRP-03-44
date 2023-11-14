@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeeksProject02.Migrations
 {
     [DbContext(typeof(GeeksProject02Context))]
-    partial class GeeksProject02ContextModelSnapshot : ModelSnapshot
+    [Migration("20231112234112_SelectedVaccine")]
+    partial class SelectedVaccine
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,45 +164,6 @@ namespace GeeksProject02.Migrations
                     b.HasKey("ChronicPrescriptionID");
 
                     b.ToTable("ChronicPrescriptions");
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.ContactUs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Messages")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserDetailsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserStatusId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserDetailsId");
-
-                    b.HasIndex("UserStatusId");
-
-                    b.ToTable("ContactUs");
                 });
 
             modelBuilder.Entity("GeeksProject02.Models.Diagnosis", b =>
@@ -769,21 +732,6 @@ namespace GeeksProject02.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("GeeksProject02.Models.ContactUs", b =>
-                {
-                    b.HasOne("GeeksProject02.Areas.Identity.Data.GeeksProject02User", "UserDetails")
-                        .WithMany()
-                        .HasForeignKey("UserDetailsId");
-
-                    b.HasOne("GeeksProject02.Areas.Identity.Data.GeeksProject02User", "UserStatus")
-                        .WithMany()
-                        .HasForeignKey("UserStatusId");
-
-                    b.Navigation("UserDetails");
-
-                    b.Navigation("UserStatus");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

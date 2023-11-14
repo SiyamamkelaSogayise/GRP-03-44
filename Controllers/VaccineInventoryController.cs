@@ -14,6 +14,7 @@ namespace GeeksProject02.Controllers
         {
                 this.dbcontext = dbcontext;
         }
+        
         [HttpGet]
         public async Task< IActionResult> Index()
         {

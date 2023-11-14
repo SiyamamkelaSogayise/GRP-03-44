@@ -1,0 +1,32 @@
+﻿@model List<GeeksProject02.Models.ContactUs>
+
+@{
+    Layout = "_LayoutFormBooking";
+}
+<h1>Patient Feedback</h1>
+
+<table id="example1" class="table able-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Sender</th>
+            <th>Subject</th>
+            <th>Messages</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name </td>
+                <td>@item.Email</td>
+                <td>@item.Subject</td>
+                <td>@item.Messages</td>
+                <td><a asp-controller="Last" asp-action="View" asp-route-id="@item.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -5,6 +5,7 @@ using GeeksProject02.Areas.Identity.Data;
 using Microsoft.Extensions.Configuration; // Added this using directive
 using GeeksProject02.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("GeeksProject02ContextConnection") ?? throw new InvalidOperationException("Connection string 'GeeksProject02ContextConnection' not found.");
@@ -21,21 +22,9 @@ builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
     options.Cookie.Name = "MyCookieAuth";
 });
 
-// Add services to the container.
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-
-// Configure email settings from appsettings.json
-//builder.Services.Configure<EmailSettings>(options =>
-//{
-//    options.FromEmail = builder.Configuration["EmailSettings:FromEmail"];
-//    options.SmtpServer = builder.Configuration["EmailSettings:SmtpServer"];
-//    options.SmtpPort = int.Parse(builder.Configuration["EmailSettings:SmtpPort"]);
-//    options.SmtpUsername = builder.Configuration["EmailSettings:enompilohealth@gmail.com"]; // Add this line
-//    options.SmtpPassword = builder.Configuration["EmailSettings:health2023"]; // Add this line
-//});
-
-//builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddDbContext<GeeksProject02Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GeeksProject02ContextConnection")));

@@ -4,7 +4,7 @@
 @model GeeksProject02.Models.LastViewModel
 
 <style>
-    input[type=text], select {
+    input[type=text], input[type=email], input[type=tel], select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -29,36 +29,27 @@
             background-color: #45a049;
         }
 
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
     div {
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 20px;
     }
-</style>
-@* <header>
-    <nav class="section__container nav__container">
-        <div class="nav__logo">e-<span>Nompilo</span></div>
-        <nav class="section__container nav__container" color="black">
-            @* <div class="nav__logo">e-<span>Nompilo</span></div> 
-            <ul class="nav__links">
-                <li class="nav-item">
-                    <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
-                </li>
-            </ul>
-        </nav>
-        <div><a class="btn btn-primary" asp-area="" asp-controller="Last" asp-action="Add">Request an Appointment</a></div>
-    </nav>
-</header> *@
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
 <section class="w3l-about-breadcrumb" color="orange">
     <div class="breadcrumb-bg breadcrumb-bg-contact py-5" color="orange">
         <div class="container py-lg-5 py-md-3">
@@ -67,71 +58,96 @@
         </div>
     </div>
 </section>
-@foreach (var key in ViewData.Keys)
-{
-    <p>@key: @ViewData[key]</p>
-}
+
 <center><h2>Personal Information</h2></center>
-<form method="post" action="Add">
+
+@using (Html.BeginForm("Add", "Last", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
     <div class="form-group">
-        <label for="First Name">First Name</label>
+        @Html.LabelFor(model => model.FirstName)
         <input type="text" class="form-control" asp-for="FirstName" value="@Model.FirstName" required>
-    </div>
-    <div class="form-group">
-        <label for="LastName">Surname</label>
-        <input type="text" class="form-control" asp-for="LastName" value="@Model.LastName" required>
+        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "field-validation-error" })
     </div>
 
     <div class="form-group">
-        <label for="BOB">Date of Birth</label>
-        <input type="date" class="form-control" asp-for="DOB">
-        
+        @Html.LabelFor(model => model.LastName)
+        <input type="text" class="form-control" asp-for="LastName" value="@Model.LastName" required>
+        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "field-validation-error" })
     </div>
-    <div class="form-floating mb-3">
-        <label for="gender">Gender</label>
-        <select class="form-select" id="gender" asp-for="Gender">
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DOB)
+        <input type="date" class="form-control" asp-for="DOB" required>
+        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender)
+        <select class="form-select" asp-for="Gender" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="non-binary">Non-binary</option>
             <option value="other">Other</option>
         </select>
+        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "field-validation-error" })
     </div>
 
     <div class="form-group">
-        <label for="Email">Email Address</label>
+        @Html.LabelFor(model => model.Email)
         <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required>
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-error" })
     </div>
-    <div class ="form-group">
-        <label for="PhoneNumber">Phone number</label>
-    <input type="tel" class="form-control"  asp-for="PhoneNumber">
-    </div>
+
     <div class="form-group">
-        <label for="AdditionalInfo"> Additiona Information</label>
-        <textarea class="form-group" asp-for="AdditionalInfo"></textarea>
+        @Html.LabelFor(model => model.PhoneNumber)
+        <input type="tel" class="form-control" asp-for="PhoneNumber" required>
+        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "field-validation-error" })
     </div>
+
     <div class="form-group">
-        <input type="date" class="form-group" asp-for="AppointmentDate">
-        <label for="AppointmentDate">Appointment Date</label>   
+        @Html.LabelFor(model => model.AdditionalInfo)
+        <textarea class="form-control" asp-for="AdditionalInfo" required></textarea>
+        @Html.ValidationMessageFor(model => model.AdditionalInfo, "", new { @class = "field-validation-error" })
     </div>
+
     <div class="form-group">
-        <label for="vaccine">Choose Vaccine</label>
-        <select class="form-select" asp-for="SelectedVaccine" asp-items="@Model.VaccineList"></select>
+        @Html.LabelFor(model => model.AppointmentDate)
+        <input type="date" class="form-control" asp-for="AppointmentDate" required>
+        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "field-validation-error" })
     </div>
-    <label class="form-group">Do you belong to a Medical Aid:</label>
-    <select class="form-group" id="medicalAidDropdown">
-        <option value="no">No</option>
-        <option value="yes">Yes</option>
-    </select>
+
+    <div class="form-group">
+        <label class="form-group">Do you belong to a Medical Aid:</label>
+        @Html.DropDownListFor(model => model.IsMedicalAidMember, new SelectList(new List<SelectListItem>
+    {
+    new SelectListItem { Text = "No", Value = "false" },
+    new SelectListItem { Text = "Yes", Value = "true" }
+    }, "Value", "Text"), "Select", new { @class = "form-group", required = "required" })
+        @Html.ValidationMessageFor(model => model.IsMedicalAidMember, "", new { @class = "field-validation-error" })
+    </div>
+
 
     <div>
         <label class="form-group">Medical Aid Number:</label>
         <input type="text" class="form-control" placeholder="Medical Aid Number" asp-for="MedicalAidNumber">
+        @Html.ValidationMessageFor(model => model.MedicalAidNumber, "", new { @class = "field-validation-error" })
     </div>
+
     <div>
         <label class="form-group">Medical Aid Name:</label>
-        <input type="text" class="form-group" placeholder="Medical Aid Name" asp-for="MedicalAidName">
+        <input type="text" class="form-control" placeholder="Medical Aid Name" asp-for="MedicalAidName">
+        @Html.ValidationMessageFor(model => model.MedicalAidName, "", new { @class = "field-validation-error" })
     </div>
-    
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedVaccine)
+        <select class="form-select" asp-for="SelectedVaccine" asp-items="@Model.VaccineList" required></select>
+        @Html.ValidationMessageFor(model => model.SelectedVaccine, "", new { @class = "field-validation-error" })
+    </div>
+
+    <fieldset>
+        <input type="submit" value="Add" class="btn btn-primary" />
+    </fieldset>
+}

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GeeksProject02.Models
 {
-    public class ContactUs
+    public class ContactUsViewModel
     {
         public GeeksProject02User UserDetails { get; set; }
         public GeeksProject02User UserStatus { get; set; }

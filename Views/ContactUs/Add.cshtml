@@ -1,4 +1,7 @@
-﻿@page
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+
 @model GeeksProject02.Models.ContactUsViewModel;
 <!doctype html>
 <html lang="en">
@@ -26,54 +29,13 @@
             text-align: center;
         }
     </style>
-    <script>
-        const contactForm = document.getElementById('contactForm');
-        const popup = document.getElementById('popup');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent the default form submission
-
-            // Serialize form data
-            const formData = new FormData(contactForm);
-
-            // Send the form data using AJAX
-            fetch('/Contactus?handler=OnPost', { // Full path to the Razor Page handler
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json()) // Assuming the server returns JSON
-                .then(data => {
-                    // Display the feedback message dynamically
-                    if (data && data.emailStatus) {
-                        popup.innerHTML = data.emailStatus === 'Sent'
-                            ? '<p style="color:green">The email is sent</p>'
-                            : '<p style="color:red">The email failed</p>';
-                        popup.style.display = 'block';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-    </script>
+    
 
 </head>
 <body>
     <section class="w3l-bootstrap-header">
         <nav class="section__container">
-            @* <div class="container"> *@
-            @* <a class="navbar-brand" href="index.html">
-            @* <img src="~/css/plus-medical-cross-logo-icon-vector.jpg" class="img-fluid" width="52"> *@
-            @*  e-Nompilo
-            </a>  *@
-            @* !-- if logo is image enable this
-            @* <a class="navbar-b rand" href="index.html"> *@
-            @* <img src="~/css/plus-medical-cross-logo-icon-vector.jpg" alt="Your logo" title="Your logo" style="height:35px;" /> *@
-            @* </a>  *@
-            @* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-            </button> *@
+            
 
             <nav class="section__container nav__container">
                 <div class="nav__logo" style="color:black">e-<span>Nompilo</span></div>
@@ -110,56 +72,56 @@
                     <h3 class="title mb-4">Drop Us a Message</h3>
                     <div class="row">
                         <div class="col-md-8 contact-form">
-                            <form action="https://formsubmit.co/enompilohealth@gmail.com" method="POST">
+                            <form asp-action="Add" asp-controller="ContactUs" method="post">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Name)
-                                    <input type="text" class="form-control" asp-for="Name" value="@Model.Name" required>
-                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "field-validation-error" })
+                                    <label for="Name">First Name</label>
+                                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required>
+                                    <span class="field-validation-error"><!-- Validation message for FirstName --></span>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Email)
-                                    <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required>
-                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-error" })
+                                    <label for="Email">Email Address</label>
+                                    <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required>
+                                    <span class="field-validation-error"><!-- Validation message for FirstName --></span>
                                 </div>
-                                <input type="text" class="form-control" name="Subject" placeholder="Subject" /><br />
-                                <textarea class="form-control" name="Message" placeholder="Your Message"
-                                          style="height:150px;"></textarea><br />
-                                <div class="">
-                                    <button id="submitBtn" class="btn btn-primary btn-style" type="submit">Submit now</button>
+                                <div class="form-group">
+                                    <label for="Subject">Subject</label>
+                                    <input type="text" id="Subject" name="Subject" class="form-control" />
+                                    <span class="text-danger"> <!-- Validation message for Subject --></span>
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="Messages">Messages</label>
+                                    <textarea id="Messages" name="Messages" class="form-control" rows="4"></textarea>
+                                    <span class="text-danger"> <!-- Validation message for Messages --></span>
                                 </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
-                            @if (TempData["EmailStatus"] != null)
-                            {
-                                <div class="alert alert-@(TempData["EmailStatus"]?.ToString()?.ToLower())">
-                                    @if (TempData["EmailStatus"]?.ToString()?.ToLower() == "sent")
-                                    {
-                                        <p>The email is sent</p>
-                                    }
-                                    else if (TempData["EmailStatus"]?.ToString()?.ToLower() == "failed")
-                                    {
-                                        <p>The email failed</p>
-                                    }
-                                </div>
+
+                            @section Scripts {
+                                @{
+                                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
                                 }
-                        
-                        <div class="col-md-4 mt-md-0 mt-5 w3-contact-address">
-                            <b>Address:</b>
-                            <p>45 ForestHill,</p>
-                            <p>Summerstrand,</p>
-                            <p>Port Elizabeth,</p>
-                            <p>6001, EC.</p>
-                            <br />
-                            <b>Phone:</b>
-                            <p><a href="tel: +1-2345-345-678-11"> +1-2345-345-678-11</a></p>
-                            <p><a href="tel:+ +1-2345-345-678-12"> +1-2345-345-678-12</a></p>
-                            <br />
-                            <b>Email:</b>
-                            <p><a href="mailto:eNompilo@gmail.com">eNompilo@gmail.com</a></p>
-                            <p><a href="mailto:eNompilo.support@gmail.com">eNompilo.support@gmail.com</a></p>
+                            }
+                           
+
+                            <div class="col-md-4 mt-md-0 mt-5 w3-contact-address">
+                                <b>Address:</b>
+                                <p>45 ForestHill,</p>
+                                <p>Summerstrand,</p>
+                                <p>Port Elizabeth,</p>
+                                <p>6001, EC.</p>
+                                <br />
+                                <b>Phone:</b>
+                                <p><a href="tel: +1-2345-345-678-11"> +1-2345-345-678-11</a></p>
+                                <p><a href="tel:+ +1-2345-345-678-12"> +1-2345-345-678-12</a></p>
+                                <br />
+                                <b>Email:</b>
+                                <p><a href="mailto:eNompilo@gmail.com">eNompilo@gmail.com</a></p>
+                                <p><a href="mailto:eNompilo.support@gmail.com">eNompilo.support@gmail.com</a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </section>
         </nav>
