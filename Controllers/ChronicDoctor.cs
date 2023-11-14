@@ -119,23 +119,7 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
-        public IActionResult Prescriptions(int? ID)
-        {
-            if (ID == null || ID == 0)
-            {
-                return NotFound();
-            }
-            var obj = _Context.ChronicPrescriptions.Find(ID);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-
-
-
-            return View(obj);
-        }
+       
         public IActionResult Notes()
         {
             return View();
@@ -183,6 +167,24 @@ namespace GeeksProject02.Controllers
             return View(objList);
         }
         [HttpGet]
+        public IActionResult Prescriptions(int? ID)
+        {
+            if (ID == null || ID == 0)
+            {
+                return NotFound();
+            }
+            var obj = _Context.ChronicPrescriptions.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+
+
+
+            return View(obj);
+        }
+        [HttpGet]
         public IActionResult UpdatePrescription(int? ID)
         {
             if (ID == null || ID == 0)
@@ -206,6 +208,19 @@ namespace GeeksProject02.Controllers
             _Context.ChronicPrescriptions.Update(obj);
             _Context.SaveChanges();
             TempData["SuccessMessage"] = "DragonBallz Updated Successfully!";
+            return RedirectToAction("ViewPrescription");
+        }
+        public IActionResult DeletePrescription(int? ID)
+        {
+            var obj = _Context.ChronicPrescriptions.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _Context.ChronicPrescriptions.Remove(obj);
+            _Context.SaveChanges();
+            TempData["SuccessMessage"] = "Deleted !";
             return RedirectToAction("ViewPrescription");
         }
 
