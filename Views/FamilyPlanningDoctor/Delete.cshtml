@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "_LayoutFP";
+}
+
+@model GeeksProject02.Models.FamilyPlanningDoctorUpdate
+
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<h1>Generate Patient Medical Record</h1>
+<fieldset>
+    <form method="post" action="Add">
+
+        <legend class="legend">Patient Medical Record</legend>
+        <div class="mb-3">
+            <label for="" class="form-label">Date & Time</label>
+            <input type="datetime-local" class="form-control" asp-for="DateTime">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Patient ID Numder</label>
+            <input type="text" class="form-control" asp-for="IDNumber">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Patient Name</label>
+            <input type="text" class="form-control" asp-for="Name">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Patient Surname</label>
+            <input type="text" class="form-control" asp-for="Surname">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">OF Note</label>
+            <input type="text" class="form-control" asp-for="OfNote">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Health Care Provider Name</label>
+            <input type="text" class="form-control" asp-for="ProviderName">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Reason For Visit</label>
+            <input type="text" class="form-control" asp-for="ReasonForVisit">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Examination</label>
+            <input type="text" class="form-control" asp-for="Examination">
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Encounter Summary</label>
+            <input type="text" class="form-control" asp-for="EncounterSummary">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Prescription</label>
+            <input type="text" class="form-control" asp-for="Prescription">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</fieldset>

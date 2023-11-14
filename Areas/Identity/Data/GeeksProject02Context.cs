@@ -34,6 +34,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
 
     //Family Planning Admin
     public DbSet<FamilyPlanningAdmin> GetFamilyPlanningAdmins { get; set; }
+    public DbSet<FamilyPlanningDoctor> GetFamilyPlanningDoctors { get; set; }
 
 
     public string ConnectionString { get; }
