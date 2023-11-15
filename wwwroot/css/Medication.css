@@ -77,6 +77,16 @@ header {
     font-weight: 600;
     color: var(--white);
 }
+.navbar {
+    justify-content: center;
+}
+
+    .navbar a {
+        font-size: 25px;
+        color: whitesmoke;
+        margin-left: 2rem;
+        text-decoration: none;
+    }
 
 a {
     color: black;

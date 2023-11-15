@@ -1,0 +1,114 @@
+﻿@model List<GeeksProject02.Models.FamilyPlanningAdmin>
+
+@{
+    Layout = "_LayoutFP";
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+     <link rel="stylesheet" href="~/css/AdminDashboard.css" /> 
+</head>
+
+@{
+    Layout = "FamilyplanningViewPatientAdmin";
+}
+
+<style>
+    
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<h1>Family Planning Patients Management System</h1>
+
+<table id="example1" class="table able-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Insurance Provider</th>
+            <th>Policy Number</th>
+            <th>GroupID</th>
+            <th>Existing Medical Conditions</th>
+            <th>Allergies</th>
+            <th>Current Medications</th>
+            <th>Surgical History</th>
+            <th>Menstrual History</th>
+            <th>Pregnancy History</th>
+            <th>Contraceptives Hitory</th>
+            <th>STI History</th>
+            <th>Emergency Contact Name</th>
+            <th>Emergency Contact Relationship</th>
+            <th>Emergency Contact Cellphone Number</th>
+            <th>Preffered Doctor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var familyplanningadmins in Model)
+        {
+            <tr>
+                <td>@familyplanningadmins.Id</td>
+                <td>@familyplanningadmins.Name</td>
+                <td>@familyplanningadmins.Surname</td>
+                <td>@familyplanningadmins.DateOfBirth</td>
+                <td>@familyplanningadmins.GenderIdentity</td>
+                <td>@familyplanningadmins.Address</td>
+                <td>@familyplanningadmins.PhoneNumber</td>
+                <td>@familyplanningadmins.Email</td>
+                <td>@familyplanningadmins.InsuranceProvider</td>
+                <td>@familyplanningadmins.PolicyNumber</td>
+                <td>@familyplanningadmins.GroupID</td>
+                <td>@familyplanningadmins.ExistingMedicalConditions</td>
+                <td>@familyplanningadmins.Allergies</td>
+                <td>@familyplanningadmins.CurrentMedications</td>
+                <td>@familyplanningadmins.SurgicalHistory</td>
+                <td>@familyplanningadmins.MenstrualHistory</td>
+                <td>@familyplanningadmins.PregnancyHistory</td>
+                <td>@familyplanningadmins.ContraceptiveHistory</td>
+                <td>@familyplanningadmins.STIHistory</td>
+                <td>@familyplanningadmins.EmergencyContactName</td>
+                <td>@familyplanningadmins.EmergencyContactRelationship</td>
+                <td>@familyplanningadmins.EmergencyContactPhoneNumber</td>
+                <td>@familyplanningadmins.PreferredDoctor</td>
+                <td><a asp-controller="FamilyPlanningAdmin" asp-action="View" asp-route-id="@familyplanningadmins.Id">Edit Patient Information</a></td>
+                <td><a asp-controller="FamilyPlanningAdmin" asp-action="Delete" asp-route-id="@familyplanningadmins.Id">Remove Patient</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

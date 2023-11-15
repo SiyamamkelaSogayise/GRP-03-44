@@ -277,7 +277,11 @@ namespace GeeksProject02.Controllers
 
         }
        
-
+        public IActionResult viewRefills()
+        {
+            IEnumerable<Refills> objList = _Context.Refills;
+            return View(objList);
+        }
         
 
     }
