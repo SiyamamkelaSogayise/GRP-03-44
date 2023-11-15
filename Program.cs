@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("appsettings.json");
 var connectionString = builder.Configuration.GetConnectionString("GeeksProject02ContextConnection") ?? throw new InvalidOperationException("Connection string 'GeeksProject02ContextConnection' not found.");
 
 builder.Services.AddDbContext<GeeksProject02Context>(options =>
