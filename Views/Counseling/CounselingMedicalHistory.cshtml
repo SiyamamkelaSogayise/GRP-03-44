@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model GeeksProject02.Models.Counseling
+
+
+<header>
+    <nav class="section__container nav__container">
+        <div class="nav__logo">e-<span>Nompilo</span></div>
+        <ul class="nav__links">
+            <li><Link to="/">Home</li>
+            <li><Link to="/about-us">About Us</li>
+            <li><Link to="/services">Services</li>
+            <li><Link to="/contact-us">Contact Us</li>
+
+
+        </ul>
+
+       
+    </nav>
+</header>
+<div class="container">
+    <div class="image"></div>
+    <div class="text">
+
+        <p>Welcome to our Health Care Portal as Enompilo Facility your well-being is our top priority. <br />To ensure you receive the best care tailored to your needs, please take a moment to provide us with your medical history.<br /> Your detailed information helps us deliver personalized and accurate healthcare services.<br />Taking the step to come here shows a lot of courage, and I appreciate that. </p>
+    </div>
+</div>
+<h1>Medical Record</h1>
+<form class="form-data" method="post" asp-action="SubmittDetails">
+    <div asp-validation-summary="ModelOnly" class="text-danger /div>
+    <div class="form-head">
+
+        @*  <h2>Book Appointment</h2> *@
+    </div>
+
+
+
+    <h2 class=" underlined-heading">Patient's Medical History'</h2>
+    
+   
+   
+   
+    <label class="form-label fs-14;">Mental Health History<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Any history of mental health issues, including diagnoses and treatments." asp-for="mentalHistory"><br><br>
+    <span asp-validation-for="mentalHistory" class="text-danger"></span>
+
+    <label class="form-label fs-14;">Substance Use<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Alcohol consumption (frequency and quantity)." asp-for="SubstanceUse"><br><br>
+    <span asp-validation-for="SubstanceUse" class="text-danger"></span>
+
+    <label class="form-label fs-14;">Trauma History<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Any history of physical, emotional, or sexual trauma" asp-for="TraumaHistory"><br><br>
+    <span asp-validation-for="TraumaHistory" class="text-danger"></span>
+
+
+
+    <label class="form-label fs-14;">Psychosocial Factors<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Educational background and current academic or professional stressors" asp-for="PsychosocialFactors"><br><br>
+    <span asp-validation-for="PsychosocialFactors" class="text-danger"></span>
+
+   
+    <label class="form-label fs-14;">Treatment History<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Past counseling or therapy experiences, including what has been helpful or not" asp-for="TreatmentHistory"><br><br>
+    <span asp-validation-for="TreatmentHistory" class="text-danger"></span>
+
+
+
+    <label class="form-label fs-14;">Cultural and Spiritual Considerations<span style="color: red;">*</span>:</label><br>
+    <input type="text" class="form-control" placeholder="Cultural background and any cultural factors affecting mental health" asp-for="Cultural"><br><br>
+    <span asp-validation-for="Cultural" class="text-danger"></span>
+
+
+
+    <input type="submit" class=" btn btn-info w-75" value="SubmittDetails" />
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
