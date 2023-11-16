@@ -23,17 +23,54 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="Index">View Patients</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="Add">Add New Patient</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Last" asp-action="View">Manage Bookings</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningBooking" asp-action="Index">Manage Bookings</a>
                         </li>
+                                @*<li>
+                                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                {
+                                @if (User.IsInRole("Admin"))
+                                {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="Index">View Patients</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="Add">Add New Patient</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningBooking" asp-action="Index">Manage Bookings</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Index">Report</a>
+                                </li>
+                                }
+                                }
+                                    </li>
+                            <li>
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                @if (User.IsInRole("Doctor"))
+                                {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="Index">View Patient Information</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningBooking" asp-action="Add">View Upcoming Bookings</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="FamilyPlanningDoctor" asp-action="View">Medical Records</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Index">Report</a>
+                                </li>
+                                }
+                            }
+                             </li>*@
                     </ul>
                 </div>
                 <partial name="_LoginPartial" />

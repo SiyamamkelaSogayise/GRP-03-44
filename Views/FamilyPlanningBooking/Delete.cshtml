@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_LayoutFP";
+}
+
+@model GeeksProject02.Models.FamilyPlanningBookingUpdate
+
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<h1>Generate Patient Medical Record</h1>
+<fieldset>
+    <form method="post" action="Add">
+
+        <div class="mb-3">
+            <label for="" class="form-label">Id</label>
+            <input type="text" class="form-control" asp-for="Id">
+        </div>
+        <legend class="legend">Book Appointment</legend>
+        <div class="mb-3">
+            <label for="" class="form-label">Enter Name</label>
+            <input type="text" class="form-control" asp-for="Name">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Enter Surname</label>
+            <input type="text" class="form-control" asp-for="Surname">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Input Date&Time Booking For</label>
+            <input type="datetime" class="form-control" asp-for="DateOfBooking">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Patient ID Numder</label>
+            <input type="text" class="form-control" asp-for="IDNumber">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Reason For Booking</label>
+            <input type="text" class="form-control" asp-for="BookingReason">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</fieldset>
