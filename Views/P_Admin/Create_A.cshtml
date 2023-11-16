@@ -97,7 +97,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.AppointmentDate)
-        <input type="date" class="form-control" asp-for="AppointmentDate" required>
+        <input type="date" class="form-control" asp-for="AppointmentDate" value="today" required>
         @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "field-validation-error" })
     </div>
 
@@ -107,7 +107,7 @@
 
     <br />
     <div class="row">
-        <div class="col">
+        <div class="col-9">
             @*<button type="submit" class="btn btn-outline-primary" style="align-items:center;">Add Villain</button>*@
             <input type="submit" class="btn btn-outline-primary" value="Add Appointment" />
         </div>
