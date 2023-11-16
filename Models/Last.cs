@@ -51,5 +51,6 @@ namespace GeeksProject02.Models
 
         [Required(ErrorMessage = "Please select a vaccine.")]
         public string SelectedVaccine { get; set; }
+        public string userId { get; set; }
     }
 }

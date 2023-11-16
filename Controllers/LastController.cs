@@ -16,25 +16,23 @@ using System.Collections;
 using System.IO;
 using System.Xml.Linq;
 using System;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace GeeksProject02.Controllers
 {
     public class LastController : Controller
     {
         private readonly GeeksProject02Context DbContext;
+        private readonly UserManager<GeeksProject02User> _userManager;
         //private readonly ReportService _reportService;
 
-        public LastController(GeeksProject02Context dbContext)
+        public LastController(GeeksProject02Context dbContext, UserManager<GeeksProject02User> userManager)
         {
             this.DbContext = dbContext;
-            //_reportService = reportService;
+            _userManager = userManager;
         }
 
-        //public async Task<IActionResult> VaccineReport()
-        //{
-        //    var reportData = await _reportService.GetMostBookedVaccinesAsync();
-        //    return View(reportData);
-        //}
         private GeeksProject02User GetUserDetails()
         {
             if (User.Identity != null)
@@ -51,7 +49,7 @@ namespace GeeksProject02.Controllers
             return new GeeksProject02User();
         }
 
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -71,7 +69,7 @@ namespace GeeksProject02.Controllers
             return View(lasts);
 
         }
-        
+       
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -101,51 +99,32 @@ namespace GeeksProject02.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(LastViewModel addLastRequest)
         {
-            //if (ModelState.IsValid)
-            //{
-                // Your other validation logic...
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Retrieve user ID
 
-                 // No need to split
+            var last = new Last()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = addLastRequest.FirstName,
+                LastName = addLastRequest.LastName,
+                DOB = addLastRequest.DOB,
+                Gender = addLastRequest.Gender,
+                Email = addLastRequest.Email,
+                PhoneNumber = addLastRequest.PhoneNumber,
+                AdditionalInfo = addLastRequest.AdditionalInfo,
+                AppointmentDate = addLastRequest.AppointmentDate,
+                IsMedicalAidMember = addLastRequest.IsMedicalAidMember,
+                MedicalAidNumber = addLastRequest.MedicalAidNumber,
+                MedicalAidName = addLastRequest.MedicalAidName,
+                SelectedVaccine = addLastRequest.SelectedVaccine,
+                userId = userId // Assign the user ID
+            };
 
-                var last = new Last()
-                {
-                    Id = Guid.NewGuid(),
-                    FirstName = addLastRequest.FirstName,
-                    LastName = addLastRequest.LastName,
-                    DOB = addLastRequest.DOB,
-                    Gender = addLastRequest.Gender,
-                    Email = addLastRequest.Email,
-                    PhoneNumber = addLastRequest.PhoneNumber,
-                    AdditionalInfo = addLastRequest.AdditionalInfo,
-                    AppointmentDate = addLastRequest.AppointmentDate,
-                    IsMedicalAidMember = addLastRequest.IsMedicalAidMember,
-                    MedicalAidNumber = addLastRequest.MedicalAidNumber,
-                    MedicalAidName = addLastRequest.MedicalAidName,
-                    SelectedVaccine = addLastRequest.SelectedVaccine
-                };
+            DbContext.Lasts.Add(last);
+            await DbContext.SaveChangesAsync();
 
-                DbContext.Lasts.Add(last);
-                await DbContext.SaveChangesAsync();
-
-                return RedirectToAction("Add");
-            //}
-
-            // Your other ModelState not valid logic...
-
-            //ViewBag.VaccineList = await DbContext.Stocks
-            //    .Select(s => new SelectListItem
-            //    {
-            //        Value = s.VaccineName,
-            //        Text = s.VaccineName // Use only the vaccine name without status
-            //    })
-            //    .ToListAsync();
-
-            //return View(addLastRequest);
+            return RedirectToAction("Add");
         }
-
-       
-
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult > View(Guid Id)
         {
@@ -182,7 +161,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("Index");
             
         }
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpPost]
         public async Task<IActionResult> View(UpdateBookingViewModel model)
         {
@@ -208,7 +187,7 @@ namespace GeeksProject02.Controllers
             }
             return RedirectToAction("Index");
         }
-        [Authorize("Admin")]
+        //[Authorize("Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(UpdateBookingViewModel model)
         {

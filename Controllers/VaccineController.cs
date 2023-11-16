@@ -26,22 +26,21 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+        [HttpGet] // Add this attribute for HTTP GET
         public IActionResult SelfScreening()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Submit(QuestionnaireResponse response)
+
+        [HttpPost] // Add this attribute for HTTP POST
+        public IActionResult SelfScreening(QuestionnaireResponse response)
         {
-            if (ModelState.IsValid)
-            {
+            
                 // Add the response to the database
                 DbContext.QuestionnaireResponses.Add(response);
                 DbContext.SaveChanges();
 
-                // Redirect to a thank you page or another appropriate action
-                return RedirectToAction("ThankYou");
-            }
+                
 
             return View(response);
         }

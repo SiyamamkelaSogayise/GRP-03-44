@@ -1,9 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GeeksProject02.Models
 {
-    public class Stock
+    public class UpdateInventoryViewModel
     {
         [Key]
         public int Id { get; set; }
