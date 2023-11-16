@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+@model GeeksProject02.Models.PrescribeViewModel
+
+<style>
+    input[type=text], input[type=email], input[type=tel], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<center><h2>Prescribe Medicine</h2></center>
+@using (Html.BeginForm("PrescribeMedicine", "Prescribe", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DoctorName)
+        <input type="text" class="form-control" asp-for="DoctorName" value="@Model.DoctorName" required>
+        @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "field-validation-error" })
+    </div>
+
+   
+
+   
+
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LicenceNUmber)
+        <input type="number" class="form-control" asp-for="LicenceNUmber" required>
+        @Html.ValidationMessageFor(model => model.LicenceNUmber, "", new { @class = "field-validation-error" })
+    </div>
+
+
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date)
+        <input type="date" class="form-control" asp-for="Date" required>
+        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.PatientName)
+        <input type="text" class="form-control" asp-for="PatientName" required>
+        @Html.ValidationMessageFor(model => model.PatientName, "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.MedicationName)
+        <input type="text" class="form-control" asp-for="MedicationName" required>
+        @Html.ValidationMessageFor(model => model.MedicationName, "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DosageInstruction)
+        <input type="text" class="form-control" asp-for="DosageInstruction" required>
+        @Html.ValidationMessageFor(model => model.DosageInstruction, "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Signiture)
+        <input type="text" class="form-control" asp-for="Signiture" value="@Model.DoctorName" required>
+        @Html.ValidationMessageFor(model => model.Signiture, "", new { @class = "field-validation-error" })
+    </div>
+   
+
+ 
+
+
+    
+
+  
+
+
+
+    <fieldset>
+        <input type="submit" value="AddHistory" class="btn btn-primary" />
+    </fieldset>
+}
