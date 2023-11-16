@@ -4,6 +4,7 @@ using GeeksProject02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeeksProject02.Migrations
 {
     [DbContext(typeof(GeeksProject02Context))]
-    partial class GeeksProject02ContextModelSnapshot : ModelSnapshot
+    [Migration("20231116132327_p_admin")]
+    partial class p_admin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,11 +128,17 @@ namespace GeeksProject02.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<string>("UserDetailsId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserStatusId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("UserDetailsId");
+
+                    b.HasIndex("UserStatusId");
 
                     b.ToTable("Appointments_Ps");
                 });
@@ -982,6 +990,21 @@ namespace GeeksProject02.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("GeeksProject02.Models.Appointments_P", b =>
+                {
+                    b.HasOne("GeeksProject02.Areas.Identity.Data.GeeksProject02User", "UserDetails")
+                        .WithMany()
+                        .HasForeignKey("UserDetailsId");
+
+                    b.HasOne("GeeksProject02.Areas.Identity.Data.GeeksProject02User", "UserStatus")
+                        .WithMany()
+                        .HasForeignKey("UserStatusId");
+
+                    b.Navigation("UserDetails");
+
+                    b.Navigation("UserStatus");
                 });
 
             modelBuilder.Entity("GeeksProject02.Models.ContactUs", b =>

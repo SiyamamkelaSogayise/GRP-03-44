@@ -1,4 +1,23 @@
-﻿<div>
+﻿@model List<GeeksProject02.Models.Appointments_P>
+@inject Microsoft.AspNetCore.Identity.UserManager<GeeksProject02.Areas.Identity.Data.GeeksProject02User> userManager
+
+
+@{
+    var userId = userManager.GetUserId(User);
+    var isAdmin = User.IsInRole("Admin");
+}
+
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+</head>
+
+@{
+    Layout = "_Layout_P_StaffIndex";
+}
+
+
+@* <div>
     <div>
         <div>
             <h2>Which Table do you want to View?</h2>
@@ -8,4 +27,4 @@
     <br />
     <br />
     <a class="btn btn-primary" asp-area="" asp-controller="P_Admin" asp-action="View_Patient">Patient Info</a>
-</div>
+</div> *@

@@ -6,6 +6,9 @@ using GeeksProject02.Models;
 using GeeksProject02.Data;
 using System.Data;
 using GeeksProject02.ViewModel;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace GeeksProject02.Controllers
 {
@@ -14,10 +17,28 @@ namespace GeeksProject02.Controllers
         private string connstring = "Server=SICT-SQL.MANDELA.AC.ZA; user id=GRP-03-44; password=grp-03-44-soit2023#;Database=GRP-03-44-DBInnovaticeHealth;Trusted_Connection=false";
 
         private readonly GeeksProject02Context _context;
+        private readonly UserManager<GeeksProject02User> _userManager;
 
-        public P_AdminController(GeeksProject02Context context)
+        public P_AdminController(GeeksProject02Context context, UserManager<GeeksProject02User> userManager)
         {
             _context = context;
+            _userManager = userManager;
+        }
+
+        private GeeksProject02User GetUserDetails()
+        {
+            if (User.Identity != null)
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; // Get the user's ID
+                var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+
+                if (user != null)
+                {
+                    return user;
+                }
+            }
+
+            return new GeeksProject02User();
         }
 
         public IActionResult Index()
@@ -26,16 +47,95 @@ namespace GeeksProject02.Controllers
         }
         public IActionResult View_Patient()
         {
-            string query = @"SELECT pt.pregnancy_ID, pai.first_name, pai.last_name, pai.email, pt.current_week
-                             FROM Patient_Info AS pai
-                             JOIN Pregnancy_Tracker AS pt ON pai.patient_ID = pt.patient_ID
-                             ORDER BY pt.pregnancy_ID";
+            //string query = @"SELECT pt.pregnancy_ID, pai.first_name, pai.last_name, pai.email, pt.current_week
+            //                 FROM Patient_Info AS pai
+            //                 JOIN Pregnancy_Tracker AS pt ON pai.patient_ID = pt.patient_ID
+            //                 ORDER BY pt.pregnancy_ID";
 
-            using (IDbConnection dbConnection = new SqlConnection(connstring))
+            //using (IDbConnection dbConnection = new SqlConnection(connstring))
+            //{
+            //    var patients = dbConnection.Query<Patient_Info>(query);
+            //    return View(patients);
+            //}
+            var appoint = _context.Appointments_Ps.Where(x => x.Status == 'A').ToList();
+            return View(appoint);
+        }
+        public IActionResult Create_A()
+        {
+            var user = GetUserDetails();
+
+            var viewModel = new Appointments_P
             {
-                var patients = dbConnection.Query<Patient_Info>(query);
-                return View(patients);
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
+            return View(viewModel);
+        }
+
+        //POST-Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create_A(Appointments_P appointments)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Appointments_Ps.Add(appointments);
+                _context.SaveChanges();
+                return RedirectToAction("View_Patient");
             }
+            return View(appointments);
+        }
+
+        //basically error checking and good practice
+        public IActionResult Update_A(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _context.Appointments_Ps.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        //POST-Update, actually updating the data
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update_A(Appointments_P appointments)
+        {
+            _context.Appointments_Ps.Update(appointments);
+            _context.SaveChanges();
+            return RedirectToAction("View_Patient");
+        }
+
+        //basically error checking and good practice
+        public IActionResult Delete_A(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _context.Appointments_Ps.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        //POST-Update, actually pdating the data
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete_A(Appointments_P appointments)
+        {
+            _context.Appointments_Ps.Remove(appointments);
+            _context.SaveChanges();
+            return RedirectToAction("View_Patient");
         }
     }
 }

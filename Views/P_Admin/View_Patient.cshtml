@@ -1,23 +1,25 @@
-﻿@model List<GeeksProject02.Models.Patient_Info>
-
-
+﻿@model IEnumerable<GeeksProject02.Models.Appointments_P>
+@{
+    Layout = "_Layout_P_StaffIndex";
+}
 
 <div class="container p-3">
-    <div class="fa-arrows pt-4">
-        <div class="col-6">
-            <h2 class="text-primary">List of Patients Currently in Prenatal Care</h2>
+    <div class="row pt-4">
+        <div class="col-8">
+            <h2>List of Prenatal Appointments</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" style="color:white" asp-controller="P_Admin" asp-action="Create_A">Add Appointment</a>
         </div>
     </div>
     <br />
 
     @if (Model.Count() > 0)
     {
-        <table class="table table-bordered table-striped" style="width:100%">
+
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    @* <th>
-                        Patient ID
-                    </th> *@
                     <th>
                         First Name
                     </th>
@@ -27,31 +29,46 @@
                     <th>
                         Email
                     </th>
-                   @*  <th>
-                        Current Week
-                    </th> *@
+                    <th>
+                        Phone Number
+                    </th>
+                    <th>
+                        Additional Info
+                    </th>
+                    <th>
+                        Appointment Date
+                    </th>
+                    <th>
+                        Change
+                    </th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach (var patient in Model)
+                @foreach (var appo in Model)
                 {
                     <tr>
-                        @* <td>@patient?.patient_ID</td> *@
-                        <td>@patient?.first_name</td>
-                        <td>@patient?.last_name</td>
-                        <td>@patient?.email</td>
-                        @* <td>@patient?.tracker?.current_week</td> *@
-                        <td>
-                            <div class="btn"></div>
+                        <td width="14%">@appo.FirstName</td>
+                        <td width="14%">@appo.LastName</td>
+                        <td width="14%">@appo.Email</td>
+                        <td width="14%">@appo.PhoneNumber</td>
+                        <td width="16%">@appo.AdditionalInfo</td>
+                        <td width="14%">@appo.AppointmentDate</td>
+                        <td width="14%">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="P_Admin" asp-action="Update_A" asp-route-ID="@appo.ID" class="btn btn-light mx-1">Update</a>
+                                <a asp-controller="P_Admin" asp-action="Delete_A" asp-route-ID="@appo.ID" class="btn btn-secondary mx-1">Delete</a>
+                            </div>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+
     }
     else
     {
-        <p>No Patients in the Prenatal Care System...</p>
+        <p>No Appointments to show...</p>
     }
+
 </div>
