@@ -100,5 +100,13 @@ namespace GeeksProject02.Controllers
 
             return RedirectToAction("AddHistory");
         }
+        public IActionResult ViewMedicalHistory()
+        {
+            IEnumerable<ChroMedicalHistory> objList = DbContext.ChroMedicalHistory;
+            return View(objList);
+        }
+      
+
+        }
     }
-}
+
