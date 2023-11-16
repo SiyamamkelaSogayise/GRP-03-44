@@ -57,6 +57,7 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
     public DbSet<ChronicNotes> ChronicNotes{get;set;}
     public DbSet<ChronicNextMeeting> ChronicNextMeeting { get;set;}
     public DbSet<ChroniRefills>ChronRefills { get; set; }
+    
 
     
 
