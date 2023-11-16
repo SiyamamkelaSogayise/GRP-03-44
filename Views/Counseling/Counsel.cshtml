@@ -72,20 +72,30 @@
 	<title>The Innovative Geeks | eNompilo</title>
 </head>
 <body>
-	<header>
-		<nav class="section__container nav__container">
-			<div class="nav__logo">e-<span>Nompilo</span></div>
-			<ul class="nav__links">
-				<li><Link to="/">Home</li>
-				<li><Link to="/about-us">About Us</li>
-				<li><Link to="/services">Services</li>
-				<li><Link to="/contact-us">Contact Us</li>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">e-<span>Nompilo</span></div>
+            <nav class="section__container nav__container" color="black">
+                @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                <ul class="nav__links">
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                    </li>
 
-
-			</ul>
-			<button class="btn">Contact Us</button>
-		</nav>
-	</header>
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+            <div><a class="btn btn-primary" asp-area="" asp-controller="Last" asp-action="Add">Request an Appointment</a></div>
+        </nav>
+    </header>
 	<div id="BodyWrapper" class="ContentWrapper">
 		<div class="grey">
 			<div class="container">
@@ -653,9 +663,11 @@ button:active {
                                                 <p>We are multi-faceted pschologist practice </p>
                                                 
                                             </div>
-                                        </div>
+                                           
 
-                                    </section>
+
+									</section>
+								</div>
                                     
                                     <section>
                                         <div class="about">
@@ -712,20 +724,9 @@ button:active {
 
                                             </div>
 
-                                            <div class="inner-services-content">
-                                                <div class="service-icon">
-                                                    <i class="fas fa-hospital-user"></i>
-                                                </div>
-                                                <a class="btn btn-primary" asp-area="" asp-controller=" online" asp-action="Counsel">Online Session</a>
-                                            </div>
+                                            
 
-                                            <div class="inner-services-content">
-                                                <div class="service-icon">
-                                                    <i class="fas fa-user-md"></i>
-                                                </div>
-                                                <a class="btn btn-primary" asp-area="" asp-controller="//In-PERSON" asp-action="Counsel">In-Person Session</a>
-
-                                            </div>
+                                           
                                         </div>
                                     </div>
 
