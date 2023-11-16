@@ -45,6 +45,11 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
+
+        //******************************************************************************************************************
+        //************************************************ Prenatal Appointments ******************************************
+        //******************************************************************************************************************
+
         public IActionResult View_Patient()
         {
             //string query = @"SELECT pt.pregnancy_ID, pai.first_name, pai.last_name, pai.email, pt.current_week
@@ -60,6 +65,7 @@ namespace GeeksProject02.Controllers
             var appoint = _context.Appointments_Ps.Where(x => x.Status == 'A').ToList();
             return View(appoint);
         }
+        //******************************************************************************************************************
         public IActionResult Create_A()
         {
             var user = GetUserDetails();
@@ -88,7 +94,7 @@ namespace GeeksProject02.Controllers
             return View(appointments);
         }
 
-        //basically error checking and good practice
+        //basically error checking and good practice ***********************************************************************
         public IActionResult Update_A(int? Id)
         {
             if (Id == null || Id == 0)
@@ -113,7 +119,7 @@ namespace GeeksProject02.Controllers
             return RedirectToAction("View_Patient");
         }
 
-        //basically error checking and good practice
+        //basically error checking and good practice ***********************************************************************
         public IActionResult Delete_A(int? Id)
         {
             if (Id == null || Id == 0)
@@ -128,7 +134,7 @@ namespace GeeksProject02.Controllers
             return View(obj);
         }
 
-        //POST-Update, actually pdating the data
+        //POST-Delete, actually deleting the data
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete_A(Appointments_P appointments)
@@ -136,6 +142,88 @@ namespace GeeksProject02.Controllers
             _context.Appointments_Ps.Remove(appointments);
             _context.SaveChanges();
             return RedirectToAction("View_Patient");
+        }
+
+        //******************************************************************************************************************
+        //************************************************ Mummy_N_Me ******************************************************
+        //******************************************************************************************************************
+
+        public IActionResult Mummy_N()
+        {
+            var member = _context.Mummy_N_Me.Where(x => x.Status == 'A').ToList();
+            return View(member);
+        }
+        //Adding the member... *********************************************************************************************
+        public IActionResult Create_M()
+        {
+            var user = GetUserDetails();
+
+            var viewModel = new Mummy_n_Me_P
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
+            return View(viewModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create_M(Mummy_n_Me_P member)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Mummy_N_Me.Add(member);
+                _context.SaveChanges();
+                return RedirectToAction("Mummy_N");
+            }
+            return View(member);
+        }
+
+        //Updating the member... *******************************************************************************************
+        public IActionResult Update_M(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _context.Mummy_N_Me.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update_M(Appointments_P appointments)
+        {
+            _context.Appointments_Ps.Update(appointments);
+            _context.SaveChanges();
+            return RedirectToAction("Mummy_N");
+        }
+
+        //Deleting the member... *******************************************************************************************
+        public IActionResult Delete_M(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _context.Mummy_N_Me.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete_M(Appointments_P appointments)
+        {
+            _context.Appointments_Ps.Remove(appointments);
+            _context.SaveChanges();
+            return RedirectToAction("Mummy_N");
         }
     }
 }
