@@ -2,11 +2,11 @@
 
 namespace GeeksProject02.Models
 {
-    public class MinimumAgeAttribute : ValidationAttribute
+    public class MaximumAgeAttribute : ValidationAttribute
     {
         int _minimumAge;
 
-        public MinimumAgeAttribute(int minimumAge)
+        public MaximumAgeAttribute(int minimumAge)
         {
             _minimumAge = minimumAge;
         }

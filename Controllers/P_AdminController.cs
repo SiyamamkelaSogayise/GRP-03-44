@@ -9,6 +9,8 @@ using GeeksProject02.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GeeksProject02.Controllers
 {
@@ -24,7 +26,7 @@ namespace GeeksProject02.Controllers
             _context = context;
             _userManager = userManager;
         }
-
+        
         private GeeksProject02User GetUserDetails()
         {
             if (User.Identity != null)
@@ -40,7 +42,6 @@ namespace GeeksProject02.Controllers
 
             return new GeeksProject02User();
         }
-
         public IActionResult Index()
         {
             return View();
@@ -49,7 +50,8 @@ namespace GeeksProject02.Controllers
         //******************************************************************************************************************
         //************************************************ Prenatal Appointments ******************************************
         //******************************************************************************************************************
-
+        //[Authorize("Admin")]
+        //[Authorize("Doctor")]
         public IActionResult View_Patient()
         {
             //string query = @"SELECT pt.pregnancy_ID, pai.first_name, pai.last_name, pai.email, pt.current_week
@@ -89,7 +91,20 @@ namespace GeeksProject02.Controllers
             {
                 _context.Appointments_Ps.Add(appointments);
                 _context.SaveChanges();
-                return RedirectToAction("View_Patient");
+
+                if (User.IsInRole("Doctor"))
+                {
+                    return RedirectToAction("View_Patient");
+                }
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("View_Patient");
+                }
+                else
+                {
+                    TempData["Message"] = "Application has been Submitted Successfully !";
+                    return RedirectToAction("Create_A");
+                }
             }
             return View(appointments);
         }
@@ -147,7 +162,8 @@ namespace GeeksProject02.Controllers
         //******************************************************************************************************************
         //************************************************ Mummy_N_Me ******************************************************
         //******************************************************************************************************************
-
+        //[Authorize("Admin")]
+        //[Authorize("Doctor")]
         public IActionResult Mummy_N()
         {
             var member = _context.Mummy_N_Me.Where(x => x.Status == 'A').ToList();
@@ -175,7 +191,15 @@ namespace GeeksProject02.Controllers
             {
                 _context.Mummy_N_Me.Add(member);
                 _context.SaveChanges();
-                return RedirectToAction("Mummy_N");
+
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Mummy_N");
+                }
+                else
+                {
+                    return View(member);
+                }
             }
             return View(member);
         }
@@ -196,9 +220,9 @@ namespace GeeksProject02.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update_M(Appointments_P appointments)
+        public IActionResult Update_M(Mummy_n_Me_P member)
         {
-            _context.Appointments_Ps.Update(appointments);
+            _context.Mummy_N_Me.Update(member);
             _context.SaveChanges();
             return RedirectToAction("Mummy_N");
         }
@@ -219,9 +243,9 @@ namespace GeeksProject02.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete_M(Appointments_P appointments)
+        public IActionResult Delete_M(Mummy_n_Me_P member)
         {
-            _context.Appointments_Ps.Remove(appointments);
+            _context.Mummy_N_Me.Remove(member);
             _context.SaveChanges();
             return RedirectToAction("Mummy_N");
         }

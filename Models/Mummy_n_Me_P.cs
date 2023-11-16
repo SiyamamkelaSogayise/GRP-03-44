@@ -25,9 +25,9 @@ namespace GeeksProject02.Models
         public string BabyName { get; set; }
 
         [Required(ErrorMessage = "Baby's Age is required")]
-        [MinimumAge(8)]
+        [MaximumAge(8)]
         [DisplayName("Date of Birth")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date), DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BabyBirth { get; set; }
 
         public char Status { get; set; } = 'A';

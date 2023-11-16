@@ -91,13 +91,13 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.BabyName)
-        <input type="text" class="form-control" asp-for="BabyName" value="@Model.LastName" required>
+        <input type="text" class="form-control" asp-for="BabyName" required>
         @Html.ValidationMessageFor(model => model.BabyName, "", new { @class = "field-validation-error" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.BabyBirth)
-        <input type="date" class="form-control" asp-for="BabyBirth" value="today" required>
+        <input type="date" class="form-control" asp-for="BabyBirth" required>
         @Html.ValidationMessageFor(model => model.BabyBirth, "", new { @class = "field-validation-error" })
     </div>
 

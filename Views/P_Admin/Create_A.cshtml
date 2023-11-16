@@ -3,6 +3,21 @@
 }
 @model GeeksProject02.Models.Appointments_P
 
+@if (TempData["Message"] != null)
+{
+    <div id="successMessage" class="alert-success">
+        @*Popup message display*@
+        <strong></strong> @TempData["Message"]
+    </div>
+}
+<script>
+    setTimeout(function() @*Message Timeout*@
+    {
+        var successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "none"
+    }, 3000); //hide the message after 3 seconds (3000 miliseconds)
+</script>
+
 <style>
     input[type=text], input[type=email], input[type=tel], select {
         width: 100%;

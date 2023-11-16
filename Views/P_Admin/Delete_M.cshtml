@@ -91,7 +91,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.BabyName)
-        <input type="text" class="form-control" asp-for="BabyName" value="@Model.LastName" required disabled>
+        <input type="text" class="form-control" asp-for="BabyName" required disabled>
         @Html.ValidationMessageFor(model => model.BabyName, "", new { @class = "field-validation-error" })
     </div>
 

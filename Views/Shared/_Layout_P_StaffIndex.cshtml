@@ -19,43 +19,49 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+@*                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="Index">Home</a>
                         </li>
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index"></a>
-                        </li> *@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="View_Patient">Appointments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="Mummy_N">Mummy n Me</a>
-                        </li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="Index">Mummy n Me</a>
+                        </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Prenatal" asp-action="Index">Back</a>
                         </li>
 
-
-                        <li>
-                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            @if (User.IsInRole("Admin"))
                             {
-                                @if (User.IsInRole("Admin"))
-                                {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Last" asp-action="Index">Bookings</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="Index">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="View_Patient">Appointments</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="ContactUs" asp-action="Index">Feedback</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="Mummy_N">Mummy n Me</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Index">Report</a>
-                                </li>
-                                }
                             }
-                       </li>
+
+                            @if (User.IsInRole("Doctor"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="P_Admin" asp-action="View_Patient">Appointments</a>
+                                </li>
+                            }
+                        }
+
+
+                        @* <li>
+
+                        </li> *@
 
                     </ul>
                 </div>
