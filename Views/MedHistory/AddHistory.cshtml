@@ -1,0 +1,181 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+@model GeeksProject02.Models.ChroViewHistoryModel
+
+<style>
+    input[type=text], input[type=email], input[type=tel], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<center><h2>Add Medical History</h2></center>
+@using (Html.BeginForm("AddHistory", "MedHistory", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        <input type="text" class="form-control" asp-for="FirstName" value="@Model.FirstName" required>
+        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        <input type="text" class="form-control" asp-for="LastName" value="@Model.LastName" required>
+        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender)
+        <select class="form-select" asp-for="Gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="other">Other</option>
+        </select>
+        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required>
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MobileNumber)
+        <input type="tel" class="form-control" asp-for="MobileNumber" required>
+        @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "field-validation-error" })
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-group">Status:</label>
+        @Html.DropDownListFor(model => model.Status, new SelectList(new List<SelectListItem>
+    {
+    new SelectListItem { Text = "Married", Value = "Married" },
+    new SelectListItem { Text = "Single", Value = "Single" },
+    new SelectListItem { Text = "Widow", Value = "Widow" },
+
+    }, "Value", "Text"), "Select", new { @class = "form-group", required = "required" })
+        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateOfBirth)
+        <input type="date" class="form-control" asp-for="DateOfBirth" required>
+        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        <label class="form-group">Lifestyle:</label>
+        @Html.DropDownListFor(model => model.LifeStyle, new SelectList(new List<SelectListItem>
+    {
+    new SelectListItem { Text = "Smoking", Value = "Smoking" },
+    new SelectListItem { Text = "Gaming", Value = "Gaming" },
+    new SelectListItem { Text = "Exercising", Value = "Exercising" },
+    new SelectListItem { Text = "Alcoholist", Value = "Alcoholist" }
+    }, "Value", "Text"), "Select", new { @class = "form-group", required = "required" })
+        @Html.ValidationMessageFor(model => model.LifeStyle, "", new { @class = "field-validation-error" })
+    </div>
+
+
+    <div>
+        <label class="form-group">Allergies:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="Allergies">
+        @Html.ValidationMessageFor(model => model.Allergies, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div>
+        <label class="form-group">surgiers Undergone:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="surgiersUndergone">
+        @Html.ValidationMessageFor(model => model.surgiersUndergone, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Family Medical History:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="FamilyMedicalHistory">
+        @Html.ValidationMessageFor(model => model.FamilyMedicalHistory, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Previous Medication:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="PreviousMedication">
+        @Html.ValidationMessageFor(model => model.PreviousMedication, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Immunization History:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="ImmunizationHistory">
+        @Html.ValidationMessageFor(model => model.ImmunizationHistory, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Hosipitalization:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="Hospitalizations">
+        @Html.ValidationMessageFor(model => model.Hospitalizations, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Work Number:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="WorkTelePhoneNumber">
+        @Html.ValidationMessageFor(model => model.WorkTelePhoneNumber, "", new { @class = "field-validation-error" })
+    </div>
+     <div>
+        <label class="form-group">Home Number:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="HomeTelePhoneNumber">
+        @Html.ValidationMessageFor(model => model.HomeTelePhoneNumber, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Next Of Kin Number:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="NextOfKinNumber">
+        @Html.ValidationMessageFor(model => model.NextOfKinNumber, "", new { @class = "field-validation-error" })
+    </div>
+    <div>
+        <label class="form-group">Insurance Provider Name:</label>
+        <input type="text" class="form-control" placeholder="" asp-for="InsurenceProvideNumber">
+        @Html.ValidationMessageFor(model => model.InsurenceProvideNumber, "", new { @class = "field-validation-error" })
+    </div>
+
+
+
+    <fieldset>
+        <input type="submit" value="AddHistory" class="btn btn-primary" />
+    </fieldset>
+}

@@ -31,7 +31,7 @@
 
             </ul>
             @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
-            <a asp-action="FollowUpMeetings" asp-controller="ChronicDoctor" class="btn">ADD Booking</a>
+            <a asp-action="Schedule" asp-controller="NextMeeting" class="btn">Schedule Meeting</a>
         </nav>
     </header>
 
@@ -65,7 +65,7 @@
                 <i class="fas fa-pills"></i>
             </div>
             <h1>Prescribe Medication</h1>
-            <a asp-action="SavePrescription" asp-controller="ChronicDoctor" class="btn">Click</a>
+            <a asp-action="PrescribeMedicine" asp-controller="Prescribe" class="btn">Click</a>
         </div>
         @*   card3 *@
         <div class="card3">
@@ -73,7 +73,7 @@
                 <i class="fas fa-book"></i>
             </div>
             <h1>Notes for patients</h1>
-            <a asp-action="Notes" asp-controller="ChronicDoctor" class="btn">Click</a>
+            <a asp-action="AddNotes" asp-controller="Notes" class="btn">Click</a>
         </div>
 
     </div>
