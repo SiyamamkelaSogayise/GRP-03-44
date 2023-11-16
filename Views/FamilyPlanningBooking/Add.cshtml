@@ -1,6 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Family Planning Doctor";
+    Layout = "_LayoutFP";
 }
+
+@model GeeksProject02.Models.FamilyPlanningBooking
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,78 +16,44 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/FamilyPlanningDoctor.css" asp-append-version="true" />
     <title>The Innovative Geeks | eNompilo</title>
-   
+
 
 </head>
 
 
 <body>
-    <header>
-        <nav class="section__container nav__container">
-            <div class="nav__logo">e-<span>Nompilo</span></div>
-            <nav class="section__container nav__container" color="black">
-                @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
-                <ul class="nav__links">
-                    <li class="nav-item">
-                        <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
-                    </li>
-                </ul>
-            </nav>
-        </nav>
-    </header>
-    <p><a class="btn btn-secondary" asp-controller="FamilyPlanningAdmin" asp-action="View">View Patients Information</a> <a class="btn btn-secondary" asp-controller="FamilyPlanningBooking" asp-action="View">View Upcoming Bookings</a> <a class="btn btn-secondary" asp-controller="FamilyPlanningDoctor" asp-action="Add">Generate Medical Record</a></p>
 
+    <h1>Book Appointment</h1>
+    <fieldset>
+        <form method="post" action="Add">
 
-  
-        <div class="container">
-            <div class="container__item landing-page-container">
-                <div class="content__wrapper">
-
-                    <header class="header">
-                        <div class="menu-icon header__item">
-                            <span class="menu-icon__line"></span>
-                        </div>
-
-                        <h1 class="heading header__item">Family Planning Doctor</h1>
-                    </header>
-
-                    <p class="coords">Family Planning  /  Doctor</p>
-
-                    <div class="ellipses-container">
-
-                        <h2 class="greeting">Hello !!! </h2>
-
-                        <div class="ellipses ellipses__outer--thin">
-
-                        <div class="ellipses ellipses__orbit"></div>
-
-                        </div>
-
-                        <div class="ellipses ellipses__outer--thick"></div>
-                    </div>
-
-                    <div class="scroller">
-                        <p class="page-title"></p>
-
-                        <div class="timeline">
-                            <span class="timeline__unit"></span>
-                            <span class="timeline__unit timeline__unit--active"></span>
-                            <span class="timeline__unit"></span>
-                        </div>
-                    </div>
-                </div>
-
+            <legend class="legend">Book Appointment</legend>
+            <div class="mb-3">
+                <label for="" class="form-label">Enter Name</label>
+                <input type="text" class="form-control" asp-for="Name">
             </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Enter Surname</label>
+                <input type="text" class="form-control" asp-for="Surname">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Input Date&Time Booking For</label>
+                <input type="datetime-local" class="form-control" asp-for="DateOfBooking">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Patient ID Numder</label>
+                <input type="text" class="form-control" asp-for="IDNumber">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Reason For Booking</label>
+                <input type="text" class="form-control" asp-for="BookingReason">
+            </div>
+            <button class="alert alert-success" type="submit" class="btn btn-primary">Confirm Booking</button>
+            
+        </form>
+    </fieldset>
 
-        </div>
 
-  
-
-
-
-
-
-  
 
     <footer class="footer">
         <div class="section__container footer__container">
@@ -137,9 +105,5 @@
             </div>
         </div>
     </footer>
-
-
-    <script src="~/js/FAmPlanDoctor.js"></script>
-
 </body>
 </html>

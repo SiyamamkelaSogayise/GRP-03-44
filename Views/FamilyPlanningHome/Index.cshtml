@@ -75,6 +75,15 @@
                         <li class="nav-item">
                             <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav__logo" asp-area="" asp-controller="FamilyPlanningBooking" asp-action="Add">Book Appointment</a>
+                        </li>
+                        <div class="nav-item">
+                            <a class="btn btn-secondary" asp-area="" asp-controller="FamilyPlanningHome" asp-action="Doctor">Doctor</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="btn btn-secondary" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="View">Admin</a>
+                        </div>
                     </ul>
                 </nav>
             </nav>
@@ -167,8 +176,8 @@
                 <img class="bd-placeholder-img rounded-circle" width="80" height="300" src="~/css/Family Planning Medical History.jpg" alt="Placeholder: 140x140">
                 <h2>Medical History</h2>
                     <p>Comprehensive record of a patient's health, including past illnesses, medical conditions, treatments, surgeries, allergies, and family medical history. It is an essential component of a patient's health information, providing healthcare providers with valuable insights into a patient's health status and potential risk factors.</p>
-                    <p><a class="nav__logo" asp-area="" asp-controller="FamilyPlanningHome" asp-action="Doctor">Doctor</a></p>
-                    <p><a class="nav__logo" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="View">Admin</a></p>
+                    <p><a class="btn btn-secondary" asp-area="" asp-controller="FamilyPlanningHome" asp-action="Doctor">View Medical Record</a></p>
+                    
 
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
