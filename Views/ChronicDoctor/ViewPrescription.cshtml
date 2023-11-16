@@ -58,27 +58,53 @@
     <div class="container--x">
         @if (Model.Count() > 0)
         {
+             <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col"> Licence number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Medication Name</th>
+                    
+                    <th scope="col">Dosage Instruction</th>
+                    <th scope="col">Signiture by Name</th>
+                </tr>
+            </thead>
+
             @foreach (var mpho in Model)
             {
-                <div class="content">
-                    <h6>Doctor name</h6>
-                    <h1>@mpho.DoctorName</h1>
-                    <h6>Licence number</h6>
-                    <h1> @mpho.LicenceNUmber</h1><br />
-                    <h6>Date</h6>
-                    <p>@mpho.Date</p><br>
-                    <h6>Medication</h6>
-                    <p>@mpho.MedicationName</p><br>
-                    <h6>Dosage</h6>
-                    <p>@mpho.DosageInstruction</p>
+              <tbody>
+                <tr>
+                        <td> @mpho.DoctorName</td>
+                        <td> @mpho.LicenceNUmber</td>
+                        <td> @mpho.Date</td>
+                        <td> @mpho.PatientName</td>
+                        <td> @mpho.MedicationName</td>
+                        <td> @mpho.DosageInstruction</td>
+                        <td> @mpho.Signiture</td>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="ChronicDoctor" asp-action="Prescriptions" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>View</a>
+                                <a asp-controller="ChronicDoctor" asp-action="UpdatePrescription" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>Update</a>
+                                <a asp-controller="ChronicDoctor" asp-action="DeleteDiagnosis" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>Delete</a>
 
-                    <div class="w-100 btn-group" role="group">
+                            </div>
+                        </td>
+                
 
-                        <a asp-controller="ChronicDoctor" asp-action="UpdatePrescription" asp-route-ID="@mpho.ChronicPrescriptionID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>Update</a>
-                    </div>
-                </div>
+
+
+
+                </tr>
+
+
+
+                </tbody>
+
+
             }
-
+        </table>
 
 
 
@@ -99,6 +125,9 @@
 
 
     </div>
+<div class="col">
+    <a asp-action="Doctor" class="btn btn-dark w-75">Back</a>
+</div>
 
 
 

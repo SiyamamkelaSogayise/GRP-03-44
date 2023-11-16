@@ -28,46 +28,46 @@ namespace GeeksProject02.Controllers
 
             return View(usersWithNullChecks);
         }
-        public async Task<bool> UpdateUserStatusAsync(string userId, string status)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
+        //public async Task<bool> UpdateUserStatusAsync(string userId, string status)
+        //{
+        //    var user = await _userManager.FindByIdAsync(userId);
 
-            if (user != null)
-            {
-                user.Status = status;
-                var result = await _userManager.UpdateAsync(user);
-                return result.Succeeded;
-            }
+        //    if (user != null)
+        //    {
+        //        user.Status = status;
+        //        var result = await _userManager.UpdateAsync(user);
+        //        return result.Succeeded;
+        //    }
 
-            return false;
-        }
-        public async Task<IActionResult> DeactivateUser(string userId)
-        {
+        //    return false;
+        //}
+        //public async Task<IActionResult> DeactivateUser(string userId)
+        //{
            
-            var status = "Inactive";
+        //    var status = "Inactive";
 
-            var user = await _userManager.FindByIdAsync(userId);
+        //    var user = await _userManager.FindByIdAsync(userId);
 
-            if (user == null)
-            {
+        //    if (user == null)
+        //    {
                
-                return RedirectToAction("UserNotFound");
-            }
+        //        return RedirectToAction("UserNotFound");
+        //    }
 
             
-            user.Status = status;
-            var result = await _userManager.UpdateAsync(user);
+        //    user.Status = status;
+        //    var result = await _userManager.UpdateAsync(user);
 
-            if (result.Succeeded)
-            {
+        //    if (result.Succeeded)
+        //    {
                 
-                return RedirectToAction("UserDeactivated");
-            }
-            else
-            {
-                return RedirectToAction("UserStatusUpdateFailed");
-            }
-        }
+        //        return RedirectToAction("UserDeactivated");
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("UserStatusUpdateFailed");
+        //    }
+        //}
         [HttpPost]
         public JsonResult ToggleStatus(string userId, string status)
         {

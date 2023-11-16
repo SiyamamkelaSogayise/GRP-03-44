@@ -1,0 +1,91 @@
+﻿@model List<GeeksProject02.Models.FamilyPlanningDoctor>
+
+@{
+    Layout = "_LayoutFP";
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/AdminDashboard.css" />
+</head>
+
+@{
+    Layout = "FamilyplanningViewPatientAdmin";
+}
+
+<style>
+
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<h1>Generate Medical Records</h1>
+
+<table id="example1" class="table able-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>DateTime</th>
+            <th>IDNumber</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>OfNote</th>
+            <th>ProviderName</th>
+            <th>ReasonForVisit</th>
+            <th>Examination</th>
+            <th>EncounterSummary</th>
+            <th>Prescription</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var familyplanningdoctors in Model)
+        {
+            <tr>
+                <td>@familyplanningdoctors.Id</td>
+                <td>@familyplanningdoctors.DateTime</td>
+                <td>@familyplanningdoctors.IDNumber</td>
+                <td>@familyplanningdoctors.Name</td>
+                <td>@familyplanningdoctors.Surname</td>
+                <td>@familyplanningdoctors.OfNote</td>
+                <td>@familyplanningdoctors.ProviderName</td>
+                <td>@familyplanningdoctors.ReasonForVisit</td>
+                <td>@familyplanningdoctors.Examination</td>
+                <td>@familyplanningdoctors.EncounterSummary</td>
+                <td>@familyplanningdoctors.Prescription</td>
+                <td><a asp-controller="FamilyPlanningDoctor" asp-action="View" asp-route-id="@familyplanningdoctors.Id">Edit Patient Record </a></td>
+                <td><a asp-controller="FamilyPlanningDoctor" asp-action="Delete" asp-route-id="@familyplanningdoctors.Id">Remove Patient Record</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

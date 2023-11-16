@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/FamilyPlanningDoctor.css" asp-append-version="true" />
     <title>The Innovative Geeks | eNompilo</title>
-
+   
 
 </head>
 
@@ -31,13 +31,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav__logo" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="View">Patient Information</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav__logo" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                        <a class="nav__logo" asp-area="" asp-controller="Last" asp-action="View">Upcoming Bookings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__logo" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        <a class="nav__logo" asp-area="" asp-controller="FamilyPlanningDoctor" asp-action="Add">Generate Medical Record</a>
                     </li>
                 </ul>
             </nav>
@@ -46,121 +46,52 @@
 
 
 
-        <form name="Field" action="#" onsubmit="validateField()" method="post" required>
-            <fieldset>
-                <legend class="legend">Personal Information</legend>
-                <div>
-                    <label for="fName">Name</label><br>
-                    <input type="text" placeholder="first name" id="fName" autofocus>
-                    <input type="text" placeholder="Last">
-                </div>
-                <br>
-                <div>
-                    <label for="dob">Date of Birth</label><br>
-                    <input type="date" value="">
-                </div>
-                <div class="gender">
-                    <label for="gender">Gender</label><br>
-                    <input type="radio" name="gender"><label>Male</label>
-                    <input type="radio" name="gender"><label>Female</label>
-                </div>
-                <br>
-                <div>
-                    <label for="address">Address</label><br>
-                    <input type="text" class="textboxAddress" placeholder="Street Address"><br>
-                    <input type="text" class="textboxAddress" placeholder="Address Line 2"><br>
-                    <input type="text" class="textboxAddressDetail" placeholder="City">
-                    <input type="text" class="textboxAddressDetail" placeholder="State/Province"><br>
-                    <input type="text" class="textboxAddressDetail" placeholder="Pincode">
-                    <select class="selectOption">
-                        <option value="Country">Select Country</option>
-                    </select>
-                </div>
-                <br>
-                <div>
-                    <label for="contact">Phone Number</label><br>
-                    <input type="tel" class="textboxAddressDetail" placeholder="Home">
-                    <input type="tel" class="textboxAddressDetail" placeholder="Work">
-                </div>
-                <br>
-                <div>
-                    <label for="email">Email Address</label><br>
-                    <input type="email" class="textboxAddressDetail" placeholder="email@example.com">
-                </div>
-            </fieldset>
-        </form>
-        <fieldset>
-            <legend class="legend">Medical Information</legend>
-            <div>
-                <label for="disease">Check all that apply to you or your immediate family?</label><br>
-                <input type="checkbox" name="disease"><label>Asthma</label><br>
-                <input type="checkbox" name="disease"><label>Cancer</label><br>
-                <input type="checkbox" name="disease"><label>HIV and AIDS</label><br>
-                <input type="checkbox" name="disease"><label>Diabetes</label><br>
-                <input type="checkbox" name="disease"><label>Hypertension</label><br>
-                <input type="checkbox" name="disease"><label>Malaria</label><br>
-                <input type="checkbox" name="disease"><label>Seizure Disorder</label><br>
-                <input type="checkbox" name="disease"><label>Psychiatric Disorders</label><br>
-                <input type="checkbox" name="disease"><label>Mental Health</label><br>
-                <input type="checkbox" name="disease"><label>Stroke</label><br>
-                <input type="checkbox" name="disease"><label>Others</label><br>
-                <input type="checkbox" name="disease"><label>Not Applicable</label>
-            </div>
-            <br>
-            <div>
-                <label for="symptons">Checkall symptoms you are currently experiencing</label><br>
-                <input type="checkbox" name="symptoms"><label>Allergy</label><br>
-                <input type="checkbox" name="symptoms"><label>Eye</label><br>
-                <input type="checkbox" name="symptoms"><label>Lymphatic</label><br>
-                <input type="checkbox" name="symptoms"><label>Fever</label><br>
-                <input type="checkbox" name="symptoms"><label>Eating Disorder</label><br>
-                <input type="checkbox" name="symptoms"><label>Hemtalogical</label><br>
-                <input type="checkbox" name="symptoms"><label>Musculoskeletal Pain</label><br>
-                <input type="checkbox" name="symptoms"><label>Skin</label><br>
-                <input type="checkbox" name="symptoms"><label>Gastrointestinal</label><br>
-                <input type="checkbox" name="symptoms"><label>Weight Loss</label><br>
-                <input type="checkbox" name="symptoms"><label>Others</label><br>
-                <input type="checkbox" name="symptoms"><label>Not Applicable</label>
-            </div>
-            <br>
-            <div>
-                <label for="allergy">Please list any medication allergies that you have</label><br>
-                <textarea name="allergy" rows="4" cols="57">
-    </textarea>
-            </div>
-            <br>
-            <div>
-                <label for="medications">Please list any medications you are currently taking</label><br>
-                <textarea name="medications" rows="4" cols="57">
-    </textarea>
-            </div>
-            <br>
-            <div>
-                <label for="pregnancy">If you are a woman, are you currently pregnant, or is there a possibility that you are pregnant?</label><br>
-                <input type="radio" name="pregnancy"><label>Yes</label>
-                <input type="radio" name="pregnancy"><label>No</label>
-                <input type="radio" name="pregnancy"><label>Not Applicable</label>
-            </div>
-            <br>
-            <div>
-                <label for="healthrating">In general, would you say your health is</label><br>
-                * Taking 1 to be poor and 5 to be excellent<br>
-                <input type="number" name="healthrating" min="1" max="5">
-            </div>
-            <br>
-            <label for="ratinghealth">When you think about your health care, how much do you agree or disagree with this statement: "I receive exactly what I want and need exactly when and how I want and need it."</label>
-            <br>
-            * Taking 1 to be strongly dis-agree and 5 to be strongly agree
-            <br>
-            1
-            <input type="range" name="ratinghealth" min="1" max="5">5
-            </div>
-        </fieldset>
+  
+        <div class="container">
+            <div class="container__item landing-page-container">
+                <div class="content__wrapper">
 
-        <div class="submit">
-            <input type="submit" value="Submit">
+                    <header class="header">
+                        <div class="menu-icon header__item">
+                            <span class="menu-icon__line"></span>
+                        </div>
+
+                        <h1 class="heading header__item">Family Planning Doctor</h1>
+                    </header>
+
+                    <p class="coords">Family Planning  /  Doctor</p>
+
+                    <div class="ellipses-container">
+
+                        <h2 class="greeting">Hello !!! </h2>
+
+                        <div class="ellipses ellipses__outer--thin">
+
+                        <div class="ellipses ellipses__orbit"></div>
+
+                        </div>
+
+                        <div class="ellipses ellipses__outer--thick"></div>
+                    </div>
+
+                    <div class="scroller">
+                        <p class="page-title"></p>
+
+                        <div class="timeline">
+                            <span class="timeline__unit"></span>
+                            <span class="timeline__unit timeline__unit--active"></span>
+                            <span class="timeline__unit"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div id="result"></div>
+
+  
+
+
 
 
 

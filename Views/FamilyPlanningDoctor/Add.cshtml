@@ -1,0 +1,131 @@
+﻿@{
+    Layout = "_LayoutFP";
+}
+
+@model GeeksProject02.Models.FamilyPlanningDoctor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/FamilyPlanningMethods.css" asp-append-version="true" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1." />
+    <link href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fremixicon%403.4.0%2Ffonts%2Fremixicon.css&data=05%7C01%7Cs223005924%40mandela.ac.za%7C666499ffd23f46ca9ab608dbcfb90e5b%7Cbd70eeb3a537435a937c7cd330dc74d8%7C0%7C0%7C638332165936090884%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wlSp2KjUokJgR7%2B%2F4xBcstx0R%2Bl%2BqNpDUdALnBmm9sQ%3D&reserved=0"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/FamilyPlanningDoctor.css" asp-append-version="true" />
+    <title>The Innovative Geeks | eNompilo</title>
+
+
+</head>
+
+
+<body>
+
+    <h1>Generate Patient Medical Record</h1>
+    <fieldset>
+        <form method="post" action="Add">
+           
+                <legend class="legend">Patient Medical Record</legend>
+                <div class="mb-3">
+                    <label for="" class="form-label">Date & Time</label>
+                    <input type="date" class="form-control" asp-for="DateTime">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Patient ID Numder</label>
+                    <input type="text" class="form-control" asp-for="IDNumber">
+            </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Patient Name</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Patient Surname</label>
+                    <input type="text" class="form-control" asp-for="Surname">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">OF Note</label>
+                    <input type="text" class="form-control" asp-for="OfNote">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Health Care Provider Name</label>
+                    <input type="text" class="form-control" asp-for="ProviderName">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Reason For Visit</label>
+                    <input type="text" class="form-control" asp-for="ReasonForVisit">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Examination</label>
+                    <input type="text" class="form-control" asp-for="Examination">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Encounter Summary</label>
+                    <input type="text" class="form-control" asp-for="EncounterSummary">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Prescription</label>
+                    <input type="text" class="form-control" asp-for="Prescription">
+                </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p><a class="btn btn-secondary" asp-controller="FamilyPlanningDoctor" asp-action="Index">View Patient Medical Record</a></p>
+        </form>
+    </fieldset>
+
+
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -20,7 +20,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -29,10 +29,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Last" asp-action="Add">Add Booking</a>
                         </li>
-                      
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AvailableVaccine" asp-action="Index">Available Vaccines</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="VaccineInventory" asp-action="Index">Inventory</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Last" asp-action="Index">Bookings</a>
+                        </li>
+                      
+                        
                         <li>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
@@ -44,15 +48,19 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
                                 </li>
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="AppRoles" asp-action="Index">Roles</a>
+                                </li> *@
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ContactUs" asp-action="Index">Feedback</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="VaccineInventory" asp-action="Index">Inventory</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Index">Report</a>
                                 </li>
                                 }
                             }
-                       </li>
+                          </li>
 
                     </ul>
                 </div>

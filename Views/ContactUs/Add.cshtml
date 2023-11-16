@@ -1,0 +1,199 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+
+@model GeeksProject02.Models.ContactUsViewModel;
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+          rel="stylesheet" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/css/ContactUs.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @* <link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true" />   *@
+    <style>
+        /* Styles for the pop-up message */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <section class="w3l-bootstrap-header">
+        <nav class="section__container">
+            
+
+            <nav class="section__container nav__container">
+                <div class="nav__logo" style="color:black">e-<span>Nompilo</span></div>
+                <nav class="section__container nav__container" color="black">
+                    @* <div class="nav__logo">e-<span>Nompilo</span></div> *@
+                    <ul class="nav__links">
+                        <li class="nav-item">
+                            <a class="nav__logo" style="color:black" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav__logo" style="color:black" asp-area="" asp-controller="AboutUs" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav__logo" style="color:black" asp-area="" asp-controller="Services" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__logo" style="color:black" asp-area="" asp-controller="ContactUs" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div><a class="btn btn-primary" asp-area="" asp-controller="Last" asp-action="Add">Request an Appointment</a></div>
+            </nav>
+            <section class="w3l-about-breadcrumb" color="orange">
+                <div class="breadcrumb-bg breadcrumb-bg-contact py-5" color="orange">
+                    <div class="container py-lg-5 py-md-3" color="orange">
+                        <h2>Contact Us</h2>
+                        <p>Get Intouch with us</p>
+                    </div>
+                </div>
+            </section>
+            <section class="w3l-contact py-5" id="contact" position="centre">
+                <div class="container py-lg-3">
+                    <h3 class="title mb-4">Drop Us a Message</h3>
+                    <div class="row">
+                        <div class="col-md-8 contact-form">
+                            <form asp-action="Add" asp-controller="ContactUs" method="post">
+                                <div class="form-group">
+                                    <label for="Name">First Name</label>
+                                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required>
+                                    <span class="field-validation-error"><!-- Validation message for FirstName --></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email Address</label>
+                                    <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required>
+                                    <span class="field-validation-error"><!-- Validation message for FirstName --></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Subject">Subject</label>
+                                    <input type="text" id="Subject" name="Subject" class="form-control" />
+                                    <span class="text-danger"> <!-- Validation message for Subject --></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Messages">Messages</label>
+                                    <textarea id="Messages" name="Messages" class="form-control" rows="4"></textarea>
+                                    <span class="text-danger"> <!-- Validation message for Messages --></span>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+
+                            @section Scripts {
+                                @{
+                                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+                                }
+                            }
+                           
+
+                            <div class="col-md-4 mt-md-0 mt-5 w3-contact-address">
+                                <b>Address:</b>
+                                <p>45 ForestHill,</p>
+                                <p>Summerstrand,</p>
+                                <p>Port Elizabeth,</p>
+                                <p>6001, EC.</p>
+                                <br />
+                                <b>Phone:</b>
+                                <p><a href="tel: +1-2345-345-678-11"> +1-2345-345-678-11</a></p>
+                                <p><a href="tel:+ +1-2345-345-678-12"> +1-2345-345-678-12</a></p>
+                                <br />
+                                <b>Email:</b>
+                                <p><a href="mailto:eNompilo@gmail.com">eNompilo@gmail.com</a></p>
+                                <p><a href="mailto:eNompilo.support@gmail.com">eNompilo.support@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </nav>
+    </section>
+    <div id="popup" class="popup">
+        <!-- You can customize the message and icon here -->
+        <p>
+            Your message has been submitted! Thank you for getting in touch with is.
+            You should receive feedback within 24 hours
+        </p>
+        <span>&#10004;</span> <!-- Checkmark icon -->
+    </div>
+
+
+
+    <!-- map -->
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.820691156866!2d25.6267871!3d-33.9866977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7acd7f40805989%3A0x9e23c31a3f6f4882!2sForest%20Hill%2C%20Gqeberha!5e0!3m2!1sen!2sza!4v1633281731275!5m2!1sen!2sza"
+                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+
+    <!-- //map -->
+    <!-- footer-28 block -->
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>e-<span>Nompilo</span></h3>
+                <p>
+                    We are honored to be a part of your healthcare journey and committed
+                    to delivering compassionate, personalized, and top-notch care every
+                    step of the way.
+                </p>
+                <p>
+                    Trust us with your health, and let us work together to achieve the
+                    best possible outcomes for you and your loved ones.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>About Us</h4>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Work With Us</p>
+                <p>Our Blog</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <p>Search Terms</p>
+                <p>Advance Search</p>
+                <p>Privacy Policy</p>
+
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="ri-map-pin-2-fill"></i> 45, ForestHill Summerstrand, Port Elizabeth
+                </p>
+                <p><i class="ri-mail-fill"></i> eNompilo@gmail.com</p>
+                <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+            </div>
+        </div>
+        <div class="footer__bar">
+            <div class="footer__bar__content">
+                <p>Copyright © 2023 Innovative Geeks. All rights reserved.</p>
+                <div class="footer__socials">
+                    <span><i class="ri-instagram-line"></i></span>
+                    <span><i class="ri-facebook-fill"></i></span>
+                    <span><i class="ri-heart-fill"></i></span>
+                    <span><i class="ri-twitter-fill"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

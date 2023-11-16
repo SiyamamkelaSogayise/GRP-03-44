@@ -1,0 +1,162 @@
+﻿@{
+    Layout = "_LayoutFP";
+}
+
+@model GeeksProject02.Models.FamilyPlanningAdminUpdate
+
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+<h1>Edit Patient Information</h1>
+<fieldset>
+    <form method="post" action="View">
+        <fieldset>
+            <legend class="legend">Personal Information</legend>
+            <div class="mb-3">
+                <label for="" class="form-label">Id</label>
+                <input type="text" class="form-control" asp-for="Id">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Name</label>
+                <input type="text" class="form-control" asp-for="Name">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Surname</label>
+                <input type="text" class="form-control" asp-for="Surname">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Date Of Birth</label>
+                <input type="date" class="form-control" asp-for="DateOfBirth">
+            </div>
+            <div class="form-floating mb-3">
+                <label for="gender">Gender</label>
+                <select class="form-select" id="gender" asp-for="GenderIdentity">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Patient Adress</label>
+                <input type="text" class="form-control" asp-for="Address">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Cellphone Number</label>
+                <input type="text" class="form-control" asp-for="PhoneNumber">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Patient Email address</label>
+                <input type="email" class="form-control" placeholder="name@example.com" asp-for="Email">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="legend">Insurance Information</legend>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Insurance Provider</label>
+                <input type="text" class="form-control" asp-for="InsuranceProvider">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Policy Nmuber</label>
+                <input type="text" class="form-control" asp-for="PolicyNumber">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Group Id</label>
+                <input type="datetime" class="form-control" asp-for="GroupID">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="legend">Medical History</legend>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Existing Medical Conditions</label>
+                <input type="text" class="form-control" asp-for="ExistingMedicalConditions">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Allergies</label>
+                <input type="text" class="form-control" asp-for="Allergies">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Current Chronic Medications</label>
+                <input type="datetime" class="form-control" asp-for="CurrentMedications">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Surgical History</label>
+                <input type="text" class="form-control" asp-for="SurgicalHistory">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="legend">Reproductive Health History (If Applicable)</legend>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Menstrual History</label>
+                <input type="text" class="form-control" asp-for="MenstrualHistory">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Pregnancy History</label>
+                <input type="text" class="form-control" asp-for="PregnancyHistory">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Contraceptives History</label>
+                <input type="datetime" class="form-control" asp-for="ContraceptiveHistory">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">STI History</label>
+                <input type="text" class="form-control" asp-for="STIHistory">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="legend">Emergency Contact Information</legend>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Emergency Contact Name</label>
+                <input type="text" class="form-control" asp-for="EmergencyContactName">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Emergency Contact Relationship</label>
+                <input type="text" class="form-control" asp-for="EmergencyContactRelationship">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Emergency Contact CellPhone Number</label>
+                <input type="datetime" class="form-control" asp-for="EmergencyContactPhoneNumber">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="legend">Emergency Contact Information</legend>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Does the patient have any preffered Doctor or HealtCare Provider, If applicable please specify.</label>
+                <input type="text" class="form-control" asp-for="PreferredDoctor">
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</fieldset>

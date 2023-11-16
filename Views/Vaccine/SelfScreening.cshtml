@@ -1,4 +1,8 @@
-﻿ <!DOCTYPE html>
+﻿ @model GeeksProject02.Models.QuestionnaireResponse
+@{
+    Layout = "_LayoutFormBooking";
+}
+<!DOCTYPE html>
 <head>
     <script src="http://kit.fontawesome.com/a076d05399.js"></script>
     <script>
@@ -108,140 +112,164 @@
     </div>
 </section>
 <body>
-    <form asp-action="Submit" method="post">
-        
-            <fieldset>
-                <legend class="border p-2">Have you had a severe allergic reaction (anaphylaxis) to any ingredient in a COVID-19 vaccine?</legend>
+    <form action="SelfScreening" method="post">
 
-                <div>
-                    <input type="radio" id="no_allergic_reaction" name="allergic_reaction" value="No" checked>
-                    <label for="no_allergic_reaction">No</label>
-                </div>
+        <fieldset>
+            <legend class="border p-2">
+                Have you had a severe allergic reaction (anaphylaxis) to any ingredient in a
+                COVID-19 vaccine?
+            </legend>
 
-                <div>
-                    <input type="radio" id="yes_allergic_reaction" name="allergic_reaction" value="Yes">
-                    <label for="yes_allergic_reaction">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Have you had a severe allergic reaction (anaphylaxis) to another vaccine or an injectable medication?</legend>
+            <div>
+                <input type="radio" id="no_allergic_reaction" name="allergic_reaction" value="No">
+                <label for="no_allergic_reaction">No</label>
+            </div>
 
-                <div>
-                    <input type="radio" id="no_another_allergic_reaction" name="another_allergic_reaction" value="No" checked>
-                    <label for="no_another_allergic_reaction">No</label>
-                </div>
+            <div>
+                <input type="radio" id="yes_allergic_reaction" name="allergic_reaction" value="Yes">
+                <label for="yes_allergic_reaction">Yes</label>
+            </div>
+        </fieldset>
 
-                <div>
-                    <input type="radio" id="yes_another_allergic_reaction" name="another_allergic_reaction" value="Yes">
-                    <label for="yes_another_allergic_reaction">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Are you currently pregnant or planning to become pregnant soon?</legend>
+        <fieldset class="border p-2">
+            <legend>
+                Have you had a severe allergic reaction (anaphylaxis) to another vaccine or an injectable
+                medication?
+            </legend>
 
-                <div>
-                    <input type="radio" id="no_pregnant" name="pregnant" value="No" checked>
-                    <label for="no_pregnant">No</label>
-                </div>
+            <div>
+                <input type="radio" id="no_another_allergic_reaction" name="another_allergic_reaction" value="No">
+                <label for="no_another_allergic_reaction">No</label>
+            </div>
 
-                <div>
-                    <input type="radio" id="yes_pregnant" name="pregnant" value="Yes">
-                    <label for="yes_pregnant">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Are you currently breastfeeding?</legend>
+            <div>
+                <input type="radio" id="yes_another_allergic_reaction" name="another_allergic_reaction" value="Yes">
+                <label for="yes_another_allergic_reaction">Yes</label>
+            </div>
+        </fieldset>
 
-                <div>
-                    <input type="radio" id="no_breastfeeding" name="breastfeeding" value="No" checked>
-                    <label for="no_breastfeeding">No</label>
-                </div>
+        <fieldset class="border p-2">
+            <legend>Are you currently pregnant or planning to become pregnant soon?</legend>
 
-                <div>
-                    <input type="radio" id="yes_breastfeeding" name="breastfeeding" value="Yes">
-                    <label for="yes_breastfeeding">Yes</label>
-                </div>
-            </fieldset >
-            <fieldset class ="border p-2">
-                <legend>Do you have a weakened immune system due to a medical condition or medication?</legend>
+            <div>
+                <input type="radio" id="no_pregnant" name="pregnant" value="No">
+                <label for="no_pregnant">No</label>
+            </div>
 
-                <div>
-                    <input type="radio" id="no_weakened_immune_system" name="weakened_immune_system" value="No" checked>
-                    <label for="no_weakened_immune_system">No</label>
-                </div>
+            <div>
+                <input type="radio" id="yes_pregnant" name="pregnant" value="Yes">
+                <label for="yes_pregnant">Yes</label>
+            </div>
+        </fieldset>
 
-                <div>
-                    <input type="radio" id="yes_weakened_immune_system" name="weakened_immune_system" value="Yes">
-                    <label for="yes_weakened_immune_system">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Have you had a COVID-19 vaccine before? (Check all that apply)</legend>
+        <fieldset class="border p-2">
+            <legend>Are you currently breastfeeding?</legend>
 
-                <div>
-                    <input type="radio" id="no_previous_vaccine" name="previous_vaccine" value="No" checked>
-                    <label for="no_previous_vaccine">No</label>
-                </div>
+            <div>
+                <input type="radio" id="no_breastfeeding" name="breastfeeding" value="No">
+                <label for="no_breastfeeding">No</label>
+            </div>
 
-                <div>
-                    <input type="radio" id="yes_previous_vaccine" name="previous_vaccine" value="Yes">
-                    <label for="yes_previous_vaccine">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Have you had any COVID-19 symptoms (fever, cough, loss of taste or smell, etc.) in the last 14 days?</legend>
+            <div>
+                <input type="radio" id="yes_breastfeeding" name="breastfeeding" value="Yes">
+                <label for="yes_breastfeeding">Yes</label>
+            </div>
+        </fieldset>
 
-                <div>
-                    <input type="radio" id="no_covid_symptoms" name="covid_symptoms" value="No" checked>
-                    <label for="no_covid_symptoms">No</label>
-                </div>
+        <fieldset class="border p-2">
+            <legend>Do you have a weakened immune system due to a medical condition or medication?</legend>
 
-                <div>
-                    <input type="radio" id="yes_covid_symptoms" name="covid_symptoms" value="Yes">
-                    <label for="yes_covid_symptoms">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Have you been in close contact with someone who has tested positive for COVID-19 in the last 14 days?</legend>
+            <div>
+                <input type="radio" id="no_weakened_immune_system" name="weakened_immune_system" value="No">
+                <label for="no_weakened_immune_system">No</label>
+            </div>
 
-                <div>
-                    <input type="radio" id="no_close_contact" name="close_contact" value="No" checked>
-                    <label for="no_close_contact">No</label>
-                </div>
+            <div>
+                <input type="radio" id="yes_weakened_immune_system" name="weakened_immune_system" value="Yes">
+                <label for="yes_weakened_immune_system">Yes</label>
+            </div>
+        </fieldset>
 
-                <div>
-                    <input type="radio" id="yes_close_contact" name="close_contact" value="Yes">
-                    <label for="yes_close_contact">Yes</label>
-                </div>
-            </fieldset>
-            <fieldset class="border p-2">
-                <legend>Have you received any other vaccines in the last 14 days?</legend>
+        <fieldset class="border p-2">
+            <legend>Have you had a COVID-19 vaccine before? (Check all that apply)</legend>
 
-                <div>
-                    <input type="radio" id="no_other_vaccines" name="other_vaccines" value="No" checked>
-                    <label for="no_other_vaccines">No</label>
-                </div>
+            <div>
+                <input type="radio" id="no_previous_vaccine" name="previous_vaccine" value="No">
+                <label for="no_previous_vaccine">No</label>
+            </div>
 
-                <div>
-                    <input type="radio" id="yes_other_vaccines" name="other_vaccines" value="Yes">
-                    <label for="yes_other_vaccines">Yes</label>
-                </div>
-            </fieldset >
-            <fieldset class ="border p-2">
-                <legend>Do you have any underlying health conditions or medical concerns you would like to discuss with a healthcare professional before getting the vaccine? (Please specify)</legend>
+            <div>
+                <input type="radio" id="yes_previous_vaccine" name="previous_vaccine" value="Yes">
+                <label for="yes_previous_vaccine">Yes</label>
+            </div>
+        </fieldset>
 
-                <div>
-                    <input type="radio" id="no_other_vaccines" name="other_vaccines" value="No" checked>
-                    <label for="no_other_vaccines">No</label>
-                </div>
+        <fieldset class="border p-2">
+            <legend>
+                Have you had any COVID-19 symptoms (fever, cough, loss of taste or smell, etc.) in the last 14
+                days?
+            </legend>
 
-                <div>
-                    <input type="radio" id="yes_other_vaccines" name="other_vaccines" value="Yes">
-                    <label for="yes_other_vaccines">Yes</label>
-                </div>
-                </fieldset>
+            <div>
+                <input type="radio" id="no_covid_symptoms" name="covid_symptoms" value="No">
+                <label for="no_covid_symptoms">No</label>
+            </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <div>
+                <input type="radio" id="yes_covid_symptoms" name="covid_symptoms" value="Yes">
+                <label for="yes_covid_symptoms">Yes</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="border p-2">
+            <legend>
+                Have you been in close contact with someone who has tested positive for COVID-19 in the last 14
+                days?
+            </legend>
+
+            <div>
+                <input type="radio" id="no_close_contact" name="close_contact" value="No">
+                <label for="no_close_contact">No</label>
+            </div>
+
+            <div>
+                <input type="radio" id="yes_close_contact" name="close_contact" value="Yes">
+                <label for="yes_close_contact">Yes</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="border p-2">
+            <legend>Have you received any other vaccines in the last 14 days?</legend>
+
+            <div>
+                <input type="radio" id="no_other_vaccines" name="other_vaccines" value="No">
+                <label for="no_other_vaccines">No</label>
+            </div>
+
+            <div>
+                <input type="radio" id="yes_other_vaccines" name="other_vaccines" value="Yes">
+                <label for="yes_other_vaccines">Yes</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="border p-2">
+            <legend>
+                Do you have any underlying health conditions or medical concerns you would like to discuss with a
+                healthcare professional before getting the vaccine? (Please specify)
+            </legend>
+
+            <div>
+                <input type="radio" id="no_health_conditions" name="health_conditions" value="No">
+                <label for="no_health_conditions">No</label>
+            </div>
+
+            <div>
+                <input type="radio" id="yes_health_conditions" name="health_conditions" value="Yes">
+                <label for="yes_health_conditions">Yes</label>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>
 

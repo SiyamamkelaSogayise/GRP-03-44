@@ -1,5 +1,5 @@
 ﻿@page
-@model GeeksProject02.Models.ContactUsModel;
+@model GeeksProject02.Models.ContactUsViewModel;
 <!doctype html>
 <html lang="en">
 <head>
@@ -111,8 +111,16 @@
                     <div class="row">
                         <div class="col-md-8 contact-form">
                             <form action="https://formsubmit.co/enompilohealth@gmail.com" method="POST">
-                                <input type="text" class="form-control" name="Name" placeholder="Name" /><br />
-                                <input type="email" class="form-control" name="Sender" placeholder="E-mail" /><br />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name)
+                                    <input type="text" class="form-control" asp-for="Name" value="@Model.Name" required>
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "field-validation-error" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email)
+                                    <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required>
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-error" })
+                                </div>
                                 <input type="text" class="form-control" name="Subject" placeholder="Subject" /><br />
                                 <textarea class="form-control" name="Message" placeholder="Your Message"
                                           style="height:150px;"></textarea><br />

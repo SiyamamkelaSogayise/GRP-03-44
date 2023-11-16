@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model GeeksProject02.Models.Refills
+
+<header>
+    <nav class="section__container nav__container">
+        <div class="nav__logo">e-<span>Nompilo</span></div>
+        <ul class="nav__links">
+            <a asp-action="" asp-controller="">
+            <li><Link to="/">Home</li>
+            </a>
+            <a asp-action="" asp-controller="">
+            <li><Link to="/about-us">About Us</li>
+            </a>
+            <a asp-action="" asp-controller="">
+            <li><Link to="/contact-us">View Medical record</li>
+            </a>
+
+        </ul>
+        @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
+        <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a>
+    </nav>
+</header>
+
+<div class="inner contact">
+<form class="form-data" method="post" asp-action="requestRefills">
+    <div asp-validation-summary="ModelOnly" class="text-danger> </div>
+    <div class="form-head">
+    </div>
+    <!-- Left Inputs -->
+    <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+        <!-- Name -->
+        <label class="form-label fs-14;"> Reason for prescription refill:</label><br>
+        <input asp-for="RefillReason" type="text" class="form-control" placeholder="too many headaches" />
+        <span asp-validation-for="RefillReason" class="text-danger"></span><br />
+        <!-- Subject -->
+        <label class="form-label fs-14;">How long has it been going:</label><br>
+        <input asp-for="durationOfTheSituation" type="text" class="form-control" placeholder="two days ,week,half a week" />
+        <span asp-validation-for="durationOfTheSituation" class="text-danger"></span><br />
+
+      
+    </div><!-- End Left Inputs -->
+    <!-- Right Inputs -->
+  
+    <div class="relative fullwidth col-xs-12">
+        <!-- Send Button -->
+        @* <button asp-action="Notes" asp-controller="ChronicDoctor" type="submit"  name="submit" class="form-btn semibold">Send Note</button>  *@
+            <input type="submit" class=" btn btn-info w-75" value="requestRefills" />
+    </div><!-- End Bottom Submit -->
+
+</form>
+</div>

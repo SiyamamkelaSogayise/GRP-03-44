@@ -14,6 +14,7 @@ namespace GeeksProject02.Controllers
         {
                 this.dbcontext = dbcontext;
         }
+        
         [HttpGet]
         public async Task< IActionResult> Index()
         {
@@ -163,5 +164,20 @@ namespace GeeksProject02.Controllers
             string excelName = $"VaccineInventory_{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
             return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
         }
+        public async Task<IActionResult> Delete(UpdateInventoryViewModel model)
+        {
+            var stock = await dbcontext.Stocks.FindAsync(model.Id);
+
+            if (stock != null)
+            {
+                dbcontext.Stocks.Remove(stock);
+                await dbcontext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

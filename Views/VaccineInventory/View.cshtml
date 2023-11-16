@@ -3,7 +3,7 @@
     Layout = "_LayoutFormBooking";
 }
 
-<h1>Add New Vaccine Inventory</h1>
+<h1>View Vaccine Inventory</h1>
 
 <form asp-action="AddInventory" method="post">
     <div class="form-group">
@@ -62,4 +62,5 @@
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Add Inventory</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="VaccineInventory">Delete</button>
 </form>

@@ -43,5 +43,30 @@ namespace GeeksProject02.Controllers
             IEnumerable<NextMeetings> objList = _Context.NextMeetings;
             return View(objList);
         }
+        public IActionResult AddMedicalHistory()
+        {
+            
+            return View();
+        }
+        public IActionResult RequestRefills()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult RequestRefills(Refills c)
+        {
+            if (ModelState.IsValid)
+            {
+                _Context.Refills.Add(c);
+                _Context.SaveChanges();
+                TempData["SuccessMessage"] = "Diagnosis form have been saved Successfully!";
+                return RedirectToAction("SaveDiagnosis");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }
