@@ -118,7 +118,8 @@ namespace GeeksProject02.Areas.Identity.Pages.Account
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Email, Input.Email)
+                        new Claim(ClaimTypes.Email, Input.Email),
+                        
                     };
 
                     var identity = new ClaimsIdentity(claims, "MyCookieAuth");

@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+
+@model GeeksProject02.Models.ContactUsViewModel;
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+          rel="stylesheet" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/css/ContactUs.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @* <link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true" />   *@
+    <style>
+        /* Styles for the pop-up message */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+    </style>
+    </head>
+    <div class="col-md-8 contact-form">
+    <form asp-action="View" asp-controller="ContactUs" method="post">
+        <div class="form-group">
+            <label for="Id">Id</label>
+            <input type="text" class="form-control" asp-for="Id" readonly>
+
+        </div>
+        <div class="form-group">
+            <label for="Name">First Name</label>
+            <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required>
+            <span class="field-validation-error"><!-- Validation message for FirstName --></span>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email Address</label>
+            <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required>
+            <span class="field-validation-error"><!-- Validation message for FirstName --></span>
+        </div>
+        <div class="form-group">
+            <label for="Subject">Subject</label>
+            <input type="text" id="Subject" name="Subject" class="form-control" />
+            <span class="text-danger"> <!-- Validation message for Subject --></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Messages">Messages</label>
+            <textarea id="Messages" name="Messages" class="form-control" rows="4"></textarea>
+            <span class="text-danger"> <!-- Validation message for Messages --></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    </html>

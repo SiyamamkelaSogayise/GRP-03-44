@@ -73,6 +73,44 @@ namespace GeeksProject02.Controllers
             var contactUs = await context.ContactUs.ToListAsync();
             return View(contactUs);
         }
+        [HttpGet]
+        public async Task<IActionResult> View(int Id)
+        {
+            var contactUs = await context.ContactUs.FirstOrDefaultAsync(x => x.Id == Id);
+            if (contactUs != null)
+            {
+                var viewModel = new ContactUsViewModel()
+                {
+
+                    Name = contactUs.Name,
+                    Email = contactUs.Email,
+                    Subject = contactUs.Subject,
+                    Messages = contactUs.Messages,
+
+                };
+                return await Task.Run(() => View("View", viewModel));
+            }
+            return RedirectToAction("Index");
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> View(ContactUsViewModel model)
+        {
+            var contactUs = await context.ContactUs.FindAsync(model.Id);
+            if (contactUs != null)
+            {
+                contactUs.Name = model.Name;
+                contactUs.Email = model.Email;
+                contactUs.Subject = model.Subject;
+                contactUs.Messages = model.Messages;
+
+
+                await context.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
 
     }
 }

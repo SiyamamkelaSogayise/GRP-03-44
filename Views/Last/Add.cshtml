@@ -64,23 +64,23 @@
 @using (Html.BeginForm("Add", "Last", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
+    @Html.ValidationSummary(true,"", new{@class="text-danger"})
     <div class="form-group">
         @Html.LabelFor(model => model.FirstName)
         <input type="text" class="form-control" asp-for="FirstName" value="@Model.FirstName" required>
-        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.LastName)
         <input type="text" class="form-control" asp-for="LastName" value="@Model.LastName" required>
-        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.DOB)
         <input type="date" class="form-control" asp-for="DOB" required>
-        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
@@ -91,31 +91,31 @@
             <option value="non-binary">Non-binary</option>
             <option value="other">Other</option>
         </select>
-        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Email)
         <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required>
-        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.PhoneNumber)
         <input type="tel" class="form-control" asp-for="PhoneNumber" required>
-        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.AdditionalInfo)
         <textarea class="form-control" asp-for="AdditionalInfo" required></textarea>
-        @Html.ValidationMessageFor(model => model.AdditionalInfo, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.AdditionalInfo, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.AppointmentDate)
         <input type="date" class="form-control" asp-for="AppointmentDate" required>
-        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
@@ -125,26 +125,26 @@
     new SelectListItem { Text = "No", Value = "false" },
     new SelectListItem { Text = "Yes", Value = "true" }
     }, "Value", "Text"), "Select", new { @class = "form-group", required = "required" })
-        @Html.ValidationMessageFor(model => model.IsMedicalAidMember, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.IsMedicalAidMember, "", new { @class = "text-danger" })
     </div>
 
 
     <div>
-        <label class="form-group">Medical Aid Number:</label>
+        <label class="form-group">Medical Aid Number(N/A if above is No):</label>
         <input type="text" class="form-control" placeholder="Medical Aid Number" asp-for="MedicalAidNumber">
-        @Html.ValidationMessageFor(model => model.MedicalAidNumber, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.MedicalAidNumber, "", new { @class = "text-danger" })
     </div>
 
     <div>
-        <label class="form-group">Medical Aid Name:</label>
+        <label class="form-group">Medical Aid Name(N/A if not applicable):</label>
         <input type="text" class="form-control" placeholder="Medical Aid Name" asp-for="MedicalAidName">
-        @Html.ValidationMessageFor(model => model.MedicalAidName, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.MedicalAidName, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.SelectedVaccine)
         <select class="form-select" asp-for="SelectedVaccine" asp-items="@Model.VaccineList" required></select>
-        @Html.ValidationMessageFor(model => model.SelectedVaccine, "", new { @class = "field-validation-error" })
+        @Html.ValidationMessageFor(model => model.SelectedVaccine, "", new { @class = "text-danger" })
     </div>
 
     <fieldset>

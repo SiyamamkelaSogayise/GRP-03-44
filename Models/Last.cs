@@ -27,6 +27,7 @@ namespace GeeksProject02.Models
 
         [Required(ErrorMessage = "Phone number is required.")]
         [Phone(ErrorMessage = "Please enter a valid phone number.")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Please Enter Only Numeric Terms")]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Additional information is required.")]
