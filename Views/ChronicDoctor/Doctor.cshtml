@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_layoutChronicMedication";
+    Layout = "DoctorLayout";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +22,8 @@
                 <a asp-action="ViewMedicalHistory" asp-controller="ChronicDoctor">
                 <li><Link to="/">View Medical History</li>
                 </a>
-                <a asp-action="ViewAppointments" asp-controller="ChronicDoctor">
-                <li><Link to="/about-us">View Appointments</li>
+                <a asp-action="Diagnosis" asp-controller="ChronicDoctor">
+                <li><Link to="/about-us">View Diagnosis Reports</li>
                 </a>
                 <a asp-action="" asp-controller="">
                 <li><Link to="/contact-us">View Medical record</li>
