@@ -29,7 +29,7 @@ namespace GeeksProject02.Controllers
                 _Context.Diagnosis.Add(c);
                 _Context.SaveChanges();
                 TempData["SuccessMessage"] = "Diagnosis form have been saved Successfully!";
-                return RedirectToAction("SaveDiagnosis");
+                return RedirectToAction("Diagnosis");
             }
             else
             {
