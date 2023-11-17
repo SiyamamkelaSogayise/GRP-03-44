@@ -1,0 +1,138 @@
+﻿@{
+    Layout = "_Layout_P_StaffIndex";
+}
+@model GeeksProject02.Models.Appointments_P
+
+@if (TempData["Message"] != null)
+{
+    <div id="successMessage" class="alert-success">
+        @*Popup message display*@
+        <strong></strong> @TempData["Message"]
+    </div>
+}
+<script>
+    setTimeout(function () @*Message Timeout*@
+        {
+            var successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "none"
+        }, 5000); //hide the message after 3 seconds (3000 miliseconds)
+</script>
+
+<style>
+    input[type=text], input[type=email], input[type=tel], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+/*     input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    } */
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+<section class="w3l-about-breadcrumb" color="orange">
+    <div class="breadcrumb-bg breadcrumb-bg-contact py-5" color="orange">
+        <div class="container py-lg-5 py-md-3">
+            <h3><strong>Deleting Appointment</strong></h3>
+            <p><br>Delete your appointment with us by filling the form below</p>
+        </div>
+    </div>
+</section>
+
+<center><h2>Personal Information</h2></center>
+
+@using (Html.BeginForm("Delete_A", "P_Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        <input type="text" class="form-control" asp-for="FirstName" value="@Model.FirstName" required disabled>
+        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        <input type="text" class="form-control" asp-for="LastName" value="@Model.LastName" required disabled>
+        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        <input type="email" class="form-control" asp-for="Email" value="@Model.Email" required disabled>
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumber)
+        <input type="tel" class="form-control" asp-for="PhoneNumber" required disabled>
+        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AdditionalInfo)
+        <textarea class="form-control" asp-for="AdditionalInfo" required disabled></textarea>
+        @Html.ValidationMessageFor(model => model.AdditionalInfo, "", new { @class = "field-validation-error" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AppointmentDate)
+        <input type="date" class="form-control" asp-for="AppointmentDate" required disabled>
+        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "field-validation-error" })
+    </div>
+
+    @*     <fieldset>
+        <input type="submit" value="Add" class="btn btn-primary" />
+    </fieldset> *@
+
+    <br />
+    <div class="row">
+        <div class="col-9">
+            @*<button type="submit" class="btn btn-outline-primary" style="align-items:center;">Add Villain</button>*@
+            <input type="submit" class="btn btn-outline-primary" value="Delete Appointment" />
+        </div>
+@*         <div class="col">
+            @*This button is to clear all data from the textbox*@
+            @*<button type="submit" class="btn btn-outline-success" style="align-items:center;">Clear</button>
+            <input class="btn btn-outline-success" type="reset" value="Reset">
+        </div> *@
+        <div class="col">
+            <button asp-area="" asp-controller="P_Admin" asp-action="View_Patient" class="btn btn-outline-danger" style="align-items:center;">Back</button>
+        </div>
+    </div>
+}

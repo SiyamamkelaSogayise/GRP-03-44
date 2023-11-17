@@ -13,40 +13,53 @@ public class GeeksProject02Context : IdentityDbContext<GeeksProject02User>
         : base(options)
     {
     }
-    
-    
+
+
 
     public DbSet<Patient_Info> Patient_Info { get; set; }
     public DbSet<Pregnancy_Tracker> Pregnancy_Tracker { get; set; }
+    public DbSet<Appointments_P> Appointments_Ps { get; set; }
+    public DbSet<Mummy_n_Me_P> Mummy_N_Me { get; set; }
 
 
     public DbSet<MedicalHistory> ChronicMedicalHistory { get; set; }
     public DbSet<AvailableVaccine> AvailableVaccines { get; set; }
 
-   
+
 
 
     public DbSet<GeeksProject02User> GeeksProject02Users { get; set; }
     public DbSet<Last> Lasts { get; set; }
 
-    public DbSet <QuestionnaireResponse> QuestionnaireResponses { get; set;}
+    public DbSet<QuestionnaireResponse> QuestionnaireResponses { get; set; }
 
 
     //Family Planning Admin
     public DbSet<FamilyPlanningAdmin> GetFamilyPlanningAdmins { get; set; }
     public DbSet<FamilyPlanningDoctor> GetFamilyPlanningDoctors { get; set; }
 
+    public DbSet<FamilyPlanningBooking> GetFamilyPlanningBookings { get; set; }
+  
+
+
 
     public string ConnectionString { get; }
     //public DbSet<Last> Lasts { get; set; }
     public object FamilyPlanningAdmin { get; internal set; }
-    public DbSet<ChronicPrescription>ChronicPrescriptions { get; set; }
-    public DbSet<Notes>Notes { get; set; }
+    public DbSet<ChronicPrescription> ChronicPrescriptions { get; set; }
+    public DbSet<Notes> Notes { get; set; }
     public DbSet<Diagnosis> Diagnosis { get; set; }
     public DbSet<NextMeetings> NextMeetings { get; set; }
-   public DbSet<Stock> Stocks { get; set; }
+    public DbSet<Stock> Stocks { get; set; }
     public DbSet<ContactUs> ContactUs { get; set; }
     public DbSet<Refills> Refills { get; set; }
+    public DbSet<ChroMedicalHistory> ChroMedicalHistory{get;set;}
+    public DbSet<ChroPrescribe> ChroPrescribe{get;set;}
+    public DbSet<ChronicNotes> ChronicNotes{get;set;}
+    public DbSet<ChronicNextMeeting> ChronicNextMeeting { get;set;}
+    public DbSet<ChroniRefills>ChronRefills { get; set; }
+    
+
     
 
 }

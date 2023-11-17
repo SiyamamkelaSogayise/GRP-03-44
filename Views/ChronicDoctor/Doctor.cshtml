@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_layoutChronicMedication";
+    Layout = "DoctorLayout";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +22,8 @@
                 <a asp-action="ViewMedicalHistory" asp-controller="ChronicDoctor">
                 <li><Link to="/">View Medical History</li>
                 </a>
-                <a asp-action="ViewAppointments" asp-controller="ChronicDoctor">
-                <li><Link to="/about-us">View Appointments</li>
+                <a asp-action="Diagnosis" asp-controller="ChronicDoctor">
+                <li><Link to="/about-us">View Diagnosis Reports</li>
                 </a>
                 <a asp-action="" asp-controller="">
                 <li><Link to="/contact-us">View Medical record</li>
@@ -31,7 +31,7 @@
 
             </ul>
             @* <a asp-action="SubmittDetails" asp-controller="HistoryMedical" class="btn">Medical History</a> *@
-            <a asp-action="FollowUpMeetings" asp-controller="ChronicDoctor" class="btn">ADD Booking</a>
+            <a asp-action="FollowUpMeetings" asp-controller="ChronicDoctor" class="btn">Schedule Meeting</a>
         </nav>
     </header>
 
@@ -87,8 +87,8 @@
             <div class="icon">
                 <i class="fas fa-heart"></i>
             </div>
-            <h1>Patients Diagnosis</h1>
-            <a asp-action="Diagnosis" asp-controller="ChronicDoctor" class="btn">Click</a>
+            <h1>Notes for Patients</h1>
+            <a asp-action="DocNotes" asp-controller="ChronicDoctor" class="btn">Click</a>
         </div>
         @*   card2 *@
         <div class="card2">
@@ -103,7 +103,7 @@
             <div class="icon">
                 <i class="fas fa-book"></i>
             </div>
-            <h1>Notes for patients</h1>
+            <h1>Refill Request</h1>
             <a asp-action="viewRefills" asp-controller="ChronicDoctor" class="btn">Click</a>
         </div>
 

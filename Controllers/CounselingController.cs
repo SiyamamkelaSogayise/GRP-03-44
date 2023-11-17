@@ -71,9 +71,15 @@ namespace GeeksProject02.Controllers
         {
             return View();
         }
-        
 
-    [HttpGet]
+
+        public IActionResult medicaliHistory()
+        {
+            return View();
+        }
+      
+
+        [HttpGet]
     public IActionResult Download()
     {
         // Path to your document

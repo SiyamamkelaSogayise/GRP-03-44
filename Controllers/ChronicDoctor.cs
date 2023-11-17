@@ -29,7 +29,7 @@ namespace GeeksProject02.Controllers
                 _Context.Diagnosis.Add(c);
                 _Context.SaveChanges();
                 TempData["SuccessMessage"] = "Diagnosis form have been saved Successfully!";
-                return RedirectToAction("SaveDiagnosis");
+                return RedirectToAction("Diagnosis");
             }
             else
             {
@@ -108,12 +108,25 @@ namespace GeeksProject02.Controllers
                 _Context.ChronicPrescriptions.Add(x);
                 _Context.SaveChanges();
                 TempData["SuccessMessage"] = "Prescription form have been saved successfully!";
-                return RedirectToAction("SavePrescription");
+                return RedirectToAction("ViewPrescription");
             }
             else
             {
                 return View();
             }
+        }
+        public IActionResult DeletePrescription(int? ID)
+        {
+            var obj = _Context.ChronicPrescriptions.Find(ID);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _Context.ChronicPrescriptions.Remove(obj);
+            _Context.SaveChanges();
+            TempData["SuccessMessage"] = "Deleted !";
+            return RedirectToAction("ViewPrescription");
         }
         public IActionResult SavePrescription()
         {
@@ -133,7 +146,7 @@ namespace GeeksProject02.Controllers
                 _Context.Notes.Add(x);
                 _Context.SaveChanges();
                 TempData["SuccessMessage"] = "Note sent !";
-                return RedirectToAction("Notes");
+                return RedirectToAction("DocNotes");
             }
             else
             {
@@ -210,19 +223,7 @@ namespace GeeksProject02.Controllers
             TempData["SuccessMessage"] = "DragonBallz Updated Successfully!";
             return RedirectToAction("ViewPrescription");
         }
-        public IActionResult DeletePrescription(int? ID)
-        {
-            var obj = _Context.ChronicPrescriptions.Find(ID);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-            _Context.ChronicPrescriptions.Remove(obj);
-            _Context.SaveChanges();
-            TempData["SuccessMessage"] = "Deleted !";
-            return RedirectToAction("ViewPrescription");
-        }
+    
 
         public IActionResult FollowUpMeetings()
         {
@@ -251,7 +252,7 @@ namespace GeeksProject02.Controllers
         }
         public IActionResult ViewMedicalHistory()
         {
-            IEnumerable<MedicalHistory> objList = _Context.ChronicMedicalHistory;
+            IEnumerable<ChroMedicalHistory> objList = _Context.ChroMedicalHistory;
             return View(objList);
         }
         [HttpGet]
@@ -261,7 +262,7 @@ namespace GeeksProject02.Controllers
             {
                 return NotFound();
             }
-            var obj = _Context.ChronicMedicalHistory.Find(ID);
+            var obj = _Context.ChroMedicalHistory.Find(ID);
             if (obj == null)
             {
                 return NotFound();
@@ -279,7 +280,7 @@ namespace GeeksProject02.Controllers
        
         public IActionResult viewRefills()
         {
-            IEnumerable<Refills> objList = _Context.Refills;
+            IEnumerable<ChroniRefills> objList = _Context.ChronRefills;
             return View(objList);
         }
         

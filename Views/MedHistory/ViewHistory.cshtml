@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "LayoutForms";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+@model GeeksProject02.Models.ChroMedicalHistory
+@*  IEnumerable<GeeksProject02.Models.MedicalHistory> *@
+
+<header>
+    <nav class="section__container nav__container">
+        <div class="nav__logo">e-<span>Nompilo</span></div>
+        <ul class="nav__links">
+            <li><Link to="/">Home</li>
+            <li><Link to="/about-us">About Us</li>
+            <li><Link to="/services">Services</li>
+            <li><Link to="/contact-us">Contact Us</li>
+
+
+        </ul>
+        <button class="btn">Contact Us</button>
+    </nav>
+</header>
+
+
+<div class="medical-history">
+    <h2>Medical History</h2>
+</div>
+
+<div class="section">
+    <h3 class="section-heading">Medical Conditions</h3>
+    <ul>
+
+        <li><strong>Name:</strong>       @Model.FirstName</li>
+        <li><strong>Surname:</strong>       @Model.LastName</li>
+        <li><strong>Gender:</strong>     @Model.Gender </li>
+        <li><strong>Mobile Number:</strong> @Model.MobileNumber </li>
+        <li><strong>Status:</strong>  @Model.Status</li>
+        <li><strong>Date Of Birth:</strong>  @Model.DateOfBirth</li>
+        <li><strong>LifeStyle:</strong>  @Model.LifeStyle</li>
+
+
+
+
+    </ul>
+</div>
+<div class="section">
+
+    <h3 class="section-heading">Medical Conditions</h3>
+
+    <ul>
+        <li><strong>Allergies:</strong>  @Model.Allergies</li>
+        <li><strong>Surgiers Undergone:</strong>  @Model.surgiersUndergone</li>
+        <li><strong>Family Medical History:</strong>  @Model.FamilyMedicalHistory </li>
+        <li><strong>Previous Medication:</strong>  @Model.PreviousMedication</li>
+        <li><strong>Immunization History:</strong>  @Model.ImmunizationHistory</li>
+        <li><strong>Hospitalizations:</strong>  @Model.Hospitalizations </li>
+        <li class="list-heading"></li>
+    </ul>
+</div>
+<div class="section">
+
+    <h3 class="section-heading">Emegerncy Contacts</h3>
+    <ul>
+
+
+        <li><strong>Home TelePhone Number:</strong>  @Model.HomeTelePhoneNumber </li>
+        <li><strong>Work TelePhone Number:</strong>  @Model.WorkTelePhoneNumber</li>
+        <li><strong>Next Of Kin Number:</strong>  @Model.NextOfKinNumber </li>
+        <li><strong>Insurence Provider Number:</strong>  @Model.InsurenceProvideNumber</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+

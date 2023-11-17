@@ -34,7 +34,7 @@
         padding: 20px;
     }
 </style>
-@model IEnumerable<GeeksProject02.Models.MedicalHistory>
+@model IEnumerable<GeeksProject02.Models.ChroMedicalHistory>
 
 <header>
     <nav class="section__container nav__container">
@@ -93,8 +93,8 @@
             <tbody>
                 <tr>
 
-                    <td> @mpho.Name</td>
-                    <td>@mpho.Surname </td>
+                    <td> @mpho.FirstName</td>
+                    <td>@mpho.LastName </td>
                     <td>@mpho.MobileNumber </td>
                     <td>@mpho.Status</td>
                     <td>@mpho.DateOfBirth</td>
@@ -111,7 +111,7 @@
                     <td>@mpho.InsurenceProvideNumber </td>
                     <td >
                         <div class="w-100 btn-group" role="group">
-                            <a asp-controller="ChronicDoctor" asp-action="View" asp-route-ID="@mpho.MedicalHistoryID" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>View</a>
+                            <a asp-controller="ChronicDoctor" asp-action="View" asp-route-ID="@mpho.Id" class="btn btn-success mx-1"><i class=" bi bi-pencil-square"></i>View</a>
                             
                         </div>
                     </td>
@@ -129,3 +129,6 @@ else
 {
     <p>no appointments available</p>
 }
+<div class="col">
+    <a asp-action="Doctor" class="btn btn-dark w-75">Back</a>
+</div>

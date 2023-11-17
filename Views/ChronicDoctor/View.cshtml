@@ -33,7 +33,7 @@
         padding: 20px;
     }
 </style>
-@model GeeksProject02.Models.MedicalHistory
+@model GeeksProject02.Models.ChroMedicalHistory
 @*  IEnumerable<GeeksProject02.Models.MedicalHistory> *@
 
 <header>
@@ -60,8 +60,9 @@
         <h3 class="section-heading">Medical Conditions</h3>
         <ul>
 
-            <li><strong>Name:</strong>       @Model.Name </li>
-        <li><strong>Gender:</strong>     @Model.Surname </li>
+            <li><strong>Name:</strong>       @Model.FirstName</li>
+            <li><strong>Surname:</strong>       @Model.LastName</li>
+        <li><strong>Gender:</strong>     @Model.Gender </li>
         <li><strong>Mobile Number:</strong> @Model.MobileNumber </li>
         <li><strong>Status:</strong>  @Model.Status</li>
         <li><strong>Date Of Birth:</strong>  @Model.DateOfBirth</li>

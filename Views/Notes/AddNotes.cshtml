@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+@model GeeksProject02.Models.NotesViewModel
+
+<style>
+    input[type=text], input[type=email], input[type=tel], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<center><h2>Add Notes For Patients</h2></center>
+@using (Html.BeginForm("AddNotes", "Notes", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DoctorName)
+        <input type="text" class="form-control" asp-for="DoctorName" value="@Model.DoctorName" required>
+        @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "field-validation-error" })
+    </div>
+
+
+
+
+
+
+
+   
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date)
+        <input type="date" class="form-control" asp-for="Date" required>
+        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.subject)
+        <input type="text" class="form-control" asp-for="subject" required>
+        @Html.ValidationMessageFor(model => model.subject, "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Message)
+        <input type="text" class="form-control" asp-for="Message" required>
+        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "field-validation-error" })
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+    <fieldset>
+        <input type="submit" value="AddNotes" class="btn btn-primary" />
+    </fieldset>
+}

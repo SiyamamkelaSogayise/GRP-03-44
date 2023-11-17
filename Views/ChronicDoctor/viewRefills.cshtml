@@ -33,7 +33,7 @@
         padding: 20px;
     }
 </style>
-@model IEnumerable<GeeksProject02.Models.Refills>
+@model IEnumerable<GeeksProject02.Models.ChroniRefills>
 @{
     var errorMessage = TempData["errorMessage"]?.ToString();
 }
@@ -72,6 +72,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">Patient Name</th>
                 <th scope="col">Refill Reason</th>
                 <th scope="col">Duration of The Stituations</th>
               
@@ -81,7 +82,7 @@
         {
             <tbody>
                 <tr>
-
+                    <td>@mpho.PatientName</td>
                     <td>@mpho.RefillReason</td>
                     <td>@mpho.durationOfTheSituation</td>
                    
@@ -99,3 +100,6 @@ else
 {
     <p>no requests Available</p>
 }
+<div class="col">
+    <a asp-action="Doctor" class="btn btn-dark w-75">Back</a>
+</div>

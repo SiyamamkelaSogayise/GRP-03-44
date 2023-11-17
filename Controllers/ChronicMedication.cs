@@ -40,7 +40,7 @@ namespace GeeksProject02.Controllers
         }
         public IActionResult FollowUpMeetings()
         {
-            IEnumerable<NextMeetings> objList = _Context.NextMeetings;
+            IEnumerable<ChronicNextMeeting> objList = _Context.ChronicNextMeeting;
             return View(objList);
         }
         public IActionResult AddMedicalHistory()

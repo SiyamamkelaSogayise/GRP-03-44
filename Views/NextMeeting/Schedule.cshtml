@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "_LayoutFormBooking";
+}
+@model GeeksProject02.Models.NextMeetingViewModel
+
+<style>
+    input[type=text], input[type=email], input[type=tel], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<center><h2>Setting up a Meeting</h2></center>
+@using (Html.BeginForm("Schedule", "NextMeeting", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ChronicBookingDate)
+        <input type="date" class="form-control" asp-for="ChronicBookingDate" value="@Model.ChronicBookingDate" required>
+        @Html.ValidationMessageFor(model => model.ChronicBookingDate, "", new { @class = "field-validation-error" })
+    </div>
+
+
+
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.chronicBookingTime)
+        <input type="number" class="form-control" asp-for="chronicBookingTime" required>
+        @Html.ValidationMessageFor(model => model.chronicBookingTime, "", new { @class = "field-validation-error" })
+    </div>
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ChronicReason)
+        <input type="text" class="form-control" asp-for="ChronicReason" required>
+        @Html.ValidationMessageFor(model => model.ChronicReason, "", new { @class = "field-validation-error" })
+    </div>
+   
+    <div class="form-group">
+        @Html.LabelFor(model => model.SignitureByName)
+        <input type="text" class="form-control" asp-for="SignitureByName" value="@Model.SignitureByName" required>
+        @Html.ValidationMessageFor(model => model.SignitureByName, "", new { @class = "field-validation-error" })
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <fieldset>
+        <input type="submit" value="Schedule" class="btn btn-primary" />
+    </fieldset>
+}

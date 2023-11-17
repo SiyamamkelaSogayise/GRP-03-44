@@ -29,21 +29,11 @@
                     <li class="nav-item">
                         <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index_dash">Home</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav__logo" asp-area="" asp-controller="FamilyPlanningAdmin" asp-action="View">Patient Information</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav__logo" asp-area="" asp-controller="Last" asp-action="View">Upcoming Bookings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav__logo" asp-area="" asp-controller="FamilyPlanningDoctor" asp-action="Add">Generate Medical Record</a>
-                    </li>
                 </ul>
             </nav>
         </nav>
     </header>
-
+    <p><a class="btn btn-secondary" asp-controller="FamilyPlanningAdmin" asp-action="View">View Patients Information</a> <a class="btn btn-secondary" asp-controller="FamilyPlanningBooking" asp-action="View">View Upcoming Bookings</a> <a class="btn btn-secondary" asp-controller="FamilyPlanningDoctor" asp-action="Add">Generate Medical Record</a></p>
 
 
   
