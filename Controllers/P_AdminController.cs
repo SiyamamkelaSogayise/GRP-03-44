@@ -94,10 +94,12 @@ namespace GeeksProject02.Controllers
 
                 if (User.IsInRole("Doctor"))
                 {
+                    TempData["Message"] = "Application has been Submitted Successfully !";
                     return RedirectToAction("View_Patient");
                 }
                 if (User.IsInRole("Admin"))
                 {
+                    TempData["Message"] = "Application has been Submitted Successfully !";
                     return RedirectToAction("View_Patient");
                 }
                 else
@@ -131,6 +133,7 @@ namespace GeeksProject02.Controllers
         {
             _context.Appointments_Ps.Update(appointments);
             _context.SaveChanges();
+            TempData["Message"] = "Information Updated Successfully !";
             return RedirectToAction("View_Patient");
         }
 
@@ -156,6 +159,7 @@ namespace GeeksProject02.Controllers
         {
             _context.Appointments_Ps.Remove(appointments);
             _context.SaveChanges();
+            TempData["Message"] = "Information Deleted Successfully !";
             return RedirectToAction("View_Patient");
         }
 
@@ -194,11 +198,13 @@ namespace GeeksProject02.Controllers
 
                 if (User.IsInRole("Admin"))
                 {
+                    TempData["Message"] = "Application has been Submitted Successfully !";
                     return RedirectToAction("Mummy_N");
                 }
                 else
                 {
-                    return View(member);
+                    TempData["Message"] = "Application has been Submitted Successfully !";
+                    return RedirectToAction("Create_M");
                 }
             }
             return View(member);
@@ -224,6 +230,7 @@ namespace GeeksProject02.Controllers
         {
             _context.Mummy_N_Me.Update(member);
             _context.SaveChanges();
+            TempData["Message"] = "Information Updated Successfully !";
             return RedirectToAction("Mummy_N");
         }
 
@@ -247,6 +254,7 @@ namespace GeeksProject02.Controllers
         {
             _context.Mummy_N_Me.Remove(member);
             _context.SaveChanges();
+            TempData["Message"] = "Information Deleted Successfully !";
             return RedirectToAction("Mummy_N");
         }
     }
