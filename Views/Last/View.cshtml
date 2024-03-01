@@ -1,4 +1,9 @@
-﻿@model GeeksProject02.Models.UpdateBookingViewModel
+﻿<!DOCTYPE html>
+<html lang="en">
+@model GeeksProject02.Models.UpdateBookingViewModel
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     input[type=text], select {
         width: 100%;
@@ -31,6 +36,8 @@
         padding: 20px;
     }
 </style>
+</head>
+<body>
 <center><h2>Edit Booking</h2></center>
 <form method="post" action="View">
 
@@ -105,3 +112,5 @@
     <button type="submit" class="btn btn-primary">Update</button>
     <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Last">Delete</button>
 </form>
+</body>
+</html>

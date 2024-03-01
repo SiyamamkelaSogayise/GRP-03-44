@@ -54,22 +54,28 @@ namespace GeeksProject02.Controllers
         public async Task<IActionResult> Index()
         {
             var lasts = await DbContext.Lasts.ToListAsync();
-            foreach (var last in lasts)
-            {
-                if (last.SelectedVaccine == null )
-                {
-                    
-                    last.SelectedVaccine = "N/A";
-                   
-                }
-                
 
+            // Check if there are no appointments
+            if (lasts == null || lasts.Count == 0)
+            {
+                ViewData["NoAppointmentsMessage"] = "No booked appointments";
+            }
+            else
+            {
+                foreach (var last in lasts)
+                {
+                    if (last.SelectedVaccine == null)
+                    {
+                        last.SelectedVaccine = "N/A";
+                    }
+                }
             }
 
             return View(lasts);
-
         }
-       
+
+
+
         [HttpGet]
         public async Task<IActionResult> Add()
         {

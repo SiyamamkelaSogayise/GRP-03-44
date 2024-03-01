@@ -67,7 +67,7 @@ namespace GeeksProject02.Controllers
             //}
             return RedirectToAction("Add");
         }
-        [Authorize("Admin")]
+        [Authorize("admin")]
         public async Task<IActionResult> Index()
         {
             var contactUs = await context.ContactUs.ToListAsync();

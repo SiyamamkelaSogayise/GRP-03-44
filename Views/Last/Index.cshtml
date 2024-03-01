@@ -1,78 +1,89 @@
-﻿@model List<GeeksProject02.Models.Last>
+﻿<!DOCTYPE html>
+<html lang="en">
+@model List<GeeksProject02.Models.Last>
 @inject Microsoft.AspNetCore.Identity.UserManager<GeeksProject02.Areas.Identity.Data.GeeksProject02User> userManager
 
 
 @{
     var userId = userManager.GetUserId(User);
-    var isAdmin = User.IsInRole("Admin");
+    var isAdmin = User.IsInRole("admin");
 }
 
-<!DOCTYPE html>
+
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device=width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/size.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Your existing styles */
+
+        /* Add a new style for the "No Appointments" message */
+        #noAppointmentsMessage {
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 @{
     Layout = "_LayoutFormBooking";
 }
 
-<style>
-    /* Your existing styles */
-
-    /* Add a new style for the "No Appointments" message */
-    #noAppointmentsMessage {
-        color: red;
-        font-size: 16px;
-        font-weight: bold;
-    }
-</style>
+<body>
 
 <h1>Booking Management System</h1>
 
 <a class="btn btn-primary" style="color:white" asp-area="" asp-controller="Last" asp-action="Add">Add Booking</a>
 
-@if (Model.Any())
-{
-    <table id="example1" class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Names</th>
-                <th>Date of Birth</th>
-                <th>Gender</th>
-                <th>Email Address</th>
-                <th>Phone Number</th>
-                <th>Symptoms/Requests</th>
-                <th>Appointment Date</th>
-                <th>Medical Aid</th>
-                <th>Medical Aid Number</th>
-                <th>Medical Aid Name</th>
-                <th>Selected Vaccine</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var lasts in isAdmin ? Model : Model.Where(l => l.userId == userId))
-            {
+    @if (ViewData["NoAppointmentsMessage"] != null)
+    {
+        <div id="noAppointmentsMessage">@ViewData["NoAppointmentsMessage"]</div>
+    }
+    else
+    {
+       <div class="table-responsive">
+            <table id="example1" class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>@lasts.Id</td>
-                    <td>@(lasts.FirstName + " " + lasts.LastName)</td>
-                    <td>@(lasts.DOB.ToString("yyyy-MM-dd"))</td>
-                    <td>@lasts.Gender</td>
-                    <td>@lasts.Email</td>
-                    <td>@lasts.PhoneNumber</td>
-                    <td>@lasts.AdditionalInfo</td>
-                    <td>@(lasts.AppointmentDate.ToString("yyyy-MM-dd"))</td>
-                    <td>@(lasts.IsMedicalAidMember.ToString())</td>
-                    <td>@lasts.MedicalAidNumber</td>
-                    <td>@lasts.MedicalAidName</td>
-                    <td>@lasts.SelectedVaccine</td>
-                    <td><a asp-controller="Last" asp-action="View" asp-route-id="@lasts.Id">View</a></td>
+                    <th>ID</th>
+                    <th>Names</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Email Address</th>
+                    <th>Phone Number</th>
+                    <th>Symptoms/Requests</th>
+                    <th>Appointment Date</th>
+                    <th>Medical Aid</th>
+                    <th>Medical Aid Number</th>
+                    <th>Medical Aid Name</th>
+                    <th>Selected Vaccine</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <div id="noAppointmentsMessage">No booked appointments</div>
-}
+            </thead>
+            <tbody>
+                @foreach (var lasts in isAdmin ? Model : Model.Where(l => l.userId == userId))
+                {
+                    <tr>
+                        <td>@lasts.Id</td>
+                        <td>@(lasts.FirstName + " " + lasts.LastName)</td>
+                        <td>@(lasts.DOB.ToString("yyyy-MM-dd"))</td>
+                        <td>@lasts.Gender</td>
+                        <td>@lasts.Email</td>
+                        <td>@lasts.PhoneNumber</td>
+                        <td>@lasts.AdditionalInfo</td>
+                        <td>@(lasts.AppointmentDate.ToString("yyyy-MM-dd"))</td>
+                        <td>@(lasts.IsMedicalAidMember.ToString())</td>
+                        <td>@lasts.MedicalAidNumber</td>
+                        <td>@lasts.MedicalAidName</td>
+                        <td>@lasts.SelectedVaccine</td>
+                        <td><a asp-controller="Last" asp-action="View" asp-route-id="@lasts.Id">View</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    }
+
+</body>
+</html>

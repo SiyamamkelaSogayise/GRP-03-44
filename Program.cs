@@ -32,14 +32,14 @@ builder.Services.AddDbContext<GeeksProject02Context>(options =>
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("Patient", policy =>
-        policy.RequireRole("Patient"));
+    options.AddPolicy("patient", policy =>
+        policy.RequireRole("patient"));
 
-    options.AddPolicy("Admin", policy =>
-        policy.RequireRole("Admin"));
+    options.AddPolicy("admin", policy =>
+        policy.RequireRole("admin"));
 
-    options.AddPolicy("Doctor", policy =>
-        policy.RequireRole("Doctor"));
+    options.AddPolicy("doctor", policy =>
+        policy.RequireRole("doctor"));
 });
 
 var app = builder.Build();

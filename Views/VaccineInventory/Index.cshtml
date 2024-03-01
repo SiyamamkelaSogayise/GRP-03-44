@@ -25,7 +25,7 @@
     </style>
 </head>
 <h1>Vaccine Inventory</h1>
-@if (User.IsInRole("Admin"))
+@if (User.IsInRole("admin"))
 {
     <a asp-action="ExportToExcel" asp-controller="VaccineInventory" class="btn btn-success">Export to Excel</a>
 
@@ -40,7 +40,7 @@
             <th>Vaccine Name</th>
             <th>Vaccine Brand</th>
             <th>Status</th>
-            @if (User.IsInRole("Admin"))
+            @if (User.IsInRole("admin"))
             {
                 <th>Presentation</th>
                 <th>DosesPerBox</th>
@@ -62,7 +62,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Brand)</td>
                 <td>@Html.DisplayFor(modelItem => item.Status)</td>
                
-                @if (User.IsInRole("Admin"))
+                @if (User.IsInRole("admin"))
                 {
                     <td>@Html.DisplayFor(modelItem => item.Presentation)</td>
                     <td>@Html.DisplayFor(modelItem => item.DosesPerBox)</td>
